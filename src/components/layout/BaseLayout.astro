@@ -1,0 +1,78 @@
+---
+import "../../styles/global.css";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+
+const {
+  title = "Website Design Company in Jaipur | Affordable Web Developer – YNS Web Studio",
+  description = "YNS Web Studio is a Jaipur-based website design company helping gyms, clinics and local businesses build high-converting, mobile-first websites at affordable prices. Trusted web developer in Jaipur for small business growth.",
+  image = "https://ynsweb.studio/og-image.jpg"
+} = Astro.props;
+
+const url = Astro.url;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={url} />
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={image} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "YNS Web Studio",
+        "url": "https://ynsweb.studio",
+        "logo": "https://ynsweb.studio/og-image.jpg",
+        "telephone": "+919352563337",
+        "email": "hello@ynsweb.studio",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Jaipur",
+          "addressRegion": "Rajasthan",
+          "postalCode": "302039",
+          "addressCountry": "IN"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Jaipur"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/",
+          "https://www.instagram.com/"
+        ]
+      })}
+    </script>
+
+  </head>
+
+  <body class="bg-white text-gray-900 antialiased">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

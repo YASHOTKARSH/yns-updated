@@ -1,0 +1,71 @@
+---
+// Footer.astro
+const currentYear = new Date().getFullYear();
+---
+
+<section class="bg-gradient-to-b from-white to-slate-50 border-t border-slate-200/80 mt-20">
+  <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-12 gap-12">
+
+    <!-- Brand / About (5 Cols) -->
+    <div class="md:col-span-5 space-y-4">
+      <div class="flex items-center gap-2 text-xl font-extrabold tracking-tight text-slate-900">
+        <span class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shadow-sm">Y</span>
+        <span>YNS Web <span class="text-emerald-600">Studio</span></span>
+      </div>
+      <p class="text-sm text-slate-600 leading-relaxed max-w-sm">
+        We build lightning-fast, conversion-focused websites for local businesses, gyms, clinics, and enterprises in Jaipur & across India who want predictable enquiries and real growth.
+      </p>
+      <div class="pt-2 text-xs font-semibold text-emerald-600 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        Based in Jaipur, Rajasthan • Serving Globally
+      </div>
+    </div>
+
+    <!-- Quick Navigation (Original Routes) -->
+    <div class="md:col-span-3">
+      <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">
+        Quick Links
+      </h4>
+      <ul class="mt-4 space-y-2.5 text-sm font-medium text-slate-600">
+        <li><a href="/services" class="hover:text-slate-900 transition-colors">Services</a></li>
+        <li><a href="/results" class="hover:text-slate-900 transition-colors">Results</a></li>
+        <li><a href="/pricing" class="hover:text-slate-900 transition-colors">Pricing</a></li>
+        <li><a href="/contact" class="hover:text-slate-900 transition-colors">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info (4 Cols) -->
+    <div class="md:col-span-4 space-y-4">
+      <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">
+        Get In Touch
+      </h4>
+      <p class="text-sm text-slate-600">
+        Have questions or want a free website audit? Reach out directly via WhatsApp or email.
+      </p>
+      
+      <div class="space-y-2 pt-1">
+        <a 
+          href="https://wa.me/919352563337" 
+          target="_blank" 
+          class="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-emerald-600 transition-colors"
+        >
+          <span class="w-7 h-7 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs">💬</span>
+          WhatsApp: +91 9352563337
+        </a>
+        <div class="flex items-center gap-2 text-sm font-medium text-slate-700">
+          <span class="w-7 h-7 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-xs">✉️</span>
+          Email: hello@ynsweb.studio
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Copyright Bar -->
+  <div class="border-t border-slate-200/60 py-6 text-center text-xs text-slate-500 bg-white/50">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© {currentYear} YNS Web Studio. All rights reserved.</p>
+      <p class="text-slate-400">Crafted with Next.js, Astro & Tailwind CSS</p>
+    </div>
+  </div>
+</section>
