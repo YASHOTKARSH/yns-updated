@@ -1,121 +1,1499 @@
 ---
 import BaseLayout from "../components/layout/BaseLayout.astro";
+
+const siteUrl = "https://ynsweb.studio";
+const pageUrl = `${siteUrl}/services`;
+
+const services = [
+  {
+    number: "01",
+    title: "Business Website Development",
+    shortTitle: "Business Websites",
+    description:
+      "Professional, responsive and SEO-ready websites designed to turn visitors into enquiries and customers.",
+    price: "₹20,000+",
+    timeline: "7–14 days",
+    href: "/services/business-website-development",
+    icon: "briefcase",
+  },
+  {
+    number: "02",
+    title: "Landing Page Development",
+    shortTitle: "Landing Pages",
+    description:
+      "High-converting landing pages built for campaigns, paid ads, lead generation, product launches and offers.",
+    price: "₹12,000+",
+    timeline: "3–5 days",
+    href: "/services/landing-page-development",
+    icon: "target",
+  },
+  {
+    number: "03",
+    title: "E-Commerce Website Development",
+    shortTitle: "E-Commerce",
+    description:
+      "Scalable online stores with product discovery, cart, checkout, payments and conversion-focused customer journeys.",
+    price: "₹60,000+",
+    timeline: "3–5 weeks",
+    href: "/services/ecommerce-development",
+    icon: "shopping",
+  },
+  {
+    number: "04",
+    title: "Next.js Development",
+    shortTitle: "Next.js",
+    description:
+      "Fast, scalable and SEO-friendly websites and web applications built with modern Next.js architecture.",
+    price: "₹50,000+",
+    timeline: "2–6 weeks",
+    href: "/services/nextjs-development",
+    icon: "code",
+  },
+  {
+    number: "05",
+    title: "React Development",
+    shortTitle: "React",
+    description:
+      "Modern React interfaces and web applications focused on reusable components, performance and maintainability.",
+    price: "₹40,000+",
+    timeline: "2–6 weeks",
+    href: "/services/react-development",
+    icon: "react",
+  },
+  {
+    number: "06",
+    title: "Custom Web Development",
+    shortTitle: "Custom Web Apps",
+    description:
+      "Custom web platforms and applications built around your business workflows, integrations and unique requirements.",
+    price: "₹1,00,000+",
+    timeline: "4–10 weeks",
+    href: "/services/custom-web-development",
+    icon: "layers",
+  },
+  {
+    number: "07",
+    title: "Booking & Appointment Websites",
+    shortTitle: "Booking Systems",
+    description:
+      "Online booking and appointment experiences that help customers discover services, choose slots and submit enquiries.",
+    price: "₹45,000+",
+    timeline: "2–4 weeks",
+    href: "/services/booking-appointment-websites",
+    icon: "calendar",
+  },
+  {
+    number: "08",
+    title: "Corporate Website Development",
+    shortTitle: "Corporate Websites",
+    description:
+      "Professional corporate websites designed to communicate your company, services, expertise and credibility.",
+    price: "₹50,000+",
+    timeline: "2–4 weeks",
+    href: "/services/corporate-website-development",
+    icon: "building",
+  },
+  {
+    number: "09",
+    title: "Real Estate Website Development",
+    shortTitle: "Real Estate",
+    description:
+      "Property-focused websites with listings, search, filters, property details and enquiry-focused user journeys.",
+    price: "₹50,000+",
+    timeline: "2–4 weeks",
+    href: "/services/real-estate-website-development",
+    icon: "home",
+  },
+  {
+    number: "10",
+    title: "Restaurant, Café & Hotel Websites",
+    shortTitle: "Hospitality Websites",
+    description:
+      "Premium hospitality websites for restaurants, cafés, hotels, homestays and hospitality brands.",
+    price: "₹25,000+",
+    timeline: "7–21 days",
+    href: "/services/restaurant-website-development",
+    icon: "utensils",
+  },
+];
+
+const faqs = [
+  {
+    question: "How much does website development cost in Jaipur?",
+    answer:
+      "Website development cost depends on the type, number of pages, functionality and integrations required. At YNS Web Studio, business websites start from around ₹20,000, landing pages from ₹12,000, e-commerce websites from ₹60,000 and custom web applications from around ₹1,00,000.",
+  },
+  {
+    question: "How long does it take to build a website?",
+    answer:
+      "A standard business website can usually be completed in 7–14 days. Landing pages may take 3–5 days, while e-commerce websites and custom web applications can take several weeks depending on their scope.",
+  },
+  {
+    question: "Do you provide SEO-friendly websites?",
+    answer:
+      "Yes. Websites are structured with search-friendly page architecture, semantic HTML, metadata, responsive layouts, performance considerations, clean URLs and other technical foundations that support SEO.",
+  },
+  {
+    question: "Can you redesign my existing website?",
+    answer:
+      "Yes. Existing websites can be redesigned to improve visual quality, mobile responsiveness, performance, SEO structure, user experience and conversion opportunities.",
+  },
+  {
+    question: "Do you build websites for Jaipur businesses?",
+    answer:
+      "Yes. YNS Web Studio works with businesses in Jaipur and can build websites for local businesses, startups, restaurants, cafés, hotels, real estate companies, professional services, e-commerce brands and other industries.",
+  },
+  {
+    question: "Can you integrate WhatsApp, payments or booking systems?",
+    answer:
+      "Yes. Depending on the project, integrations can include WhatsApp enquiry flows, payment gateways, booking systems, appointment scheduling, forms, analytics, CMS platforms, APIs and third-party services.",
+  },
+];
+
+const serviceSchema = services.map((service) => ({
+  "@type": "Service",
+  name: service.title,
+  description: service.description,
+  url: `${siteUrl}${service.href}`,
+  provider: {
+    "@type": "ProfessionalService",
+    name: "YNS Web Studio",
+    url: siteUrl,
+  },
+  areaServed: {
+    "@type": "City",
+    name: "Jaipur",
+  },
+}));
+
+const itemListSchema = services.map((service, index) => ({
+  "@type": "ListItem",
+  position: index + 1,
+  name: service.title,
+  url: `${siteUrl}${service.href}`,
+}));
+
+const faqSchema = faqs.map((faq) => ({
+  "@type": "Question",
+  name: faq.question,
+  acceptedAnswer: {
+    "@type": "Answer",
+    text: faq.answer,
+  },
+}));
+
+const iconPaths = {
+  arrow: `<path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>`,
+  briefcase: `<rect width="18" height="14" x="3" y="7" rx="2"></rect><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M3 12h18"></path>`,
+  target: `<circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="4"></circle><circle cx="12" cy="12" r="1"></circle>`,
+  shopping: `<path d="M6 8h12l1 12H5L6 8Z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path>`,
+  code: `<path d="m8 9-4 3 4 3"></path><path d="m16 9 4 3-4 3"></path><path d="m14 5-4 14"></path>`,
+  react: `<ellipse cx="12" cy="12" rx="9" ry="3.5"></ellipse><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(60 12 12)"></ellipse><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(120 12 12)"></ellipse><circle cx="12" cy="12" r="1.3"></circle>`,
+  layers: `<path d="m12 3 9 5-9 5-9-5 9-5Z"></path><path d="m3 12 9 5 9-5"></path><path d="m3 16 9 5 9-5"></path>`,
+  calendar: `<rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path>`,
+  building: `<path d="M4 21V5l8-3 8 3v16"></path><path d="M9 21v-4h6v4"></path><path d="M8 8h1M15 8h1M8 12h1M15 12h1"></path>`,
+  home: `<path d="m3 11 9-8 9 8"></path><path d="M5 10v10h14V10"></path><path d="M9 20v-6h6v6"></path>`,
+  utensils: `<path d="M7 3v8M4 3v5a3 3 0 0 0 6 0V3"></path><path d="M7 11v10"></path><path d="M17 3v18"></path><path d="M20 3v5a3 3 0 0 1-3 3"></path>`,
+  shield: `<path d="M12 3 20 6v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-3Z"></path><path d="m9 12 2 2 4-4"></path>`,
+};
 ---
 
 <BaseLayout
-  title="Professional Website Design Services in Jaipur | YNS Web Studio"
-  description="Affordable, conversion-focused website design, speed optimization, and local SEO services in Jaipur. Built for local gyms, clinics, and businesses to generate real enquiries."
+  title="Web Development Company in Jaipur | Website Development Services | YNS Web Studio"
+  description="YNS Web Studio is a web development company in Jaipur building fast, responsive and SEO-ready business websites, landing pages, e-commerce stores, Next.js and React applications, booking websites and custom web solutions."
 >
+  <Fragment slot="head">
+    <link rel="canonical" href={pageUrl} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
-  <!-- Hero Section -->
-  <section class="relative bg-gradient-to-b from-slate-50 via-white to-slate-50 py-24 md:py-32 overflow-hidden border-b border-slate-100 text-center">
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-emerald-100/50 rounded-full blur-3xl pointer-events-none"></div>
+    <meta property="og:title" content="Web Development Services in Jaipur | YNS Web Studio" />
+    <meta
+      property="og:description"
+      content="Explore website development, e-commerce, landing page, Next.js, React, custom web application, booking, corporate, real estate and hospitality website services by YNS Web Studio."
+    />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="YNS Web Studio" />
 
-    <div class="max-w-4xl mx-auto px-6 relative z-10">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 mb-6 shadow-sm">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        Specialized Web Solutions • Jaipur Local Experts
-      </div>
+    <meta name="twitter:title" content="Web Development Services in Jaipur | YNS Web Studio" />
+    <meta
+      name="twitter:description"
+      content="Professional website and web development services for businesses, startups and brands."
+    />
 
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">
-        Website Design Services Built For <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">Local Business Growth</span>
-      </h1>
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": `${siteUrl}/#organization`,
+            name: "YNS Web Studio",
+            url: siteUrl,
+            description:
+              "Web development studio in Jaipur building fast, responsive and SEO-ready websites and web applications.",
+            areaServed: {
+              "@type": "City",
+              name: "Jaipur",
+            },
+            serviceType: services.map((service) => service.title),
+          },
+          {
+            "@type": "WebPage",
+            "@id": `${pageUrl}#webpage`,
+            url: pageUrl,
+            name: "Web Development Services in Jaipur",
+            description:
+              "Professional web development services offered by YNS Web Studio in Jaipur.",
+            isPartOf: {
+              "@type": "WebSite",
+              name: "YNS Web Studio",
+              url: siteUrl,
+            },
+          },
+          {
+            "@type": "ItemList",
+            name: "YNS Web Studio Web Development Services",
+            itemListElement: itemListSchema,
+          },
+          {
+            "@type": "FAQPage",
+            mainEntity: faqSchema,
+          },
+          ...serviceSchema,
+        ],
+      })}
+    </script>
+  </Fragment>
 
-      <p class="mt-6 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed">
-        We don't build generic templates. We engineer high-performance, lightning-fast web systems tailored specifically for gyms, clinics, and service providers in Jaipur to turn casual visitors into loyal clients.
-      </p>
+  <div class="business-page">
 
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a
-          href="https://wa.me/919352563337"
-          target="_blank"
-          class="inline-flex items-center justify-center rounded-xl bg-slate-900 text-white px-7 py-4 font-semibold hover:bg-slate-800 transition shadow-xl shadow-slate-900/10 group"
-        >
-          Get Free Website Audit on WhatsApp
-          <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-glow hero-glow-one"></div>
+      <div class="hero-glow hero-glow-two"></div>
 
-  <!-- Main Services Grid -->
-  <section class="py-24 bg-gradient-to-b from-white via-slate-50/50 to-white border-b border-slate-100">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div class="container hero-container">
 
-      <!-- Service 1 -->
-      <div class="group bg-white p-8 md:p-10 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-emerald-200 transition-all duration-300 flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-110 transition-transform">
-            🚀
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span>/</span>
+          <span aria-current="page">Services</span>
+        </nav>
+
+        <div class="hero-layout" style="min-height: auto; padding: 40px 0 80px;">
+
+          <div class="hero-copy" style="max-width: 800px;">
+
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              Web Development Services in Jaipur
+            </div>
+
+            <h1>
+              Websites built for
+              <em>business, growth and conversion.</em>
+            </h1>
+
+            <p class="hero-description">
+              YNS Web Studio builds high-performance websites and web applications for businesses, startups and brands. From a focused landing page to a complete custom web platform, we combine design, development, SEO and conversion strategy into one digital experience.
+            </p>
+
+            <div class="hero-actions">
+              <a
+                href="https://wa.me/919352563337"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button button-primary"
+              >
+                Start Your Project
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <g set:html={iconPaths.arrow}></g>
+                </svg>
+              </a>
+
+              <a href="#services" class="button button-secondary">
+                Explore services
+              </a>
+            </div>
+
+            <div class="hero-stats">
+              <div>
+                <strong>10+</strong>
+                <span>Specialized services</span>
+              </div>
+              <div>
+                <strong>SEO</strong>
+                <span>Search-ready structure</span>
+              </div>
+              <div>
+                <strong>100%</strong>
+                <span>Custom solutions</span>
+              </div>
+            </div>
+
           </div>
-          <h2 class="text-2xl font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">
-            Conversion-Focused Business Websites
-          </h2>
-          <p class="mt-4 text-slate-600 text-base leading-relaxed">
-            Custom websites built around crystal-clear value messaging, structured UI/UX layouts, and frictionless WhatsApp enquiry flows for local service enterprises.
-          </p>
-          <ul class="mt-8 space-y-3 text-sm font-medium text-slate-700 pt-6 border-t border-slate-100">
-            <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Up to 4–7 custom tailored pages</li>
-            <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Instant WhatsApp chat & direct call buttons</li>
-            <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Mobile-first responsive layout across all devices</li>
-            <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Google Maps local listing integration</li>
-          </ul>
-        </div>
-        <div class="mt-10 pt-6 border-t border-slate-100 flex items-center justify-between">
-          <span class="text-xs font-semibold text-slate-400 uppercase">Starting at ₹8,999</span>
-          <a href="https://wa.me/919352563337" target="_blank" class="text-sm font-bold text-emerald-600 hover:underline">Inquire on WhatsApp →</a>
+
         </div>
       </div>
+    </section>
 
-      <!-- Service 2 -->
-      <div class="group bg-white p-8 md:p-10 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-blue-200 transition-all duration-300 flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-110 transition-transform">
-            ⚡
+    <!-- INTRO -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="intro-grid">
+
+          <div class="section-number">01</div>
+
+          <div class="intro-content">
+            <p class="section-kicker">Our approach</p>
+
+            <h2>
+              More than a website.
+              <span>A digital growth asset.</span>
+            </h2>
+
+            <div class="intro-text-grid">
+              <p>
+                Your website is often the first serious interaction a customer has with your business. We therefore approach development beyond simply making pages look good.
+              </p>
+
+              <p>
+                Every project is planned around clarity, speed, responsive experience, search visibility, trust and the next action you want visitors to take. Whether you need a local business website, an online store, a high-converting landing page or a custom web application, our goal is to build something that supports your actual business.
+              </p>
+            </div>
           </div>
-          <h2 class="text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-            Website Redesign & Speed Optimization
-          </h2>
-          <p class="mt-4 text-slate-600 text-base leading-relaxed">
-            Got an outdated, sluggish website that brings zero leads? We transform it into a lightning-fast performance machine equipped with modern speed and SEO standards.
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="benefits-section">
+      <div class="container">
+
+        <div class="section-heading split-heading">
+          <div>
+            <p class="section-kicker">Complete catalogue</p>
+            <h2>Choose the right development<br /><span>solution for your business.</span></h2>
+          </div>
+
+          <p>
+            Explore our complete range of website and web development services. Each service is designed around a different business requirement.
           </p>
-          <ul class="mt-8 space-y-3 text-sm font-medium text-slate-700 pt-6 border-t border-slate-100">
-            <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">✓</span> Complete UI/UX clarity & trust upgrade</li>
-            <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">✓</span> 99+ Lighthouse mobile speed score</li>
-            <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">✓</span> Local SEO metadata structure overhaul</li>
-            <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">✓</span> Zero downtime migration guarantee</li>
-          </ul>
         </div>
-        <div class="mt-10 pt-6 border-t border-slate-100 flex items-center justify-between">
-          <span class="text-xs font-semibold text-slate-400 uppercase">Free Performance Audit</span>
-          <a href="https://wa.me/919352563337" target="_blank" class="text-sm font-bold text-blue-600 hover:underline">Get Audit →</a>
+
+        <div class="benefit-grid">
+          {
+            services.map((service) => (
+              <article class="benefit-card">
+                <div class="card-number">{service.number}</div>
+
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <g
+                      set:html={
+                        service.icon === "briefcase" ? iconPaths.briefcase :
+                        service.icon === "target" ? iconPaths.target :
+                        service.icon === "shopping" ? iconPaths.shopping :
+                        service.icon === "code" ? iconPaths.code :
+                        service.icon === "react" ? iconPaths.react :
+                        service.icon === "layers" ? iconPaths.layers :
+                        service.icon === "calendar" ? iconPaths.calendar :
+                        service.icon === "building" ? iconPaths.building :
+                        service.icon === "home" ? iconPaths.home :
+                        iconPaths.utensils
+                      }
+                    ></g>
+                  </svg>
+                </div>
+
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+
+                <div style="margin-top: 24px; display: flex; gap: 20px; font-size: 11px; color: #777;">
+                  <div><strong>Starting:</strong> {service.price}</div>
+                  <div><strong>Timeline:</strong> {service.timeline}</div>
+                </div>
+
+                <a href={service.href} class="card-arrow" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: #111; color: var(--accent);">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2;">
+                    <g set:html={iconPaths.arrow}></g>
+                  </svg>
+                </a>
+              </article>
+            ))
+          }
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEO CONTENT -->
+    <section class="included-section">
+      <div class="container">
+
+        <div class="included-layout">
+
+          <div class="included-intro">
+            <div class="dark-kicker">
+              <span></span>
+              Why YNS Web Studio
+            </div>
+
+            <h2>
+              Development focused on
+              <span>real business outcomes.</span>
+            </h2>
+
+            <p>
+              If you are looking for a web development company in Jaipur, YNS Web Studio provides complete website and web application development services for businesses, startups and brands.
+            </p>
+
+            <a
+              href="https://wa.me/919352563337"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="dark-button"
+            >
+              Start a Conversation
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <g set:html={iconPaths.arrow}></g>
+              </svg>
+            </a>
+          </div>
+
+          <div class="feature-list" style="display: flex; flex-direction: column;">
+            <div style="padding: 20px 0; border-bottom: 1px solid #303030; color: #aaa; font-size: 14px; line-height: 1.8;">
+              Our approach combines website design, development, SEO, performance and conversion rather than treating each part as a separate task.
+            </div>
+            <div style="padding: 20px 0; border-bottom: 1px solid #303030; color: #aaa; font-size: 14px; line-height: 1.8;">
+              We build everything from business websites and landing pages to e-commerce stores, React and Next.js applications, booking systems, real estate websites and custom web platforms.
+            </div>
+            <div style="padding: 20px 0; color: #aaa; font-size: 14px; line-height: 1.8;">
+              Every project is planned with responsive design, clean architecture, search-friendly structure and clear conversion paths in mind.
+            </div>
+          </div>
+
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- PROCESS -->
+    <section class="process-section">
+      <div class="container">
 
-  <!-- CTA Section -->
-  <section class="relative bg-zinc-950 text-white py-24 md:py-32 overflow-hidden border-t border-zinc-800 text-center">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="process-header">
+          <p class="section-kicker">Process</p>
 
-    <div class="max-w-3xl mx-auto px-6 relative z-10">
-      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
-        Not Sure Which Service Your Business <span class="text-emerald-400">Needs?</span>
-      </h2>
-      <p class="mt-6 text-lg text-zinc-400 max-w-xl mx-auto leading-relaxed">
-        Send me a quick message on WhatsApp with your current website link or business idea. I'll personally review it for free.
-      </p>
-      <div class="mt-10">
-        <a
-          href="https://wa.me/919352563337"
-          target="_blank"
-          class="inline-flex items-center justify-center rounded-xl bg-emerald-500 text-zinc-950 px-8 py-4 font-bold hover:bg-emerald-400 transition shadow-xl shadow-emerald-500/20"
-        >
-          Chat with Yashotkarsh on WhatsApp
-        </a>
+          <h2>
+            A straightforward process
+            <span>from idea to launch.</span>
+          </h2>
+
+          <p>
+            Every project starts with understanding the business problem, then moves through strategy, design, development, testing and launch.
+          </p>
+        </div>
+
+        <div class="process-grid" style="grid-template-columns: repeat(3, 1fr);">
+          {[
+            ["01", "Discovery", "Understand your business, audience, goals, requirements and competition."],
+            ["02", "Planning", "Define page structure, features, user journeys, content requirements and technical direction."],
+            ["03", "Design", "Create a clear visual system and responsive experience aligned with your brand."],
+            ["04", "Development", "Build the website or application using an appropriate modern technology stack."],
+            ["05", "Testing", "Check responsiveness, functionality, forms, links, performance and key user flows."],
+            ["06", "Launch", "Deploy the project, configure essential technical settings and prepare it for growth."]
+          ].map(([number, title, text], index) => (
+            <article class="process-card">
+              <div class="process-top">
+                <span>{number}</span>
+
+                {index < 5 && (
+                  <div class="process-connector"></div>
+                )}
+              </div>
+
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+
       </div>
-    </div>
-  </section>
+    </section>
 
+    <!-- FAQ -->
+    <section id="faq" class="faq-section">
+      <div class="container faq-container">
+
+        <div class="faq-heading">
+          <p class="section-kicker">FAQ</p>
+
+          <h2>
+            Frequently asked
+            <span>questions.</span>
+          </h2>
+
+          <p>
+            Everything you should know before starting your web development project with YNS Web Studio.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          {
+            faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>
+                  <span class="faq-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <span class="faq-question">{faq.question}</span>
+
+                  <span class="faq-toggle">
+                    <span></span>
+                    <span></span>
+                  </span>
+                </summary>
+
+                <div class="faq-answer">
+                  <p>{faq.answer}</p>
+                </div>
+              </details>
+            ))
+          }
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta-section">
+      <div class="container">
+
+        <div class="final-cta">
+
+          <div class="cta-grid"></div>
+          <div class="cta-glow"></div>
+
+          <div class="cta-content">
+            <div class="dark-kicker">
+              <span></span>
+              Start your project
+            </div>
+
+            <h2>
+              Have a website idea?
+              <span>Let's turn it into something useful.</span>
+            </h2>
+
+            <p>
+              Tell us what you are building, what problem you want to solve and what your business needs. We will help you choose the right development approach.
+            </p>
+
+            <div class="cta-actions">
+              <a
+                href="https://wa.me/919352563337"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cta-primary"
+              >
+                Start Your Project
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <g set:html={iconPaths.arrow}></g>
+                </svg>
+              </a>
+
+              <a href="mailto:hello@ynsweb.studio" class="cta-secondary">
+                Email Us
+              </a>
+            </div>
+
+            <div class="cta-location">
+              <span></span>
+              Jaipur, Rajasthan · Serving businesses across India
+            </div>
+          </div>
+
+          <div class="cta-side">
+            <div class="cta-side-number">YNS</div>
+            <p>Strategy.<br />Design.<br /><strong>Growth.</strong></p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </div>
 </BaseLayout>
+
+<style>
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    background: #f7f7f5;
+  }
+
+  .business-page {
+    --ink: #111111;
+    --muted: #696969;
+    --soft: #f1f1ee;
+    --line: #deded9;
+    --dark: #101010;
+    --white: #ffffff;
+    --accent: #c9ff4a;
+    color: var(--ink);
+    overflow: hidden;
+  }
+
+  .container {
+    width: min(1240px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    isolation: isolate;
+    min-height: auto;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 80% 18%, rgba(201, 255, 74, 0.12), transparent 28%),
+      #101010;
+    color: white;
+  }
+
+  .hero-grid,
+  .cta-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.28;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(to bottom, black, transparent 90%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.12;
+    pointer-events: none;
+  }
+
+  .hero-glow-one {
+    right: -180px;
+    top: 120px;
+    background: #c9ff4a;
+  }
+
+  .hero-glow-two {
+    left: -250px;
+    bottom: -280px;
+    background: #ffffff;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
+    padding-top: 32px;
+    padding-bottom: 70px;
+  }
+
+  .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+  }
+
+  .breadcrumb a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+  }
+
+  .breadcrumb span:last-child {
+    color: #d4d4d4;
+  }
+
+  .hero-copy {
+    max-width: 690px;
+    padding-top: 20px;
+  }
+
+  .eyebrow,
+  .dark-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #a5a5a5;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow-dot,
+  .dark-kicker span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 16px rgba(201,255,74,0.65);
+  }
+
+  .hero h1 {
+    max-width: 840px;
+    margin: 28px 0 0;
+    font-size: clamp(44px, 5.5vw, 76px);
+    line-height: 1.02;
+    letter-spacing: -0.06em;
+    font-weight: 500;
+  }
+
+  .hero h1 em {
+    display: block;
+    color: #777;
+    font-style: normal;
+  }
+
+  .hero-description {
+    max-width: 680px;
+    margin-top: 28px;
+    color: #a7a7a7;
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 36px;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 0 22px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+      transform 0.25s ease,
+      background 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  .button svg,
+  .dark-button svg,
+  .pricing-button svg,
+  .text-link svg,
+  .related-card svg,
+  .cta-primary svg {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+  }
+
+  .button-primary {
+    color: #111;
+    background: var(--accent);
+  }
+
+  .button-primary:hover {
+    background: #d9ff79;
+  }
+
+  .button-secondary {
+    color: white;
+    border: 1px solid #3d3d3d;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .button-secondary:hover {
+    border-color: #666;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 600px;
+    margin-top: 55px;
+    border-top: 1px solid #303030;
+    padding-top: 22px;
+  }
+
+  .hero-stats div {
+    padding-right: 20px;
+  }
+
+  .hero-stats div + div {
+    padding-left: 20px;
+    border-left: 1px solid #303030;
+  }
+
+  .hero-stats strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+  }
+
+  .hero-stats span {
+    display: block;
+    margin-top: 6px;
+    color: #666;
+    font-size: 11px;
+  }
+
+  /* GENERAL */
+  .intro-section,
+  .benefits-section,
+  .pages-section,
+  .capabilities-section,
+  .usecases-section,
+  .process-section,
+  .faq-section,
+  .related-section {
+    background: #f7f7f5;
+  }
+
+  .intro-section {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 35px;
+  }
+
+  .section-number {
+    color: #b1b1ab;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+
+  .section-kicker {
+    margin: 0;
+    color: #777;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .intro-content h2,
+  .split-heading h2,
+  .pages-header h2,
+  .capabilities-heading h2,
+  .usecases-copy h2,
+  .process-header h2,
+  .faq-heading h2 {
+    margin: 16px 0 0;
+    max-width: 800px;
+    font-size: clamp(38px, 4.6vw, 64px);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+    font-weight: 500;
+  }
+
+  .intro-content h2 span,
+  .split-heading h2 span,
+  .pages-header h2 span,
+  .capabilities-heading h2 span,
+  .usecases-copy h2 span,
+  .process-header h2 span,
+  .faq-heading h2 span {
+    color: #8c8c86;
+  }
+
+  .intro-text-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 60px;
+    max-width: 980px;
+    margin-top: 50px;
+    padding-top: 35px;
+    border-top: 1px solid var(--line);
+  }
+
+  .intro-text-grid p {
+    margin: 0;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.85;
+  }
+
+  /* BENEFITS / SERVICES GRID */
+  .benefits-section {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .split-heading {
+    display: grid;
+    grid-template-columns: 1fr 0.7fr;
+    gap: 80px;
+    align-items: end;
+  }
+
+  .split-heading > p {
+    margin: 0 0 4px;
+    color: #70706c;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 65px;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+
+  .benefit-card {
+    position: relative;
+    min-height: 330px;
+    padding: 30px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: #f7f7f5;
+    transition:
+      background 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .benefit-card:hover {
+    z-index: 2;
+    background: white;
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.06);
+  }
+
+  .card-number {
+    color: #aaa;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+
+  .card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin-top: 30px;
+    border-radius: 12px;
+    background: #111;
+    color: var(--accent);
+  }
+
+  .card-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .benefit-card h3 {
+    margin: 20px 0 0;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .benefit-card p {
+    max-width: 330px;
+    margin: 10px 0 0;
+    color: #6d6d68;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .card-arrow {
+    position: absolute;
+    right: 28px;
+    bottom: 28px;
+    color: #aaa;
+    transition: transform 0.2s ease;
+  }
+
+  .benefit-card:hover .card-arrow {
+    transform: translateX(3px);
+  }
+
+  /* INCLUDED */
+  .included-section {
+    position: relative;
+    overflow: hidden;
+    background: #111;
+    color: white;
+    padding: 120px 0;
+  }
+
+  .included-section::before {
+    content: "";
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    right: -250px;
+    top: -250px;
+    border-radius: 50%;
+    background: rgba(201,255,74,0.08);
+    filter: blur(70px);
+  }
+
+  .included-layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 0.82fr 1.18fr;
+    gap: 100px;
+  }
+
+  .included-intro h2 {
+    max-width: 600px;
+    margin: 18px 0 0;
+    font-size: clamp(40px, 4.5vw, 64px);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+    font-weight: 500;
+  }
+
+  .included-intro h2 span {
+    color: #6f6f6b;
+  }
+
+  .included-intro > p {
+    max-width: 490px;
+    margin: 26px 0 0;
+    color: #858581;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .dark-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 35px;
+    padding: 14px 19px;
+    border-radius: 999px;
+    background: white;
+    color: #111;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.25s ease;
+  }
+
+  .dark-button:hover {
+    transform: translateY(-2px);
+  }
+
+  /* PROCESS */
+  .process-section {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--line);
+    background: #f7f7f5;
+  }
+
+  .process-header {
+    max-width: 780px;
+  }
+
+  .process-header > p:last-child {
+    max-width: 650px;
+    margin-top: 25px;
+    color: #6d6d68;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 65px;
+  }
+
+  .process-card {
+    min-height: 280px;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: #f7f7f5;
+  }
+
+  .process-top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .process-top > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #111;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .process-connector {
+    width: 50px;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .process-card h3 {
+    margin: 60px 0 0;
+    font-size: 21px;
+    letter-spacing: -0.025em;
+  }
+
+  .process-card p {
+    margin: 12px 0 0;
+    color: #6d6d68;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  /* FAQ */
+  .faq-section {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--line);
+    background: #f7f7f5;
+  }
+
+  .faq-container {
+    max-width: 1000px;
+  }
+
+  .faq-heading {
+    text-align: center;
+  }
+
+  .faq-heading > p:last-child {
+    margin-top: 20px;
+    color: #777;
+    font-size: 14px;
+  }
+
+  .faq-list {
+    margin-top: 60px;
+    border-top: 1px solid var(--line);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .faq-item summary {
+    display: grid;
+    grid-template-columns: 42px 1fr 34px;
+    align-items: center;
+    gap: 12px;
+    min-height: 85px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-number {
+    color: #aaa;
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .faq-question {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .faq-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #d7d7d1;
+    border-radius: 50%;
+  }
+
+  .faq-toggle span {
+    position: absolute;
+    width: 11px;
+    height: 1px;
+    background: #777;
+    transition: transform 0.25s ease;
+  }
+
+  .faq-toggle span:last-child {
+    transform: rotate(90deg);
+  }
+
+  .faq-item[open] .faq-toggle span:last-child {
+    transform: rotate(0);
+  }
+
+  .faq-answer {
+    padding: 0 46px 28px 54px;
+  }
+
+  .faq-answer p {
+    max-width: 760px;
+    margin: 0;
+    color: #6d6d68;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  /* FINAL CTA */
+  .final-cta-section {
+    padding: 30px 0 100px;
+    background: #f7f7f5;
+  }
+
+  .final-cta {
+    position: relative;
+    min-height: 490px;
+    overflow: hidden;
+    padding: 75px;
+    border-radius: 28px;
+    background: #111;
+    color: white;
+  }
+
+  .cta-glow {
+    position: absolute;
+    right: -100px;
+    top: -100px;
+    width: 430px;
+    height: 430px;
+    border-radius: 50%;
+    background: rgba(201,255,74,0.1);
+    filter: blur(80px);
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+  }
+
+  .cta-content h2 {
+    max-width: 760px;
+    margin: 18px 0 0;
+    font-size: clamp(43px, 5vw, 70px);
+    line-height: 0.99;
+    letter-spacing: -0.06em;
+    font-weight: 500;
+  }
+
+  .cta-content h2 span {
+    display: block;
+    color: #666;
+  }
+
+  .cta-content > p {
+    max-width: 620px;
+    margin: 25px 0 0;
+    color: #888;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 35px;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 50px;
+    padding: 0 20px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.25s ease;
+  }
+
+  .cta-primary {
+    background: var(--accent);
+    color: #111;
+  }
+
+  .cta-secondary {
+    border: 1px solid #383838;
+    color: white;
+  }
+
+  .cta-primary:hover,
+  .cta-secondary:hover {
+    transform: translateY(-2px);
+  }
+
+  .cta-location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 45px;
+    color: #555;
+    font-size: 10px;
+  }
+
+  .cta-location span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .cta-side {
+    position: absolute;
+    right: 70px;
+    bottom: 60px;
+    z-index: 2;
+    width: 180px;
+    height: 180px;
+    border: 1px solid #2e2e2e;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 35px;
+    transform: rotate(-8deg);
+  }
+
+  .cta-side-number {
+    color: #555;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+  }
+
+  .cta-side p {
+    margin: 10px 0 0;
+    color: #888;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .cta-side strong {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1100px) {
+    .benefit-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .included-layout {
+      gap: 60px;
+    }
+    .cta-side {
+      right: 40px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .container {
+      width: min(100% - 28px, 680px);
+    }
+    .hero h1 {
+      font-size: clamp(40px, 10vw, 64px);
+    }
+    .intro-grid,
+    .split-heading,
+    .included-layout {
+      grid-template-columns: 1fr;
+    }
+    .benefit-grid,
+    .process-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .cta-side {
+      display: none;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .benefit-grid,
+    .process-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-stats {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .hero-stats div,
+    .hero-stats div + div {
+      padding: 0;
+      border: 0;
+    }
+    .cta-actions {
+      flex-direction: column;
+    }
+    .cta-primary,
+    .cta-secondary {
+      width: 100%;
+    }
+  }
+</style>

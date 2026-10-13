@@ -1,0 +1,3325 @@
+---
+import BaseLayout from "../../components/layout/BaseLayout.astro";
+
+const siteUrl = "https://ynsweb.studio";
+const pageUrl = `${siteUrl}/services/business-website-development`;
+
+const benefits = [
+  {
+    title: "Built around enquiries",
+    text: "Clear calls to action, enquiry flows and WhatsApp touchpoints help visitors understand what to do next.",
+  },
+  {
+    title: "Search-friendly foundation",
+    text: "Semantic structure, metadata, clean URLs, internal linking and performance-conscious development create a strong technical SEO base.",
+  },
+  {
+    title: "Designed for mobile",
+    text: "Your website is designed around real mobile browsing behaviour, not simply scaled down from desktop.",
+  },
+  {
+    title: "Easy to grow",
+    text: "The architecture leaves room for new pages, services, case studies, blogs, integrations and future features.",
+  },
+  {
+    title: "Professional first impression",
+    text: "A refined visual system helps your business look established, trustworthy and ready to work with serious customers.",
+  },
+  {
+    title: "Made for your business",
+    text: "No generic template-first approach. The structure, messaging and interface are shaped around your actual business goals.",
+  },
+];
+
+const features = [
+  "Custom responsive UI/UX",
+  "5–10 core business pages",
+  "WhatsApp and enquiry integration",
+  "Technical SEO foundation",
+  "Google Analytics and Search Console setup",
+  "Fast, performance-conscious development",
+  "Contact forms and lead capture",
+  "Social media and Google Maps integration",
+  "Production deployment",
+  "Post-launch support options",
+];
+
+const pages = [
+  {
+    number: "01",
+    title: "Home",
+    text: "Position your business, communicate your value and guide visitors toward an enquiry.",
+  },
+  {
+    number: "02",
+    title: "About",
+    text: "Build credibility with your story, expertise, team and business positioning.",
+  },
+  {
+    number: "03",
+    title: "Services",
+    text: "Explain your offers clearly with dedicated sections and strong conversion paths.",
+  },
+  {
+    number: "04",
+    title: "Contact",
+    text: "Make it simple for customers to call, message, submit an enquiry or find you.",
+  },
+  {
+    number: "05",
+    title: "Portfolio / Work",
+    text: "Show proof through projects, case studies, testimonials and results.",
+  },
+  {
+    number: "06",
+    title: "Additional pages",
+    text: "Add locations, industries, FAQs, blogs or service-specific pages as your business grows.",
+  },
+];
+
+const process = [
+  {
+    number: "01",
+    title: "Discovery",
+    text: "We understand your business, audience, services, competitors and primary conversion goal.",
+  },
+  {
+    number: "02",
+    title: "Structure",
+    text: "We map the pages, content hierarchy, calls to action and user journey before development.",
+  },
+  {
+    number: "03",
+    title: "Design",
+    text: "We create a clean visual system that fits your brand and works across mobile, tablet and desktop.",
+  },
+  {
+    number: "04",
+    title: "Development",
+    text: "The approved experience is developed with responsive, semantic and performance-conscious code.",
+  },
+  {
+    number: "05",
+    title: "SEO & QA",
+    text: "We check metadata, responsive behaviour, links, forms, performance basics and technical details.",
+  },
+  {
+    number: "06",
+    title: "Launch",
+    text: "Your website is deployed, connected to the required tools and prepared for ongoing growth.",
+  },
+];
+
+const useCases = [
+  "Local service businesses",
+  "Consultants and professionals",
+  "Agencies and studios",
+  "Clinics and healthcare businesses",
+  "Gyms and fitness studios",
+  "Restaurants and cafés",
+  "Hotels and homestays",
+  "Real estate businesses",
+  "Education and coaching businesses",
+  "Startups and growing companies",
+];
+
+const faqs = [
+  {
+    question: "How much does a business website cost in Jaipur?",
+    answer:
+      "At YNS Web Studio, business website development typically starts from ₹20,000. The final cost depends on the number of pages, design complexity, content requirements, integrations and custom functionality. We provide a project-specific quote after understanding your requirements.",
+  },
+  {
+    question: "How long does it take to build a business website?",
+    answer:
+      "A standard business website generally takes around 7–14 working days when the required content, branding and feedback are available on time. Larger websites or projects with custom functionality can take longer.",
+  },
+  {
+    question: "What pages are included in a business website?",
+    answer:
+      "A typical website can include Home, About, Services, Contact and portfolio or case-study pages. Additional pages such as individual service pages, location pages, FAQs and a blog can be added based on your business and SEO strategy.",
+  },
+  {
+    question: "Will my business website be mobile responsive?",
+    answer:
+      "Yes. Responsive development is a core part of the build. The website is designed and tested for mobile, tablet and desktop layouts so visitors can use it comfortably across common screen sizes.",
+  },
+  {
+    question: "Is SEO included with business website development?",
+    answer:
+      "Yes, the website includes a technical SEO foundation such as semantic HTML, page metadata, clean URL structure, responsive implementation, internal linking considerations and sitemap support. Ongoing SEO and content marketing are separate services when required.",
+  },
+  {
+    question: "Can you add WhatsApp and enquiry forms?",
+    answer:
+      "Yes. WhatsApp CTAs, enquiry forms, click-to-call actions, email notifications, Google Maps and other lead-generation integrations can be included based on the project requirements.",
+  },
+  {
+    question: "Can I add more pages later?",
+    answer:
+      "Yes. We can expand the website with new service pages, locations, case studies, blog content, landing pages and custom features as your business grows.",
+  },
+  {
+    question: "Do you provide website maintenance after launch?",
+    answer:
+      "Yes. Basic post-launch support can be included depending on the project. Ongoing maintenance, content updates, technical improvements and new feature development can also be arranged separately.",
+  },
+];
+
+const iconPaths = {
+  arrow: `<path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>`,
+  check: `<path d="m5 12 4 4L19 6"></path>`,
+  globe: `<circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18"></path><path d="M12 3a14 14 0 0 0 0 18"></path>`,
+  search: `<circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path>`,
+  message: `<path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 9.5 9.5 0 0 1-4-.9L3 21l1.9-4A8.4 8.4 0 0 1 3 11.5 8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"></path>`,
+  smartphone: `<rect x="7" y="2.5" width="10" height="19" rx="2"></rect><path d="M11 18.5h2"></path>`,
+  zap: `<path d="m13 2-9 12h7l-1 8 9-12h-7l1-8Z"></path>`,
+  layers: `<path d="m12 2 9 5-9 5-9-5 9-5Z"></path><path d="m3 12 9 5 9-5"></path><path d="m3 17 9 5 9-5"></path>`,
+  code: `<path d="m8 9-3 3 3 3"></path><path d="m16 9 3 3-3 3"></path><path d="m14 5-4 14"></path>`,
+  chart: `<path d="M4 19V5"></path><path d="M4 19h16"></path><path d="m7 15 3-4 3 2 5-7"></path>`,
+  shield: `<path d="M12 3 20 6v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-3Z"></path><path d="m9 12 2 2 4-4"></path>`,
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": `${siteUrl}/#organization`,
+      name: "YNS Web Studio",
+      url: siteUrl,
+      description:
+        "Business website development company in Jaipur building responsive, SEO-ready websites for local businesses and growing companies.",
+      areaServed: ["Jaipur", "Rajasthan", "India"],
+      serviceType: "Business Website Development",
+    },
+    {
+      "@type": "Service",
+      "@id": `${pageUrl}#service`,
+      name: "Business Website Development",
+      serviceType: "Business Website Development",
+      provider: {
+        "@id": `${siteUrl}/#organization`,
+      },
+      areaServed: ["Jaipur", "Rajasthan", "India"],
+      url: pageUrl,
+      description:
+        "Custom responsive business website development in Jaipur with technical SEO, lead generation, WhatsApp integration and production deployment.",
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "INR",
+        price: "20000",
+      },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: "Business Website Development in Jaipur | YNS Web Studio",
+      isPartOf: {
+        "@id": `${siteUrl}/#website`,
+      },
+      about: {
+        "@id": `${pageUrl}#service`,
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: siteUrl,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Services",
+          item: `${siteUrl}/services`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Business Website Development",
+          item: pageUrl,
+        },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Business Website Development in Jaipur | YNS Web Studio"
+  description="YNS Web Studio builds fast, responsive and SEO-ready business websites in Jaipur. Get a custom website designed to build trust, generate enquiries and grow your business."
+>
+  <Fragment slot="head">
+    <link rel="canonical" href={pageUrl} />
+    <meta
+      name="keywords"
+      content="business website development Jaipur, business website design Jaipur, website development company Jaipur, web design company Jaipur, custom business website, responsive website development, SEO website development Jaipur"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <meta
+      property="og:title"
+      content="Business Website Development in Jaipur | YNS Web Studio"
+    />
+    <meta
+      property="og:description"
+      content="Custom business websites designed for credibility, search visibility and enquiries. Serving Jaipur and businesses across India."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={pageUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Business Website Development in Jaipur | YNS Web Studio"
+    />
+    <meta
+      name="twitter:description"
+      content="Fast, responsive and SEO-ready business websites built for growth."
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <div class="business-page">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-glow hero-glow-one"></div>
+      <div class="hero-glow hero-glow-two"></div>
+
+      <div class="container hero-container">
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span>/</span>
+          <a href="/services">Services</a>
+          <span>/</span>
+          <span aria-current="page">Business Website Development</span>
+        </nav>
+
+        <div class="hero-layout">
+
+          <div class="hero-copy">
+
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              Business Website Development in Jaipur
+            </div>
+
+            <h1>
+              A website that makes your business
+              <em>look credible.</em>
+            </h1>
+
+            <p class="hero-description">
+              We design and develop custom business websites for companies
+              that need more than an online brochure. Your website should
+              explain what you do, build trust, perform on mobile and make
+              it easy for the right customer to contact you.
+            </p>
+
+            <div class="hero-actions">
+              <a
+                href="https://wa.me/919352563337"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button button-primary"
+              >
+                Discuss Your Website
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <g set:html={iconPaths.arrow}></g>
+                </svg>
+              </a>
+
+              <a href="#included" class="button button-secondary">
+                Explore what's included
+              </a>
+            </div>
+
+            <div class="hero-stats">
+              <div>
+                <strong>₹20K+</strong>
+                <span>Starting investment</span>
+              </div>
+              <div>
+                <strong>7–14</strong>
+                <span>Typical working days</span>
+              </div>
+              <div>
+                <strong>100%</strong>
+                <span>Responsive experience</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- WEBSITE PREVIEW -->
+          <div class="hero-visual">
+
+            <div class="visual-label visual-label-top">
+              <span></span>
+              YOUR DIGITAL PRESENCE
+            </div>
+
+            <div class="browser-window">
+
+              <div class="browser-top">
+                <div class="browser-controls">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <div class="browser-url">
+                  <span class="lock">⌁</span>
+                  yourbusiness.com
+                </div>
+
+                <div class="browser-menu">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="website-preview">
+
+                <div class="preview-nav">
+                  <div class="preview-brand">
+                    <span class="brand-mark">Y</span>
+                    <span>YOUR BRAND</span>
+                  </div>
+
+                  <div class="preview-links">
+                    <span>Services</span>
+                    <span>About</span>
+                    <span>Work</span>
+                    <span>Contact</span>
+                  </div>
+
+                  <div class="preview-nav-button">Let's Talk</div>
+                </div>
+
+                <div class="preview-hero">
+                  <div class="preview-hero-copy">
+                    <span class="mini-label">YOUR BUSINESS. ONLINE.</span>
+
+                    <div class="preview-heading">
+                      Build trust.
+                      <br />
+                      Get discovered.
+                      <br />
+                      <i>Grow.</i>
+                    </div>
+
+                    <div class="preview-lines">
+                      <span></span>
+                      <span></span>
+                    </div>
+
+                    <div class="preview-cta-row">
+                      <span class="preview-button"></span>
+                      <span class="preview-link"></span>
+                    </div>
+                  </div>
+
+                  <div class="preview-visual-card">
+                    <div class="visual-card-shape shape-one"></div>
+                    <div class="visual-card-shape shape-two"></div>
+                    <div class="visual-card-inner">
+                      <span>01</span>
+                      <strong>STRATEGY</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="preview-bottom">
+                  <div>
+                    <span>01</span>
+                    <small>Clear positioning</small>
+                  </div>
+                  <div>
+                    <span>02</span>
+                    <small>Lead generation</small>
+                  </div>
+                  <div>
+                    <span>03</span>
+                    <small>SEO foundation</small>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="floating-card floating-card-one">
+              <span class="floating-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <g set:html={iconPaths.chart}></g>
+                </svg>
+              </span>
+              <div>
+                <strong>Conversion focused</strong>
+                <small>Built to generate action</small>
+              </div>
+            </div>
+
+            <div class="floating-card floating-card-two">
+              <span class="floating-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <g set:html={iconPaths.shield}></g>
+                </svg>
+              </span>
+              <div>
+                <strong>SEO ready</strong>
+                <small>Technical foundation</small>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="intro-grid">
+
+          <div class="section-number">01</div>
+
+          <div class="intro-content">
+            <p class="section-kicker">Why your website matters</p>
+
+            <h2>
+              Your website is part of
+              <span>your sales process.</span>
+            </h2>
+
+            <div class="intro-text-grid">
+              <p>
+                Before someone calls, messages or visits your business,
+                they may first check your website. A weak website can create
+                doubt. A clear, modern and useful website can answer
+                questions, establish credibility and move a potential
+                customer closer to an enquiry.
+              </p>
+
+              <p>
+                That is why we do not treat business website development as
+                a simple page-building exercise. We combine design,
+                development, technical SEO and conversion-focused structure
+                into one digital experience.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="benefits-section">
+      <div class="container">
+
+        <div class="section-heading split-heading">
+          <div>
+            <p class="section-kicker">The YNS approach</p>
+            <h2>Built to work for<br /><span>your business.</span></h2>
+          </div>
+
+          <p>
+            A professional website is not only about visual design. It has
+            to communicate clearly, work smoothly and create a path toward
+            action.
+          </p>
+        </div>
+
+        <div class="benefit-grid">
+          {
+            benefits.map((item, index) => (
+              <article class="benefit-card">
+                <div class="card-number">0{index + 1}</div>
+
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <g
+                      set:html={
+                        [
+                          iconPaths.message,
+                          iconPaths.search,
+                          iconPaths.smartphone,
+                          iconPaths.layers,
+                          iconPaths.shield,
+                          iconPaths.code,
+                        ][index]
+                      }
+                    ></g>
+                  </svg>
+                </div>
+
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+
+                <span class="card-arrow">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <g set:html={iconPaths.arrow}></g>
+                  </svg>
+                </span>
+              </article>
+            ))
+          }
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INCLUDED -->
+    <section id="included" class="included-section">
+      <div class="container">
+
+        <div class="included-layout">
+
+          <div class="included-intro">
+            <div class="dark-kicker">
+              <span></span>
+              What's included
+            </div>
+
+            <h2>
+              Everything you need for a
+              <span>professional website.</span>
+            </h2>
+
+            <p>
+              The exact scope is tailored to your business, but every
+              project starts with a strong foundation rather than a
+              collection of disconnected pages.
+            </p>
+
+            <a
+              href="https://wa.me/919352563337"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="dark-button"
+            >
+              Get a project estimate
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <g set:html={iconPaths.arrow}></g>
+              </svg>
+            </a>
+          </div>
+
+          <div class="feature-list">
+            {
+              features.map((feature, index) => (
+                <div class="feature-item">
+                  <span class="feature-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <span class="feature-check">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <g set:html={iconPaths.check}></g>
+                    </svg>
+                  </span>
+
+                  <span>{feature}</span>
+                </div>
+              ))
+            }
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WEBSITE STRUCTURE -->
+    <section class="pages-section">
+      <div class="container">
+
+        <div class="pages-header">
+          <div>
+            <p class="section-kicker">Website structure</p>
+            <h2>
+              Pages designed to answer questions
+              <span>and move visitors forward.</span>
+            </h2>
+          </div>
+
+          <p>
+            Your website structure depends on your business. These are
+            common building blocks that can be combined into a focused,
+            conversion-friendly experience.
+          </p>
+        </div>
+
+        <div class="page-grid">
+          {
+            pages.map((page) => (
+              <article class="page-card">
+                <div class="page-card-top">
+                  <span>{page.number}</span>
+
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <g set:html={iconPaths.layers}></g>
+                  </svg>
+                </div>
+
+                <h3>{page.title}</h3>
+                <p>{page.text}</p>
+
+                <div class="page-line"></div>
+              </article>
+            ))
+          }
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEO / CONVERSION -->
+    <section class="capabilities-section">
+      <div class="container">
+
+        <div class="capabilities-heading">
+          <p class="section-kicker">More than design</p>
+          <h2>
+            The details behind a website
+            <span>that performs.</span>
+          </h2>
+        </div>
+
+        <div class="capability-grid">
+
+          <article class="capability-card capability-featured">
+            <div class="capability-number">01</div>
+
+            <div class="capability-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <g set:html={iconPaths.search}></g>
+              </svg>
+            </div>
+
+            <h3>Technical SEO foundation</h3>
+
+            <p>
+              Clean page structure, descriptive metadata, crawlable
+              content, responsive layouts, internal linking and sitemap
+              support give search engines a clearer understanding of your
+              website.
+            </p>
+
+            <div class="capability-tags">
+              <span>Metadata</span>
+              <span>Clean URLs</span>
+              <span>Structure</span>
+            </div>
+          </article>
+
+          <article class="capability-card">
+            <div class="capability-number">02</div>
+
+            <div class="capability-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <g set:html={iconPaths.message}></g>
+              </svg>
+            </div>
+
+            <h3>Conversion-focused UX</h3>
+
+            <p>
+              Strategic calls to action, enquiry forms, WhatsApp buttons,
+              click-to-call actions and clear service information reduce
+              friction between interest and contact.
+            </p>
+
+            <div class="capability-tags">
+              <span>WhatsApp</span>
+              <span>Forms</span>
+              <span>CTA</span>
+            </div>
+          </article>
+
+          <article class="capability-card">
+            <div class="capability-number">03</div>
+
+            <div class="capability-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <g set:html={iconPaths.zap}></g>
+              </svg>
+            </div>
+
+            <h3>Performance-conscious development</h3>
+
+            <p>
+              We keep responsive implementation, efficient assets and
+              clean front-end architecture in mind so your website can
+              provide a better experience across devices.
+            </p>
+
+            <div class="capability-tags">
+              <span>Responsive</span>
+              <span>Fast</span>
+              <span>Clean code</span>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section class="usecases-section">
+      <div class="container">
+
+        <div class="usecases-layout">
+
+          <div class="usecases-copy">
+            <p class="section-kicker">Who it's for</p>
+
+            <h2>
+              Built for businesses that need a
+              <span>stronger digital presence.</span>
+            </h2>
+
+            <p>
+              From local businesses to growing companies, we build websites
+              around the information your customers actually need before
+              they decide to contact you.
+            </p>
+
+            <div class="mini-stat">
+              <strong>One website.</strong>
+              <span>Multiple ways to turn attention into enquiries.</span>
+            </div>
+          </div>
+
+          <div class="usecase-list">
+            {
+              useCases.map((item, index) => (
+                <div class="usecase-item">
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <strong>{item}</strong>
+
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <g set:html={iconPaths.arrow}></g>
+                  </svg>
+                </div>
+              ))
+            }
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process-section">
+      <div class="container">
+
+        <div class="process-header">
+          <p class="section-kicker">Our process</p>
+
+          <h2>
+            From business requirement
+            <span>to launched website.</span>
+          </h2>
+
+          <p>
+            A clear process keeps the project focused, reduces unnecessary
+            revisions and ensures the final website supports the business
+            goal.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          {
+            process.map((step, index) => (
+              <article class="process-card">
+                <div class="process-top">
+                  <span>{step.number}</span>
+
+                  {index < process.length - 1 && (
+                    <div class="process-connector"></div>
+                  )}
+                </div>
+
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+            ))
+          }
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing-section">
+      <div class="container">
+
+        <div class="pricing-layout">
+
+          <div class="pricing-copy">
+            <p class="dark-kicker">
+              <span></span>
+              Starting investment
+            </p>
+
+            <h2>
+              Business websites from
+              <strong>₹20,000+</strong>
+            </h2>
+
+            <p>
+              The final price depends on your pages, content, integrations,
+              design complexity and functionality. We scope the project
+              around what your business actually needs.
+            </p>
+
+            <div class="pricing-note">
+              <span class="pricing-note-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <g set:html={iconPaths.shield}></g>
+                </svg>
+              </span>
+
+              <div>
+                <strong>Transparent project scope</strong>
+                <span>
+                  You receive a clear scope before development begins.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pricing-panel">
+
+            <div class="pricing-option featured-price">
+              <div>
+                <span class="pricing-label">Business website</span>
+                <strong>₹20,000+</strong>
+                <p>For professional online presence and enquiries.</p>
+              </div>
+
+              <span class="pricing-badge">Starting</span>
+            </div>
+
+            <div class="pricing-option">
+              <div>
+                <span class="pricing-label">Larger business site</span>
+                <strong>Custom quote</strong>
+                <p>For more pages, content and advanced requirements.</p>
+              </div>
+            </div>
+
+            <div class="pricing-option">
+              <div>
+                <span class="pricing-label">Add-on pages</span>
+                <strong>Custom quote</strong>
+                <p>Service, location, case study and landing pages.</p>
+              </div>
+            </div>
+
+            <div class="pricing-option">
+              <div>
+                <span class="pricing-label">Ongoing support</span>
+                <strong>Custom</strong>
+                <p>Maintenance, updates and future development.</p>
+              </div>
+            </div>
+
+            <a
+              href="https://wa.me/919352563337"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="pricing-button"
+            >
+              Request a quote
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <g set:html={iconPaths.arrow}></g>
+              </svg>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq-section">
+      <div class="container faq-container">
+
+        <div class="faq-heading">
+          <p class="section-kicker">FAQ</p>
+
+          <h2>
+            Business website development
+            <span>questions.</span>
+          </h2>
+
+          <p>
+            Everything you should know before starting your website project.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          {
+            faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>
+                  <span class="faq-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <span class="faq-question">{faq.question}</span>
+
+                  <span class="faq-toggle">
+                    <span></span>
+                    <span></span>
+                  </span>
+                </summary>
+
+                <div class="faq-answer">
+                  <p>{faq.answer}</p>
+                </div>
+              </details>
+            ))
+          }
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RELATED SERVICES -->
+    <section class="related-section">
+      <div class="container">
+
+        <div class="related-header">
+          <div>
+            <p class="section-kicker">Explore more</p>
+            <h2>Looking for something more specific?</h2>
+          </div>
+
+          <a href="/services" class="text-link">
+            View all services
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <g set:html={iconPaths.arrow}></g>
+            </svg>
+          </a>
+        </div>
+
+        <div class="related-grid">
+
+          <a href="/services/landing-page-development" class="related-card">
+            <span>01</span>
+            <h3>Landing Page Development</h3>
+            <p>Focused pages for campaigns and lead generation.</p>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <g set:html={iconPaths.arrow}></g>
+            </svg>
+          </a>
+
+          <a href="/services/ecommerce-development" class="related-card">
+            <span>02</span>
+            <h3>E-Commerce Development</h3>
+            <p>Online stores with products, checkout and payments.</p>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <g set:html={iconPaths.arrow}></g>
+            </svg>
+          </a>
+
+          <a href="/services/nextjs-development" class="related-card">
+            <span>03</span>
+            <h3>Next.js Development</h3>
+            <p>Modern React and Next.js websites and applications.</p>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <g set:html={iconPaths.arrow}></g>
+            </svg>
+          </a>
+
+          <a href="/services/custom-web-development" class="related-card">
+            <span>04</span>
+            <h3>Custom Web Development</h3>
+            <p>Custom dashboards, portals, workflows and web apps.</p>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <g set:html={iconPaths.arrow}></g>
+            </svg>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta-section">
+      <div class="container">
+
+        <div class="final-cta">
+
+          <div class="cta-grid"></div>
+          <div class="cta-glow"></div>
+
+          <div class="cta-content">
+            <div class="dark-kicker">
+              <span></span>
+              Ready to build?
+            </div>
+
+            <h2>
+              Let's build a website
+              <span>your customers can trust.</span>
+            </h2>
+
+            <p>
+              Tell us about your business, what you offer and what you want
+              your website to achieve. We'll help you turn that into a clear
+              project scope.
+            </p>
+
+            <div class="cta-actions">
+              <a
+                href="https://wa.me/919352563337"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cta-primary"
+              >
+                Start a Conversation
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <g set:html={iconPaths.arrow}></g>
+                </svg>
+              </a>
+
+              <a href="mailto:hello@ynsweb.studio" class="cta-secondary">
+                Email Us
+              </a>
+            </div>
+
+            <div class="cta-location">
+              <span></span>
+              Jaipur, Rajasthan · Serving businesses across India
+            </div>
+          </div>
+
+          <div class="cta-side">
+            <div class="cta-side-number">YNS</div>
+            <p>Web design.<br />Development.<br /><strong>Growth.</strong></p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<style>
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    background: #f7f7f5;
+  }
+
+  .business-page {
+    --ink: #111111;
+    --muted: #696969;
+    --soft: #f1f1ee;
+    --line: #deded9;
+    --dark: #101010;
+    --white: #ffffff;
+    --accent: #c9ff4a;
+    color: var(--ink);
+    overflow: hidden;
+  }
+
+  .container {
+    width: min(1240px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  /* HERO */
+
+  .hero {
+    position: relative;
+    isolation: isolate;
+    min-height: 850px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 80% 18%, rgba(201, 255, 74, 0.12), transparent 28%),
+      #101010;
+    color: white;
+  }
+
+  .hero-grid,
+  .cta-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.28;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(to bottom, black, transparent 90%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.12;
+    pointer-events: none;
+  }
+
+  .hero-glow-one {
+    right: -180px;
+    top: 120px;
+    background: #c9ff4a;
+  }
+
+  .hero-glow-two {
+    left: -250px;
+    bottom: -280px;
+    background: #ffffff;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
+    padding-top: 32px;
+    padding-bottom: 90px;
+  }
+
+  .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+  }
+
+  .breadcrumb a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+  }
+
+  .breadcrumb span:last-child {
+    color: #d4d4d4;
+  }
+
+  .hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(460px, 0.86fr);
+    align-items: center;
+    gap: 70px;
+    min-height: 750px;
+  }
+
+  .hero-copy {
+    max-width: 690px;
+    padding-top: 20px;
+  }
+
+  .eyebrow,
+  .dark-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #a5a5a5;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow-dot,
+  .dark-kicker span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 16px rgba(201,255,74,0.65);
+  }
+
+  .hero h1 {
+    max-width: 760px;
+    margin: 28px 0 0;
+    font-size: clamp(52px, 6vw, 88px);
+    line-height: 0.98;
+    letter-spacing: -0.065em;
+    font-weight: 500;
+  }
+
+  .hero h1 em {
+    display: block;
+    color: #777;
+    font-style: normal;
+  }
+
+  .hero-description {
+    max-width: 650px;
+    margin-top: 30px;
+    color: #a7a7a7;
+    font-size: 18px;
+    line-height: 1.75;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 38px;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 0 22px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+      transform 0.25s ease,
+      background 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  .button svg,
+  .dark-button svg,
+  .pricing-button svg,
+  .text-link svg,
+  .related-card svg,
+  .cta-primary svg {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+  }
+
+  .button-primary {
+    color: #111;
+    background: var(--accent);
+  }
+
+  .button-primary:hover {
+    background: #d9ff79;
+  }
+
+  .button-secondary {
+    color: white;
+    border: 1px solid #3d3d3d;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .button-secondary:hover {
+    border-color: #666;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 650px;
+    margin-top: 65px;
+    border-top: 1px solid #303030;
+    padding-top: 22px;
+  }
+
+  .hero-stats div {
+    padding-right: 20px;
+  }
+
+  .hero-stats div + div {
+    padding-left: 20px;
+    border-left: 1px solid #303030;
+  }
+
+  .hero-stats strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+  }
+
+  .hero-stats span {
+    display: block;
+    margin-top: 6px;
+    color: #666;
+    font-size: 11px;
+  }
+
+  /* HERO VISUAL */
+
+  .hero-visual {
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .visual-label {
+    position: absolute;
+    z-index: 5;
+    color: #777;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+  }
+
+  .visual-label-top {
+    top: 18px;
+    right: 10px;
+  }
+
+  .visual-label-top span {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-right: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .browser-window {
+    width: min(100%, 570px);
+    overflow: hidden;
+    border: 1px solid #383838;
+    border-radius: 18px;
+    background: #f7f7f5;
+    box-shadow:
+      0 45px 100px rgba(0,0,0,0.5),
+      0 0 0 12px rgba(255,255,255,0.02);
+    transform: perspective(1400px) rotateY(-5deg) rotateX(2deg);
+  }
+
+  .browser-top {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    padding: 0 15px;
+    background: #181818;
+    border-bottom: 1px solid #2e2e2e;
+  }
+
+  .browser-controls {
+    display: flex;
+    gap: 5px;
+    width: 80px;
+  }
+
+  .browser-controls span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #505050;
+  }
+
+  .browser-url {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 220px;
+    height: 25px;
+    margin: 0 auto;
+    border-radius: 6px;
+    background: #222;
+    color: #777;
+    font-size: 9px;
+  }
+
+  .lock {
+    color: #aaa;
+  }
+
+  .browser-menu {
+    display: flex;
+    justify-content: flex-end;
+    gap: 3px;
+    width: 80px;
+  }
+
+  .browser-menu span {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #666;
+  }
+
+  .website-preview {
+    color: #111;
+  }
+
+  .preview-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 58px;
+    padding: 0 20px;
+    background: #f7f7f5;
+    border-bottom: 1px solid #deded8;
+  }
+
+  .preview-brand {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+
+  .brand-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    background: #111;
+    color: white;
+    font-size: 10px;
+  }
+
+  .preview-links {
+    display: flex;
+    gap: 17px;
+    color: #777;
+    font-size: 7px;
+  }
+
+  .preview-nav-button {
+    padding: 7px 10px;
+    border-radius: 99px;
+    background: #111;
+    color: white;
+    font-size: 7px;
+  }
+
+  .preview-hero {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 25px;
+    min-height: 310px;
+    padding: 38px 28px 28px;
+    background:
+      radial-gradient(circle at 75% 50%, rgba(201,255,74,0.28), transparent 27%),
+      #efefe9;
+  }
+
+  .mini-label {
+    color: #777;
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+  }
+
+  .preview-heading {
+    margin-top: 16px;
+    font-size: 32px;
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+    font-weight: 500;
+  }
+
+  .preview-heading i {
+    color: #777;
+    font-style: normal;
+  }
+
+  .preview-lines {
+    margin-top: 17px;
+  }
+
+  .preview-lines span {
+    display: block;
+    width: 82%;
+    height: 3px;
+    margin-bottom: 6px;
+    border-radius: 10px;
+    background: #d1d1c9;
+  }
+
+  .preview-lines span:last-child {
+    width: 60%;
+  }
+
+  .preview-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 23px;
+  }
+
+  .preview-button {
+    width: 63px;
+    height: 19px;
+    border-radius: 99px;
+    background: #111;
+  }
+
+  .preview-link {
+    width: 40px;
+    height: 3px;
+    border-radius: 5px;
+    background: #999;
+  }
+
+  .preview-visual-card {
+    position: relative;
+    min-height: 210px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #151515;
+  }
+
+  .visual-card-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(1px);
+  }
+
+  .shape-one {
+    width: 180px;
+    height: 180px;
+    right: -50px;
+    top: -45px;
+    background: #c9ff4a;
+  }
+
+  .shape-two {
+    width: 120px;
+    height: 120px;
+    left: -35px;
+    bottom: -45px;
+    background: #444;
+  }
+
+  .visual-card-inner {
+    position: absolute;
+    inset: auto 18px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+  }
+
+  .visual-card-inner span {
+    color: #777;
+    font-size: 9px;
+  }
+
+  .visual-card-inner strong {
+    font-size: 8px;
+    letter-spacing: 0.14em;
+  }
+
+  .preview-bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid #ddd;
+    background: white;
+  }
+
+  .preview-bottom div {
+    padding: 14px;
+  }
+
+  .preview-bottom div + div {
+    border-left: 1px solid #ddd;
+  }
+
+  .preview-bottom span {
+    display: block;
+    color: #999;
+    font-size: 7px;
+  }
+
+  .preview-bottom small {
+    display: block;
+    margin-top: 5px;
+    font-size: 8px;
+    font-weight: 700;
+  }
+
+  .floating-card {
+    position: absolute;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1px solid #333;
+    border-radius: 12px;
+    background: rgba(24,24,24,0.9);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    backdrop-filter: blur(15px);
+  }
+
+  .floating-card-one {
+    left: -22px;
+    bottom: 82px;
+  }
+
+  .floating-card-two {
+    right: -24px;
+    top: 90px;
+  }
+
+  .floating-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: #292929;
+    color: var(--accent);
+  }
+
+  .floating-icon svg {
+    width: 15px;
+    height: 15px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .floating-card strong,
+  .floating-card small {
+    display: block;
+  }
+
+  .floating-card strong {
+    color: white;
+    font-size: 10px;
+  }
+
+  .floating-card small {
+    margin-top: 3px;
+    color: #777;
+    font-size: 8px;
+  }
+
+  /* GENERAL */
+
+  .intro-section,
+  .benefits-section,
+  .pages-section,
+  .capabilities-section,
+  .usecases-section,
+  .process-section,
+  .faq-section,
+  .related-section {
+    background: #f7f7f5;
+  }
+
+  .intro-section {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 35px;
+  }
+
+  .section-number {
+    color: #b1b1ab;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+
+  .section-kicker {
+    margin: 0;
+    color: #777;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .intro-content h2,
+  .split-heading h2,
+  .pages-header h2,
+  .capabilities-heading h2,
+  .usecases-copy h2,
+  .process-header h2,
+  .faq-heading h2 {
+    margin: 16px 0 0;
+    max-width: 800px;
+    font-size: clamp(38px, 4.6vw, 64px);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+    font-weight: 500;
+  }
+
+  .intro-content h2 span,
+  .split-heading h2 span,
+  .pages-header h2 span,
+  .capabilities-heading h2 span,
+  .usecases-copy h2 span,
+  .process-header h2 span,
+  .faq-heading h2 span {
+    color: #8c8c86;
+  }
+
+  .intro-text-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 60px;
+    max-width: 980px;
+    margin-top: 50px;
+    padding-top: 35px;
+    border-top: 1px solid var(--line);
+  }
+
+  .intro-text-grid p {
+    margin: 0;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.85;
+  }
+
+  /* BENEFITS */
+
+  .benefits-section {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .split-heading {
+    display: grid;
+    grid-template-columns: 1fr 0.7fr;
+    gap: 80px;
+    align-items: end;
+  }
+
+  .split-heading > p {
+    margin: 0 0 4px;
+    color: #70706c;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 65px;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+
+  .benefit-card {
+    position: relative;
+    min-height: 310px;
+    padding: 30px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: #f7f7f5;
+    transition:
+      background 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .benefit-card:hover {
+    z-index: 2;
+    background: white;
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.06);
+  }
+
+  .card-number {
+    color: #aaa;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+
+  .card-icon,
+  .capability-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin-top: 35px;
+    border-radius: 12px;
+    background: #111;
+    color: var(--accent);
+  }
+
+  .card-icon svg,
+  .capability-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .benefit-card h3 {
+    margin: 22px 0 0;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .benefit-card p {
+    max-width: 330px;
+    margin: 10px 0 0;
+    color: #6d6d68;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .card-arrow {
+    position: absolute;
+    right: 28px;
+    bottom: 28px;
+    color: #aaa;
+  }
+
+  .card-arrow svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* INCLUDED */
+
+  .included-section,
+  .pricing-section {
+    position: relative;
+    overflow: hidden;
+    background: #111;
+    color: white;
+  }
+
+  .included-section::before,
+  .pricing-section::before {
+    content: "";
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    right: -250px;
+    top: -250px;
+    border-radius: 50%;
+    background: rgba(201,255,74,0.08);
+    filter: blur(70px);
+  }
+
+  .included-section {
+    padding: 120px 0;
+  }
+
+  .included-layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 0.82fr 1.18fr;
+    gap: 100px;
+  }
+
+  .included-intro h2 {
+    max-width: 600px;
+    margin: 18px 0 0;
+    font-size: clamp(40px, 4.5vw, 64px);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+    font-weight: 500;
+  }
+
+  .included-intro h2 span {
+    color: #6f6f6b;
+  }
+
+  .included-intro > p {
+    max-width: 490px;
+    margin: 26px 0 0;
+    color: #858581;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .dark-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 35px;
+    padding: 14px 19px;
+    border-radius: 999px;
+    background: white;
+    color: #111;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.25s ease;
+  }
+
+  .dark-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .feature-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid #303030;
+  }
+
+  .feature-item {
+    display: grid;
+    grid-template-columns: 32px 24px 1fr;
+    align-items: center;
+    gap: 10px;
+    min-height: 78px;
+    border-bottom: 1px solid #303030;
+    color: #ddd;
+    font-size: 13px;
+  }
+
+  .feature-item:nth-child(odd) {
+    padding-right: 20px;
+    border-right: 1px solid #303030;
+  }
+
+  .feature-item:nth-child(even) {
+    padding-left: 20px;
+  }
+
+  .feature-number {
+    color: #555;
+    font-size: 9px;
+    font-weight: 700;
+  }
+
+  .feature-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background: #242424;
+    color: var(--accent);
+  }
+
+  .feature-check svg {
+    width: 11px;
+    height: 11px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* PAGES */
+
+  .pages-section {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .pages-header {
+    display: grid;
+    grid-template-columns: 1fr 0.65fr;
+    gap: 80px;
+    align-items: end;
+  }
+
+  .pages-header > p {
+    margin: 0 0 3px;
+    color: #6d6d68;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .page-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 65px;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+
+  .page-card {
+    position: relative;
+    min-height: 250px;
+    padding: 28px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: #f7f7f5;
+    transition: background 0.25s ease;
+  }
+
+  .page-card:hover {
+    background: white;
+  }
+
+  .page-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .page-card-top > span {
+    color: #a4a49f;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+
+  .page-card-top svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: #999;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .page-card h3 {
+    margin: 60px 0 0;
+    font-size: 23px;
+    letter-spacing: -0.03em;
+  }
+
+  .page-card p {
+    max-width: 330px;
+    margin: 10px 0 0;
+    color: #70706b;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .page-line {
+    width: 45px;
+    height: 2px;
+    margin-top: 25px;
+    background: #111;
+  }
+
+  /* CAPABILITIES */
+
+  .capabilities-section {
+    padding: 120px 0;
+  }
+
+  .capabilities-heading {
+    max-width: 780px;
+  }
+
+  .capability-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.925fr 0.925fr;
+    gap: 15px;
+    margin-top: 60px;
+  }
+
+  .capability-card {
+    position: relative;
+    min-height: 410px;
+    padding: 30px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: #efefeb;
+    overflow: hidden;
+    transition:
+      transform 0.3s ease,
+      background 0.3s ease;
+  }
+
+  .capability-card:hover {
+    transform: translateY(-5px);
+    background: white;
+  }
+
+  .capability-featured {
+    background: #111;
+    color: white;
+    border-color: #111;
+  }
+
+  .capability-featured:hover {
+    background: #161616;
+  }
+
+  .capability-number {
+    position: absolute;
+    top: 28px;
+    right: 30px;
+    color: #999;
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .capability-featured .capability-number {
+    color: #555;
+  }
+
+  .capability-icon {
+    margin-top: 0;
+  }
+
+  .capability-card h3 {
+    max-width: 330px;
+    margin: 55px 0 0;
+    font-size: 24px;
+    letter-spacing: -0.035em;
+  }
+
+  .capability-card p {
+    margin: 15px 0 0;
+    color: #6d6d68;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .capability-featured p {
+    color: #888;
+  }
+
+  .capability-tags {
+    position: absolute;
+    left: 30px;
+    bottom: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .capability-tags span {
+    padding: 6px 9px;
+    border: 1px solid #d5d5cf;
+    border-radius: 99px;
+    color: #777;
+    font-size: 9px;
+    font-weight: 700;
+  }
+
+  .capability-featured .capability-tags span {
+    border-color: #333;
+    color: #888;
+  }
+
+  /* USE CASES */
+
+  .usecases-section {
+    padding: 120px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .usecases-layout {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 100px;
+  }
+
+  .usecases-copy > p:last-of-type {
+    max-width: 500px;
+    margin-top: 25px;
+    color: #6c6c67;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .mini-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 360px;
+    margin-top: 55px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+
+  .mini-stat strong {
+    font-size: 14px;
+  }
+
+  .mini-stat span {
+    color: #888;
+    font-size: 12px;
+  }
+
+  .usecase-list {
+    border-top: 1px solid var(--line);
+  }
+
+  .usecase-item {
+    display: grid;
+    grid-template-columns: 42px 1fr 20px;
+    align-items: center;
+    gap: 15px;
+    min-height: 66px;
+    border-bottom: 1px solid var(--line);
+    transition: padding 0.25s ease;
+  }
+
+  .usecase-item:hover {
+    padding-left: 10px;
+  }
+
+  .usecase-item > span {
+    color: #aaa;
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .usecase-item strong {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .usecase-item svg {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: #aaa;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* PROCESS */
+
+  .process-section {
+    padding: 120px 0;
+  }
+
+  .process-header {
+    max-width: 780px;
+  }
+
+  .process-header > p:last-child {
+    max-width: 650px;
+    margin-top: 25px;
+    color: #6d6d68;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 65px;
+  }
+
+  .process-card {
+    min-height: 280px;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: #f7f7f5;
+  }
+
+  .process-top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .process-top > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #111;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .process-connector {
+    width: 50px;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .process-card h3 {
+    margin: 60px 0 0;
+    font-size: 21px;
+    letter-spacing: -0.025em;
+  }
+
+  .process-card p {
+    margin: 12px 0 0;
+    color: #6d6d68;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  /* PRICING */
+
+  .pricing-section {
+    padding: 120px 0;
+  }
+
+  .pricing-layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: center;
+    gap: 100px;
+  }
+
+  .pricing-copy h2 {
+    max-width: 650px;
+    margin: 18px 0 0;
+    color: white;
+    font-size: clamp(42px, 5vw, 70px);
+    line-height: 1;
+    letter-spacing: -0.06em;
+    font-weight: 500;
+  }
+
+  .pricing-copy h2 strong {
+    display: block;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .pricing-copy > p {
+    max-width: 530px;
+    margin-top: 28px;
+    color: #858581;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .pricing-note {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    max-width: 430px;
+    margin-top: 45px;
+    padding-top: 20px;
+    border-top: 1px solid #303030;
+  }
+
+  .pricing-note-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 37px;
+    height: 37px;
+    flex: 0 0 37px;
+    border-radius: 10px;
+    background: #222;
+    color: var(--accent);
+  }
+
+  .pricing-note-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .pricing-note strong,
+  .pricing-note span {
+    display: block;
+  }
+
+  .pricing-note strong {
+    color: white;
+    font-size: 12px;
+  }
+
+  .pricing-note span {
+    margin-top: 4px;
+    color: #666;
+    font-size: 10px;
+  }
+
+  .pricing-panel {
+    padding: 10px;
+    border: 1px solid #303030;
+    border-radius: 24px;
+    background: #181818;
+  }
+
+  .pricing-option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-height: 105px;
+    padding: 18px 20px;
+    border-bottom: 1px solid #2c2c2c;
+  }
+
+  .pricing-option:last-of-type {
+    border-bottom: 0;
+  }
+
+  .pricing-option.featured-price {
+    border-radius: 16px;
+    background: #222;
+  }
+
+  .pricing-label {
+    display: block;
+    color: #aaa;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .pricing-option strong {
+    display: block;
+    margin-top: 6px;
+    color: white;
+    font-size: 22px;
+    letter-spacing: -0.03em;
+  }
+
+  .pricing-option p {
+    margin: 5px 0 0;
+    color: #666;
+    font-size: 10px;
+  }
+
+  .pricing-badge {
+    padding: 6px 9px;
+    border-radius: 99px;
+    background: var(--accent);
+    color: #111;
+    font-size: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .pricing-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+    min-height: 52px;
+    margin-top: 10px;
+    border-radius: 14px;
+    background: white;
+    color: #111;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.25s ease;
+  }
+
+  .pricing-button:hover {
+    transform: translateY(-2px);
+  }
+
+  /* FAQ */
+
+  .faq-section {
+    padding: 120px 0;
+  }
+
+  .faq-container {
+    max-width: 1000px;
+  }
+
+  .faq-heading {
+    text-align: center;
+  }
+
+  .faq-heading > p:last-child {
+    margin-top: 20px;
+    color: #777;
+    font-size: 14px;
+  }
+
+  .faq-list {
+    margin-top: 60px;
+    border-top: 1px solid var(--line);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .faq-item summary {
+    display: grid;
+    grid-template-columns: 42px 1fr 34px;
+    align-items: center;
+    gap: 12px;
+    min-height: 85px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-number {
+    color: #aaa;
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .faq-question {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .faq-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #d7d7d1;
+    border-radius: 50%;
+  }
+
+  .faq-toggle span {
+    position: absolute;
+    width: 11px;
+    height: 1px;
+    background: #777;
+    transition: transform 0.25s ease;
+  }
+
+  .faq-toggle span:last-child {
+    transform: rotate(90deg);
+  }
+
+  .faq-item[open] .faq-toggle span:last-child {
+    transform: rotate(0);
+  }
+
+  .faq-answer {
+    padding: 0 46px 28px 54px;
+  }
+
+  .faq-answer p {
+    max-width: 760px;
+    margin: 0;
+    color: #6d6d68;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  /* RELATED */
+
+  .related-section {
+    padding: 90px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .related-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .related-header h2 {
+    margin: 12px 0 0;
+    font-size: 34px;
+    letter-spacing: -0.045em;
+    font-weight: 500;
+  }
+
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #111;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .text-link svg {
+    width: 15px;
+    height: 15px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.2s ease;
+  }
+
+  .text-link:hover svg {
+    transform: translateX(3px);
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 42px;
+  }
+
+  .related-card {
+    position: relative;
+    min-height: 210px;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: #f7f7f5;
+    color: #111;
+    text-decoration: none;
+    transition:
+      transform 0.25s ease,
+      background 0.25s ease;
+  }
+
+  .related-card:hover {
+    transform: translateY(-5px);
+    background: white;
+  }
+
+  .related-card > span {
+    color: #aaa;
+    font-size: 9px;
+    font-weight: 700;
+  }
+
+  .related-card h3 {
+    margin: 45px 0 0;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .related-card p {
+    margin: 8px 0 0;
+    color: #777;
+    font-size: 11px;
+    line-height: 1.65;
+  }
+
+  .related-card svg {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: #aaa;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* FINAL CTA */
+
+  .final-cta-section {
+    padding: 30px 0 100px;
+    background: #f7f7f5;
+  }
+
+  .final-cta {
+    position: relative;
+    min-height: 490px;
+    overflow: hidden;
+    padding: 75px;
+    border-radius: 28px;
+    background: #111;
+    color: white;
+  }
+
+  .cta-grid {
+    opacity: 0.2;
+  }
+
+  .cta-glow {
+    position: absolute;
+    right: -100px;
+    top: -100px;
+    width: 430px;
+    height: 430px;
+    border-radius: 50%;
+    background: rgba(201,255,74,0.1);
+    filter: blur(80px);
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+  }
+
+  .cta-content h2 {
+    max-width: 760px;
+    margin: 18px 0 0;
+    font-size: clamp(43px, 5vw, 70px);
+    line-height: 0.99;
+    letter-spacing: -0.06em;
+    font-weight: 500;
+  }
+
+  .cta-content h2 span {
+    display: block;
+    color: #666;
+  }
+
+  .cta-content > p {
+    max-width: 620px;
+    margin: 25px 0 0;
+    color: #888;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 35px;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 50px;
+    padding: 0 20px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.25s ease;
+  }
+
+  .cta-primary {
+    background: var(--accent);
+    color: #111;
+  }
+
+  .cta-secondary {
+    border: 1px solid #383838;
+    color: white;
+  }
+
+  .cta-primary:hover,
+  .cta-secondary:hover {
+    transform: translateY(-2px);
+  }
+
+  .cta-location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 45px;
+    color: #555;
+    font-size: 10px;
+  }
+
+  .cta-location span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .cta-side {
+    position: absolute;
+    right: 70px;
+    bottom: 60px;
+    z-index: 2;
+    width: 180px;
+    height: 180px;
+    border: 1px solid #2e2e2e;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 35px;
+    transform: rotate(-8deg);
+  }
+
+  .cta-side-number {
+    color: #555;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+  }
+
+  .cta-side p {
+    margin: 10px 0 0;
+    color: #888;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .cta-side strong {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* RESPONSIVE */
+
+  @media (max-width: 1100px) {
+    .hero-layout {
+      grid-template-columns: 1fr;
+      gap: 60px;
+      padding-top: 50px;
+    }
+
+    .hero-copy {
+      max-width: 800px;
+    }
+
+    .hero-visual {
+      max-width: 720px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .included-layout,
+    .pricing-layout,
+    .usecases-layout {
+      gap: 60px;
+    }
+
+    .related-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cta-side {
+      right: 40px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .container {
+      width: min(100% - 28px, 680px);
+    }
+
+    .hero {
+      min-height: auto;
+    }
+
+    .hero-container {
+      padding-top: 22px;
+      padding-bottom: 65px;
+    }
+
+    .hero-layout {
+      min-height: auto;
+      padding-top: 55px;
+    }
+
+    .hero h1 {
+      font-size: clamp(47px, 12vw, 70px);
+    }
+
+    .hero-description {
+      font-size: 16px;
+    }
+
+    .hero-stats {
+      margin-top: 45px;
+    }
+
+    .hero-visual {
+      min-height: 480px;
+    }
+
+    .browser-window {
+      transform: none;
+    }
+
+    .floating-card-one {
+      left: -5px;
+      bottom: 35px;
+    }
+
+    .floating-card-two {
+      right: -5px;
+      top: 35px;
+    }
+
+    .intro-section,
+    .benefits-section,
+    .pages-section,
+    .capabilities-section,
+    .usecases-section,
+    .process-section,
+    .faq-section {
+      padding: 80px 0;
+    }
+
+    .intro-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .intro-text-grid,
+    .split-heading,
+    .pages-header,
+    .included-layout,
+    .pricing-layout,
+    .usecases-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .intro-text-grid {
+      gap: 25px;
+    }
+
+    .split-heading,
+    .pages-header {
+      gap: 25px;
+    }
+
+    .benefit-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .included-layout,
+    .pricing-layout,
+    .usecases-layout {
+      gap: 55px;
+    }
+
+    .feature-list {
+      grid-template-columns: 1fr;
+    }
+
+    .feature-item:nth-child(odd) {
+      padding-right: 0;
+      border-right: 0;
+    }
+
+    .feature-item:nth-child(even) {
+      padding-left: 0;
+    }
+
+    .page-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .capability-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .capability-card {
+      min-height: 350px;
+    }
+
+    .process-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pricing-layout {
+      align-items: stretch;
+    }
+
+    .related-header {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .final-cta {
+      padding: 55px 30px;
+    }
+
+    .cta-side {
+      display: none;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .container {
+      width: min(100% - 24px, 680px);
+    }
+
+    .breadcrumb {
+      font-size: 10px;
+    }
+
+    .hero-layout {
+      padding-top: 45px;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+    }
+
+    .button {
+      width: 100%;
+    }
+
+    .hero-stats {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .hero-stats div,
+    .hero-stats div + div {
+      padding: 0;
+      border: 0;
+    }
+
+    .hero-visual {
+      min-height: 390px;
+    }
+
+    .visual-label-top {
+      right: 0;
+    }
+
+    .browser-window {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .browser-url,
+    .preview-links,
+    .preview-nav-button {
+      display: none;
+    }
+
+    .browser-controls {
+      width: auto;
+    }
+
+    .preview-nav {
+      padding: 0 13px;
+    }
+
+    .preview-hero {
+      grid-template-columns: 1fr;
+      min-height: 310px;
+      padding: 30px 20px 20px;
+    }
+
+    .preview-visual-card {
+      display: none;
+    }
+
+    .preview-heading {
+      font-size: 29px;
+    }
+
+    .preview-bottom div {
+      padding: 10px;
+    }
+
+    .preview-bottom small {
+      font-size: 7px;
+    }
+
+    .floating-card {
+      transform: scale(0.88);
+    }
+
+    .floating-card-one {
+      left: -15px;
+      bottom: 15px;
+    }
+
+    .floating-card-two {
+      right: -15px;
+      top: 25px;
+    }
+
+    .intro-section,
+    .benefits-section,
+    .pages-section,
+    .capabilities-section,
+    .usecases-section,
+    .process-section,
+    .faq-section {
+      padding: 70px 0;
+    }
+
+    .intro-content h2,
+    .split-heading h2,
+    .pages-header h2,
+    .capabilities-heading h2,
+    .usecases-copy h2,
+    .process-header h2,
+    .faq-heading h2 {
+      font-size: 38px;
+    }
+
+    .benefit-grid,
+    .page-grid,
+    .process-grid,
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .benefit-card {
+      min-height: 270px;
+    }
+
+    .page-card {
+      min-height: 220px;
+    }
+
+    .page-card h3 {
+      margin-top: 45px;
+    }
+
+    .included-section,
+    .pricing-section {
+      padding: 75px 0;
+    }
+
+    .included-intro h2,
+    .pricing-copy h2 {
+      font-size: 43px;
+    }
+
+    .feature-item {
+      grid-template-columns: 25px 22px 1fr;
+    }
+
+    .capability-card {
+      min-height: 370px;
+    }
+
+    .usecase-item {
+      grid-template-columns: 30px 1fr 18px;
+    }
+
+    .process-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .process-card {
+      min-height: 240px;
+    }
+
+    .faq-item summary {
+      grid-template-columns: 28px 1fr 32px;
+      gap: 8px;
+      min-height: 75px;
+    }
+
+    .faq-question {
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .faq-answer {
+      padding: 0 15px 25px 36px;
+    }
+
+    .related-section {
+      padding: 70px 0;
+    }
+
+    .related-header h2 {
+      font-size: 29px;
+    }
+
+    .final-cta-section {
+      padding: 15px 0 60px;
+    }
+
+    .final-cta {
+      min-height: auto;
+      padding: 45px 24px;
+      border-radius: 20px;
+    }
+
+    .cta-content h2 {
+      font-size: 43px;
+    }
+
+    .cta-actions {
+      flex-direction: column;
+    }
+
+    .cta-primary,
+    .cta-secondary {
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .business-page *,
+    .business-page *::before,
+    .business-page *::after {
+      scroll-behavior: auto !important;
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+</style>

@@ -1,127 +1,1341 @@
 ---
 import BaseLayout from "../components/layout/BaseLayout.astro";
+
+const projects = [
+  {
+    title: "Bynix Technology Official Website",
+    category: "Business Website",
+    label: "PROJECT WORK FOR BYNIX TECHNOLOGY",
+    description:
+      "A modern production business website focused on presenting technology services, company information and digital capabilities through a responsive, performance-conscious interface.",
+    image: "/clientDemo.png",
+    href: "https://bynixtechnology.com/",
+    technologies: ["Next.js", "Tailwind CSS", "GSAP"],
+    capabilities: [
+      "Modern business-focused UI",
+      "Responsive production website",
+      "Scroll-based interactions",
+      "Structured service presentation",
+    ],
+  },
+  {
+    title: "ADEN Logistics Website & Management Panel",
+    category: "Web Application",
+    label: "PROJECT WORK FOR BYNIX TECHNOLOGY",
+    description:
+      "A logistics-focused web platform combining a responsive public-facing website with database-driven team management and an administrative workflow.",
+    image: "/clientDemo.png",
+    href: "https://aden.bynixtechnology.com/",
+    technologies: ["React.js", "Node.js", "MongoDB"],
+    capabilities: [
+      "Dynamic team management",
+      "Admin panel workflow",
+      "Database-driven content",
+      "Responsive interface",
+    ],
+  },
+  {
+    title: "Multi-Store Inventory Management System",
+    category: "Management System",
+    label: "PROJECT WORK FOR BYNIX TECHNOLOGY",
+    description:
+      "A multi-store inventory system designed around separate store workflows, personnel access and centralized administrative control.",
+    image: "/clientDemo.png",
+    href: "#project-inventory",
+    technologies: ["Next.js", "Node.js", "MongoDB"],
+    capabilities: [
+      "Multi-store architecture",
+      "Role-based access",
+      "Centralized administration",
+      "Store-level inventory workflows",
+    ],
+  },
+  {
+    title: "Bhagwati Infrastructures",
+    category: "Business Website",
+    label: "SELECTED YNS PROJECT",
+    description:
+      "A business website created for Bhagwati Infrastructures with a professional digital presence focused on clear service communication, responsive presentation and business credibility.",
+    image: "/clientDemo.png",
+    href: "https://bhagwatiinfrastructures.netlify.app/",
+    technologies: ["HTML", "CSS", "JavaScript", "Responsive UI"],
+    capabilities: [
+      "Business-focused presentation",
+      "Responsive website",
+      "Clear service communication",
+      "Conversion-oriented structure",
+    ],
+  },
+  {
+    title: "Herbal Roots",
+    category: "E-Commerce",
+    label: "SELECTED BUILD",
+    description:
+      "An e-commerce experience concept focused on product discovery, structured product presentation and a modern shopping interface.",
+    image: "/clientDemo.png",
+    href: "#herbal-roots",
+    technologies: ["Next.js", "React", "Tailwind CSS", "Zustand"],
+    capabilities: [
+      "Product browsing",
+      "Responsive storefront UI",
+      "Shopping experience",
+      "Modern component architecture",
+    ],
+  },
+  {
+    title: "Website Doctor AI",
+    category: "Web Tool",
+    label: "SELECTED BUILD",
+    description:
+      "A website analysis concept designed to evaluate important areas such as SEO, performance, usability and overall website experience.",
+    image: "/clientDemo.png",
+    href: "#website-doctor-ai",
+    technologies: ["React", "JavaScript", "Web APIs"],
+    capabilities: [
+      "Website analysis workflow",
+      "SEO-oriented checks",
+      "Performance considerations",
+      "User-friendly reporting",
+    ],
+  },
+  {
+    title: "NotesApp",
+    category: "Web Application",
+    label: "SELECTED BUILD",
+    description:
+      "A practical notes application focused on creating, organizing and managing digital notes through a clean application interface.",
+    image: "/clientDemo.png",
+    href: "#notesapp",
+    technologies: ["React", "JavaScript", "React Native"],
+    capabilities: [
+      "Application UI",
+      "Content management",
+      "Responsive experience",
+      "Reusable components",
+    ],
+  },
+  {
+    title: "VN Templates Website",
+    category: "Content Platform",
+    label: "SELECTED BUILD",
+    description:
+      "A template-focused website created to organize and present VN editing templates through a simple, discoverable digital experience.",
+    image: "/clientDemo.png",
+    href: "https://switchtooeasy.netlify.app/",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    capabilities: [
+      "Template discovery",
+      "Content organization",
+      "Mobile-friendly interface",
+      "Simple conversion flow",
+    ],
+  },
+];
 ---
 
 <BaseLayout
-  title="Our Work & Case Studies | YNS Web Studio Jaipur"
-  description="Explore high-converting websites built for local businesses, gyms, and clinics in Jaipur. See how we structure web projects for real enquiry growth."
+  _title="Our Work & Case Studies | YNS Web Studio Jaipur"
+  _description="Explore selected websites, web applications, management systems and digital products built with modern web technologies by YNS Web Studio."
 >
+  <main class="work-page overflow-hidden bg-white text-slate-950">
 
-  <!-- Header Section -->
-  <section class="relative bg-gradient-to-b from-slate-50 via-white to-slate-50 py-24 md:py-32 overflow-hidden border-b border-slate-100 text-center">
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- HERO -->
+    <section class="relative isolate overflow-hidden border-b border-slate-200 bg-[#101010] text-white">
+      <div
+        class="absolute inset-0 -z-10 opacity-70"
+        style="background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); background-size: 72px 72px;"
+      ></div>
 
-    <div class="max-w-4xl mx-auto px-6 relative z-10">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 mb-6 shadow-sm">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        Proven Execution • Real Business Impact
-      </div>
+      <div
+        class="absolute right-[-12%] top-[-20%] -z-10 h-[520px] w-[520px] rounded-full bg-[#c9ff4a]/10 blur-3xl"
+      ></div>
 
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">
-        Our Work & <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Client Case Studies</span>
-      </h1>
+      <div class="mx-auto max-w-7xl px-6 pb-20 pt-8 lg:px-8 lg:pb-28 lg:pt-10">
 
-      <p class="mt-6 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed">
-        Explore structured, lightning-fast websites built for local service businesses designed to eliminate friction, build elite trust, and drive consistent WhatsApp enquiries.
-      </p>
-    </div>
-  </section>
+        <!-- BREADCRUMB -->
+        <nav
+          class="mb-14 flex flex-wrap items-center gap-2 text-xs font-semibold"
+          aria-label="Breadcrumb"
+        >
+          <a href="/" class="text-slate-500 transition hover:text-white">
+            Home
+          </a>
 
-  <!-- Featured Case Study Section -->
-  <section class="py-24 bg-gradient-to-b from-white via-slate-50/50 to-white border-b border-slate-100">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <span class="text-slate-700">/</span>
 
-      <!-- Screenshot Preview (6 Cols) -->
-      <div class="lg:col-span-6">
-        <div class="rounded-2xl bg-gradient-to-b from-slate-200 to-slate-100 p-2 shadow-xl border border-slate-200">
-          <div class="bg-white rounded-xl p-4 shadow-inner flex items-center justify-center overflow-hidden">
-            <img src="/clientDemo.png" alt="Local Service Business Website Demo" class="rounded-lg w-full h-auto object-cover max-h-[380px]" />
+          <span class="text-slate-400" aria-current="page">
+            Our Work
+          </span>
+        </nav>
+
+        <div class="grid gap-14 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
+
+          <div>
+            <div
+              class="mb-7 inline-flex items-center gap-3 border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-300"
+            >
+              <span class="h-1.5 w-1.5 rounded-full bg-[#c9ff4a]"></span>
+              Selected Work · Real Builds
+            </div>
+
+            <h1
+              class="max-w-5xl text-5xl font-semibold leading-[.98] tracking-[-0.045em] sm:text-6xl lg:text-8xl"
+            >
+              Work that shows
+              <span class="text-slate-500">what we can build.</span>
+            </h1>
+
+            <p
+              class="mt-8 max-w-2xl text-lg leading-8 text-slate-400 sm:text-xl"
+            >
+              Explore selected websites, web applications, management systems
+              and digital products built around real requirements — not
+              one-size-fits-all templates.
+            </p>
+
+            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#projects"
+                class="inline-flex items-center justify-center gap-3 rounded-full bg-[#c9ff4a] px-6 py-3.5 text-sm font-bold text-black transition hover:bg-white"
+              >
+                Explore Projects
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  class="h-4 w-4"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m13 6 6 6-6 6"></path>
+                </svg>
+              </a>
+
+              <a
+                href="https://wa.me/919352563337"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10"
+              >
+                Discuss Your Project
+              </a>
+            </div>
+          </div>
+
+          <!-- HERO VISUAL -->
+          <div class="relative hidden lg:block">
+            <div
+              class="relative ml-auto max-w-[540px] overflow-hidden border border-white/10 bg-white/[0.035] p-5"
+            >
+              <div class="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
+                <div class="flex items-center gap-2">
+                  <span class="h-2.5 w-2.5 rounded-full bg-[#c9ff4a]"></span>
+                  <span class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                    YNS / WORK
+                  </span>
+                </div>
+
+                <span class="text-xs text-slate-600">
+                  2024—2026
+                </span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div class="border border-white/10 bg-black/20 p-5">
+                  <p class="text-3xl font-semibold">08+</p>
+                  <p class="mt-2 text-xs uppercase tracking-[0.16em] text-slate-500">
+                    Selected Builds
+                  </p>
+                </div>
+
+                <div class="border border-white/10 bg-black/20 p-5">
+                  <p class="text-3xl font-semibold">03</p>
+                  <p class="mt-2 text-xs uppercase tracking-[0.16em] text-slate-500">
+                    Production Systems
+                  </p>
+                </div>
+
+                <div class="col-span-2 border border-white/10 bg-[#c9ff4a] p-5 text-black">
+                  <p class="text-xs font-bold uppercase tracking-[0.18em]">
+                    Capability
+                  </p>
+
+                  <p class="mt-3 max-w-md text-2xl font-semibold leading-tight">
+                    From business websites to database-backed web systems.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- HERO STATS -->
+        <div
+          class="mt-16 grid max-w-5xl grid-cols-2 border-t border-white/10 sm:grid-cols-4"
+        >
+          <div class="border-r border-white/10 py-7 pr-5">
+            <p class="text-2xl font-semibold">Websites</p>
+            <p class="mt-1 text-sm text-slate-500">Business & commercial</p>
+          </div>
+
+          <div class="border-r border-white/10 px-5 py-7">
+            <p class="text-2xl font-semibold">Web Apps</p>
+            <p class="mt-1 text-sm text-slate-500">Interactive products</p>
+          </div>
+
+          <div class="border-r border-white/10 px-5 py-7">
+            <p class="text-2xl font-semibold">Systems</p>
+            <p class="mt-1 text-sm text-slate-500">Admin & data workflows</p>
+          </div>
+
+          <div class="py-7 pl-5">
+            <p class="text-2xl font-semibold">Production</p>
+            <p class="mt-1 text-sm text-slate-500">Real-world builds</p>
           </div>
         </div>
-      </div>
 
-      <!-- Details (6 Cols) -->
-      <div class="lg:col-span-6 space-y-6 text-left">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 text-xs font-bold uppercase tracking-wider">
-          Featured Local Client Build
+      </div>
+    </section>
+
+
+    <!-- INTRO / TRUST -->
+    <section class="bg-[#f5f5f2]">
+      <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-24">
+
+        <div class="grid gap-12 lg:grid-cols-[.75fr_1.25fr]">
+
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+              Selected Work
+            </p>
+
+            <h2 class="mt-4 max-w-md text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+              Real requirements.
+              <br />
+              Real development.
+            </h2>
+          </div>
+
+          <div class="max-w-3xl text-lg leading-8 text-slate-600">
+            <p>
+              A strong portfolio should show more than attractive interfaces.
+              It should demonstrate how a developer approaches different
+              business requirements, technical workflows and user needs.
+            </p>
+
+            <p class="mt-5">
+              Our selected work includes business websites, database-driven
+              applications, administrative panels, multi-store workflows,
+              e-commerce interfaces and digital tools.
+            </p>
+
+            <p class="mt-5">
+              The projects below represent the type of work and technical
+              capabilities YNS Web Studio can bring to a new project.
+            </p>
+          </div>
+
         </div>
 
-        <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">
-          Local Service Business Web Platform
-        </h2>
+        <!-- PROOF STRIP -->
+        <div class="mt-16 grid gap-px overflow-hidden border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-4">
 
-        <p class="text-slate-600 text-base leading-relaxed">
-          This project focused intensely on removing user confusion, sharpening value propositions, and engineering a direct conversion path using instant WhatsApp integrations and clean pricing tiers.
-        </p>
+          <div class="bg-white p-6">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+              01
+            </p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-          <div class="flex items-center gap-2 text-sm font-medium text-slate-700">
-            <span class="text-emerald-600 font-bold">✓</span> Crystal-clear hero value proposition
-          </div>
-          <div class="flex items-center gap-2 text-sm font-medium text-slate-700">
-            <span class="text-emerald-600 font-bold">✓</span> Strategic WhatsApp CTA placement
-          </div>
-          <div class="flex items-center gap-2 text-sm font-medium text-slate-700">
-            <span class="text-emerald-600 font-bold">✓</span> Mobile-first responsive UI architecture
-          </div>
-          <div class="flex items-center gap-2 text-sm font-medium text-slate-700">
-            <span class="text-emerald-600 font-bold">✓</span> 99+ Speed performance score
-          </div>
-        </div>
+            <h3 class="mt-4 font-semibold">
+              Business Websites
+            </h3>
 
-        <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 text-sm text-slate-700 font-medium">
-          💡 <span class="font-bold text-slate-900">The Result:</span> A high-performance web asset engineered to convert casual smartphone traffic into active local customer enquiries.
+            <p class="mt-2 text-sm leading-6 text-slate-500">
+              Professional digital presence and conversion-focused structures.
+            </p>
+          </div>
+
+          <div class="bg-white p-6">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+              02
+            </p>
+
+            <h3 class="mt-4 font-semibold">
+              Admin Workflows
+            </h3>
+
+            <p class="mt-2 text-sm leading-6 text-slate-500">
+              Panels and interfaces that make operational updates easier.
+            </p>
+          </div>
+
+          <div class="bg-white p-6">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+              03
+            </p>
+
+            <h3 class="mt-4 font-semibold">
+              Database Systems
+            </h3>
+
+            <p class="mt-2 text-sm leading-6 text-slate-500">
+              Applications built around structured and dynamic data.
+            </p>
+          </div>
+
+          <div class="bg-white p-6">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+              04
+            </p>
+
+            <h3 class="mt-4 font-semibold">
+              Production Work
+            </h3>
+
+            <p class="mt-2 text-sm leading-6 text-slate-500">
+              Development focused on practical requirements beyond demos.
+            </p>
+          </div>
+
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
 
-  <!-- Process Section -->
-  <section class="py-24 bg-white text-center">
-    <div class="max-w-6xl mx-auto px-6">
-      
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-xs font-semibold text-indigo-600 mb-4 shadow-sm">
-        <span class="w-1.5 h-1.5 rounded-full bg-indigo-600 animate-pulse"></span>
-        Execution Blueprint
-      </div>
+    <!-- PROJECTS -->
+    <section id="projects" class="bg-white">
+      <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
 
-      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-        How We Approach Every Project
-      </h2>
-      <p class="mt-3 text-slate-600 text-base max-w-xl mx-auto">
-        A transparent 3-step execution plan designed for zero stress and maximum ROI.
-      </p>
+        <div class="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+              Portfolio
+            </p>
 
-      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+            <h2 class="mt-4 max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl">
+              Selected projects across websites, applications & systems.
+            </h2>
+          </div>
 
-        <div class="bg-slate-50/80 p-8 rounded-2xl border border-slate-200/60 shadow-sm">
-          <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-base mb-6">01</div>
-          <h3 class="text-xl font-bold text-slate-900">Understand Your Business</h3>
-          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-            We analyze your target audience, study your local competitors in Jaipur, and map out the exact primary action you want users to take.
+          <p class="max-w-sm text-sm leading-6 text-slate-500">
+            Each project highlights a different combination of design,
+            development, architecture and business requirements.
           </p>
         </div>
 
-        <div class="bg-slate-50/80 p-8 rounded-2xl border border-slate-200/60 shadow-sm">
-          <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-base mb-6">02</div>
-          <h3 class="text-xl font-bold text-slate-900">Structure for Conversion</h3>
-          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-            Design clear reading sections, persuasive value copy, and prominent WhatsApp chat options to ensure zero visitor friction.
-          </p>
-        </div>
 
-        <div class="bg-slate-50/80 p-8 rounded-2xl border border-slate-200/60 shadow-sm">
-          <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-base mb-6">03</div>
-          <h3 class="text-xl font-bold text-slate-900">Optimize & Launch</h3>
-          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-            Deploy using lightning-fast mobile-first code architectures, ensuring robust speed optimization and search engine indexing readiness.
-          </p>
+        <!-- FEATURED PROJECT 1 -->
+        <article class="overflow-hidden border border-slate-200 bg-[#f5f5f2]">
+
+          <div class="grid lg:grid-cols-[1.05fr_.95fr]">
+
+            <div class="relative min-h-[420px] border-b border-slate-200 p-5 sm:p-8 lg:border-b-0 lg:border-r">
+              <div class="relative h-full min-h-[360px] overflow-hidden border border-slate-200 bg-white shadow-sm">
+
+                <div class="flex h-10 items-center gap-1.5 border-b border-slate-200 bg-slate-50 px-4">
+                  <span class="h-2.5 w-2.5 rounded-full bg-slate-300"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-slate-300"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-slate-300"></span>
+
+                  <div class="ml-3 h-5 flex-1 border border-slate-200 bg-white"></div>
+                </div>
+
+                <div class="p-4">
+                  <img
+                    src="/clientDemo.png"
+                    alt="Bynix Technology official website project"
+                    class="h-[330px] w-full object-cover object-top"
+                  />
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="flex flex-col justify-center p-8 sm:p-10 lg:p-14">
+
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                  Business Website
+                </span>
+
+                <span class="h-1 w-1 rounded-full bg-[#c9ff4a]"></span>
+
+                <span class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-400">
+                  Project Work for Bynix Technology
+                </span>
+              </div>
+
+              <h3 class="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
+                Bynix Technology Official Website
+              </h3>
+
+              <p class="mt-5 text-base leading-8 text-slate-600">
+                A modern production business website focused on presenting
+                technology services, company information and digital
+                capabilities through a responsive interface.
+              </p>
+
+              <div class="mt-8 grid gap-3 sm:grid-cols-2">
+                <div class="border-t border-slate-200 pt-4">
+                  <p class="text-xs font-bold uppercase tracking-[0.14em] text-slate-400">
+                    Focus
+                  </p>
+                  <p class="mt-2 text-sm font-semibold">
+                    Business Presentation
+                  </p>
+                </div>
+
+                <div class="border-t border-slate-200 pt-4">
+                  <p class="text-xs font-bold uppercase tracking-[0.14em] text-slate-400">
+                    Architecture
+                  </p>
+                  <p class="mt-2 text-sm font-semibold">
+                    Next.js
+                  </p>
+                </div>
+
+                <div class="border-t border-slate-200 pt-4">
+                  <p class="text-xs font-bold uppercase tracking-[0.14em] text-slate-400">
+                    UI
+                  </p>
+                  <p class="mt-2 text-sm font-semibold">
+                    Tailwind CSS
+                  </p>
+                </div>
+
+                <div class="border-t border-slate-200 pt-4">
+                  <p class="text-xs font-bold uppercase tracking-[0.14em] text-slate-400">
+                    Interaction
+                  </p>
+                  <p class="mt-2 text-sm font-semibold">
+                    GSAP
+                  </p>
+                </div>
+              </div>
+
+              <a
+                href="https://bynixtechnology.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-9 inline-flex w-fit items-center gap-3 border-b border-slate-950 pb-2 text-sm font-bold transition hover:border-[#c9ff4a]"
+              >
+                Visit Live Website
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  class="h-4 w-4"
+                >
+                  <path d="M7 17 17 7"></path>
+                  <path d="M7 7h10v10"></path>
+                </svg>
+              </a>
+
+            </div>
+
+          </div>
+        </article>
+
+
+        <!-- PROJECT GRID -->
+        <div class="mt-6 grid gap-6 lg:grid-cols-2">
+
+          <!-- ADEN -->
+          <article class="group overflow-hidden border border-slate-200 bg-white transition hover:border-slate-400">
+
+            <div class="border-b border-slate-200 bg-[#f5f5f2] p-5 sm:p-7">
+              <div class="overflow-hidden border border-slate-200 bg-white">
+                <div class="flex h-9 items-center gap-1.5 border-b border-slate-200 bg-slate-50 px-4">
+                  <span class="h-2 w-2 rounded-full bg-slate-300"></span>
+                  <span class="h-2 w-2 rounded-full bg-slate-300"></span>
+                  <span class="h-2 w-2 rounded-full bg-slate-300"></span>
+                </div>
+
+                <img
+                  src="/clientDemo.png"
+                  alt="ADEN Logistics website and management panel"
+                  class="h-64 w-full object-cover object-top"
+                />
+              </div>
+            </div>
+
+            <div class="p-7 sm:p-9">
+
+              <div class="flex flex-wrap gap-3 text-xs font-bold uppercase tracking-[0.14em]">
+                <span class="text-slate-500">
+                  Web Application
+                </span>
+
+                <span class="text-slate-300">/</span>
+
+                <span class="text-slate-400">
+                  Project Work for Bynix Technology
+                </span>
+              </div>
+
+              <h3 class="mt-4 text-2xl font-semibold tracking-tight">
+                ADEN Logistics Website & Management Panel
+              </h3>
+
+              <p class="mt-4 text-sm leading-7 text-slate-600">
+                A logistics-focused platform combining a responsive public
+                website with dynamic team management and an administrative
+                workflow.
+              </p>
+
+              <div class="mt-7 flex flex-wrap gap-2">
+                <span class="tech">React.js</span>
+                <span class="tech">Node.js</span>
+                <span class="tech">MongoDB</span>
+              </div>
+
+              <div class="mt-7 grid gap-3 sm:grid-cols-2">
+                <div class="border-t border-slate-200 pt-3 text-sm text-slate-600">
+                  Dynamic team management
+                </div>
+
+                <div class="border-t border-slate-200 pt-3 text-sm text-slate-600">
+                  Admin panel workflow
+                </div>
+
+                <div class="border-t border-slate-200 pt-3 text-sm text-slate-600">
+                  Database-driven content
+                </div>
+
+                <div class="border-t border-slate-200 pt-3 text-sm text-slate-600">
+                  Responsive interface
+                </div>
+              </div>
+
+              <a
+                href="https://aden.bynixtechnology.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-8 inline-flex items-center gap-2 text-sm font-bold"
+              >
+                View Project
+
+                <span class="transition group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+
+            </div>
+          </article>
+
+
+          <!-- INVENTORY -->
+          <article
+            id="project-inventory"
+            class="group overflow-hidden border border-slate-200 bg-white transition hover:border-slate-400"
+          >
+
+            <div class="border-b border-slate-200 bg-[#f5f5f2] p-5 sm:p-7">
+              <div class="flex min-h-64 flex-col justify-between border border-slate-200 bg-[#101010] p-6 text-white">
+
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
+                    SYSTEM
+                  </span>
+
+                  <span class="h-2 w-2 rounded-full bg-[#c9ff4a]"></span>
+                </div>
+
+                <div>
+                  <div class="grid grid-cols-3 gap-3">
+                    <div class="h-16 border border-white/10 bg-white/[0.03]"></div>
+                    <div class="h-16 border border-white/10 bg-white/[0.03]"></div>
+                    <div class="h-16 border border-white/10 bg-[#c9ff4a]"></div>
+                  </div>
+
+                  <div class="mt-3 h-3 w-2/3 bg-white/10"></div>
+                  <div class="mt-2 h-3 w-1/2 bg-white/5"></div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="p-7 sm:p-9">
+
+              <div class="flex flex-wrap gap-3 text-xs font-bold uppercase tracking-[0.14em]">
+                <span class="text-slate-500">
+                  Management System
+                </span>
+
+                <span class="text-slate-300">/</span>
+
+                <span class="text-slate-400">
+                  Project Work for Bynix Technology
+                </span>
+              </div>
+
+              <h3 class="mt-4 text-2xl font-semibold tracking-tight">
+                Multi-Store Inventory Management System
+              </h3>
+
+              <p class="mt-4 text-sm leading-7 text-slate-600">
+                A multi-store inventory system designed around separate store
+                workflows, personnel access and centralized administrative
+                control.
+              </p>
+
+              <div class="mt-7 flex flex-wrap gap-2">
+                <span class="tech">Next.js</span>
+                <span class="tech">Node.js</span>
+                <span class="tech">MongoDB</span>
+              </div>
+
+              <div class="mt-7 grid gap-3 sm:grid-cols-2">
+                <div class="border-t border-slate-200 pt-3 text-sm text-slate-600">
+                  Multi-store architecture
+                </div>
+
+                <div class="border-t border-slate-200 pt-3 text-sm text-slate-600">
+                  Role-based access
+                </div>
+
+                <div class="border-t border-slate-200 pt-3 text-sm text-slate-600">
+                  Centralized administration
+                </div>
+
+                <div class="border-t border-slate-200 pt-3 text-sm text-slate-600">
+                  Inventory workflows
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+
+          <!-- BHAGWATI -->
+          <article class="group overflow-hidden border border-slate-200 bg-white transition hover:border-slate-400">
+
+            <div class="border-b border-slate-200 bg-[#f5f5f2] p-5 sm:p-7">
+              <div class="overflow-hidden border border-slate-200 bg-white">
+                <div class="flex h-9 items-center gap-1.5 border-b border-slate-200 bg-slate-50 px-4">
+                  <span class="h-2 w-2 rounded-full bg-slate-300"></span>
+                  <span class="h-2 w-2 rounded-full bg-slate-300"></span>
+                  <span class="h-2 w-2 rounded-full bg-slate-300"></span>
+                </div>
+
+                <img
+                  src="/clientDemo.png"
+                  alt="Bhagwati Infrastructures website"
+                  class="h-64 w-full object-cover object-top"
+                />
+              </div>
+            </div>
+
+            <div class="p-7 sm:p-9">
+
+              <div class="flex flex-wrap gap-3 text-xs font-bold uppercase tracking-[0.14em]">
+                <span class="text-slate-500">
+                  Business Website
+                </span>
+
+                <span class="text-slate-300">/</span>
+
+                <span class="text-slate-400">
+                  Selected YNS Project
+                </span>
+              </div>
+
+              <h3 class="mt-4 text-2xl font-semibold tracking-tight">
+                Bhagwati Infrastructures
+              </h3>
+
+              <p class="mt-4 text-sm leading-7 text-slate-600">
+                A professional business website created to establish a clear
+                digital presence and communicate the company's services through
+                a responsive, structured interface.
+              </p>
+
+              <div class="mt-7 flex flex-wrap gap-2">
+                <span class="tech">HTML</span>
+                <span class="tech">CSS</span>
+                <span class="tech">JavaScript</span>
+                <span class="tech">Responsive UI</span>
+              </div>
+
+              <a
+                href="https://bhagwatiinfrastructures.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-8 inline-flex items-center gap-2 text-sm font-bold"
+              >
+                Visit Live Website
+
+                <span class="transition group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+
+            </div>
+          </article>
+
+
+          <!-- HERBAL ROOTS -->
+          <article
+            id="herbal-roots"
+            class="group overflow-hidden border border-slate-200 bg-white transition hover:border-slate-400"
+          >
+
+            <div class="border-b border-slate-200 bg-[#f5f5f2] p-5 sm:p-7">
+              <div class="flex min-h-64 flex-col justify-between border border-slate-200 bg-white p-6">
+
+                <div class="flex justify-between">
+                  <span class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+                    E-COMMERCE
+                  </span>
+
+                  <span class="text-xl">01</span>
+                </div>
+
+                <div>
+                  <div class="h-28 border border-slate-200 bg-slate-50"></div>
+
+                  <div class="mt-4 flex gap-3">
+                    <div class="h-3 w-1/3 bg-slate-200"></div>
+                    <div class="h-3 w-1/4 bg-slate-100"></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="p-7 sm:p-9">
+
+              <div class="text-xs font-bold uppercase tracking-[0.14em] text-slate-500">
+                Selected Build
+              </div>
+
+              <h3 class="mt-4 text-2xl font-semibold tracking-tight">
+                Herbal Roots
+              </h3>
+
+              <p class="mt-4 text-sm leading-7 text-slate-600">
+                An e-commerce experience concept focused on product discovery,
+                structured product presentation and a modern shopping
+                interface.
+              </p>
+
+              <div class="mt-7 flex flex-wrap gap-2">
+                <span class="tech">Next.js</span>
+                <span class="tech">React</span>
+                <span class="tech">Tailwind CSS</span>
+                <span class="tech">Zustand</span>
+              </div>
+
+            </div>
+          </article>
+
+
+          <!-- WEBSITE DOCTOR AI -->
+          <article
+            id="website-doctor-ai"
+            class="group overflow-hidden border border-slate-200 bg-white transition hover:border-slate-400"
+          >
+
+            <div class="border-b border-slate-200 bg-[#f5f5f2] p-5 sm:p-7">
+              <div class="flex min-h-64 flex-col border border-slate-200 bg-[#101010] p-6 text-white">
+
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                    WEBSITE DOCTOR AI
+                  </span>
+
+                  <span class="text-xs text-[#c9ff4a]">
+                    ANALYSIS
+                  </span>
+                </div>
+
+                <div class="mt-8 grid grid-cols-3 gap-3">
+                  <div class="flex h-24 items-center justify-center border border-white/10">
+                    <span class="text-2xl font-semibold">SEO</span>
+                  </div>
+
+                  <div class="flex h-24 items-center justify-center border border-white/10">
+                    <span class="text-2xl font-semibold">UX</span>
+                  </div>
+
+                  <div class="flex h-24 items-center justify-center border border-[#c9ff4a]/30">
+                    <span class="text-2xl font-semibold text-[#c9ff4a]">
+                      ⚡
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="p-7 sm:p-9">
+
+              <div class="text-xs font-bold uppercase tracking-[0.14em] text-slate-500">
+                Selected Build
+              </div>
+
+              <h3 class="mt-4 text-2xl font-semibold tracking-tight">
+                Website Doctor AI
+              </h3>
+
+              <p class="mt-4 text-sm leading-7 text-slate-600">
+                A website analysis tool concept focused on identifying
+                important areas across SEO, performance, usability and overall
+                website experience.
+              </p>
+
+              <div class="mt-7 flex flex-wrap gap-2">
+                <span class="tech">React</span>
+                <span class="tech">JavaScript</span>
+                <span class="tech">Web APIs</span>
+              </div>
+
+            </div>
+          </article>
+
+
+          <!-- NOTESAPP -->
+          <article
+            id="notesapp"
+            class="group overflow-hidden border border-slate-200 bg-white transition hover:border-slate-400"
+          >
+
+            <div class="border-b border-slate-200 bg-[#f5f5f2] p-5 sm:p-7">
+              <div class="flex min-h-64 flex-col justify-between border border-slate-200 bg-white p-6">
+
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+                    NOTES
+                  </span>
+
+                  <span class="text-xs text-slate-400">
+                    APP
+                  </span>
+                </div>
+
+                <div class="space-y-3">
+                  <div class="h-16 border border-slate-200 bg-slate-50"></div>
+                  <div class="h-16 border border-slate-200 bg-slate-50"></div>
+                  <div class="h-10 w-2/3 border border-slate-200 bg-slate-50"></div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="p-7 sm:p-9">
+
+              <div class="text-xs font-bold uppercase tracking-[0.14em] text-slate-500">
+                Selected Build
+              </div>
+
+              <h3 class="mt-4 text-2xl font-semibold tracking-tight">
+                NotesApp
+              </h3>
+
+              <p class="mt-4 text-sm leading-7 text-slate-600">
+                A practical notes application focused on creating, organizing
+                and managing digital notes through a clean application
+                interface.
+              </p>
+
+              <div class="mt-7 flex flex-wrap gap-2">
+                <span class="tech">React</span>
+                <span class="tech">JavaScript</span>
+                <span class="tech">React Native</span>
+              </div>
+
+            </div>
+          </article>
+
+
+          <!-- VN TEMPLATES -->
+          <article class="group overflow-hidden border border-slate-200 bg-white transition hover:border-slate-400">
+
+            <div class="border-b border-slate-200 bg-[#f5f5f2] p-5 sm:p-7">
+              <div class="flex min-h-64 flex-col justify-between border border-slate-200 bg-[#101010] p-6 text-white">
+
+                <div class="flex justify-between">
+                  <span class="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                    TEMPLATE PLATFORM
+                  </span>
+
+                  <span class="text-[#c9ff4a]">
+                    100+
+                  </span>
+                </div>
+
+                <div>
+                  <div class="grid grid-cols-4 gap-2">
+                    <div class="h-20 bg-white/10"></div>
+                    <div class="h-20 bg-white/5"></div>
+                    <div class="h-20 bg-[#c9ff4a]/80"></div>
+                    <div class="h-20 bg-white/10"></div>
+                  </div>
+
+                  <div class="mt-4 h-3 w-1/2 bg-white/10"></div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="p-7 sm:p-9">
+
+              <div class="text-xs font-bold uppercase tracking-[0.14em] text-slate-500">
+                Selected Build
+              </div>
+
+              <h3 class="mt-4 text-2xl font-semibold tracking-tight">
+                VN Templates Website
+              </h3>
+
+              <p class="mt-4 text-sm leading-7 text-slate-600">
+                A template-focused platform created to organize and present
+                editing templates through a simple and discoverable digital
+                experience.
+              </p>
+
+              <div class="mt-7 flex flex-wrap gap-2">
+                <span class="tech">HTML</span>
+                <span class="tech">CSS</span>
+                <span class="tech">JavaScript</span>
+              </div>
+
+              <a
+                href="https://switchtooeasy.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-8 inline-flex items-center gap-2 text-sm font-bold"
+              >
+                Visit Website
+
+                <span class="transition group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+
+            </div>
+          </article>
+
         </div>
 
       </div>
+    </section>
 
-    </div>
-  </section>
 
+    <!-- CAPABILITIES -->
+    <section class="bg-[#101010] text-white">
+      <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
+
+        <div class="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
+
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+              What The Work Demonstrates
+            </p>
+
+            <h2 class="mt-4 max-w-md text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+              More than just a good-looking website.
+            </h2>
+          </div>
+
+          <div>
+            <p class="max-w-3xl text-lg leading-8 text-slate-400">
+              Different projects require different levels of engineering.
+              Some need a strong business presence. Others need databases,
+              dashboards, authentication or operational workflows.
+            </p>
+
+            <div class="mt-12 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2">
+
+              <div class="bg-[#151515] p-7">
+                <span class="text-xs font-bold text-[#c9ff4a]">01</span>
+
+                <h3 class="mt-5 text-xl font-semibold">
+                  Business Websites
+                </h3>
+
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  Professional websites structured around credibility,
+                  communication and conversion.
+                </p>
+              </div>
+
+              <div class="bg-[#151515] p-7">
+                <span class="text-xs font-bold text-[#c9ff4a]">02</span>
+
+                <h3 class="mt-5 text-xl font-semibold">
+                  Web Applications
+                </h3>
+
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  Interactive applications designed around actual user
+                  workflows rather than static pages.
+                </p>
+              </div>
+
+              <div class="bg-[#151515] p-7">
+                <span class="text-xs font-bold text-[#c9ff4a]">03</span>
+
+                <h3 class="mt-5 text-xl font-semibold">
+                  Admin Systems
+                </h3>
+
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  Management interfaces that allow operational data and
+                  content to be controlled more efficiently.
+                </p>
+              </div>
+
+              <div class="bg-[#151515] p-7">
+                <span class="text-xs font-bold text-[#c9ff4a]">04</span>
+
+                <h3 class="mt-5 text-xl font-semibold">
+                  Database Workflows
+                </h3>
+
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  Applications where structured data, access and business
+                  workflows matter.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TRUST SECTION -->
+    <section class="bg-[#f5f5f2]">
+      <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
+
+        <div class="grid gap-14 lg:grid-cols-[.75fr_1.25fr]">
+
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+              Why This Matters
+            </p>
+
+            <h2 class="mt-4 max-w-md text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+              You are not hiring a template.
+            </h2>
+          </div>
+
+          <div class="max-w-3xl">
+
+            <p class="text-lg leading-8 text-slate-600">
+              A website can look impressive and still fail to solve the
+              business problem behind it. Our approach starts with the
+              requirement, then chooses the right structure and technology.
+            </p>
+
+            <div class="mt-10 space-y-0 border-t border-slate-300">
+
+              <div class="grid gap-5 border-b border-slate-300 py-7 sm:grid-cols-[80px_1fr]">
+                <span class="text-xs font-bold text-slate-400">
+                  01
+                </span>
+
+                <div>
+                  <h3 class="text-xl font-semibold">
+                    Requirement-first thinking
+                  </h3>
+
+                  <p class="mt-2 text-sm leading-6 text-slate-500">
+                    The project is structured around what the business and its
+                    users actually need.
+                  </p>
+                </div>
+              </div>
+
+              <div class="grid gap-5 border-b border-slate-300 py-7 sm:grid-cols-[80px_1fr]">
+                <span class="text-xs font-bold text-slate-400">
+                  02
+                </span>
+
+                <div>
+                  <h3 class="text-xl font-semibold">
+                    Modern development
+                  </h3>
+
+                  <p class="mt-2 text-sm leading-6 text-slate-500">
+                    React, Next.js, Node.js and database technologies are used
+                    where they make sense for the project.
+                  </p>
+                </div>
+              </div>
+
+              <div class="grid gap-5 border-b border-slate-300 py-7 sm:grid-cols-[80px_1fr]">
+                <span class="text-xs font-bold text-slate-400">
+                  03
+                </span>
+
+                <div>
+                  <h3 class="text-xl font-semibold">
+                    Production mindset
+                  </h3>
+
+                  <p class="mt-2 text-sm leading-6 text-slate-500">
+                    The goal is not simply to finish a page. It is to build
+                    something that can actually be used and maintained.
+                  </p>
+                </div>
+              </div>
+
+              <div class="grid gap-5 py-7 sm:grid-cols-[80px_1fr]">
+                <span class="text-xs font-bold text-slate-400">
+                  04
+                </span>
+
+                <div>
+                  <h3 class="text-xl font-semibold">
+                    Business communication
+                  </h3>
+
+                  <p class="mt-2 text-sm leading-6 text-slate-500">
+                    Technology is translated into clear user journeys,
+                    content structures and practical business outcomes.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CTA -->
+    <section class="bg-white">
+      <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
+
+        <div class="relative overflow-hidden bg-[#101010] px-7 py-14 text-white sm:px-12 lg:px-16 lg:py-20">
+
+          <div
+            class="absolute right-[-80px] top-[-120px] h-[320px] w-[320px] rounded-full bg-[#c9ff4a]/10 blur-3xl"
+          ></div>
+
+          <div class="relative z-10 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
+
+            <div>
+              <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#c9ff4a]">
+                Start Something Better
+              </p>
+
+              <h2 class="mt-5 max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+                Have a project that needs more than a basic website?
+              </h2>
+
+              <p class="mt-6 max-w-2xl text-base leading-7 text-slate-400">
+                Tell us what you are building, what your business needs and
+                what your users should be able to do. We will help shape the
+                right digital solution.
+              </p>
+            </div>
+
+            <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
+
+              <a
+                href="https://wa.me/919352563337"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-3 rounded-full bg-[#c9ff4a] px-7 py-4 text-sm font-bold text-black transition hover:bg-white"
+              >
+                Start Your Project
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  class="h-4 w-4"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m13 6 6 6-6 6"></path>
+                </svg>
+              </a>
+
+              <a
+                href="/services"
+                class="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-4 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                Explore Services
+              </a>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- FINAL LINE -->
+    <section class="border-t border-slate-200 bg-white">
+      <div class="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+
+        <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
+
+          <p class="max-w-2xl text-sm leading-6 text-slate-500">
+            From business websites to database-backed systems, YNS Web Studio
+            focuses on building digital products around real requirements.
+          </p>
+
+          <a
+            href="/contact"
+            class="inline-flex w-fit items-center gap-2 text-sm font-bold"
+          >
+            Let's talk
+
+            <span>→</span>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    ::selection {
+      background: #c9ff4a;
+      color: #111111;
+    }
+
+    .tech {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid #e2e2df;
+      background: #fafaf8;
+      padding: 0.4rem 0.7rem;
+      font-size: 0.72rem;
+      line-height: 1;
+      font-weight: 600;
+      color: #616161;
+    }
+
+    @media (max-width: 640px) {
+      .work-page h1 {
+        letter-spacing: -0.035em;
+      }
+    }
+  </style>
 </BaseLayout>

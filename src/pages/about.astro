@@ -1,141 +1,1699 @@
 ---
 import BaseLayout from "../components/layout/BaseLayout.astro";
+
+const siteUrl = "https://ynsweb.studio";
+const pageUrl = `${siteUrl}/about`;
+
+const principles = [
+  {
+    number: "01",
+    title: "Strategy Before Design",
+    description:
+      "We start with the business goal, target audience, offer and conversion path before deciding how the interface should look.",
+  },
+  {
+    number: "02",
+    title: "Built Around Enquiries",
+    description:
+      "Clear calls-to-action, WhatsApp flows, enquiry forms and frictionless contact paths are treated as part of the website architecture.",
+  },
+  {
+    number: "03",
+    title: "Performance & SEO Foundation",
+    description:
+      "Clean structure, responsive layouts, semantic HTML, metadata and performance-conscious development create a stronger technical foundation.",
+  },
+  {
+    number: "04",
+    title: "Built to Scale",
+    description:
+      "From business websites to database-backed applications, the technology is selected around the actual requirements of the project.",
+  },
+];
+
+const capabilities = [
+  "Business Websites",
+  "Landing Pages",
+  "E-Commerce",
+  "Booking Systems",
+  "Admin Dashboards",
+  "Custom Web Applications",
+  "React & Next.js",
+  "SEO-Friendly Architecture",
+];
+
+const services = [
+  {
+    title: "Business Website Development",
+    href: "/services/business-website-development",
+    price: "₹20,000+",
+  },
+  {
+    title: "Landing Page Development",
+    href: "/services/landing-page-development",
+    price: "₹12,000+",
+  },
+  {
+    title: "E-Commerce Development",
+    href: "/services/ecommerce-development",
+    price: "₹60,000+",
+  },
+  {
+    title: "Next.js & React Development",
+    href: "/services/nextjs-development",
+    price: "₹50,000+",
+  },
+  {
+    title: "Custom Web Applications",
+    href: "/services/custom-web-development",
+    price: "₹1,00,000+",
+  },
+  {
+    title: "Booking & Appointment Websites",
+    href: "/services/booking-appointment-websites",
+    price: "₹45,000+",
+  },
+];
+
+const faqs = [
+  {
+    question: "What is YNS Web Studio?",
+    answer:
+      "YNS Web Studio is a Jaipur-based web development studio focused on structured, high-performance websites and custom web applications for businesses, startups and service-based brands.",
+  },
+  {
+    question: "What type of websites do you build?",
+    answer:
+      "We build business websites, landing pages, e-commerce websites, booking and appointment websites, corporate websites, real estate websites, hospitality websites and custom web applications.",
+  },
+  {
+    question: "Do you only work with businesses in Jaipur?",
+    answer:
+      "No. YNS Web Studio is based in Jaipur and works with local businesses as well as projects that can be handled remotely.",
+  },
+  {
+    question: "Do you use React and Next.js?",
+    answer:
+      "Yes. React and Next.js are used for projects that benefit from reusable components, application-level functionality, API integrations, authentication and scalable architecture.",
+  },
+  {
+    question: "Can you build a website around my business requirements?",
+    answer:
+      "Yes. The structure, technology and functionality are selected around the business requirement rather than forcing every project into the same template.",
+  },
+];
+
+const iconPaths = {
+  arrow: `<path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>`,
+  check: `<path d="m5 12 4 4L19 6"></path>`,
+  shield: `<path d="M12 3 20 6v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-3Z"></path><path d="m9 12 2 2 4-4"></path>`,
+  chart: `<path d="M4 19V5"></path><path d="M4 19h16"></path><path d="m7 15 3-4 3 2 5-7"></path>`,
+  search: `<circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path>`,
+  code: `<path d="m8 9-3 3 3 3"></path><path d="m16 9 3 3-3 3"></path><path d="m14 5-4 14"></path>`,
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": `${pageUrl}#about`,
+      url: pageUrl,
+      name: "About YNS Web Studio",
+      description: "About YNS Web Studio, a Jaipur-based web development studio.",
+      isPartOf: {
+        "@type": "WebSite",
+        name: "YNS Web Studio",
+        url: siteUrl,
+      },
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${siteUrl}#business`,
+      name: "YNS Web Studio",
+      url: siteUrl,
+      description:
+        "Web development studio in Jaipur building business websites, e-commerce websites, booking systems and custom web applications.",
+      areaServed: [
+        { "@type": "City", name: "Jaipur" },
+        { "@type": "Country", name: "India" },
+      ],
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+        { "@type": "ListItem", position: 2, name: "About", item: pageUrl },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    },
+  ],
+};
 ---
 
 <BaseLayout
   title="About YNS Web Studio Jaipur | Conversion-Focused Web Developers"
-  description="Learn about YNS Web Studio based in Jaipur. Discover how we build structured, lightning-fast, high-converting websites for local businesses, gyms, and clinics."
+  description="Learn about YNS Web Studio, a Jaipur-based web development studio building structured, fast and conversion-focused websites and web applications for businesses."
 >
+  <Fragment slot="head">
+    <link rel="canonical" href={pageUrl} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
 
-  <!-- Header Section -->
-  <section class="relative bg-gradient-to-b from-slate-50 via-white to-slate-50 py-24 md:py-32 overflow-hidden border-b border-slate-100 text-center">
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-emerald-100/50 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="business-page">
 
-    <div class="max-w-4xl mx-auto px-6 relative z-10">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 mb-6 shadow-sm">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        Based in Jaipur, Rajasthan • Web Engineering Studio
-      </div>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-glow hero-glow-one"></div>
+      <div class="hero-glow hero-glow-two"></div>
 
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">
-        About <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">YNS Web Studio</span>
-      </h1>
+      <div class="container hero-container">
 
-      <p class="mt-6 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed">
-        We don’t just build disposable online brochures — we engineer structured, high-performance web systems designed specifically to generate real enquiries and drive revenue for local businesses.
-      </p>
-    </div>
-  </section>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span>/</span>
+          <span aria-current="page">About</span>
+        </nav>
 
-  <!-- Mission Section -->
-  <section class="py-24 bg-gradient-to-b from-white via-slate-50/50 to-white border-b border-slate-100 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-xs font-semibold text-blue-600 mb-4 shadow-sm">
-        <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
-        Our Core Purpose
-      </div>
+        <div class="hero-layout">
 
-      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-        Our Mission
-      </h2>
+          <div class="hero-copy">
 
-      <p class="mt-6 text-xl text-slate-700 font-medium leading-relaxed max-w-3xl mx-auto">
-        "To help local service businesses, gyms, clinics, and retailers turn their digital presence into a reliable, lead-generating asset instead of an expensive, silent website."
-      </p>
-    </div>
-  </section>
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              Based in Jaipur · Web Engineering Studio
+            </div>
 
-  <!-- Approach / Pillars Section -->
-  <section class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 text-xs font-semibold text-emerald-600 mb-4 shadow-sm">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
-        How We Operate
-      </div>
+            <h1>
+              We build websites that
+              <em>do more than exist.</em>
+            </h1>
 
-      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-        Our Engineering Principles
-      </h2>
-      <p class="mt-3 text-slate-600 text-base max-w-xl mx-auto">
-        The standards we follow on every single client build.
-      </p>
+            <p class="hero-description">
+              YNS Web Studio builds structured, high-performance websites and web applications designed around clarity, credibility and real business outcomes.
+            </p>
 
-      <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+            <div class="hero-actions">
+              <a
+                href="/work"
+                class="button button-primary"
+              >
+                See Our Work
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <g set:html={iconPaths.arrow}></g>
+                </svg>
+              </a>
 
-        <!-- Pillar 1 -->
-        <div class="p-8 rounded-2xl bg-slate-50/80 border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow">
-          <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg mb-6">
-            🎯
+              <a href="https://wa.me/919352563337" target="_blank" rel="noopener noreferrer" class="button button-secondary">
+                Start a Project
+              </a>
+            </div>
+
+            <div class="hero-stats">
+              <div>
+                <strong>01</strong>
+                <span>Strategy-led</span>
+              </div>
+              <div>
+                <strong>02</strong>
+                <span>Performance-focused</span>
+              </div>
+              <div>
+                <strong>03</strong>
+                <span>Business-first</span>
+              </div>
+            </div>
+
           </div>
-          <h3 class="text-xl font-bold text-slate-900">Strategy Before Design</h3>
-          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-            We focus intensely on user clarity, value messaging, and conversion architecture before touching any visual styling or templates.
+
+          <!-- WEBSITE PREVIEW MOCKUP -->
+          <div class="hero-visual">
+
+            <div class="visual-label visual-label-top">
+              <span></span>
+              WEB DEVELOPMENT / JAIPUR
+            </div>
+
+            <div class="browser-window">
+
+              <div class="browser-top">
+                <div class="browser-controls">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <div class="browser-url">
+                  <span class="lock">⌁</span>
+                  ynsweb.studio/about
+                </div>
+
+                <div class="browser-menu">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="website-preview">
+
+                <div class="preview-nav">
+                  <div class="preview-brand">
+                    <span class="brand-mark">Y</span>
+                    <span>YNS STUDIO</span>
+                  </div>
+
+                  <div class="preview-links">
+                    <span>Mission</span>
+                    <span>Principles</span>
+                    <span>Stack</span>
+                  </div>
+
+                  <div class="preview-nav-button">Jaipur</div>
+                </div>
+
+                <div class="preview-hero">
+                  <div class="preview-hero-copy">
+                    <span class="mini-label">ENGINEERING INTEGRITY</span>
+
+                    <div class="preview-heading">
+                      Strategy.<br />
+                      Structure.<br />
+                      <i>Results.</i>
+                    </div>
+
+                    <div class="preview-lines">
+                      <span></span>
+                      <span></span>
+                    </div>
+
+                    <div class="preview-cta-row">
+                      <span class="preview-button"></span>
+                      <span class="preview-link"></span>
+                    </div>
+                  </div>
+
+                  <div class="preview-visual-card">
+                    <div class="visual-card-shape shape-one"></div>
+                    <div class="visual-card-shape shape-two"></div>
+                    <div class="visual-card-inner">
+                      <span>100%</span>
+                      <strong>CUSTOM</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="preview-bottom">
+                  <div>
+                    <span>01</span>
+                    <small>No templates</small>
+                  </div>
+                  <div>
+                    <span>02</span>
+                    <small>Fast & light</small>
+                  </div>
+                  <div>
+                    <span>03</span>
+                    <small>Built to scale</small>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="floating-card floating-card-one">
+              <span class="floating-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <g set:html={iconPaths.chart}></g>
+                </svg>
+              </span>
+              <div>
+                <strong>Business Assets</strong>
+                <small>Websites with a job to do</small>
+              </div>
+            </div>
+
+            <div class="floating-card floating-card-two">
+              <span class="floating-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <g set:html={iconPaths.shield}></g>
+                </svg>
+              </span>
+              <div>
+                <strong>Technical SEO</strong>
+                <small>Search engine ready</small>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="intro-grid">
+
+          <div class="section-number">01</div>
+
+          <div class="intro-content">
+            <p class="section-kicker">Why YNS Web Studio</p>
+
+            <h2>
+              A website should be an
+              <span>asset.</span>
+            </h2>
+
+            <div class="intro-text-grid">
+              <p>
+                A business website shouldn't simply sit online with an attractive design. It should explain what you do, establish trust, make the next step obvious and give customers a simple way to contact you.
+              </p>
+
+              <p>
+                That's the thinking behind YNS Web Studio. We combine design, frontend engineering, technical SEO and conversion-focused structure to create digital experiences that have a job to do.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PRINCIPLES -->
+    <section class="benefits-section">
+      <div class="container">
+
+        <div class="section-heading split-heading">
+          <div>
+            <p class="section-kicker">How we work</p>
+            <h2>Principles behind<br /><span>every build.</span></h2>
+          </div>
+
+          <p>
+            The goal isn't to make every website look the same. The goal is to make every website solve the right problem.
           </p>
         </div>
 
-        <!-- Pillar 2 -->
-        <div class="p-8 rounded-2xl bg-slate-50/80 border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow">
-          <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg mb-6">
-            💬
-          </div>
-          <h3 class="text-xl font-bold text-slate-900">Built Exclusively for Enquiries</h3>
-          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-            Every website is structured around compelling calls-to-action, prominent WhatsApp integrations, and frictionless contact paths.
-          </p>
-        </div>
+        <div class="benefit-grid">
+          {
+            principles.map((principle) => (
+              <article class="benefit-card">
+                <div class="card-number">{principle.number}</div>
 
-        <!-- Pillar 3 -->
-        <div class="p-8 rounded-2xl bg-slate-50/80 border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow">
-          <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-lg mb-6">
-            ⚡
-          </div>
-          <h3 class="text-xl font-bold text-slate-900">Performance & SEO Ready</h3>
-          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-            Clean codebases, lightning-fast mobile-first load speeds, and structured semantic headings built for superior search engine rankings.
-          </p>
-        </div>
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <g set:html={iconPaths.code}></g>
+                  </svg>
+                </div>
 
-        <!-- Pillar 4 -->
-        <div class="p-8 rounded-2xl bg-slate-50/80 border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow">
-          <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-lg mb-6">
-            📈
-          </div>
-          <h3 class="text-xl font-bold text-slate-900">Long-Term Scalability</h3>
-          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-            We don't build disposable sites. We build robust technical foundations using modern stacks like Next.js and Astro that scale with your business.
-          </p>
+                <h3>{principle.title}</h3>
+                <p>{principle.description}</p>
+
+                <span class="card-arrow">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <g set:html={iconPaths.arrow}></g>
+                  </svg>
+                </span>
+              </article>
+            ))
+          }
         </div>
 
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- WHAT WE BUILD -->
+    <section class="included-section">
+      <div class="container">
 
-  <!-- Final Call To Action -->
-  <section class="relative bg-zinc-950 text-white py-24 md:py-32 overflow-hidden border-t border-zinc-800 text-center">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="included-layout">
 
-    <div class="max-w-3xl mx-auto px-6 relative z-10">
-      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
-        Let’s Build Something That <span class="text-emerald-400">Actually Works</span>
-      </h2>
-      <p class="mt-6 text-lg text-zinc-400 max-w-xl mx-auto leading-relaxed">
-        If you’re serious about elevating your local business online and generating real enquiries, let’s start a conversation today.
-      </p>
-      <div class="mt-10">
-        <a
-          href="https://wa.me/919352563337"
-          target="_blank"
-          class="inline-flex items-center justify-center rounded-xl bg-emerald-500 text-zinc-950 px-8 py-4 font-bold hover:bg-emerald-400 transition shadow-xl shadow-emerald-500/20"
-        >
-          Start a Conversation on WhatsApp
-        </a>
+          <div class="included-intro">
+            <div class="dark-kicker">
+              <span></span>
+              What we build
+            </div>
+
+            <h2>
+              From business websites
+              <span>to web systems.</span>
+            </h2>
+
+            <p>
+              Different businesses need different levels of functionality. We build from focused landing pages to database-backed applications and custom workflows.
+            </p>
+
+            <a
+              href="/services"
+              class="dark-button"
+            >
+              View all services
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <g set:html={iconPaths.arrow}></g>
+              </svg>
+            </a>
+          </div>
+
+          <div class="feature-list">
+            {
+              capabilities.map((capability, index) => (
+                <div class="feature-item">
+                  <span class="feature-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <span class="feature-check">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <g set:html={iconPaths.check}></g>
+                    </svg>
+                  </span>
+
+                  <span>{capability}</span>
+                </div>
+              ))
+            }
+          </div>
+
+        </div>
       </div>
-      <p class="mt-5 text-xs text-zinc-500">
-        Based in Jaipur, Rajasthan • Direct developer collaboration.
-      </p>
-    </div>
-  </section>
+    </section>
 
+    <!-- SERVICES & STARTING PRICES -->
+    <section class="pages-section">
+      <div class="container">
+
+        <div class="pages-header">
+          <div>
+            <p class="section-kicker">Services & starting prices</p>
+            <h2>
+              Choose the right
+              <span>starting point.</span>
+            </h2>
+          </div>
+
+          <p>
+            Every project is scoped around its actual requirements. These starting prices give you a clear idea of where different types of projects begin.
+          </p>
+        </div>
+
+        <div class="page-grid" style="grid-template-columns: repeat(2, 1fr);">
+          {
+  services.map(({ title, href, price }, index) => (
+              <article class="page-card" style="min-height: 200px;">
+                <div class="page-card-top">
+                  <span>0{index + 1}</span>
+                  <strong>{price}</strong>
+                </div>
+
+                <h3 style="margin-top: 30px;">{title}</h3>
+
+                <a href={href} class="text-link" style="margin-top: 20px; display: inline-flex;">
+                  Explore service <span>→</span>
+                </a>
+
+                <div class="page-line"></div>
+              </article>
+            ))
+          }
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STATEMENT -->
+    <section class="statement-section">
+      <div class="container">
+        <div class="statement">
+          <span class="statement-mark">“</span>
+          <h2>
+            Don't build a website just because your competitors have one.
+            <em>Build one that gives people a reason to choose you.</em>
+          </h2>
+          <div class="statement-footer">
+            <span>YNS WEB STUDIO</span>
+            <span>JAIPUR · INDIA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq-section">
+      <div class="container faq-container">
+
+        <div class="faq-heading">
+          <p class="section-kicker">Common questions</p>
+
+          <h2>
+            About the
+            <span>studio.</span>
+          </h2>
+
+          <p>
+            A few straightforward answers before we start working together.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          {
+            faqs.map((faq, index) => (
+              <details class="faq-item" open={index === 0}>
+                <summary>
+                  <span class="faq-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <span class="faq-question">{faq.question}</span>
+
+                  <span class="faq-toggle">
+                    <span></span>
+                    <span></span>
+                  </span>
+                </summary>
+
+                <div class="faq-answer">
+                  <p>{faq.answer}</p>
+                </div>
+              </details>
+            ))
+          }
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta-section">
+      <div class="container">
+
+        <div class="final-cta">
+
+          <div class="cta-grid"></div>
+          <div class="cta-glow"></div>
+
+          <div class="cta-content">
+            <div class="dark-kicker">
+              <span></span>
+              Let's build
+            </div>
+
+            <h2>
+              Your business deserves
+              <span>a better website.</span>
+            </h2>
+
+            <p>
+              Tell us what you're building, what isn't working right now and what you want the website to achieve.
+            </p>
+
+            <div class="cta-actions">
+              <a
+                href="https://wa.me/919352563337"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cta-primary"
+              >
+                Start a Project
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <g set:html={iconPaths.arrow}></g>
+                </svg>
+              </a>
+
+              <a href="/work" class="cta-secondary">
+                View Our Work
+              </a>
+            </div>
+
+            <div class="cta-location">
+              <span></span>
+              Based in Jaipur, Rajasthan · Available for web projects
+            </div>
+          </div>
+
+          <div class="cta-side">
+            <div class="cta-side-number">YNS</div>
+            <p>Strategy.<br />Design.<br /><strong>Growth.</strong></p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </div>
 </BaseLayout>
+
+<style>
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    background: #f7f7f5;
+  }
+
+  .business-page {
+    --ink: #111111;
+    --muted: #696969;
+    --soft: #f1f1ee;
+    --line: #deded9;
+    --dark: #101010;
+    --white: #ffffff;
+    --accent: #c9ff4a;
+    color: var(--ink);
+    overflow: hidden;
+  }
+
+  .container {
+    width: min(1240px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    isolation: isolate;
+    min-height: 850px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 80% 18%, rgba(201, 255, 74, 0.12), transparent 28%),
+      #101010;
+    color: white;
+  }
+
+  .hero-grid,
+  .cta-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.28;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(to bottom, black, transparent 90%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.12;
+    pointer-events: none;
+  }
+
+  .hero-glow-one {
+    right: -180px;
+    top: 120px;
+    background: #c9ff4a;
+  }
+
+  .hero-glow-two {
+    left: -250px;
+    bottom: -280px;
+    background: #ffffff;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
+    padding-top: 32px;
+    padding-bottom: 90px;
+  }
+
+  .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+  }
+
+  .breadcrumb a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+  }
+
+  .breadcrumb span:last-child {
+    color: #d4d4d4;
+  }
+
+  .hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(460px, 0.86fr);
+    align-items: center;
+    gap: 70px;
+    min-height: 750px;
+  }
+
+  .hero-copy {
+    max-width: 690px;
+    padding-top: 20px;
+  }
+
+  .eyebrow,
+  .dark-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #a5a5a5;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow-dot,
+  .dark-kicker span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 16px rgba(201,255,74,0.65);
+  }
+
+  .hero h1 {
+    max-width: 760px;
+    margin: 28px 0 0;
+    font-size: clamp(52px, 6vw, 88px);
+    line-height: 0.98;
+    letter-spacing: -0.065em;
+    font-weight: 500;
+  }
+
+  .hero h1 em {
+    display: block;
+    color: #777;
+    font-style: normal;
+  }
+
+  .hero-description {
+    max-width: 650px;
+    margin-top: 30px;
+    color: #a7a7a7;
+    font-size: 18px;
+    line-height: 1.75;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 38px;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 0 22px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+      transform 0.25s ease,
+      background 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  .button svg,
+  .dark-button svg,
+  .pricing-button svg,
+  .text-link svg,
+  .related-card svg,
+  .cta-primary svg {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+  }
+
+  .button-primary {
+    color: #111;
+    background: var(--accent);
+  }
+
+  .button-primary:hover {
+    background: #d9ff79;
+  }
+
+  .button-secondary {
+    color: white;
+    border: 1px solid #3d3d3d;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .button-secondary:hover {
+    border-color: #666;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 650px;
+    margin-top: 65px;
+    border-top: 1px solid #303030;
+    padding-top: 22px;
+  }
+
+  .hero-stats div {
+    padding-right: 20px;
+  }
+
+  .hero-stats div + div {
+    padding-left: 20px;
+    border-left: 1px solid #303030;
+  }
+
+  .hero-stats strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+  }
+
+  .hero-stats span {
+    display: block;
+    margin-top: 6px;
+    color: #666;
+    font-size: 11px;
+  }
+
+  /* HERO VISUAL MOCKUP */
+  .hero-visual {
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .visual-label {
+    position: absolute;
+    z-index: 5;
+    color: #777;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+  }
+
+  .visual-label-top {
+    top: 18px;
+    right: 10px;
+  }
+
+  .visual-label-top span {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-right: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .browser-window {
+    width: min(100%, 570px);
+    overflow: hidden;
+    border: 1px solid #383838;
+    border-radius: 18px;
+    background: #f7f7f5;
+    box-shadow:
+      0 45px 100px rgba(0,0,0,0.5),
+      0 0 0 12px rgba(255,255,255,0.02);
+    transform: perspective(1400px) rotateY(-5deg) rotateX(2deg);
+  }
+
+  .browser-top {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    padding: 0 15px;
+    background: #181818;
+    border-bottom: 1px solid #2e2e2e;
+  }
+
+  .browser-controls {
+    display: flex;
+    gap: 5px;
+    width: 80px;
+  }
+
+  .browser-controls span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #505050;
+  }
+
+  .browser-url {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 220px;
+    height: 25px;
+    margin: 0 auto;
+    border-radius: 6px;
+    background: #222;
+    color: #777;
+    font-size: 9px;
+  }
+
+  .lock {
+    color: #aaa;
+  }
+
+  .browser-menu {
+    display: flex;
+    justify-content: flex-end;
+    gap: 3px;
+    width: 80px;
+  }
+
+  .browser-menu span {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #666;
+  }
+
+  .website-preview {
+    color: #111;
+  }
+
+  .preview-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 58px;
+    padding: 0 20px;
+    background: #f7f7f5;
+    border-bottom: 1px solid #deded8;
+  }
+
+  .preview-brand {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+
+  .brand-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    background: #111;
+    color: white;
+    font-size: 10px;
+  }
+
+  .preview-links {
+    display: flex;
+    gap: 17px;
+    color: #777;
+    font-size: 7px;
+  }
+
+  .preview-nav-button {
+    padding: 7px 10px;
+    border-radius: 99px;
+    background: #111;
+    color: white;
+    font-size: 7px;
+  }
+
+  .preview-hero {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 25px;
+    min-height: 310px;
+    padding: 38px 28px 28px;
+    background:
+      radial-gradient(circle at 75% 50%, rgba(201,255,74,0.28), transparent 27%),
+      #efefe9;
+  }
+
+  .mini-label {
+    color: #777;
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+  }
+
+  .preview-heading {
+    margin-top: 16px;
+    font-size: 32px;
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+    font-weight: 500;
+  }
+
+  .preview-heading i {
+    color: #777;
+    font-style: normal;
+  }
+
+  .preview-lines {
+    margin-top: 17px;
+  }
+
+  .preview-lines span {
+    display: block;
+    width: 82%;
+    height: 3px;
+    margin-bottom: 6px;
+    border-radius: 10px;
+    background: #d1d1c9;
+  }
+
+  .preview-lines span:last-child {
+    width: 60%;
+  }
+
+  .preview-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 23px;
+  }
+
+  .preview-button {
+    width: 63px;
+    height: 19px;
+    border-radius: 99px;
+    background: #111;
+  }
+
+  .preview-link {
+    width: 40px;
+    height: 3px;
+    border-radius: 5px;
+    background: #999;
+  }
+
+  .preview-visual-card {
+    position: relative;
+    min-height: 210px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #151515;
+  }
+
+  .visual-card-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(1px);
+  }
+
+  .shape-one {
+    width: 180px;
+    height: 180px;
+    right: -50px;
+    top: -45px;
+    background: #c9ff4a;
+  }
+
+  .shape-two {
+    width: 120px;
+    height: 120px;
+    left: -35px;
+    bottom: -45px;
+    background: #444;
+  }
+
+  .visual-card-inner {
+    position: absolute;
+    inset: auto 18px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+  }
+
+  .visual-card-inner span {
+    color: #777;
+    font-size: 9px;
+  }
+
+  .visual-card-inner strong {
+    font-size: 8px;
+    letter-spacing: 0.14em;
+  }
+
+  .preview-bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid #ddd;
+    background: white;
+  }
+
+  .preview-bottom div {
+    padding: 14px;
+  }
+
+  .preview-bottom div + div {
+    border-left: 1px solid #ddd;
+  }
+
+  .preview-bottom span {
+    display: block;
+    color: #999;
+    font-size: 7px;
+  }
+
+  .preview-bottom small {
+    display: block;
+    margin-top: 5px;
+    font-size: 8px;
+    font-weight: 700;
+  }
+
+  .floating-card {
+    position: absolute;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1px solid #333;
+    border-radius: 12px;
+    background: rgba(24,24,24,0.9);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    backdrop-filter: blur(15px);
+  }
+
+  .floating-card-one {
+    left: -22px;
+    bottom: 82px;
+  }
+
+  .floating-card-two {
+    right: -24px;
+    top: 90px;
+  }
+
+  .floating-card strong,
+  .floating-card small {
+    display: block;
+  }
+
+  .floating-card strong {
+    color: white;
+    font-size: 10px;
+  }
+
+  .floating-card small {
+    margin-top: 3px;
+    color: #777;
+    font-size: 8px;
+  }
+
+  /* GENERAL SECTIONS */
+  .intro-section,
+  .benefits-section,
+  .pages-section,
+  .capabilities-section,
+  .usecases-section,
+  .process-section,
+  .faq-section,
+  .related-section {
+    background: #f7f7f5;
+  }
+
+  .intro-section {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 35px;
+  }
+
+  .section-number {
+    color: #b1b1ab;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+
+  .section-kicker {
+    margin: 0;
+    color: #777;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .intro-content h2,
+  .split-heading h2,
+  .pages-header h2,
+  .capabilities-heading h2,
+  .usecases-copy h2,
+  .process-header h2,
+  .faq-heading h2 {
+    margin: 16px 0 0;
+    max-width: 800px;
+    font-size: clamp(38px, 4.6vw, 64px);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+    font-weight: 500;
+  }
+
+  .intro-content h2 span,
+  .split-heading h2 span,
+  .pages-header h2 span,
+  .capabilities-heading h2 span,
+  .usecases-copy h2 span,
+  .process-header h2 span,
+  .faq-heading h2 span {
+    color: #8c8c86;
+  }
+
+  .intro-text-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 60px;
+    max-width: 980px;
+    margin-top: 50px;
+    padding-top: 35px;
+    border-top: 1px solid var(--line);
+  }
+
+  .intro-text-grid p {
+    margin: 0;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.85;
+  }
+
+  /* BENEFITS */
+  .benefits-section {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .split-heading {
+    display: grid;
+    grid-template-columns: 1fr 0.7fr;
+    gap: 80px;
+    align-items: end;
+  }
+
+  .split-heading > p {
+    margin: 0 0 4px;
+    color: #70706c;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 65px;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+
+  .benefit-card {
+    position: relative;
+    min-height: 280px;
+    padding: 30px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: #f7f7f5;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .benefit-card:hover {
+    z-index: 2;
+    background: white;
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.06);
+  }
+
+  .card-number {
+    color: #aaa;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+
+  .benefit-card h3 {
+    margin: 22px 0 0;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+  }
+
+  .benefit-card p {
+    max-width: 450px;
+    margin: 10px 0 0;
+    color: #6d6d68;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* INCLUDED */
+  .included-section {
+    position: relative;
+    overflow: hidden;
+    background: #111;
+    color: white;
+    padding: 120px 0;
+  }
+
+  .included-section::before {
+    content: "";
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    right: -250px;
+    top: -250px;
+    border-radius: 50%;
+    background: rgba(201,255,74,0.08);
+    filter: blur(70px);
+  }
+
+  .included-layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 0.82fr 1.18fr;
+    gap: 100px;
+  }
+
+  .included-intro h2 {
+    max-width: 600px;
+    margin: 18px 0 0;
+    font-size: clamp(40px, 4.5vw, 64px);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+    font-weight: 500;
+  }
+
+  .included-intro h2 span { color: #6f6f6b; }
+  .included-intro > p { max-width: 490px; margin: 26px 0 0; color: #858581; font-size: 15px; line-height: 1.8; }
+
+  .dark-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 35px;
+    padding: 14px 19px;
+    border-radius: 999px;
+    background: white;
+    color: #111;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.25s ease;
+  }
+
+  .dark-button:hover { transform: translateY(-2px); }
+  .dark-button svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+  .feature-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid #303030;
+  }
+
+  .feature-item {
+    display: grid;
+    grid-template-columns: 32px 24px 1fr;
+    align-items: center;
+    gap: 10px;
+    min-height: 78px;
+    border-bottom: 1px solid #303030;
+    color: #ddd;
+    font-size: 13px;
+  }
+
+  .feature-item:nth-child(odd) { padding-right: 20px; border-right: 1px solid #303030; }
+  .feature-item:nth-child(even) { padding-left: 20px; }
+  .feature-number { color: #555; font-size: 9px; font-weight: 700; }
+
+  .feature-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background: #242424;
+    color: var(--accent);
+  }
+
+  .feature-check svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* STATEMENT */
+  .statement-section {
+    padding: 140px 0;
+    background: #e8e8e3;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .statement {
+    position: relative;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .statement-mark {
+    position: absolute;
+    top: -35px;
+    left: -5px;
+    color: #c4c4bd;
+    font-size: 90px;
+    line-height: 1;
+  }
+
+  .statement h2 {
+    position: relative;
+    margin: 0;
+    padding-left: 50px;
+    font-size: clamp(38px, 5vw, 68px);
+    line-height: 1.03;
+    letter-spacing: -.055em;
+  }
+
+  .statement h2 em {
+    display: block;
+    margin-top: 10px;
+    color: #777;
+    font-style: normal;
+  }
+
+  .statement-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    padding-top: 17px;
+    border-top: 1px solid #c8c8c1;
+    color: #777;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .15em;
+  }
+
+  /* FAQ */
+  .faq-section {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--line);
+    background: #f7f7f5;
+  }
+
+  .faq-container { max-width: 1000px; }
+  .faq-heading { text-align: center; }
+  .faq-heading > p:last-child { margin-top: 20px; color: #777; font-size: 14px; }
+  .faq-list { margin-top: 60px; border-top: 1px solid var(--line); }
+  .faq-item { border-bottom: 1px solid var(--line); }
+
+  .faq-item summary {
+    display: grid;
+    grid-template-columns: 42px 1fr 34px;
+    align-items: center;
+    gap: 12px;
+    min-height: 85px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-number { color: #aaa; font-size: 10px; font-weight: 700; }
+  .faq-question { font-size: 15px; font-weight: 600; }
+
+  .faq-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #d7d7d1;
+    border-radius: 50%;
+  }
+
+  .faq-toggle span {
+    position: absolute;
+    width: 11px;
+    height: 1px;
+    background: #777;
+    transition: transform 0.25s ease;
+  }
+
+  .faq-toggle span:last-child { transform: rotate(90deg); }
+  .faq-item[open] .faq-toggle span:last-child { transform: rotate(0); }
+  .faq-answer { padding: 0 46px 28px 54px; }
+  .faq-answer p { max-width: 760px; margin: 0; color: #6d6d68; font-size: 14px; line-height: 1.8; }
+
+  /* FINAL CTA */
+  .final-cta-section {
+    padding: 30px 0 100px;
+    background: #f7f7f5;
+  }
+
+  .final-cta {
+    position: relative;
+    min-height: 490px;
+    overflow: hidden;
+    padding: 75px;
+    border-radius: 28px;
+    background: #111;
+    color: white;
+  }
+
+  .cta-glow {
+    position: absolute;
+    right: -100px;
+    top: -100px;
+    width: 430px;
+    height: 430px;
+    border-radius: 50%;
+    background: rgba(201,255,74,0.1);
+    filter: blur(80px);
+  }
+
+  .cta-content { position: relative; z-index: 2; max-width: 750px; }
+  .cta-content h2 { max-width: 760px; margin: 18px 0 0; font-size: clamp(43px, 5vw, 70px); line-height: 0.99; letter-spacing: -0.06em; font-weight: 500; }
+  .cta-content h2 span { display: block; color: #666; }
+  .cta-content > p { max-width: 620px; margin: 25px 0 0; color: #888; font-size: 15px; line-height: 1.8; }
+
+  .cta-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 35px; }
+
+  .cta-primary, .cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 50px;
+    padding: 0 20px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.25s ease;
+  }
+
+  .cta-primary svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .cta-primary { background: var(--accent); color: #111; }
+  .cta-secondary { border: 1px solid #383838; color: white; }
+  .cta-primary:hover, .cta-secondary:hover { transform: translateY(-2px); }
+
+  .cta-location { display: flex; align-items: center; gap: 8px; margin-top: 45px; color: #555; font-size: 10px; }
+  .cta-location span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+  .cta-side {
+    position: absolute;
+    right: 70px;
+    bottom: 60px;
+    z-index: 2;
+    width: 180px;
+    height: 180px;
+    border: 1px solid #2e2e2e;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 35px;
+    transform: rotate(-8deg);
+  }
+
+  .cta-side-number { color: #555; font-size: 11px; font-weight: 800; letter-spacing: 0.15em; }
+  .cta-side p { margin: 10px 0 0; color: #888; font-size: 13px; line-height: 1.45; }
+  .cta-side strong { color: var(--accent); font-weight: 500; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1100px) {
+    .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+    .included-layout { gap: 60px; }
+    .cta-side { right: 40px; }
+  }
+
+  @media (max-width: 800px) {
+    .container { width: min(100% - 28px, 680px); }
+    .hero { min-height: auto; }
+    .hero-container { padding-top: 22px; padding-bottom: 65px; }
+    .hero h1 { font-size: clamp(40px, 10vw, 64px); }
+    .intro-grid, .split-heading, .included-layout { grid-template-columns: 1fr; }
+    .benefit-grid { grid-template-columns: 1fr; }
+    .cta-side { display: none; }
+  }
+
+  @media (max-width: 560px) {
+    .hero-stats { grid-template-columns: 1fr; gap: 16px; }
+    .hero-stats div, .hero-stats div + div { padding: 0; border: 0; }
+    .cta-actions { flex-direction: column; }
+    .cta-primary, .cta-secondary { width: 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .business-page *, .business-page *::before, .business-page *::after {
+      scroll-behavior: auto !important;
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+</style>

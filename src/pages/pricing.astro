@@ -1,150 +1,700 @@
 ---
 import BaseLayout from "../components/layout/BaseLayout.astro";
+
+const siteUrl = "https://ynsweb.studio";
+const pageUrl = `${siteUrl}/pricing`;
 ---
 
 <BaseLayout
-  title="Website Pricing & Packages | YNS Web Studio Jaipur"
-  description="Transparent pricing for high-converting websites starting from ₹8,999. Designed to generate more enquiries for local businesses, gyms, and clinics in Jaipur."
+  title="Website Pricing & Development Packages Jaipur | YNS Web Studio"
+  description="Explore transparent website development pricing from YNS Web Studio Jaipur. Landing pages from ₹12,000+, business websites from ₹20,000+, e-commerce from ₹60,000+ and custom web applications from ₹1,00,000+."
 >
+  <Fragment slot="head">
+    <link rel="canonical" href={pageUrl} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
 
-  <!-- Header Section -->
-  <section class="relative bg-gradient-to-b from-slate-50 via-white to-slate-50 py-24 md:py-32 overflow-hidden border-b border-slate-100 text-center">
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-emerald-100/50 rounded-full blur-3xl pointer-events-none"></div>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Website Pricing & Development Packages Jaipur | YNS Web Studio" />
+    <meta
+      property="og:description"
+      content="Explore transparent website development pricing from YNS Web Studio Jaipur. Starting from ₹12,000+."
+    />
+    <meta property="og:url" content={pageUrl} />
 
-    <div class="max-w-4xl mx-auto px-6 relative z-10">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 mb-6 shadow-sm">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        Transparent Investment • No Hidden Surprises
-      </div>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Website Pricing & Development Packages Jaipur | YNS Web Studio" />
+    <meta
+      property="og:description"
+      content="Transparent website development pricing from YNS Web Studio Jaipur."
+    />
+  </Fragment>
 
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">
-        Simple & <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">Transparent Pricing</span>
-      </h1>
+  <main class="pricing-page overflow-hidden bg-white text-slate-950">
 
-      <p class="mt-6 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed">
-        No bloated agency fees. Just honest pricing for structured, high-speed web systems built specifically to scale your local business in Jaipur.
-      </p>
-    </div>
-  </section>
+    <!-- HERO -->
+    <section class="relative isolate overflow-hidden bg-[#101010] text-white">
 
-  <!-- Pricing Cards Section -->
-  <section class="py-24 bg-gradient-to-b from-white via-slate-50/50 to-white border-b border-slate-100">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
+      <div
+        class="absolute inset-0 -z-10 opacity-70"
+        style="background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); background-size: 72px 72px;"
+      ></div>
 
-      <!-- Starter Plan -->
-      <div class="bg-white p-8 md:p-10 rounded-2xl border border-slate-200/85 shadow-sm hover:shadow-xl hover:border-emerald-200 transition-all duration-300 flex flex-col justify-between">
-        <div>
-          <div class="flex items-center justify-between">
-            <h2 class="text-2xl font-bold text-slate-900">Starter Website</h2>
-            <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wider">Launch Ready</span>
+      <div
+        class="absolute right-[-10%] top-[-30%] -z-10 h-[560px] w-[560px] rounded-full bg-[#c9ff4a]/10 blur-3xl"
+      ></div>
+
+      <div class="mx-auto max-w-7xl px-6 pb-20 pt-8 lg:px-8 lg:pb-28 lg:pt-10">
+
+        <!-- BREADCRUMB -->
+        <nav
+          class="mb-14 flex flex-wrap items-center gap-2 text-xs font-semibold"
+          aria-label="Breadcrumb"
+        >
+          <a href="/" class="text-slate-500 transition hover:text-white">
+            Home
+          </a>
+
+          <span class="text-slate-700">/</span>
+
+          <span class="text-slate-400" aria-current="page">
+            Pricing
+          </span>
+        </nav>
+
+        <div class="grid gap-14 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
+
+          <div>
+
+            <div
+              class="mb-7 inline-flex items-center gap-3 border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-300"
+            >
+              <span class="h-1.5 w-1.5 rounded-full bg-[#c9ff4a]"></span>
+              Transparent Pricing · Clear Scope
+            </div>
+
+            <h1
+              class="max-w-5xl text-5xl font-semibold leading-[.98] tracking-[-0.045em] sm:text-6xl lg:text-8xl"
+            >
+              Pricing built
+              <span class="text-slate-500">around the project.</span>
+            </h1>
+
+            <p
+              class="mt-8 max-w-2xl text-lg leading-8 text-slate-400 sm:text-xl"
+            >
+              Straightforward starting prices for business websites and
+              custom web applications — without unnecessary agency overhead.
+            </p>
+
+            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+
+              <a
+                href="#pricing"
+                class="inline-flex items-center justify-center gap-3 rounded-full bg-[#c9ff4a] px-6 py-3.5 text-sm font-bold text-black transition hover:bg-white"
+              >
+                View Packages
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  class="h-4 w-4"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m13 6 6 6-6 6"></path>
+                </svg>
+              </a>
+
+              <a
+                href="https://wa.me/919352563337"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10"
+              >
+                Get a Custom Quote
+              </a>
+
+            </div>
+
           </div>
 
-          <p class="mt-4 text-4xl font-extrabold text-slate-900">₹8,999</p>
-          <p class="mt-2 text-sm text-slate-500">
-            Ideal for small local service businesses and clinics starting online.
-          </p>
+          <!-- HERO SIDE -->
+          <div class="hidden lg:block">
 
-          <ul class="mt-8 space-y-4 text-sm font-medium text-slate-700 pt-6 border-t border-slate-100">
-            <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">✓</span> Up to 4 custom pages</li>
-            <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">✓</span> Instant WhatsApp chat integration</li>
-            <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">✓</span> Conversion-focused contact form</li>
-            <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">✓</span> Mobile-first responsive design</li>
-            <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">✓</span> Basic local SEO-ready structure</li>
-            <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">✓</span> 1 month direct developer support</li>
-          </ul>
-        </div>
+            <div class="ml-auto max-w-[500px] border border-white/10 bg-white/[0.035] p-6">
 
-        <div class="mt-10 pt-6 border-t border-slate-100">
-          <a
-            href="https://wa.me/919352563337"
-            target="_blank"
-            class="w-full inline-flex items-center justify-center rounded-xl bg-slate-900 text-white px-6 py-3.5 font-semibold hover:bg-slate-800 transition shadow-sm"
-          >
-            Get Started on WhatsApp
-          </a>
-        </div>
-      </div>
+              <div class="flex items-center justify-between border-b border-white/10 pb-5">
 
-      <!-- Growth Plan -->
-      <div class="bg-white p-8 md:p-10 rounded-2xl border-2 border-emerald-500 shadow-xl relative flex flex-col justify-between transform md:-translate-y-2">
-        <div class="absolute -top-3.5 right-8 bg-emerald-500 text-white text-xs font-extrabold uppercase px-3.5 py-1 rounded-full shadow-sm tracking-wider">
-          Most Popular
-        </div>
+                <span class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
+                  Investment
+                </span>
 
-        <div>
-          <div class="flex items-center justify-between">
-            <h2 class="text-2xl font-bold text-slate-900">Growth Website</h2>
-            <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 text-xs font-bold uppercase tracking-wider">Scale Up</span>
+                <span class="text-xs text-[#c9ff4a]">
+                  01—02
+                </span>
+
+              </div>
+
+              <div class="mt-6 space-y-5">
+
+                <div class="flex items-end justify-between border-b border-white/10 pb-5">
+                  <div>
+                    <p class="text-sm font-semibold text-white">
+                      Starter Website
+                    </p>
+
+                    <p class="mt-1 text-xs text-slate-500">
+                      For focused website requirements
+                    </p>
+                  </div>
+
+                  <p class="text-2xl font-semibold">
+                    ₹12,000+
+                  </p>
+                </div>
+
+                <div class="flex items-end justify-between">
+                  <div>
+                    <p class="text-sm font-semibold text-white">
+                      Custom Web App
+                    </p>
+
+                    <p class="mt-1 text-xs text-slate-500">
+                      For full business website requirements
+                    </p>
+                  </div>
+
+                  <p class="text-2xl font-semibold">
+                    ₹20,000+
+                  </p>
+                </div>
+
+              </div>
+
+              <div class="mt-7 border border-[#c9ff4a]/20 bg-[#c9ff4a]/5 p-4">
+                <p class="text-xs leading-5 text-slate-400">
+                  Final pricing depends on the exact pages, functionality,
+                  integrations and technical scope required.
+                </p>
+              </div>
+
+            </div>
+
           </div>
 
-          <p class="mt-4 text-4xl font-extrabold text-slate-900">₹16,999</p>
-          <p class="mt-2 text-sm text-slate-500">
-            For established local businesses ready to dominate their local market.
-          </p>
-
-          <ul class="mt-8 space-y-4 text-sm font-medium text-slate-700 pt-6 border-t border-slate-100">
-            <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">✓</span> Up to 7 custom pages</li>
-            <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">✓</span> Advanced custom UI/UX design architecture</li>
-            <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">✓</span> WhatsApp + Form multi-channel enquiry flow</li>
-            <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">✓</span> Google Maps local listing embedded</li>
-            <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">✓</span> 99+ Lighthouse speed optimization</li>
-            <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">✓</span> Advanced local SEO metadata setup</li>
-            <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">✓</span> 2 months priority direct support</li>
-          </ul>
         </div>
 
-        <div class="mt-10 pt-6 border-t border-slate-100">
-          <a
-            href="https://wa.me/919352563337"
-            target="_blank"
-            class="w-full inline-flex items-center justify-center rounded-xl bg-emerald-600 text-white px-6 py-3.5 font-semibold hover:bg-emerald-700 transition shadow-lg shadow-emerald-600/20"
-          >
-            Get Growth Plan on WhatsApp
+        <!-- STATS -->
+        <div
+          class="mt-16 grid max-w-5xl grid-cols-2 border-t border-white/10 sm:grid-cols-4"
+        >
+
+          <div class="border-r border-white/10 py-7 pr-5">
+            <p class="text-2xl font-semibold">₹12,000+</p>
+            <p class="mt-1 text-sm text-slate-500">
+              Starter Website
+            </p>
+          </div>
+
+          <div class="border-r border-white/10 px-5 py-7">
+            <p class="text-2xl font-semibold">₹20,000+</p>
+            <p class="mt-1 text-sm text-slate-500">
+              Custom Applications
+            </p>
+          </div>
+
+          <div class="border-r border-white/10 px-5 py-7">
+            <p class="text-2xl font-semibold">₹60,000+</p>
+            <p class="mt-1 text-sm text-slate-500">
+              Advanced Scope
+            </p>
+          </div>
+
+          <div class="py-7 pl-5">
+            <p class="text-2xl font-semibold">₹1L+</p>
+            <p class="mt-1 text-sm text-slate-500">
+              Developer Support
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="bg-[#f5f5f2]">
+      <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-24">
+
+        <div class="grid gap-12 lg:grid-cols-[.75fr_1.25fr]">
+
+          <div>
+
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+              How Pricing Works
+            </p>
+
+            <h2 class="mt-4 max-w-md text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+              Pay for the work your project actually needs.
+            </h2>
+
+          </div>
+
+          <div class="max-w-3xl text-lg leading-8 text-slate-600">
+
+            <p>
+              Every project is different. A simple business website should not
+              cost the same as a database-backed application with dashboards,
+              authentication and custom workflows.
+            </p>
+
+            <p class="mt-5">
+              That's why the packages below are starting points rather than
+              rigid one-size-fits-all plans.
+            </p>
+
+            <p class="mt-5">
+              If your requirement falls outside these packages, we can define
+              the scope first and provide a custom estimate.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="bg-white">
+      <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
+
+        <div class="mb-14">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+            Service Pricing
+          </p>
+
+          <h2 class="mt-4 max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl">
+            Clear starting prices for the work you actually need.
+            <span class="text-slate-400">Choose a service, then scale the scope.</span>
+          </h2>
+
+          <p class="mt-6 max-w-3xl text-base leading-7 text-slate-500">
+            These are the same starting prices shown across the YNS Web Studio
+            service pages. Each service links directly to its dedicated page so
+            you can review the scope, features, timeline and project fit before
+            getting a final estimate.
+          </p>
+        </div>
+
+        <div class="grid gap-px overflow-hidden border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-3">
+
+          <a href="/services/landing-page-development" class="group bg-[#f5f5f2] p-7 transition hover:bg-white sm:p-8">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">01 / Conversion</p>
+            <h3 class="mt-4 text-2xl font-semibold tracking-tight">Landing Page Development</h3>
+            <p class="mt-4 text-3xl font-semibold">₹12,000+</p>
+            <p class="mt-3 text-sm leading-6 text-slate-500">Focused landing pages for products, services, campaigns and paid traffic.</p>
+            <span class="mt-7 inline-flex items-center gap-2 text-sm font-bold">View service <span class="transition group-hover:translate-x-1">→</span></span>
           </a>
+
+          <a href="/services/business-website-development" class="group bg-white p-7 transition hover:bg-[#f5f5f2] sm:p-8">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">02 / Business</p>
+            <h3 class="mt-4 text-2xl font-semibold tracking-tight">Business Website Development</h3>
+            <p class="mt-4 text-3xl font-semibold">₹20,000+</p>
+            <p class="mt-3 text-sm leading-6 text-slate-500">Professional business websites designed to build credibility and generate enquiries.</p>
+            <span class="mt-7 inline-flex items-center gap-2 text-sm font-bold">View service <span class="transition group-hover:translate-x-1">→</span></span>
+          </a>
+
+          <a href="/services/restaurant-website-development" class="group bg-[#f5f5f2] p-7 transition hover:bg-white sm:p-8">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">03 / Hospitality</p>
+            <h3 class="mt-4 text-2xl font-semibold tracking-tight">Hotel, Café &amp; Restaurant Websites</h3>
+            <p class="mt-4 text-3xl font-semibold">₹25,000+</p>
+            <p class="mt-3 text-sm leading-6 text-slate-500">Visual-first websites for menus, rooms, reservations, locations and enquiries.</p>
+            <span class="mt-7 inline-flex items-center gap-2 text-sm font-bold">View service <span class="transition group-hover:translate-x-1">→</span></span>
+          </a>
+
+          <a href="/services/booking-appointment-websites" class="group bg-white p-7 transition hover:bg-[#f5f5f2] sm:p-8">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">04 / Booking</p>
+            <h3 class="mt-4 text-2xl font-semibold tracking-tight">Booking &amp; Appointment Websites</h3>
+            <p class="mt-4 text-3xl font-semibold">₹45,000+</p>
+            <p class="mt-3 text-sm leading-6 text-slate-500">Booking workflows for clinics, salons, consultants, fitness and service businesses.</p>
+            <span class="mt-7 inline-flex items-center gap-2 text-sm font-bold">View service <span class="transition group-hover:translate-x-1">→</span></span>
+          </a>
+
+          <a href="/services/nextjs-development" class="group bg-[#f5f5f2] p-7 transition hover:bg-white sm:p-8">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">05 / Development</p>
+            <h3 class="mt-4 text-2xl font-semibold tracking-tight">Next.js &amp; React Development</h3>
+            <p class="mt-4 text-3xl font-semibold">₹50,000+</p>
+            <p class="mt-3 text-sm leading-6 text-slate-500">Modern React and Next.js applications with APIs, authentication and database integrations.</p>
+            <span class="mt-7 inline-flex items-center gap-2 text-sm font-bold">View service <span class="transition group-hover:translate-x-1">→</span></span>
+          </a>
+
+          <a href="/services/corporate-website-development" class="group bg-white p-7 transition hover:bg-[#f5f5f2] sm:p-8">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">06 / Corporate</p>
+            <h3 class="mt-4 text-2xl font-semibold tracking-tight">Corporate &amp; Professional Websites</h3>
+            <p class="mt-4 text-3xl font-semibold">₹50,000+</p>
+            <p class="mt-3 text-sm leading-6 text-slate-500">Premium multi-page websites for established businesses, brands and professional firms.</p>
+            <span class="mt-7 inline-flex items-center gap-2 text-sm font-bold">View service <span class="transition group-hover:translate-x-1">→</span></span>
+          </a>
+
+          <a href="/services/real-estate-website-development" class="group bg-[#f5f5f2] p-7 transition hover:bg-white sm:p-8">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">07 / Property</p>
+            <h3 class="mt-4 text-2xl font-semibold tracking-tight">Real Estate Websites</h3>
+            <p class="mt-4 text-3xl font-semibold">₹50,000+</p>
+            <p class="mt-3 text-sm leading-6 text-slate-500">Property-focused websites with listings, search, filters, galleries and lead generation.</p>
+            <span class="mt-7 inline-flex items-center gap-2 text-sm font-bold">View service <span class="transition group-hover:translate-x-1">→</span></span>
+          </a>
+
+          <a href="/services/ecommerce-development" class="group bg-white p-7 transition hover:bg-[#f5f5f2] sm:p-8">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">08 / Commerce</p>
+            <h3 class="mt-4 text-2xl font-semibold tracking-tight">E-Commerce Website Development</h3>
+            <p class="mt-4 text-3xl font-semibold">₹60,000+</p>
+            <p class="mt-3 text-sm leading-6 text-slate-500">Online stores with catalogues, search, cart, checkout, payments and order workflows.</p>
+            <span class="mt-7 inline-flex items-center gap-2 text-sm font-bold">View service <span class="transition group-hover:translate-x-1">→</span></span>
+          </a>
+
+          <a href="/services/custom-web-development" class="group bg-[#101010] p-7 text-white transition hover:bg-[#151515] sm:p-8 lg:col-span-1">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-[#c9ff4a]">09 / Custom</p>
+            <h3 class="mt-4 text-2xl font-semibold tracking-tight">Custom Web Applications</h3>
+            <p class="mt-4 text-3xl font-semibold">₹1,00,000+</p>
+            <p class="mt-3 text-sm leading-6 text-slate-400">Dashboards, portals, CRM systems, workflow automation and database-backed applications.</p>
+            <span class="mt-7 inline-flex items-center gap-2 text-sm font-bold text-[#c9ff4a]">View service <span class="transition group-hover:translate-x-1">→</span></span>
+          </a>
+
         </div>
+
+        <div class="mt-8 border border-slate-200 bg-[#f5f5f2] p-7 sm:p-9">
+          <div class="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+                Need Something Different?
+              </p>
+              <h3 class="mt-3 text-2xl font-semibold tracking-tight">
+                Your project doesn't have to fit a predefined package.
+              </h3>
+              <p class="mt-3 max-w-3xl text-sm leading-7 text-slate-500">
+                Booking systems, dashboards, inventory systems, authentication,
+                APIs, payment integrations and other custom functionality can
+                be scoped around your actual business requirements.
+              </p>
+            </div>
+
+            <a href="/services/custom-web-development" class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-bold text-slate-900 transition hover:border-slate-950">
+              Explore Custom Development
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WHAT AFFECTS PRICE -->
+    <section class="bg-[#101010] text-white">
+
+      <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
+
+        <div class="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
+
+          <div>
+
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+              Scope & Investment
+            </p>
+
+            <h2 class="mt-4 max-w-md text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+              What determines the final price?
+            </h2>
+
+          </div>
+
+          <div>
+
+            <p class="max-w-3xl text-lg leading-8 text-slate-400">
+              The starting price gives you a direction. The final quote is
+              based on the actual functionality and complexity required by
+              your project.
+            </p>
+
+            <div class="mt-12 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2">
+
+              <div class="bg-[#151515] p-7">
+                <span class="text-xs font-bold text-[#c9ff4a]">
+                  01
+                </span>
+
+                <h3 class="mt-5 text-xl font-semibold">
+                  Number of Pages
+                </h3>
+
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  The number of unique pages, sections and content structures
+                  required.
+                </p>
+              </div>
+
+              <div class="bg-[#151515] p-7">
+                <span class="text-xs font-bold text-[#c9ff4a]">
+                  02
+                </span>
+
+                <h3 class="mt-5 text-xl font-semibold">
+                  Functionality
+                </h3>
+
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  Forms, booking, dashboards, authentication, filters,
+                  payments and other workflows.
+                </p>
+              </div>
+
+              <div class="bg-[#151515] p-7">
+                <span class="text-xs font-bold text-[#c9ff4a]">
+                  03
+                </span>
+
+                <h3 class="mt-5 text-xl font-semibold">
+                  Integrations
+                </h3>
+
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  APIs, payment gateways, databases, WhatsApp, email and
+                  third-party services.
+                </p>
+              </div>
+
+              <div class="bg-[#151515] p-7">
+                <span class="text-xs font-bold text-[#c9ff4a]">
+                  04
+                </span>
+
+                <h3 class="mt-5 text-xl font-semibold">
+                  Design & Content
+                </h3>
+
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  Custom UI requirements, animations, content preparation and
+                  brand-specific design work.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
 
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ Section -->
-  <section class="py-24 bg-white text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-xs font-semibold text-blue-600 mb-4 shadow-sm">
-        <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
-        Clear Answers
+    <!-- FAQ -->
+    <section class="bg-[#f5f5f2]">
+
+      <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
+
+        <div class="grid gap-12 lg:grid-cols-[.7fr_1.3fr]">
+
+          <div>
+
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+              Pricing FAQ
+            </p>
+
+            <h2 class="mt-4 max-w-md text-4xl font-semibold tracking-tight sm:text-5xl">
+              Questions before you start?
+            </h2>
+
+          </div>
+
+          <div class="border-t border-slate-300">
+
+            <details class="group border-b border-slate-300 py-6">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-5 text-lg font-semibold">
+                Is the price shown on the service pages final?
+
+                <span class="text-2xl font-light transition group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+
+              <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-500">
+                ₹12,000+ is the starting price for the defined starter scope.
+                The final quote can change if additional pages, features,
+                integrations or custom requirements are added.
+              </p>
+            </details>
+
+            <details class="group border-b border-slate-300 py-6">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-5 text-lg font-semibold">
+                Can I request a completely custom website?
+
+                <span class="text-2xl font-light transition group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+
+              <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-500">
+                Yes. Custom websites and web applications can be scoped around
+                your business requirements rather than fitting into a fixed
+                package.
+              </p>
+            </details>
+
+            <details class="group border-b border-slate-300 py-6">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-5 text-lg font-semibold">
+                Do you build React and Next.js applications?
+
+                <span class="text-2xl font-light transition group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+
+              <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-500">
+                Yes. Advanced projects can be developed using React, Next.js,
+                Node.js and database technologies depending on the technical
+                requirements.
+              </p>
+            </details>
+
+            <details class="group border-b border-slate-300 py-6">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-5 text-lg font-semibold">
+                What happens after I contact you?
+
+                <span class="text-2xl font-light transition group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+
+              <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-500">
+                We first understand your business, pages, functionality and
+                goals. After the scope is clear, the project requirements and
+                estimated investment can be discussed before development
+                begins.
+              </p>
+            </details>
+
+          </div>
+
+        </div>
+
       </div>
 
-      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-        Frequently Asked Questions
-      </h2>
+    </section>
 
-      <div class="mt-14 text-left space-y-6">
+    <!-- CTA -->
+    <section class="bg-white">
 
-        <div class="p-6 rounded-2xl bg-slate-50/80 border border-slate-200/60 shadow-sm">
-          <h3 class="font-bold text-lg text-slate-900">Do I need to provide website content?</h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-            You provide basic business details, services, and photos. I personally help rewrite and structure it into crisp, persuasive copy optimized for conversions.
-          </p>
-        </div>
+      <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
 
-        <div class="p-6 rounded-2xl bg-slate-50/80 border border-slate-200/60 shadow-sm">
-          <h3 class="font-bold text-lg text-slate-900">How long does it take to build the website?</h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-            Standard websites (Starter & Growth plans) are fully designed, optimized, and launched within just **7 to 10 working days** after content submission.
-          </p>
-        </div>
+        <div class="relative overflow-hidden bg-[#101010] px-7 py-14 text-white sm:px-12 lg:px-16 lg:py-20">
 
-        <div class="p-6 rounded-2xl bg-slate-50/80 border border-slate-200/60 shadow-sm">
-          <h3 class="font-bold text-lg text-slate-900">Who will I be talking to during development?</h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-            You deal directly with me (Yashotkarsh). No middlemen, no junior customer support reps—ensuring absolute clarity and fast execution.
-          </p>
+          <div
+            class="absolute right-[-80px] top-[-120px] h-[320px] w-[320px] rounded-full bg-[#c9ff4a]/10 blur-3xl"
+          ></div>
+
+          <div class="relative z-10 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
+
+            <div>
+
+              <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#c9ff4a]">
+                Start With The Requirement
+              </p>
+
+              <h2 class="mt-5 max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+                Not sure which package fits your project?
+              </h2>
+
+              <p class="mt-6 max-w-2xl text-base leading-7 text-slate-400">
+                Send us your idea, existing website or requirements. We can
+                discuss the scope and recommend the most practical approach.
+              </p>
+
+            </div>
+
+            <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
+
+              <a
+                href="https://wa.me/919352563337"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-3 rounded-full bg-[#c9ff4a] px-7 py-4 text-sm font-bold text-black transition hover:bg-white"
+              >
+                Discuss Your Project
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  class="h-4 w-4"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m13 6 6 6-6 6"></path>
+                </svg>
+              </a>
+
+              <a
+                href="mailto:hello@ynsweb.studio"
+                class="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-4 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                Email Us
+              </a>
+
+            </div>
+
+          </div>
+
         </div>
 
       </div>
-    </div>
-  </section>
 
+    </section>
+
+    <!-- FINAL NOTE -->
+    <section class="border-t border-slate-200 bg-white">
+
+      <div class="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+
+        <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
+
+          <p class="max-w-2xl text-sm leading-6 text-slate-500">
+            Transparent starting prices. Clear scope. Custom development when
+            your business needs more.
+          </p>
+
+          <a
+            href="/contact"
+            class="inline-flex w-fit items-center gap-2 text-sm font-bold"
+          >
+            Contact YNS Web Studio
+
+            <span>→</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    ::selection {
+      background: #c9ff4a;
+      color: #111111;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+  </style>
 </BaseLayout>
