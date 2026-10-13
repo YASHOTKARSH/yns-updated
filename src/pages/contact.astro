@@ -1,510 +1,557 @@
 ---
 import BaseLayout from "../components/layout/BaseLayout.astro";
+
+const siteUrl = "https://ynsweb.studio";
+const pageUrl = `${siteUrl}/contact`;
+
+const iconPaths = {
+  arrow: `<path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>`,
+  check: `<path d="m5 12 4 4L19 6"></path>`,
+  message: `<path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 9.5 9.5 0 0 1-4-.9L3 21l1.9-4A8.4 8.4 0 0 1 3 11.5 8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"></path>`,
+  shield: `<path d="M12 3 20 6v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-3Z"></path><path d="m9 12 2 2 4-4"></path>`,
+};
 ---
 
 <BaseLayout
   title="Contact YNS Web Studio Jaipur | Get Free Website Audit"
   description="Get in touch with YNS Web Studio in Jaipur to discuss your website project, request a free website audit, and start generating more business enquiries."
 >
+  <Fragment slot="head">
+    <link rel="canonical" href={pageUrl} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ContactPage",
+          "@id": `${pageUrl}#webpage`,
+          url: pageUrl,
+          name: "Contact YNS Web Studio",
+          description: "Contact YNS Web Studio in Jaipur for web development and website audits.",
+          isPartOf: {
+            "@type": "WebSite",
+            name: "YNS Web Studio",
+            url: siteUrl
+          }
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": `${siteUrl}#business`,
+          name: "YNS Web Studio",
+          url: siteUrl,
+          telephone: "+91 93525 63337",
+          email: "hello@ynsweb.studio",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Jaipur",
+            addressRegion: "Rajasthan",
+            addressCountry: "IN"
+          }
+        }
+      ]
+    })} />
+  </Fragment>
 
-  <!-- =========================
-       HERO SECTION
-  ========================== -->
-  <section
-    class="relative bg-gradient-to-b from-slate-50 via-white to-slate-50 py-24 md:py-32 overflow-hidden border-b border-slate-100 text-center"
-  >
-    <div
-      class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-emerald-100/50 rounded-full blur-3xl pointer-events-none"
-    ></div>
+  <div class="business-page">
 
-    <div class="max-w-4xl mx-auto px-6 relative z-10">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-glow hero-glow-one"></div>
+      <div class="hero-glow hero-glow-two"></div>
 
-      <div
-        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 mb-6 shadow-sm"
-      >
-        <span
-          class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"
-        ></span>
+      <div class="container hero-container" style="padding-bottom: 70px;">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span>/</span>
+          <span aria-current="page">Contact</span>
+        </nav>
 
-        Direct Collaboration • Free Consultation
+        <div class="hero-layout" style="min-height: auto; padding-top: 20px;">
+          <div class="hero-copy" style="max-width: 800px; margin: 0 auto;">
+            <div class="eyebrow" style="justify-content: center;">
+              <span class="eyebrow-dot"></span>
+              Direct Collaboration · Free Consultation
+            </div>
+
+            <h1>
+              Let’s Talk About
+              <em>Your Website.</em>
+            </h1>
+
+            <p class="hero-description">
+              Tell us about your business in Jaipur or beyond, and we’ll guide you on the best web structure to turn casual visitors into predictable, high-value enquiries.
+            </p>
+
+            <div class="hero-stats">
+              <div>
+                <strong>Under 15m</strong>
+                <span>WhatsApp response</span>
+              </div>
+              <div>
+                <strong>Direct Chat</strong>
+                <span>With Yashotkarsh</span>
+              </div>
+              <div>
+                <strong>Free</strong>
+                <span>Website audit</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <h1
-        class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15]"
-      >
-        Let’s Talk About
-        <span
-          class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600"
-        >
-          Your Website
-        </span>
-      </h1>
+    <!-- CONTACT SECTION -->
+    <section class="section" style="background: #f7f7f5; padding: 110px 0;">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 35px; align-items: stretch;">
 
-      <p
-        class="mt-6 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed"
-      >
-        Tell us about your local business in Jaipur and we’ll guide you on
-        the best web structure to turn casual visitors into predictable,
-        high-value enquiries.
-      </p>
+          <!-- WHATSAPP CARD -->
+          <div style="background: #111; color: #fff; padding: 50px; border-radius: 28px; border: 1px solid #222; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.12);">
+            <div class="cta-glow" style="top: -60px; right: -60px; width: 280px; height: 280px;"></div>
+            
+            <div style="position: relative; z-index: 2;">
+              <div style="width: 52px; height: 52px; border-radius: 14px; background: rgba(201,255,74,0.12); color: var(--accent); display: grid; place-items: center; margin-bottom: 32px; border: 1px solid rgba(201,255,74,0.2);">
+                <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;">
+                  <g set:html={iconPaths.message}></g>
+                </svg>
+              </div>
 
-    </div>
-  </section>
+              <h2 style="font-size: 32px; font-weight: 500; letter-spacing: -0.04em; margin: 0; line-height: 1.1;">
+                Quickest Response: WhatsApp
+              </h2>
 
+              <p style="margin-top: 18px; color: #999; font-size: 15px; line-height: 1.8;">
+                Skip the inbox wait. Get instant replies, direct developer consultation, and a free website audit directly on WhatsApp.
+              </p>
 
-  <!-- =========================
-       CONTACT SECTION
-  ========================== -->
-  <section
-    class="py-24 bg-gradient-to-b from-white via-slate-50/50 to-white border-b border-slate-100"
-  >
+              <div style="margin-top: 38px; padding-top: 32px; border-top: 1px solid #222; display: grid; gap: 14px; font-size: 13px; color: #ccc;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <span style="color: var(--accent); font-weight: 700;">✓</span> Average response time: Under 15 mins
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <span style="color: var(--accent); font-weight: 700;">✓</span> Direct chat with developer Yashotkarsh
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <span style="color: var(--accent); font-weight: 700;">✓</span> No long forms or waiting
+                </div>
+              </div>
+            </div>
 
-    <div
-      class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch"
-    >
-
-      <!-- =========================
-           WHATSAPP CARD
-      ========================== -->
-      <div
-        class="lg:col-span-5 bg-white p-8 md:p-10 rounded-2xl border border-slate-200/85 shadow-sm hover:shadow-xl hover:border-emerald-200 transition-all duration-300 text-left flex flex-col justify-between"
-      >
-
-        <div>
-
-          <div
-            class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg mb-6"
-          >
-            💬
+            <div style="margin-top: 50px; position: relative; z-index: 2;">
+              <a
+                href="https://wa.me/919352563337"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button button-primary"
+                style="width: 100%; text-align: center; justify-content: center; min-height: 56px;"
+              >
+                Message on WhatsApp Now
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 18px; height: 18px;">
+                  <g set:html={iconPaths.arrow}></g>
+                </svg>
+              </a>
+            </div>
           </div>
 
-          <h2 class="text-2xl font-bold text-slate-900">
-            Quickest Response: WhatsApp
-          </h2>
+          <!-- CONTACT FORM CARD -->
+          <div style="background: #fff; padding: 50px; border-radius: 28px; border: 1px solid #deded9; box-shadow: 0 30px 60px rgba(0,0,0,0.04); display: flex; flex-direction: column; justify-content: space-between;">
+            
+            <div id="formHeader">
+              <span class="section-kicker" style="color: #777;">Secure Transmission</span>
+              <h2 style="font-size: 32px; font-weight: 500; letter-spacing: -0.04em; margin: 8px 0 0; color: #111; line-height: 1.1;">
+                Send a Detailed Message
+              </h2>
+              <p style="margin-top: 8px; color: #777; font-size: 14px;">
+                Fill out the form below and we will get back to you within 24 hours.
+              </p>
+            </div>
 
-          <p
-            class="mt-4 text-slate-600 text-base leading-relaxed"
-          >
-            Skip the inbox wait. Get instant replies, direct developer
-            consultation, and a free website audit directly on WhatsApp.
-          </p>
+            <form id="contactForm" style="margin-top: 32px; display: grid; gap: 20px;">
+              <div>
+                <label for="name" style="display: block; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.16em; color: #666; margin-bottom: 8px;">
+                  Your Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  autocomplete="name"
+                  style="width: 100%; border: 1px solid #deded9; border-radius: 14px; padding: 15px 18px; font-size: 14px; background: #fafaf8; color: #111; outline: none; transition: border-color 0.2s, box-shadow 0.2s;"
+                  placeholder="e.g. Rahul Sharma"
+                />
+              </div>
 
-          <div
-            class="mt-6 pt-6 border-t border-slate-100 space-y-2 text-sm text-slate-700 font-medium"
-          >
-            <p>✓ Average response time: Under 15 mins</p>
-            <p>✓ Direct chat with developer Yashotkarsh</p>
-            <p>✓ No long forms or waiting</p>
+              <div>
+                <label for="email" style="display: block; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.16em; color: #666; margin-bottom: 8px;">
+                  Email Address
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  autocomplete="email"
+                  style="width: 100%; border: 1px solid #deded9; border-radius: 14px; padding: 15px 18px; font-size: 14px; background: #fafaf8; color: #111; outline: none; transition: border-color 0.2s, box-shadow 0.2s;"
+                  placeholder="rahul@yourbusiness.com"
+                />
+              </div>
+
+              <div>
+                <label for="message" style="display: block; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.16em; color: #666; margin-bottom: 8px;">
+                  Project Details / Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                  style="width: 100%; border: 1px solid #deded9; border-radius: 14px; padding: 15px 18px; font-size: 14px; background: #fafaf8; color: #111; outline: none; resize: none; transition: border-color 0.2s;"
+                  placeholder="Tell us about your business, current website (if any), and goals..."
+                ></textarea>
+              </div>
+
+              <div id="formStatus" class="hidden rounded-xl px-4 py-3 text-sm font-medium" role="status" aria-live="polite"></div>
+
+              <button
+                id="submitButton"
+                type="submit"
+                class="button button-primary"
+                style="width: 100%; justify-content: center; margin-top: 10px; cursor: pointer; min-height: 56px; border-radius: 14px; background: #111; color: #fff;"
+              >
+                <span id="buttonText">Send Message Securely</span>
+                <svg id="buttonLoader" class="hidden animate-spin" viewBox="0 0 24 24" fill="none" style="width: 18px; height: 18px;">
+                  <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="3" stroke-opacity="0.25"></circle>
+                  <path d="M21 12a9 9 0 0 1-9 9" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
+                </svg>
+              </button>
+            </form>
+
+            <!-- SUCCESS STATE -->
+            <div id="successState" class="hidden text-center py-12" role="status" aria-live="polite">
+              <div style="width: 65px; height: 65px; border-radius: 50%; background: rgba(201,255,74,0.25); color: #2e7d32; display: grid; place-items: center; margin: 0 auto 20px;">
+                <svg style="width: 30px; height: 30px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="M5 12.5L9.5 17L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+
+              <h3 style="font-size: 26px; font-weight: 600; color: #111; margin: 0; letter-spacing: -0.03em;">Message Received</h3>
+              <p style="margin-top: 10px; color: #666; font-size: 14px; line-height: 1.7; max-width: 380px; margin-inline: auto;">
+                Thanks for reaching out. We've received your enquiry and will get back to you within 24 hours.
+              </p>
+
+              <a
+                href="https://wa.me/919352563337"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button button-primary"
+                style="margin-top: 30px; display: inline-flex; background: #111; color: #fff;"
+              >
+                Need a Faster Reply? WhatsApp Us
+              </a>
+            </div>
+
           </div>
 
         </div>
-
-
-        <div class="mt-10">
-
-          <a
-            href="https://wa.me/919352563337"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="w-full inline-flex items-center justify-center rounded-xl bg-emerald-600 text-white px-6 py-4 font-bold hover:bg-emerald-700 transition shadow-lg shadow-emerald-600/20"
-          >
-            Message on WhatsApp Now
-          </a>
-
-        </div>
-
       </div>
+    </section>
 
+  </div>
 
-      <!-- =========================
-           CONTACT FORM CARD
-      ========================== -->
-      <div
-        class="lg:col-span-7 bg-white p-8 md:p-10 rounded-2xl border border-slate-200/85 shadow-sm text-left"
-      >
-
-        <!-- FORM HEADER -->
-        <div id="formHeader">
-
-          <h2 class="text-2xl font-bold text-slate-900 mb-2">
-            Send a Detailed Message
-          </h2>
-
-          <p class="text-sm text-slate-500 mb-8">
-            Fill out the form below and we will get back to you within
-            24 hours.
-          </p>
-
-        </div>
-
-
-        <!-- =========================
-             FORM
-        ========================== -->
-        <form
-          id="contactForm"
-          class="space-y-6"
-        >
-
-          <!-- NAME -->
-          <div>
-
-            <label
-              for="name"
-              class="block text-sm font-semibold text-slate-700 mb-2"
-            >
-              Your Name
-            </label>
-
-            <input
-              id="name"
-              name="name"
-              type="text"
-              required
-              autocomplete="name"
-              class="w-full border border-slate-300 rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition bg-slate-50/50 text-slate-900 text-sm"
-              placeholder="e.g. Rahul Sharma"
-            />
-
-          </div>
-
-
-          <!-- EMAIL -->
-          <div>
-
-            <label
-              for="email"
-              class="block text-sm font-semibold text-slate-700 mb-2"
-            >
-              Email Address
-            </label>
-
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              autocomplete="email"
-              class="w-full border border-slate-300 rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition bg-slate-50/50 text-slate-900 text-sm"
-              placeholder="rahul@yourbusiness.com"
-            />
-
-          </div>
-
-
-          <!-- MESSAGE -->
-          <div>
-
-            <label
-              for="message"
-              class="block text-sm font-semibold text-slate-700 mb-2"
-            >
-              Project Details / Message
-            </label>
-
-            <textarea
-              id="message"
-              name="message"
-              rows="5"
-              required
-              class="w-full border border-slate-300 rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition bg-slate-50/50 text-slate-900 text-sm resize-none"
-              placeholder="Tell us about your business, current website (if any), and goals..."
-            ></textarea>
-
-          </div>
-
-
-          <!-- =========================
-               ERROR / STATUS MESSAGE
-          ========================== -->
-          <div
-            id="formStatus"
-            class="hidden rounded-xl px-4 py-3 text-sm font-medium"
-            role="status"
-            aria-live="polite"
-          ></div>
-
-
-          <!-- =========================
-               SUBMIT BUTTON
-          ========================== -->
-          <button
-            id="submitButton"
-            type="submit"
-            class="w-full bg-slate-900 text-white rounded-xl py-4 font-semibold hover:bg-slate-800 transition shadow-lg shadow-slate-900/10 text-base disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-          >
-
-            <span id="buttonText">
-              Send Message Securely
-            </span>
-
-            <!-- Loader -->
-            <svg
-              id="buttonLoader"
-              class="hidden animate-spin w-5 h-5"
-              viewBox="0 0 24 24"
-              fill="none"
-              aria-hidden="true"
-            >
-              <circle
-                cx="12"
-                cy="12"
-                r="9"
-                stroke="currentColor"
-                stroke-width="3"
-                stroke-opacity="0.25"
-              ></circle>
-
-              <path
-                d="M21 12a9 9 0 0 1-9 9"
-                stroke="currentColor"
-                stroke-width="3"
-                stroke-linecap="round"
-              ></path>
-            </svg>
-
-          </button>
-
-        </form>
-
-
-        <!-- =========================
-             SUCCESS STATE
-        ========================== -->
-        <div
-          id="successState"
-          class="hidden text-center py-10"
-          role="status"
-          aria-live="polite"
-        >
-
-          <!-- Success Icon -->
-          <div
-            class="mx-auto w-16 h-16 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-5"
-          >
-
-            <svg
-              class="w-8 h-8 text-emerald-600"
-              viewBox="0 0 24 24"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M5 12.5L9.5 17L19 7"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-            </svg>
-
-          </div>
-
-
-          <h3 class="text-2xl font-bold text-slate-900">
-            Message Received
-          </h3>
-
-
-          <p
-            class="mt-3 text-slate-600 max-w-md mx-auto leading-relaxed"
-          >
-            Thanks for reaching out. We've received your enquiry and
-            will get back to you within 24 hours.
-          </p>
-
-
-          <a
-            href="https://wa.me/919352563337"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="mt-6 inline-flex items-center justify-center rounded-xl bg-emerald-600 text-white px-6 py-3 font-semibold hover:bg-emerald-700 transition"
-          >
-            Need a Faster Reply? WhatsApp Us
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       GOOGLE APPS SCRIPT
-  ========================== -->
+<!-- GOOGLE APPS SCRIPT HANDLER -->
   <script>
-
-    const form = document.getElementById("contactForm");
+    const form = document.getElementById("contactForm") as HTMLFormElement | null;
     const formHeader = document.getElementById("formHeader");
     const formStatus = document.getElementById("formStatus");
     const successState = document.getElementById("successState");
 
-    const submitButton = document.getElementById("submitButton");
+    const submitButton = document.getElementById("submitButton") as HTMLButtonElement | null;
     const buttonText = document.getElementById("buttonText");
     const buttonLoader = document.getElementById("buttonLoader");
-
-
-    /*
-      IMPORTANT:
-      This is your deployed Google Apps Script Web App URL.
-    */
 
     const GOOGLE_SCRIPT_URL =
       "https://script.google.com/macros/s/AKfycbyNdkVoqre7ILRMYkGRUXAmgNkmOrs1Dn0Tz20YcHs7AYMsMur11ewR3yv5C9727eKq/exec";
 
-
-    /*
-      Show status message
-    */
-
-    function showStatus(message, type) {
-
+    function showStatus(message: string, type: "error" | "success") {
+      if (!formStatus) return;
       formStatus.textContent = message;
-
-      formStatus.className =
-        "rounded-xl px-4 py-3 text-sm font-medium";
-
+      formStatus.className = "rounded-xl px-4 py-3 text-sm font-medium";
 
       if (type === "error") {
-
-        formStatus.classList.add(
-          "bg-red-50",
-          "border",
-          "border-red-100",
-          "text-red-700"
-        );
-
+        formStatus.classList.add("bg-red-50", "border", "border-red-100", "text-red-700");
       }
-
-
       if (type === "success") {
-
-        formStatus.classList.add(
-          "bg-emerald-50",
-          "border",
-          "border-emerald-100",
-          "text-emerald-700"
-        );
-
+        formStatus.classList.add("bg-emerald-50", "border", "border-emerald-100", "text-emerald-700");
       }
-
-
       formStatus.classList.remove("hidden");
-
     }
 
-
-    /*
-      Form submission
-    */
-
-    if (form) {
-
+    if (form && submitButton && buttonText && buttonLoader && formHeader && successState && formStatus) {
       form.addEventListener("submit", async (e) => {
-
         e.preventDefault();
-
-
-        /*
-          Hide previous error
-        */
-
         formStatus.classList.add("hidden");
 
-
-        /*
-          Loading state
-        */
-
         submitButton.disabled = true;
-
         buttonText.textContent = "Sending...";
-
         buttonLoader.classList.remove("hidden");
-
-
-        /*
-          Collect form data
-        */
 
         const formData = new FormData(form);
 
-
         try {
+          // Send data via no-cors
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            body: formData,
+            mode: "no-cors",
+          });
 
-          /*
-            Send data to Google Apps Script.
-
-            no-cors is required here because Google Apps Script
-            does not expose a normal browser CORS response.
-          */
-
-          await fetch(
-            GOOGLE_SCRIPT_URL,
-            {
-              method: "POST",
-              body: formData,
-              mode: "no-cors"
-            }
-          );
-
-
-          /*
-            Show success UI
-          */
+          // FIX: Immediately stop loader and transition to success state
+          buttonLoader.classList.add("hidden");
+          submitButton.disabled = false;
+          buttonText.textContent = "Send Message Securely";
 
           form.classList.add("hidden");
-
           formHeader.classList.add("hidden");
-
           successState.classList.remove("hidden");
-
-
-          /*
-            Reset form
-          */
-
           form.reset();
-
-
         } catch (error) {
-
-          console.error(
-            "Contact form submission error:",
-            error
-          );
-
-
-          /*
-            Show professional inline error
-          */
-
+          console.error("Contact form submission error:", error);
           showStatus(
             "We couldn't send your message. Please try again or contact us directly on WhatsApp.",
             "error"
           );
 
-
-          /*
-            Restore button
-          */
-
           submitButton.disabled = false;
-
-          buttonText.textContent =
-            "Send Message Securely";
-
+          buttonText.textContent = "Send Message Securely";
           buttonLoader.classList.add("hidden");
-
         }
-
       });
-
     }
-
   </script>
 
+  <style>
+    :global(html) {
+      scroll-behavior: smooth;
+    }
+
+    :global(body) {
+      background: #f7f7f5;
+    }
+
+    .business-page {
+      --ink: #111111;
+      --muted: #696969;
+      --soft: #f1f1ee;
+      --line: #deded9;
+      --dark: #101010;
+      --white: #ffffff;
+      --accent: #c9ff4a;
+      color: var(--ink);
+      overflow: hidden;
+    }
+
+    .container {
+      width: min(1240px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      min-height: auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 18%, rgba(201, 255, 74, 0.12), transparent 28%),
+        #101010;
+      color: white;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.28;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+    }
+
+    .hero-glow, .cta-glow {
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .hero-glow-one {
+      right: -180px;
+      top: 120px;
+      background: #c9ff4a;
+    }
+
+    .hero-glow-two {
+      left: -250px;
+      bottom: -280px;
+      background: #ffffff;
+    }
+
+    .hero-container {
+      position: relative;
+      z-index: 2;
+      padding-top: 32px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      color: #777;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .breadcrumb a {
+      color: #888;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .breadcrumb a:hover {
+      color: white;
+    }
+
+    .breadcrumb span:last-child {
+      color: #d4d4d4;
+    }
+
+    .hero-layout {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #a5a5a5;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(201,255,74,0.65);
+    }
+
+    .hero h1 {
+      margin: 28px 0 0;
+      font-size: clamp(48px, 6vw, 78px);
+      line-height: 1.02;
+      letter-spacing: -0.065em;
+      font-weight: 500;
+    }
+
+    .hero h1 em {
+      display: block;
+      color: #777;
+      font-style: normal;
+    }
+
+    .hero-description {
+      max-width: 650px;
+      margin: 25px auto 0;
+      color: #a7a7a7;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      max-width: 650px;
+      margin: 55px auto 0;
+      border-top: 1px solid #303030;
+      padding-top: 22px;
+    }
+
+    .hero-stats div {
+      text-align: center;
+    }
+
+    .hero-stats strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .hero-stats span {
+      display: block;
+      margin-top: 6px;
+      color: #666;
+      font-size: 11px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .button-primary {
+      color: #111;
+      background: var(--accent);
+    }
+
+    .button-primary:hover {
+      background: #d9ff79;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 900px) {
+      .section > .container > div {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .container {
+        width: min(100% - 28px, 680px);
+      }
+      .hero-stats {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
 </BaseLayout>
