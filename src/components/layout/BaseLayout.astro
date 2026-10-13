@@ -38,33 +38,33 @@ const url = Astro.url;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
 
-    <!-- Local Business Schema -->
-    <script type="application/ld+json">
-      set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "YNS Web Studio",
-        "url": "https://ynsweb.studio",
-        "logo": "https://ynsweb.studio/og-image.jpg",
-        "telephone": "+919352563337",
-        "email": "hello@ynsweb.studio",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Jaipur",
-          "addressRegion": "Rajasthan",
-          "postalCode": "302039",
-          "addressCountry": "IN"
-        },
-        "areaServed": {
-          "@type": "City",
-          "name": "Jaipur"
-        },
-        "sameAs": [
-          "https://www.linkedin.com/",
-          "https://www.instagram.com/"
-        ]
-      })}
-    </script>
+<!-- Local Business Schema -->
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "YNS Web Studio",
+    "url": "https://ynsweb.studio",
+    "logo": "https://ynsweb.studio/og-image.jpg",
+    "telephone": "+919352563337",
+    "email": "hello@ynsweb.studio",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Jaipur",
+      "addressRegion": "Rajasthan",
+      "postalCode": "302039",
+      "addressCountry": "IN"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Jaipur"
+    },
+    "sameAs": [
+      "https://www.instagram.com/_apoorvasonu/"
+    ]
+  })}
+/>
 
   </head>
 
