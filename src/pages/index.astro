@@ -308,59 +308,60 @@ const iconPaths = {
       content="Professional website and web development services for businesses, startups and brands."
     />
 
-    <script type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "ProfessionalService",
-            "@id": `${siteUrl}/#organization`,
-            name: "YNS Web Studio",
-            url: siteUrl,
-            description:
-              "Web development studio in Jaipur building fast, responsive and SEO-ready websites and web applications.",
-            areaServed: {
-              "@type": "City",
-              name: "Jaipur",
-            },
-            serviceType: services.map((service) => service.title),
-          },
-          {
-            "@type": "WebSite",
-            "@id": `${siteUrl}/#website`,
-            url: siteUrl,
-            name: "YNS Web Studio",
-            publisher: {
-              "@id": `${siteUrl}/#organization`,
-            },
-          },
-          {
-            "@type": "WebPage",
-            "@id": `${pageUrl}#webpage`,
-            url: pageUrl,
-            name: "Web Development Company in Jaipur | YNS Web Studio",
-            description:
-              "Professional web development services offered by YNS Web Studio in Jaipur.",
-            isPartOf: {
-              "@id": `${siteUrl}/#website`,
-            },
-            about: {
-              "@id": `${siteUrl}/#organization`,
-            },
-          },
-          {
-            "@type": "ItemList",
-            name: "YNS Web Studio Web Development Services",
-            itemListElement: itemListSchema,
-          },
-          {
-            "@type": "FAQPage",
-            mainEntity: faqSchema,
-          },
-          ...serviceSchema,
-        ],
-      })}
-    </script>
+    <script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": `${siteUrl}/#organization`,
+        name: "YNS Web Studio",
+        url: siteUrl,
+        description:
+          "Web development studio in Jaipur building fast, responsive and SEO-ready websites and web applications.",
+        areaServed: {
+          "@type": "City",
+          name: "Jaipur",
+        },
+        serviceType: services.map((service) => service.title),
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: "YNS Web Studio",
+        publisher: {
+          "@id": `${siteUrl}/#organization`,
+        },
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: "Web Development Company in Jaipur | YNS Web Studio",
+        description:
+          "Professional web development services offered by YNS Web Studio in Jaipur.",
+        isPartOf: {
+          "@id": `${siteUrl}/#website`,
+        },
+        about: {
+          "@id": `${siteUrl}/#organization`,
+        },
+      },
+      {
+        "@type": "ItemList",
+        name: "YNS Web Studio Web Development Services",
+        itemListElement: itemListSchema,
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqSchema,
+      },
+      ...serviceSchema,
+    ],
+  })}
+/>
   </Fragment>
 
   <div class="business-page">
