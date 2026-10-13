@@ -30,7 +30,7 @@ import CTA from "../components/sections/CTA.astro";
 import BaseLayout from "../components/layout/BaseLayout.astro";
 
 const siteUrl = "https://ynsweb.studio";
-const pageUrl = `${siteUrl}/`;
+const pageUrl = `${siteUrl}${Astro.url.pathname}`;
 
 const services = [
   {

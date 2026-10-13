@@ -2,7 +2,7 @@
 import BaseLayout from "../components/layout/BaseLayout.astro";
 
 const siteUrl = "https://ynsweb.studio";
-const pageUrl = `${siteUrl}/contact`;
+const pageUrl = `${siteUrl}${Astro.url.pathname}`;
 
 const iconPaths = {
   arrow: `<path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>`,
