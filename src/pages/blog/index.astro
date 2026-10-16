@@ -1,0 +1,1222 @@
+---
+import BaseLayout from "../../components/layout/BaseLayout.astro";
+import { blogs } from "../../data/blogs.js";
+
+const siteUrl = "https://ynsweb.studio";
+
+const featuredBlog =
+  blogs.find((blog) => blog.featured) || blogs[0];
+
+const remainingBlogs = blogs.filter(
+  (blog) => blog.slug !== featuredBlog?.slug
+);
+
+/*
+ * Blog images
+ * You can later move these paths into blogs.js itself.
+ */
+const blogImages = {
+  "nextjs-vs-react-for-business-websites":
+    "/images/blog/nextjs-vs-react-for-business-websites.png",
+
+  "react-website-development-cost-india":
+    "/images/blog/react-website-development-cost-india.png",
+};
+
+const getBlogImage = (blog) =>
+  blog.image || blogImages[blog.slug] || "/og-image.jpg";
+
+const pageTitle =
+  "Web Development Blog | React, Next.js & Modern Websites | YNS Web Studio";
+
+const pageDescription =
+  "Practical insights on React, Next.js, website development, SEO, performance and modern web applications from YNS Web Studio.";
+
+const canonicalUrl = `${siteUrl}/blog`;
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": `${canonicalUrl}#collection`,
+  name: pageTitle,
+  description: pageDescription,
+  url: canonicalUrl,
+
+  isPartOf: {
+    "@type": "WebSite",
+    name: "YNS Web Studio",
+    url: siteUrl,
+  },
+
+  about: [
+    "React development",
+    "Next.js development",
+    "Web development",
+    "Website performance",
+    "Website SEO",
+  ],
+
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: blogs.length,
+
+    itemListElement: blogs.map((blog, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: blog.title,
+      url: `${siteUrl}/blog/${blog.slug}`,
+    })),
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: siteUrl,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Blog",
+      item: canonicalUrl,
+    },
+  ],
+};
+---
+
+<BaseLayout
+  _title={pageTitle}
+  _description={pageDescription}
+>
+  <!-- SEO -->
+  <link rel="canonical" href={canonicalUrl} />
+
+  <meta
+    name="robots"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  />
+
+  <meta
+    name="keywords"
+    content="React development, Next.js development, React developer Jaipur, Next.js developer Jaipur, web development Jaipur, website development Jaipur, React vs Next.js, Next.js website development, React website development"
+  />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={pageDescription} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:site_name" content="YNS Web Studio" />
+  <meta property="og:image" content={`${siteUrl}/og-image.jpg`} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={pageDescription} />
+  <meta
+    name="twitter:image"
+    content={`${siteUrl}/og-image.jpg`}
+  />
+
+  <!-- Structured Data -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(collectionSchema)}
+  />
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(breadcrumbSchema)}
+  />
+
+  <main>
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <section class="blog-hero">
+      <div class="container">
+        <nav
+          class="breadcrumbs"
+          aria-label="Breadcrumb"
+        >
+          <a href="/">Home</a>
+          <span>/</span>
+          <span>Blog</span>
+        </nav>
+
+        <div class="hero-content">
+          <span class="eyebrow">
+            YNS Web Studio / Insights
+          </span>
+
+          <h1>
+            Practical ideas for
+            <span>better websites.</span>
+          </h1>
+
+          <p>
+            Practical guides on React, Next.js, website development,
+            SEO, performance and modern web applications — written
+            to help businesses make better technology decisions.
+          </p>
+
+          <div class="hero-actions">
+            <a
+              href="/services"
+              class="hero-button primary"
+            >
+              Explore Web Development Services
+
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 10h12M11 5l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="/contact"
+              class="hero-button secondary"
+            >
+              Discuss Your Project
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         FEATURED ARTICLE
+    ========================================================== -->
+
+    {
+      featuredBlog && (
+        <section class="featured-section">
+          <div class="container">
+            <div class="section-label">
+              <span class="eyebrow">
+                Featured insight
+              </span>
+            </div>
+
+            <a
+              href={`/blog/${featuredBlog.slug}`}
+              class="featured-card"
+            >
+              <div class="featured-content">
+                <div class="featured-meta">
+                  <span>
+                    {featuredBlog.category}
+                  </span>
+
+                  {featuredBlog.readingTime && (
+                    <span>
+                      {featuredBlog.readingTime}
+                    </span>
+                  )}
+
+                  {featuredBlog.publishedAt && (
+                    <time datetime={featuredBlog.publishedAt}>
+                      {new Date(
+                        featuredBlog.publishedAt
+                      ).toLocaleDateString("en-IN", {
+                        day: "numeric",
+                        month: "short",
+                        year: "numeric",
+                      })}
+                    </time>
+                  )}
+                </div>
+
+                <h2>
+                  {featuredBlog.title}
+                </h2>
+
+                <p>
+                  {featuredBlog.description}
+                </p>
+
+                <span class="featured-link">
+                  Read the article
+
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M4 10h12M11 5l5 5-5 5"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </div>
+
+              <div class="featured-visual">
+                <div class="featured-image-wrapper">
+                  <img
+                    src={getBlogImage(featuredBlog)}
+                    alt={featuredBlog.title}
+                    width="1200"
+                    height="675"
+                    loading="eager"
+                    decoding="async"
+                  />
+
+                  <div class="featured-image-overlay">
+                    <span>
+                      React + Next.js
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </section>
+      )
+    }
+
+    <!-- =========================================================
+         ARTICLES
+    ========================================================== -->
+
+    <section class="articles-section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">
+              Latest articles
+            </span>
+
+            <h2>
+              Learn before you build.
+            </h2>
+          </div>
+
+          <p>
+            Explore practical articles around choosing the right
+            technology, building faster websites and creating
+            better digital experiences.
+          </p>
+        </div>
+
+        {
+          remainingBlogs.length > 0 ? (
+            <div class="article-grid">
+              {remainingBlogs.map((blog) => (
+                <article class="article-card">
+                  <a
+                    href={`/blog/${blog.slug}`}
+                    class="article-card-link"
+                  >
+                    <div class="article-image-wrapper">
+                      <img
+                        src={getBlogImage(blog)}
+                        alt={blog.title}
+                        width="1200"
+                        height="675"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+
+                    <div class="article-card-content">
+                      <div class="article-card-meta">
+                        <span>
+                          {blog.category}
+                        </span>
+
+                        {blog.readingTime && (
+                          <span>
+                            {blog.readingTime}
+                          </span>
+                        )}
+                      </div>
+
+                      <h3>
+                        {blog.title}
+                      </h3>
+
+                      <p>
+                        {blog.description}
+                      </p>
+
+                      <span class="read-more">
+                        Read article
+
+                        <svg
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M4 10h12M11 5l5 5-5 5"
+                            stroke="currentColor"
+                            stroke-width="1.6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </a>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div class="empty-state">
+              <p>
+                More articles are coming soon.
+              </p>
+            </div>
+          )
+        }
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SERVICE DISCOVERY
+    ========================================================== -->
+
+    <section class="service-discovery">
+      <div class="container">
+        <div class="service-discovery-box">
+          <div class="service-copy">
+            <span class="eyebrow">
+              From ideas to production
+            </span>
+
+            <h2>
+              Reading is useful.
+              <br />
+              Building is better.
+            </h2>
+
+            <p>
+              If you're researching React, Next.js or modern website
+              development because you have a project in mind, explore
+              our development services or tell us what you're trying
+              to build.
+            </p>
+          </div>
+
+          <div class="service-actions">
+            <a
+              href="/services/nextjs-development"
+              class="service-action"
+            >
+              Next.js Development
+
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 10h12M11 5l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="/services/react-development"
+              class="service-action"
+            >
+              React Development
+
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 10h12M11 5l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="/services/business-website-development"
+              class="service-action"
+            >
+              Business Website Development
+
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 10h12M11 5l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="/services/custom-web-development"
+              class="service-action"
+            >
+              Custom Web Development
+
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 10h12M11 5l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="/services"
+              class="all-services-link"
+            >
+              View all web development services
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CONTACT CTA
+    ========================================================== -->
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-box">
+          <div class="contact-copy">
+            <span class="eyebrow">
+              Have a project in mind?
+            </span>
+
+            <h2>
+              Let's build something
+              <br />
+              that works for your business.
+            </h2>
+
+            <p>
+              Tell us what you're building, what problem you're
+              trying to solve and where you're currently stuck.
+              We'll help you figure out the next step.
+            </p>
+          </div>
+
+          <div class="contact-actions">
+            <a
+              href="/contact"
+              class="contact-button primary"
+            >
+              Start a Project
+
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 10h12M11 5l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="https://wa.me/919352563337?text=Hi%20YNS%20Web%20Studio%2C%20I%20found%20your%20blog%20and%20want%20to%20discuss%20a%20website%20project."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-button secondary"
+            >
+              WhatsApp YNS Web Studio
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .container {
+    width: min(1180px, calc(100% - 2rem));
+    margin-inline: auto;
+  }
+
+  /* =========================================================
+     HERO
+  ========================================================== */
+
+  .blog-hero {
+    padding: 4.5rem 0 4.8rem;
+    border-bottom: 1px solid #e2e8f0;
+    background: #fff;
+  }
+
+  .breadcrumbs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+    color: #94a3b8;
+    font-size: 0.76rem;
+  }
+
+  .breadcrumbs a {
+    color: #64748b;
+    text-decoration: none;
+  }
+
+  .breadcrumbs a:hover {
+    color: #0f172a;
+  }
+
+  .hero-content {
+    max-width: 850px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    color: #64748b;
+    font-size: 0.7rem;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .hero-content h1 {
+    max-width: 820px;
+    margin: 1rem 0 1.2rem;
+    color: #0f172a;
+    font-size: clamp(2.7rem, 7vw, 5.4rem);
+    line-height: 0.98;
+    letter-spacing: -0.065em;
+    font-weight: 750;
+  }
+
+  .hero-content h1 span {
+    display: block;
+    color: #64748b;
+  }
+
+  .hero-content > p {
+    max-width: 720px;
+    margin: 0;
+    color: #64748b;
+    font-size: clamp(1rem, 1.8vw, 1.16rem);
+    line-height: 1.85;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1.7rem;
+  }
+
+  .hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.9rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 800;
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .hero-button svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .hero-button.primary {
+    color: #fff;
+    background: #0f172a;
+    border: 1px solid #0f172a;
+  }
+
+  .hero-button.secondary {
+    color: #0f172a;
+    background: #fff;
+    border: 1px solid #cbd5e1;
+  }
+
+  .hero-button:hover {
+    transform: translateY(-1px);
+  }
+
+  /* =========================================================
+     FEATURED ARTICLE
+  ========================================================== */
+
+  .featured-section {
+    padding: 4.5rem 0 3rem;
+  }
+
+  .section-label {
+    margin-bottom: 1rem;
+  }
+
+  .featured-card {
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1.05fr)
+      minmax(320px, 0.95fr);
+    overflow: hidden;
+    min-height: 430px;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.5rem;
+    background: #f8fafc;
+    text-decoration: none;
+    transition:
+      transform 200ms ease,
+      border-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+
+  .featured-card:hover {
+    transform: translateY(-3px);
+    border-color: #cbd5e1;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  }
+
+  .featured-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+  }
+
+  .featured-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    color: #64748b;
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+
+  .featured-meta span:first-child {
+    color: #0f172a;
+  }
+
+  .featured-content h2 {
+    max-width: 700px;
+    margin: 1rem 0;
+    color: #0f172a;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.05em;
+  }
+
+  .featured-content p {
+    max-width: 650px;
+    margin: 0;
+    color: #64748b;
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+
+  .featured-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.6rem;
+    color: #0f172a;
+    font-size: 0.8rem;
+    font-weight: 800;
+  }
+
+  .featured-link svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .featured-visual {
+    display: grid;
+    place-items: center;
+    min-height: 100%;
+    padding: 2rem;
+    background: #e2e8f0;
+  }
+
+  .featured-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 330px;
+    overflow: hidden;
+    border: 1px solid #cbd5e1;
+    border-radius: 1.1rem;
+    background: #fff;
+    box-shadow: 0 25px 50px rgba(15, 23, 42, 0.12);
+  }
+
+  .featured-image-wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 330px;
+    object-fit: cover;
+    transition: transform 500ms ease;
+  }
+
+  .featured-card:hover .featured-image-wrapper img {
+    transform: scale(1.025);
+  }
+
+  .featured-image-overlay {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    padding: 0.5rem 0.7rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.6rem;
+    color: #475569;
+    background: rgba(255, 255, 255, 0.94);
+    font-size: 0.7rem;
+    font-weight: 800;
+  }
+
+  /* =========================================================
+     ARTICLES
+  ========================================================== */
+
+  .articles-section {
+    padding: 3rem 0 5rem;
+  }
+
+  .section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 1.7rem;
+  }
+
+  .section-heading h2 {
+    margin: 0.7rem 0 0;
+    color: #0f172a;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    line-height: 1.15;
+    letter-spacing: -0.045em;
+  }
+
+  .section-heading > p {
+    max-width: 500px;
+    margin: 0;
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .article-card {
+    min-width: 0;
+  }
+
+  .article-card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.15rem;
+    background: #fff;
+    text-decoration: none;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .article-card-link:hover {
+    transform: translateY(-3px);
+    border-color: #cbd5e1;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.07);
+  }
+
+  .article-image-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #f1f5f9;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .article-image-wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 450ms ease;
+  }
+
+  .article-card-link:hover .article-image-wrapper img {
+    transform: scale(1.035);
+  }
+
+  .article-card-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 1.35rem;
+  }
+
+  .article-card-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.7rem;
+    margin-bottom: 1.2rem;
+    color: #94a3b8;
+    font-size: 0.68rem;
+    font-weight: 700;
+  }
+
+  .article-card-meta span:first-child {
+    color: #475569;
+  }
+
+  .article-card h3 {
+    margin: 0 0 0.75rem;
+    color: #0f172a;
+    font-size: 1.18rem;
+    line-height: 1.35;
+    letter-spacing: -0.025em;
+  }
+
+  .article-card p {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.84rem;
+    line-height: 1.75;
+  }
+
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: auto;
+    padding-top: 1.5rem;
+    color: #0f172a;
+    font-size: 0.76rem;
+    font-weight: 800;
+  }
+
+  .read-more svg {
+    width: 0.85rem;
+    height: 0.85rem;
+  }
+
+  .empty-state {
+    padding: 3rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    color: #64748b;
+    text-align: center;
+  }
+
+  /* =========================================================
+     SERVICE DISCOVERY
+  ========================================================== */
+
+  .service-discovery {
+    padding: 5rem 0;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .service-discovery-box {
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(340px, 0.8fr);
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .service-copy h2 {
+    max-width: 650px;
+    margin: 0.75rem 0 1rem;
+    color: #0f172a;
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    line-height: 1.12;
+    letter-spacing: -0.05em;
+  }
+
+  .service-copy p {
+    max-width: 650px;
+    margin: 0;
+    color: #64748b;
+    font-size: 0.96rem;
+    line-height: 1.8;
+  }
+
+  .service-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .service-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.8rem;
+    color: #0f172a;
+    background: #fff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 800;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .service-action:hover {
+    transform: translateX(3px);
+    border-color: #cbd5e1;
+  }
+
+  .service-action svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  .all-services-link {
+    margin-top: 0.6rem;
+    color: #64748b;
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .all-services-link:hover {
+    color: #0f172a;
+  }
+
+  /* =========================================================
+     CONTACT
+  ========================================================== */
+
+  .contact-section {
+    padding: 5rem 0;
+    background: #fff;
+  }
+
+  .contact-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    background: #0f172a;
+  }
+
+  .contact-copy {
+    max-width: 700px;
+  }
+
+  .contact-copy .eyebrow {
+    color: #94a3b8;
+  }
+
+  .contact-copy h2 {
+    margin: 0.75rem 0 1rem;
+    color: #fff;
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    line-height: 1.12;
+    letter-spacing: -0.05em;
+  }
+
+  .contact-copy p {
+    max-width: 650px;
+    margin: 0;
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .contact-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    width: 230px;
+    flex: 0 0 auto;
+  }
+
+  .contact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.9rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 800;
+    transition: transform 180ms ease;
+  }
+
+  .contact-button:hover {
+    transform: translateY(-1px);
+  }
+
+  .contact-button.primary {
+    color: #0f172a;
+    background: #fff;
+  }
+
+  .contact-button.secondary {
+    color: #fff;
+    border: 1px solid #334155;
+    background: transparent;
+  }
+
+  .contact-button svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  /* =========================================================
+     RESPONSIVE
+  ========================================================== */
+
+  @media (max-width: 900px) {
+    .featured-card {
+      grid-template-columns: 1fr;
+    }
+
+    .featured-visual {
+      min-height: 320px;
+    }
+
+    .article-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .service-discovery-box {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .contact-box {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .contact-actions {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .blog-hero {
+      padding: 3.5rem 0;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .hero-button {
+      width: 100%;
+    }
+
+    .featured-content {
+      padding: 2rem 1.4rem;
+    }
+
+    .featured-visual {
+      padding: 1.4rem;
+    }
+
+    .featured-image-wrapper,
+    .featured-image-wrapper img {
+      min-height: 230px;
+    }
+
+    .section-heading {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .article-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service-discovery {
+      padding: 4rem 0;
+    }
+
+    .contact-section {
+      padding: 4rem 0;
+    }
+
+    .contact-box {
+      padding: 2rem 1.4rem;
+    }
+  }
+</style>

@@ -1,19 +1,18 @@
 ---
-/* Header.astro */
 ---
 
 <header
-  class="sticky top-0 z-50 w-full border-b border-[#deded9] bg-[#f7f7f5]/90 backdrop-blur-md transition-all"
+  class="sticky top-0 z-50 w-full border-b border-[#deded9] bg-[#f7f7f5]/90 backdrop-blur-md"
 >
   <div
     class="mx-auto flex max-w-[1240px] items-center justify-between px-6 py-4"
   >
-    <!-- Logo & Studio Name -->
+    <!-- Logo -->
     <a
       href="/"
+      aria-label="YNS Web Studio Home"
       class="group flex items-center gap-2.5 text-lg font-bold tracking-tight text-[#111111]"
     >
-
       <span>
         YNS Web <span class="text-[#777]">Studio</span>
       </span>
@@ -21,14 +20,278 @@
 
     <!-- Desktop Navigation -->
     <nav
-      class="hidden items-center gap-8 text-xs font-bold uppercase tracking-[0.14em] text-[#696969] md:flex"
+      aria-label="Main navigation"
+      class="hidden items-center gap-7 text-xs font-bold uppercase tracking-[0.14em] text-[#696969] md:flex"
     >
-      <a
-        href="/services"
-        class="transition-colors hover:text-[#111]"
-      >
-        Services
-      </a>
+      <!-- Services Dropdown -->
+      <div class="relative" id="services-dropdown-wrapper">
+        <button
+          id="services-dropdown-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="services-dropdown"
+          class="group inline-flex items-center gap-1.5 transition-colors hover:text-[#111]"
+        >
+          Services
+
+          <svg
+            id="services-chevron"
+            class="h-3 w-3 transition-transform duration-200"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m6 9 6 6 6-6"
+            />
+          </svg>
+        </button>
+
+        <!-- Services Dropdown -->
+        <div
+          id="services-dropdown"
+          class="invisible absolute left-1/2 top-[calc(100%+1.25rem)] w-[360px] -translate-x-1/2 translate-y-2 rounded-2xl border border-[#deded9] bg-[#f7f7f5] p-2 opacity-0 shadow-[0_20px_50px_rgba(0,0,0,0.10)] transition-all duration-200"
+          aria-hidden="true"
+        >
+          <div class="px-3 pb-2 pt-3">
+            <p
+              class="text-[10px] font-bold uppercase tracking-[0.14em] text-[#999]"
+            >
+              Web Development Services
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-1">
+            <a
+              href="/services/business-website-development"
+              class="service-dropdown-link"
+            >
+              <span>Business Websites</span>
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 10h12M11 5l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="/services/landing-page-development"
+              class="service-dropdown-link"
+            >
+              <span>Landing Pages</span>
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 10h12M11 5l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="/services/ecommerce-development"
+              class="service-dropdown-link"
+            >
+              <span>E-Commerce</span>
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 10h12M11 5l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="/services/nextjs-development"
+              class="service-dropdown-link"
+            >
+              <span>Next.js Development</span>
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 10h12M11 5l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="/services/react-development"
+              class="service-dropdown-link"
+            >
+              <span>React Development</span>
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 10h12M11 5l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="/services/custom-web-development"
+              class="service-dropdown-link"
+            >
+              <span>Custom Web Apps</span>
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 10h12M11 5l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="/services/booking-appointment-websites"
+              class="service-dropdown-link"
+            >
+              <span>Booking Websites</span>
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 10h12M11 5l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="/services/corporate-website-development"
+              class="service-dropdown-link"
+            >
+              <span>Corporate Websites</span>
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 10h12M11 5l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="/services/real-estate-website-development"
+              class="service-dropdown-link"
+            >
+              <span>Real Estate Websites</span>
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 10h12M11 5l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="/services/restaurant-website-development"
+              class="service-dropdown-link"
+            >
+              <span>Restaurant & Hotels</span>
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 10h12M11 5l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="mt-2 border-t border-[#deded9] pt-2">
+            <a
+              href="/services"
+              class="flex items-center justify-between rounded-xl px-3 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#111] transition-colors hover:bg-white"
+            >
+              <span>View All Services</span>
+
+              <svg
+                class="h-4 w-4"
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 10h12M11 5l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
 
       <a
         href="/results"
@@ -45,6 +308,13 @@
       </a>
 
       <a
+        href="/blog"
+        class="transition-colors hover:text-[#111]"
+      >
+        Blog
+      </a>
+
+      <a
         href="/about"
         class="transition-colors hover:text-[#111]"
       >
@@ -52,15 +322,14 @@
       </a>
     </nav>
 
-    <!-- Right Actions / WhatsApp CTA -->
-    <div class="flex items-center gap-4">
+    <!-- Right Actions -->
+    <div class="flex items-center gap-3">
+      <!-- Desktop CTA -->
       <a
-        href="https://wa.me/919352563337"
-        target="_blank"
-        rel="noopener noreferrer"
+        href="/contact"
         class="hidden items-center justify-center gap-2 rounded-full bg-[#111] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.08em] text-white shadow-sm transition-transform hover:-translate-y-0.5 hover:bg-black sm:inline-flex"
       >
-        Get Free Audit
+        Start a Project
 
         <svg
           class="h-3.5 w-3.5 fill-none stroke-current stroke-[2]"
@@ -75,12 +344,13 @@
         </svg>
       </a>
 
-      <!-- Mobile Menu Toggle Button -->
+      <!-- Mobile Menu Toggle -->
       <button
         id="menu-toggle"
         type="button"
-        aria-label="Toggle Menu"
+        aria-label="Toggle navigation menu"
         aria-expanded="false"
+        aria-controls="mobile-menu"
         class="flex h-10 w-10 items-center justify-center rounded-xl border border-[#deded9] bg-white text-[#111] transition-colors hover:bg-slate-50 md:hidden"
       >
         <svg
@@ -102,50 +372,164 @@
     </div>
   </div>
 
-  <!-- Mobile Dropdown Navigation Drawer -->
+  <!-- =======================================================
+       MOBILE NAVIGATION
+  ======================================================== -->
+
   <div
     id="mobile-menu"
     class="absolute left-0 top-full hidden w-full border-b border-[#deded9] bg-[#f7f7f5] px-6 py-6 shadow-xl md:hidden"
   >
     <nav
-      class="flex flex-col gap-4 text-sm font-bold uppercase tracking-[0.12em] text-[#444]"
+      aria-label="Mobile navigation"
+      class="flex flex-col gap-2 text-sm font-bold uppercase tracking-[0.12em] text-[#444]"
     >
-      <a
-        href="/services"
-        class="rounded-lg p-2 transition-colors hover:bg-white hover:text-[#111]"
-      >
-        Services
-      </a>
+      <!-- Mobile Services -->
+      <div>
+        <button
+          id="mobile-services-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-services-menu"
+          class="flex w-full items-center justify-between rounded-lg p-3 text-left transition-colors hover:bg-white hover:text-[#111]"
+        >
+          <span>Services</span>
+
+          <svg
+            id="mobile-services-chevron"
+            class="h-4 w-4 transition-transform duration-200"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m6 9 6 6 6-6"
+            />
+          </svg>
+        </button>
+
+        <div
+          id="mobile-services-menu"
+          class="hidden pl-3 pt-1"
+        >
+          <a
+            href="/services"
+            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
+          >
+            All Services
+          </a>
+
+          <a
+            href="/services/business-website-development"
+            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
+          >
+            Business Website Development
+          </a>
+
+          <a
+            href="/services/landing-page-development"
+            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
+          >
+            Landing Page Development
+          </a>
+
+          <a
+            href="/services/ecommerce-development"
+            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
+          >
+            E-Commerce Development
+          </a>
+
+          <a
+            href="/services/nextjs-development"
+            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
+          >
+            Next.js Development
+          </a>
+
+          <a
+            href="/services/react-development"
+            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
+          >
+            React Development
+          </a>
+
+          <a
+            href="/services/custom-web-development"
+            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
+          >
+            Custom Web Development
+          </a>
+
+          <a
+            href="/services/booking-appointment-websites"
+            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
+          >
+            Booking & Appointment Websites
+          </a>
+
+          <a
+            href="/services/corporate-website-development"
+            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
+          >
+            Corporate Website Development
+          </a>
+
+          <a
+            href="/services/real-estate-website-development"
+            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
+          >
+            Real Estate Website Development
+          </a>
+
+          <a
+            href="/services/restaurant-website-development"
+            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
+          >
+            Restaurant, Café & Hotel Websites
+          </a>
+        </div>
+      </div>
 
       <a
         href="/results"
-        class="rounded-lg p-2 transition-colors hover:bg-white hover:text-[#111]"
+        class="rounded-lg p-3 transition-colors hover:bg-white hover:text-[#111]"
       >
         Results
       </a>
 
       <a
         href="/pricing"
-        class="rounded-lg p-2 transition-colors hover:bg-white hover:text-[#111]"
+        class="rounded-lg p-3 transition-colors hover:bg-white hover:text-[#111]"
       >
         Pricing
       </a>
 
       <a
+        href="/blog"
+        class="rounded-lg p-3 transition-colors hover:bg-white hover:text-[#111]"
+      >
+        Blog
+      </a>
+
+      <a
         href="/about"
-        class="rounded-lg p-2 transition-colors hover:bg-white hover:text-[#111]"
+        class="rounded-lg p-3 transition-colors hover:bg-white hover:text-[#111]"
       >
         About
       </a>
 
-      <div class="border-t border-[#deded9] pt-4">
+      <!-- Mobile CTA -->
+      <div class="mt-3 border-t border-[#deded9] pt-4">
         <a
-          href="https://wa.me/919352563337"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex w-full items-center justify-center gap-2 rounded-xl bg-[#111] py-3 text-xs font-bold uppercase tracking-[0.08em] text-white"
+          href="/contact"
+          class="flex w-full items-center justify-center gap-2 rounded-xl bg-[#111] py-3.5 text-xs font-bold uppercase tracking-[0.08em] text-white transition-colors hover:bg-black"
         >
-          Get Free Audit
+          Start a Project
 
           <svg
             class="h-3.5 w-3.5 fill-none stroke-current stroke-[2]"
@@ -159,6 +543,15 @@
             />
           </svg>
         </a>
+
+        <a
+          href="https://wa.me/919352563337?text=Hi%20YNS%20Web%20Studio%2C%20I%20want%20to%20discuss%20a%20website%20project."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-2 flex w-full items-center justify-center rounded-xl border border-[#d6d6d1] bg-white py-3 text-xs font-bold uppercase tracking-[0.08em] text-[#333] transition-colors hover:bg-white"
+        >
+          WhatsApp Us
+        </a>
       </div>
     </nav>
   </div>
@@ -168,30 +561,249 @@
   const toggleBtn = document.getElementById("menu-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
 
-  if (toggleBtn && mobileMenu) {
-    toggleBtn.addEventListener("click", () => {
-      const isHidden = mobileMenu.classList.toggle("hidden");
+  const servicesDropdownToggle = document.getElementById(
+    "services-dropdown-toggle"
+  );
 
-      toggleBtn.setAttribute(
+  const servicesDropdown = document.getElementById(
+    "services-dropdown"
+  );
+
+  const servicesChevron = document.getElementById(
+    "services-chevron"
+  );
+
+  const servicesDropdownWrapper = document.getElementById(
+    "services-dropdown-wrapper"
+  );
+
+  const mobileServicesToggle = document.getElementById(
+    "mobile-services-toggle"
+  );
+
+  const mobileServicesMenu = document.getElementById(
+    "mobile-services-menu"
+  );
+
+  const mobileServicesChevron = document.getElementById(
+    "mobile-services-chevron"
+  );
+
+  const closeDesktopServices = () => {
+    if (!servicesDropdown || !servicesDropdownToggle) return;
+
+    servicesDropdown.classList.add(
+      "invisible",
+      "opacity-0",
+      "translate-y-2"
+    );
+
+    servicesDropdown.classList.remove(
+      "visible",
+      "translate-y-0"
+    );
+
+    servicesDropdownToggle.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+    servicesDropdown?.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+    servicesChevron?.classList.remove(
+      "rotate-180"
+    );
+  };
+
+  const openDesktopServices = () => {
+    if (!servicesDropdown || !servicesDropdownToggle) return;
+
+    servicesDropdown.classList.remove(
+      "invisible",
+      "opacity-0",
+      "translate-y-2"
+    );
+
+    servicesDropdown.classList.add(
+      "visible",
+      "translate-y-0"
+    );
+
+    servicesDropdownToggle.setAttribute(
+      "aria-expanded",
+      "true"
+    );
+
+    servicesDropdown.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+    servicesChevron?.classList.add(
+      "rotate-180"
+    );
+  };
+
+  const closeMobileMenu = () => {
+    mobileMenu?.classList.add("hidden");
+
+    toggleBtn?.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+    mobileServicesMenu?.classList.add("hidden");
+
+    mobileServicesToggle?.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+    mobileServicesChevron?.classList.remove(
+      "rotate-180"
+    );
+  };
+
+  // Desktop services dropdown
+  servicesDropdownToggle?.addEventListener(
+    "click",
+    (event) => {
+      event.stopPropagation();
+
+      const isOpen =
+        servicesDropdownToggle.getAttribute(
+          "aria-expanded"
+        ) === "true";
+
+      if (isOpen) {
+        closeDesktopServices();
+      } else {
+        openDesktopServices();
+      }
+    }
+  );
+
+  // Prevent dropdown click from closing itself
+  servicesDropdownWrapper?.addEventListener(
+    "click",
+    (event) => {
+      event.stopPropagation();
+    }
+  );
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", () => {
+    closeDesktopServices();
+  });
+
+  // Close dropdown with Escape
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeDesktopServices();
+      closeMobileMenu();
+    }
+  });
+
+  // Mobile main menu
+  toggleBtn?.addEventListener("click", () => {
+    const isHidden =
+      mobileMenu?.classList.toggle("hidden");
+
+    toggleBtn.setAttribute(
+      "aria-expanded",
+      String(!isHidden)
+    );
+
+    closeDesktopServices();
+  });
+
+  // Mobile services accordion
+  mobileServicesToggle?.addEventListener(
+    "click",
+    () => {
+      const isHidden =
+        mobileServicesMenu?.classList.toggle(
+          "hidden"
+        );
+
+      mobileServicesToggle.setAttribute(
         "aria-expanded",
         String(!isHidden)
       );
-    });
 
-    // Close mobile menu after clicking a navigation link
-    mobileMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.add("hidden");
-        toggleBtn.setAttribute("aria-expanded", "false");
-      });
-    });
+      mobileServicesChevron?.classList.toggle(
+        "rotate-180"
+      );
+    }
+  );
 
-    // Close menu when resizing to desktop
-    window.addEventListener("resize", () => {
-      if (window.innerWidth >= 768) {
-        mobileMenu.classList.add("hidden");
-        toggleBtn.setAttribute("aria-expanded", "false");
-      }
+  // Close mobile menu after navigation
+  mobileMenu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      closeMobileMenu();
     });
-  }
+  });
+
+  // Close everything when switching to desktop
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) {
+      closeMobileMenu();
+    }
+
+    if (window.innerWidth < 768) {
+      closeDesktopServices();
+    }
+  });
 </script>
+
+<style>
+  .service-dropdown-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    min-height: 46px;
+    padding: 0.7rem 0.75rem;
+    border-radius: 0.7rem;
+    color: #444;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition:
+      background-color 160ms ease,
+      color 160ms ease;
+  }
+
+  .service-dropdown-link:hover {
+    background: #fff;
+    color: #111;
+  }
+
+  .service-dropdown-link svg {
+    width: 0.85rem;
+    height: 0.85rem;
+    flex: 0 0 auto;
+    opacity: 0;
+    transform: translateX(-3px);
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease;
+  }
+
+  .service-dropdown-link:hover svg {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  @media (max-width: 767px) {
+    #mobile-services-menu {
+      max-height: 55vh;
+      overflow-y: auto;
+    }
+  }
+</style>
