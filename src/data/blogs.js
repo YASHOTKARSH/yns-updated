@@ -10108,6 +10108,7 @@ export const blogs = [
   readingTime: "16 min read",
   featured: true,
   primaryKeyword: "how to check if your website has SEO errors",
+
   keywords: [
     "how to check if your website has SEO errors",
     "website SEO checker",
@@ -10145,6 +10146,7 @@ export const blogs = [
     "website ranking issues",
     "technical website audit checklist"
   ],
+
   relatedServices: [
     {
       title: "Business Website Development",
@@ -10171,6 +10173,7 @@ export const blogs = [
       href: "/services/corporate-website-development"
     }
   ],
+
   sections: [
     {
       type: "intro",
@@ -10212,13 +10215,12 @@ export const blogs = [
     },
 
     {
-      type: "paragraph",
-      text: "For a faster first-pass audit, you can use the YNS Web Studio Website Health Checker to scan a public URL and receive a prioritized report of SEO, technical, accessibility, performance and security issues."
-    },
-
-    {
-      type: "paragraph",
-      text: "Run the free audit here: /tools/website-health-checker"
+      type: "cta",
+      title: "Not Sure What's Wrong With Your Website?",
+      description:
+        "Run a free website health audit and quickly find common SEO, technical, performance, accessibility and security issues.",
+      buttonText: "Free Mein Website Audit Karo",
+      buttonHref: "/tools/website-health-checker"
     },
 
     {
@@ -10347,11 +10349,6 @@ export const blogs = [
         "Put the main topic naturally into the title.",
         "Write for users rather than trying to repeat keywords."
       ]
-    },
-
-    {
-      type: "paragraph",
-      text: "For example, 'Services | YNS Web Studio' communicates less specific intent than a title such as 'Business Website Development in Jaipur | YNS Web Studio' when the page is specifically about that service."
     },
 
     {
@@ -10527,11 +10524,6 @@ export const blogs = [
     },
 
     {
-      type: "paragraph",
-      text: "A basic website checker can identify obvious performance signals, but it should not be presented as a replacement for dedicated real-user or laboratory performance measurement."
-    },
-
-    {
       type: "heading",
       level: 2,
       text: "11. Check HTTPS and Security"
@@ -10647,6 +10639,15 @@ export const blogs = [
     },
 
     {
+      type: "cta",
+      title: "Want to Know What Your Website Needs to Fix?",
+      description:
+        "Don't guess. Scan your website and get a prioritized health report covering SEO, technical, performance, accessibility and security issues.",
+      buttonText: "Scan My Website — It's Free",
+      buttonHref: "/tools/website-health-checker"
+    },
+
+    {
       type: "heading",
       level: 2,
       text: "16. Check Your Website Using a Free SEO Checker"
@@ -10676,8 +10677,12 @@ export const blogs = [
     },
 
     {
-      type: "paragraph",
-      text: "Try the YNS Website Health Checker: /tools/website-health-checker"
+      type: "cta",
+      title: "Check Your Website for SEO Errors",
+      description:
+        "It's free, no complicated setup. Enter your website URL and see what could be improved.",
+      buttonText: "Audit My Website for Free",
+      buttonHref: "/tools/website-health-checker"
     },
 
     {
@@ -10996,8 +11001,12 @@ export const blogs = [
     },
 
     {
-      type: "paragraph",
-      text: "Run your free website audit: /tools/website-health-checker"
+      type: "cta",
+      title: "Find Out What's Wrong With Your Website",
+      description:
+        "Run a free website audit and get a clear starting point for improving your SEO, technical health, performance and user experience.",
+      buttonText: "Audit My Website — It's Free",
+      buttonHref: "/tools/website-health-checker"
     },
 
     {
