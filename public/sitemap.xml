@@ -96,12 +96,15 @@
   </url>
 
 
-  <!-- Blog -->
+   <!-- Blog Index -->
 
   <url>
     <loc>https://ynsweb.studio/blog/</loc>
     <lastmod>2026-10-19</lastmod>
   </url>
+
+
+  <!-- Blog Posts -->
 
   <url>
     <loc>https://ynsweb.studio/blog/nextjs-vs-react-for-business-websites/</loc>
@@ -129,13 +132,38 @@
   </url>
 
   <url>
-  <loc>https://ynsweb.studio/blog/how-to-choose-right-website-for-business/</loc>
-  <lastmod>2026-10-20</lastmod>
+    <loc>https://ynsweb.studio/blog/how-to-choose-right-website-for-business/</loc>
+    <lastmod>2026-10-20</lastmod>
   </url>
 
   <url>
-  <loc>https://ynsweb.studio/blog/best-web-development-company-india-jaipur-rajasthan/</loc>
-  <lastmod>2026-10-16</lastmod>
+    <loc>https://ynsweb.studio/blog/best-web-development-company-india-jaipur-rajasthan/</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+
+  <url>
+    <loc>https://ynsweb.studio/blog/website-development-cost-india-2026/</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+
+  <url>
+    <loc>https://ynsweb.studio/blog/ecommerce-website-cost-india-2026/</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+
+  <url>
+    <loc>https://ynsweb.studio/blog/business-website-cost-india-2026/</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+
+  <url>
+    <loc>https://ynsweb.studio/blog/website-development-company-jaipur-hinglish-guide/</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+
+  <url>
+    <loc>https://ynsweb.studio/blog/professional-website-for-small-business-india/</loc>
+    <lastmod>2026-10-17</lastmod>
   </url>
 
 </urlset>
