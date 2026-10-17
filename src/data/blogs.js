@@ -10096,33 +10096,18 @@ export const blogs = [
 },
 {
   slug: "how-to-check-if-your-website-has-seo-errors",
-
-  image:
-    "/images/blog/how-to-check-if-your-website-has-seo-errors.webp",
-
-  imageAlt:
-    "How to check if a website has SEO errors using a website SEO checker",
-
-  title:
-    "How to Check if Your Website Has SEO Errors: Complete SEO Audit Guide",
-
+  image: "/images/blog/how-to-check-if-your-website-has-seo-errors.webp",
+  imageAlt: "How to check if a website has SEO errors using a website SEO checker",
+  title: "How to Check if Your Website Has SEO Errors: Complete SEO Audit Guide",
   description:
     "Learn how to check your website for SEO errors, technical problems, missing meta tags, broken links, indexing issues, slow pages and other problems that can hurt search visibility. Includes a practical website SEO audit checklist and a free website health checker.",
-
   category: "SEO & Website Audit",
-
   author: "Yashotkarsh Apoorva",
-
   publishedAt: "2026-10-17",
-
   updatedAt: "2026-10-17",
-
   readingTime: "16 min read",
-
   featured: true,
-
-  primaryKeyword:
-    "how to check if your website has SEO errors",
+  primaryKeyword: "how to check if your website has SEO errors",
 
   keywords: [
     "how to check if your website has SEO errors",
@@ -10159,15 +10144,7 @@ export const blogs = [
     "website audit tool",
     "SEO problems",
     "website ranking issues",
-    "technical website audit checklist",
-    "free website analyzer",
-    "website SEO analysis tool",
-    "SEO checker for website",
-    "website technical audit",
-    "website health check",
-    "website audit online",
-    "SEO error checker",
-    "website performance checker"
+    "technical website audit checklist"
   ],
 
   relatedServices: [
@@ -10202,11 +10179,8 @@ export const blogs = [
       type: "intro",
       paragraphs: [
         "Your website can look great and still have SEO problems that prevent search engines from properly understanding, crawling or indexing it.",
-
         "Missing title tags, weak meta descriptions, incorrect headings, broken links, slow pages, missing canonical URLs, indexing problems, missing sitemap files and technical errors can all create problems for search visibility.",
-
         "The good news is that you do not need to be an SEO expert to perform a basic website health check. You can start with a structured audit that looks at the most important technical, on-page, performance and accessibility signals.",
-
         "In this guide, you will learn exactly how to check whether your website has SEO errors, which issues should be fixed first, which checks you can perform manually and how a website SEO checker can speed up the process."
       ]
     },
@@ -10242,19 +10216,11 @@ export const blogs = [
 
     {
       type: "cta",
-      eyebrow: "CHECK YOUR WEBSITE",
-      badge: "Free Website SEO Audit",
-      title: "What's wrong with your website?\nLet's find out for free.",
+      title: "Not Sure What's Wrong With Your Website?",
       description:
-        "Run your website through the YNS Website Health Checker and find common SEO, technical, performance, accessibility and security issues in minutes.",
-      primaryButton: {
-        text: "Audit My Website — Free",
-        href: "/tools/website-health-checker"
-      },
-      secondaryButton: {
-        text: "Learn About Website Audits",
-        href: "/blog/how-to-check-if-your-website-has-seo-errors"
-      }
+        "Run a free website health audit and quickly find common SEO, technical, performance, accessibility and security issues.",
+      buttonText: "Free Mein Website Audit Karo",
+      buttonHref: "/tools/website-health-checker"
     },
 
     {
@@ -10344,7 +10310,7 @@ export const blogs = [
     {
       type: "heading",
       level: 3,
-      text: "Check Your XML Sitemap"
+      text: "Check your XML sitemap"
     },
 
     {
@@ -10355,7 +10321,7 @@ export const blogs = [
     {
       type: "heading",
       level: 3,
-      text: "Look for Accidental Noindex Directives"
+      text: "Look for accidental noindex directives"
     },
 
     {
@@ -10558,11 +10524,6 @@ export const blogs = [
     },
 
     {
-      type: "paragraph",
-      text: "A basic website checker can identify obvious performance signals, but it should not be presented as a replacement for dedicated real-user or laboratory performance measurement."
-    },
-
-    {
       type: "heading",
       level: 2,
       text: "11. Check HTTPS and Security"
@@ -10650,11 +10611,6 @@ export const blogs = [
     },
 
     {
-      type: "paragraph",
-      text: "For example, if your website needs a new business website, you can explore YNS Web Studio's Business Website Development service while reviewing the technical health of your current website."
-    },
-
-    {
       type: "heading",
       level: 2,
       text: "15. Check Content Quality and Search Intent"
@@ -10680,6 +10636,15 @@ export const blogs = [
     {
       type: "paragraph",
       text: "Google's guidance emphasizes people-first content and warns against producing large amounts of search-engine-first content simply to attract traffic. The objective should therefore be to make the page genuinely useful first and optimize its discoverability second."
+    },
+
+    {
+      type: "cta",
+      title: "Want to Know What Your Website Needs to Fix?",
+      description:
+        "Don't guess. Scan your website and get a prioritized health report covering SEO, technical, performance, accessibility and security issues.",
+      buttonText: "Scan My Website — It's Free",
+      buttonHref: "/tools/website-health-checker"
     },
 
     {
@@ -10713,19 +10678,11 @@ export const blogs = [
 
     {
       type: "cta",
-      eyebrow: "FREE WEBSITE AUDIT",
-      badge: "No Signup Required",
-      title: "Check your website for SEO errors.\nIt's free to audit.",
+      title: "Check Your Website for SEO Errors",
       description:
-        "Enter your website URL and get a clear starting point for improving SEO, technical health, performance, accessibility and security.",
-      primaryButton: {
-        text: "Audit My Website — Free",
-        href: "/tools/website-health-checker"
-      },
-      secondaryButton: {
-        text: "Explore Website Development",
-        href: "/services/custom-web-development"
-      }
+        "It's free, no complicated setup. Enter your website URL and see what could be improved.",
+      buttonText: "Audit My Website for Free",
+      buttonHref: "/tools/website-health-checker"
     },
 
     {
@@ -11045,19 +11002,11 @@ export const blogs = [
 
     {
       type: "cta",
-      eyebrow: "START WITH A FREE AUDIT",
-      badge: "Website Health Checker",
-      title: "Find out what's wrong with your website.\nBefore your competitors do.",
+      title: "Find Out What's Wrong With Your Website",
       description:
-        "Scan your website for common SEO, technical, performance, accessibility and security issues and get a clear starting point for improvements.",
-      primaryButton: {
-        text: "Audit My Website — It's Free",
-        href: "/tools/website-health-checker"
-      },
-      secondaryButton: {
-        text: "Talk to YNS Web Studio",
-        href: "/contact"
-      }
+        "Run a free website audit and get a clear starting point for improving your SEO, technical health, performance and user experience.",
+      buttonText: "Audit My Website — It's Free",
+      buttonHref: "/tools/website-health-checker"
     },
 
     {
