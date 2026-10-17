@@ -3549,9 +3549,6 @@ export const blogs = [
     readingTime: "16 min read",
     featured: true,
 
-    image:
-      "/images/blog/best-web-development-company-india-jaipur-rajasthan.png",
-
     primaryKeyword:
       "best website development company in Jaipur",
 
@@ -4817,8 +4814,6 @@ export const blogs = [
 
     featured: false,
 
-    image: "/images/blog/website-development-cost-india-2026.png",
-
     primaryKeyword: "website development cost in India",
 
     keywords: [
@@ -5991,7 +5986,6 @@ export const blogs = [
     updatedAt: "2026-10-17",
     readingTime: "14 min read",
     featured: false,
-    image: "/images/blog/ecommerce-website-cost-india-2026.png",
 
     primaryKeyword: "e-commerce website cost in India",
 
@@ -6807,7 +6801,6 @@ export const blogs = [
     updatedAt: "2026-10-17",
     readingTime: "13 min read",
     featured: false,
-    image: "/images/blog/business-website-cost-india-2026.png",
 
     primaryKeyword: "business website cost in India",
 
@@ -7711,8 +7704,6 @@ export const blogs = [
 
   featured: true,
 
-  image:
-    "/images/blog/website-development-company-jaipur-hinglish-guide.png",
 
   primaryKeyword:
     "website development company in Jaipur",
@@ -8372,9 +8363,6 @@ export const blogs = [
   readingTime: "16 min read",
 
   featured: true,
-
-  image:
-    "/images/blog/professional-website-for-small-business-india.png",
 
   primaryKeyword:
     "professional website for small business",
