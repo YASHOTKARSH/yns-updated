@@ -10093,5 +10093,917 @@ export const blogs = [
       text: "YNS Web Studio small businesses, startups and growing brands ke liye professional business websites, React websites, Next.js websites, e-commerce stores aur custom web solutions build karta hai."
     }
   ]
-}
+},
+{
+  slug: "how-to-check-if-your-website-has-seo-errors",
+  image: "/images/blog/how-to-check-if-your-website-has-seo-errors.webp",
+  imageAlt: "How to check if a website has SEO errors using a website SEO checker",
+  title: "How to Check if Your Website Has SEO Errors: Complete SEO Audit Guide",
+  description:
+    "Learn how to check your website for SEO errors, technical problems, missing meta tags, broken links, indexing issues, slow pages and other problems that can hurt search visibility. Includes a practical website SEO audit checklist and a free website health checker.",
+  category: "SEO & Website Audit",
+  author: "Yashotkarsh Apoorva",
+  publishedAt: "2026-10-17",
+  updatedAt: "2026-10-17",
+  readingTime: "16 min read",
+  featured: true,
+  primaryKeyword: "how to check if your website has SEO errors",
+  keywords: [
+    "how to check if your website has SEO errors",
+    "website SEO checker",
+    "free website SEO checker",
+    "SEO audit",
+    "website SEO audit",
+    "free SEO audit tool",
+    "website error checker",
+    "website health checker",
+    "SEO errors",
+    "technical SEO errors",
+    "on-page SEO errors",
+    "website audit checklist",
+    "how to audit a website",
+    "website not ranking on Google",
+    "why is my website not ranking",
+    "SEO checker online",
+    "free website audit",
+    "website analyzer",
+    "SEO health check",
+    "technical website audit",
+    "broken links checker",
+    "missing meta tags",
+    "website SEO analysis",
+    "SEO audit checklist",
+    "website performance audit",
+    "website indexing issues",
+    "Google SEO errors",
+    "website optimization checklist",
+    "website health audit",
+    "check website SEO",
+    "SEO website checker",
+    "website audit tool",
+    "SEO problems",
+    "website ranking issues",
+    "technical website audit checklist"
+  ],
+  relatedServices: [
+    {
+      title: "Business Website Development",
+      href: "/services/business-website-development"
+    },
+    {
+      title: "Landing Page Development",
+      href: "/services/landing-page-development"
+    },
+    {
+      title: "Next.js Development",
+      href: "/services/nextjs-development"
+    },
+    {
+      title: "React Development",
+      href: "/services/react-development"
+    },
+    {
+      title: "Custom Web Development",
+      href: "/services/custom-web-development"
+    },
+    {
+      title: "Corporate Website Development",
+      href: "/services/corporate-website-development"
+    }
+  ],
+  sections: [
+    {
+      type: "intro",
+      paragraphs: [
+        "Your website can look great and still have SEO problems that prevent search engines from properly understanding, crawling or indexing it.",
+        "Missing title tags, weak meta descriptions, incorrect headings, broken links, slow pages, missing canonical URLs, indexing problems, missing sitemap files and technical errors can all create problems for search visibility.",
+        "The good news is that you do not need to be an SEO expert to perform a basic website health check. You can start with a structured audit that looks at the most important technical, on-page, performance and accessibility signals.",
+        "In this guide, you will learn exactly how to check whether your website has SEO errors, which issues should be fixed first, which checks you can perform manually and how a website SEO checker can speed up the process."
+      ]
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "Quick Answer: How Do You Check a Website for SEO Errors?"
+    },
+
+    {
+      type: "paragraph",
+      text: "The easiest approach is to run your website through an SEO audit and then verify the important findings manually. Start with crawlability and indexing, then check title tags, meta descriptions, headings, URLs, canonical tags, internal links, images, structured data, mobile experience, page performance and security."
+    },
+
+    {
+      type: "list",
+      items: [
+        "Check whether important pages can be crawled and indexed.",
+        "Check title tags and meta descriptions.",
+        "Check H1 and heading structure.",
+        "Check URLs and canonical tags.",
+        "Check internal and broken links.",
+        "Check image alt text and image sizes.",
+        "Check robots.txt and XML sitemap.",
+        "Check HTTPS and basic security signals.",
+        "Check mobile usability and responsive layout.",
+        "Check page performance and Core Web Vitals.",
+        "Check structured data and social metadata.",
+        "Prioritize critical issues before minor recommendations."
+      ]
+    },
+
+    {
+      type: "paragraph",
+      text: "For a faster first-pass audit, you can use the YNS Web Studio Website Health Checker to scan a public URL and receive a prioritized report of SEO, technical, accessibility, performance and security issues."
+    },
+
+    {
+      type: "paragraph",
+      text: "Run the free audit here: /tools/website-health-checker"
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "What Is an SEO Error?"
+    },
+
+    {
+      type: "paragraph",
+      text: "An SEO error is a problem on a website that can make it harder for search engines to crawl, understand, index or evaluate a page, or that can create a poor experience for users."
+    },
+
+    {
+      type: "paragraph",
+      text: "Not every SEO issue has the same impact. A page accidentally blocked from indexing can be much more important than a minor metadata recommendation. This is why a useful audit should prioritize problems instead of presenting every finding as equally important."
+    },
+
+    {
+      type: "table",
+      headers: [
+        "Issue",
+        "Potential impact",
+        "Priority"
+      ],
+      rows: [
+        [
+          "Important page blocked from indexing",
+          "Page may not appear in search",
+          "Critical"
+        ],
+        [
+          "Server errors",
+          "Users and crawlers may fail to access pages",
+          "Critical"
+        ],
+        [
+          "Missing title tag",
+          "Search engines have less context about the page",
+          "High"
+        ],
+        [
+          "Broken internal links",
+          "Poor navigation and weaker site structure",
+          "High"
+        ],
+        [
+          "Missing meta description",
+          "Search snippet may be less useful",
+          "Medium"
+        ],
+        [
+          "Missing image alt text",
+          "Accessibility and image understanding can suffer",
+          "Medium"
+        ],
+        [
+          "Large images",
+          "Can contribute to slower loading",
+          "Medium"
+        ]
+      ]
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "1. Check Whether Your Website Can Be Crawled"
+    },
+
+    {
+      type: "paragraph",
+      text: "Before optimizing keywords or rewriting content, make sure search engine crawlers can access the pages you actually want indexed."
+    },
+
+    {
+      type: "heading",
+      level: 3,
+      text: "Check robots.txt"
+    },
+
+    {
+      type: "paragraph",
+      text: "Open yourdomain.com/robots.txt and look for rules that could unintentionally restrict important sections of your website. A robots.txt file should be reviewed in the context of the pages and resources you want search engines to access."
+    },
+
+    {
+      type: "heading",
+      level: 3,
+      text: "Check your XML sitemap"
+    },
+
+    {
+      type: "paragraph",
+      text: "Your website should have an accessible XML sitemap containing the important URLs you want search engines to discover. The sitemap should not simply contain every possible URL; it should represent the pages you consider important and canonical."
+    },
+
+    {
+      type: "heading",
+      level: 3,
+      text: "Look for accidental noindex directives"
+    },
+
+    {
+      type: "paragraph",
+      text: "A noindex directive can prevent a page from appearing in search results. This can be useful when intentional, but it becomes a serious problem when accidentally applied to important pages."
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "2. Check Your Website's Title Tags"
+    },
+
+    {
+      type: "paragraph",
+      text: "The title element is one of the most important pieces of page-level information because it helps describe the page to users and search engines."
+    },
+
+    {
+      type: "list",
+      items: [
+        "Every important indexable page should have a meaningful title.",
+        "The title should describe the actual page content.",
+        "Avoid using the same generic title across many pages.",
+        "Put the main topic naturally into the title.",
+        "Write for users rather than trying to repeat keywords."
+      ]
+    },
+
+    {
+      type: "paragraph",
+      text: "For example, 'Services | YNS Web Studio' communicates less specific intent than a title such as 'Business Website Development in Jaipur | YNS Web Studio' when the page is specifically about that service."
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "3. Check Meta Descriptions"
+    },
+
+    {
+      type: "paragraph",
+      text: "Meta descriptions help communicate what a page is about and can influence how a search result is presented. They are not a simple ranking switch, so the goal should be accurate, useful and compelling descriptions rather than keyword stuffing."
+    },
+
+    {
+      type: "list",
+      items: [
+        "Check important pages for missing descriptions.",
+        "Avoid copying the exact same description across every page.",
+        "Describe what the visitor will find on the page.",
+        "Include the primary topic naturally.",
+        "Make the description useful enough to encourage a qualified click."
+      ]
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "4. Check Your H1 and Heading Structure"
+    },
+
+    {
+      type: "paragraph",
+      text: "Headings help organize the page for users and provide additional context about the content. Review whether the page has a clear main heading and whether subheadings logically organize the information."
+    },
+
+    {
+      type: "list",
+      items: [
+        "Check whether the page has a clear H1.",
+        "Make sure the H1 represents the actual topic.",
+        "Use H2 headings for major sections.",
+        "Use H3 headings when a section needs further organization.",
+        "Do not create headings only because they contain keywords."
+      ]
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "5. Check Your URLs"
+    },
+
+    {
+      type: "paragraph",
+      text: "A good URL should be understandable and stable. Avoid unnecessary parameters, meaningless strings and complicated structures when a cleaner URL can communicate the page topic."
+    },
+
+    {
+      type: "list",
+      items: [
+        "Keep URLs descriptive.",
+        "Avoid unnecessary URL parameters when they are not required.",
+        "Use a consistent URL structure.",
+        "Avoid changing URLs without a migration plan.",
+        "Use redirects when URLs genuinely need to change."
+      ]
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "6. Check Canonical Tags"
+    },
+
+    {
+      type: "paragraph",
+      text: "Canonical URLs help communicate which version of a page should be treated as the preferred URL when similar or duplicate URLs exist."
+    },
+
+    {
+      type: "paragraph",
+      text: "Review important pages for missing, incorrect or conflicting canonical signals. A canonical should point to the intended canonical version rather than accidentally pointing to an unrelated page."
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "7. Find Broken Links and Error Pages"
+    },
+
+    {
+      type: "paragraph",
+      text: "Broken internal links create poor user experiences and can make site navigation harder to understand. During a website audit, check links that return 4xx or 5xx responses and investigate important redirects."
+    },
+
+    {
+      type: "list",
+      items: [
+        "Find internal links pointing to 404 pages.",
+        "Check important external links where relevant.",
+        "Review redirect chains.",
+        "Look for links pointing to outdated URLs.",
+        "Make sure important navigation links work."
+      ]
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "8. Check Your Images"
+    },
+
+    {
+      type: "paragraph",
+      text: "Images affect both accessibility and page performance. Review whether important images have meaningful alternative text where appropriate and whether unnecessarily large files are slowing pages down."
+    },
+
+    {
+      type: "list",
+      items: [
+        "Check important images for useful alt text.",
+        "Avoid stuffing keywords into alt attributes.",
+        "Compress unnecessarily large image files.",
+        "Use appropriate image dimensions.",
+        "Use modern image formats where practical."
+      ]
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "9. Check Mobile Experience"
+    },
+
+    {
+      type: "paragraph",
+      text: "A website should provide a usable experience on mobile devices. Check navigation, text readability, buttons, forms, spacing, images and horizontal overflow on smaller screens."
+    },
+
+    {
+      type: "list",
+      items: [
+        "Test the homepage on a phone.",
+        "Open important service and product pages on mobile.",
+        "Check whether buttons are easy to tap.",
+        "Check whether text remains readable.",
+        "Check whether any content causes horizontal scrolling.",
+        "Test forms and menus on mobile."
+      ]
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "10. Check Website Speed and Performance"
+    },
+
+    {
+      type: "paragraph",
+      text: "Performance is important because slow pages can create a poor user experience. Your audit should look for obvious sources of unnecessary page weight such as oversized images, excessive scripts and inefficient resource loading."
+    },
+
+    {
+      type: "list",
+      items: [
+        "Check large image files.",
+        "Review unnecessary JavaScript.",
+        "Review large CSS and font resources.",
+        "Check server response performance.",
+        "Test important pages rather than only the homepage.",
+        "Use real performance tools for deeper Core Web Vitals analysis."
+      ]
+    },
+
+    {
+      type: "paragraph",
+      text: "A basic website checker can identify obvious performance signals, but it should not be presented as a replacement for dedicated real-user or laboratory performance measurement."
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "11. Check HTTPS and Security"
+    },
+
+    {
+      type: "paragraph",
+      text: "Make sure your website uses HTTPS and that users are not being unnecessarily redirected between insecure and secure versions of the site."
+    },
+
+    {
+      type: "list",
+      items: [
+        "Check that important pages load over HTTPS.",
+        "Check for mixed-content problems.",
+        "Review unexpected HTTP-to-HTTPS redirect behavior.",
+        "Keep software and dependencies maintained.",
+        "Use appropriate security headers where relevant."
+      ]
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "12. Check Structured Data"
+    },
+
+    {
+      type: "paragraph",
+      text: "Structured data can help search engines understand eligible content types on a page. Check whether your implementation is valid, relevant to the visible page content and appropriate for the schema type being used."
+    },
+
+    {
+      type: "list",
+      items: [
+        "Check whether JSON-LD is valid.",
+        "Make sure structured data represents visible page content.",
+        "Avoid adding irrelevant schema simply to create more markup.",
+        "Use the appropriate schema type for the actual content."
+      ]
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "13. Check Open Graph and Social Metadata"
+    },
+
+    {
+      type: "paragraph",
+      text: "Open Graph and Twitter/X metadata are not the same thing as traditional SEO ranking signals, but they can improve how pages appear when shared on social platforms."
+    },
+
+    {
+      type: "list",
+      items: [
+        "Check og:title.",
+        "Check og:description.",
+        "Check og:image.",
+        "Check the canonical URL.",
+        "Check social previews for important pages."
+      ]
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "14. Check Your Website's Internal Linking"
+    },
+
+    {
+      type: "paragraph",
+      text: "Internal links help users navigate your site and help search engines discover relationships between pages. A strong internal linking structure connects informational content with relevant commercial pages."
+    },
+
+    {
+      type: "list",
+      items: [
+        "Link related blog posts together.",
+        "Link informational articles to relevant services.",
+        "Link important service pages from appropriate content.",
+        "Use descriptive anchor text.",
+        "Avoid creating pages that are difficult to reach from the rest of the site."
+      ]
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "15. Check Content Quality and Search Intent"
+    },
+
+    {
+      type: "paragraph",
+      text: "Technical SEO cannot compensate for content that does not satisfy the searcher's actual goal. Review whether each important page answers the question or fulfills the task behind its target query."
+    },
+
+    {
+      type: "list",
+      items: [
+        "Does the page directly answer the visitor's question?",
+        "Does it provide enough useful detail?",
+        "Does it demonstrate real experience or expertise where relevant?",
+        "Does it avoid unnecessary filler?",
+        "Does it provide something more useful than a generic summary?",
+        "Does the page have a clear purpose?"
+      ]
+    },
+
+    {
+      type: "paragraph",
+      text: "Google's guidance emphasizes people-first content and warns against producing large amounts of search-engine-first content simply to attract traffic. The objective should therefore be to make the page genuinely useful first and optimize its discoverability second."
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "16. Check Your Website Using a Free SEO Checker"
+    },
+
+    {
+      type: "paragraph",
+      text: "Manually checking every HTML element across a website can become time-consuming. An SEO checker can automate the first pass and highlight issues that deserve attention."
+    },
+
+    {
+      type: "paragraph",
+      text: "The YNS Website Health Checker is designed as a free first-pass website audit. Enter a public website URL and the tool analyzes available technical, SEO, accessibility, performance and security signals, then groups findings into prioritized issues and recommendations."
+    },
+
+    {
+      type: "list",
+      items: [
+        "Enter your website URL.",
+        "Start the audit.",
+        "Review the overall health score.",
+        "Check SEO, technical, accessibility, performance and security categories.",
+        "Review critical issues first.",
+        "Work through warnings and suggestions.",
+        "Run another audit after major fixes."
+      ]
+    },
+
+    {
+      type: "paragraph",
+      text: "Try the YNS Website Health Checker: /tools/website-health-checker"
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "17. What Should You Fix First After an SEO Audit?"
+    },
+
+    {
+      type: "paragraph",
+      text: "Do not try to fix everything at the same time. Prioritize problems according to their potential impact on access, indexing, usability and important business pages."
+    },
+
+    {
+      type: "table",
+      headers: [
+        "Priority",
+        "Examples",
+        "What to do"
+      ],
+      rows: [
+        [
+          "Critical",
+          "Important pages blocked, server errors, major indexing problems",
+          "Investigate and fix immediately"
+        ],
+        [
+          "High",
+          "Broken internal links, missing important metadata, incorrect canonicals",
+          "Fix before minor optimization"
+        ],
+        [
+          "Medium",
+          "Image optimization, metadata improvements, accessibility gaps",
+          "Address systematically"
+        ],
+        [
+          "Low",
+          "Minor recommendations with limited impact",
+          "Improve after important issues"
+        ]
+      ]
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "18. Website SEO Audit Checklist"
+    },
+
+    {
+      type: "list",
+      items: [
+        "HTTPS works correctly",
+        "Important pages return successful responses",
+        "Robots.txt is accessible",
+        "XML sitemap is accessible",
+        "Important pages are indexable",
+        "Title tags are present and relevant",
+        "Meta descriptions are useful",
+        "H1 headings are clear",
+        "Heading structure is logical",
+        "URLs are clean and descriptive",
+        "Canonical tags are correct",
+        "Internal links work",
+        "Important external links are reviewed",
+        "Images have appropriate alt text",
+        "Large images are optimized",
+        "Mobile layout works correctly",
+        "Important pages load efficiently",
+        "Structured data is relevant and valid",
+        "Open Graph metadata is configured",
+        "Important pages are internally linked",
+        "Content satisfies search intent",
+        "Important commercial pages have clear CTAs"
+      ]
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "19. Why Is My Website Not Ranking on Google?"
+    },
+
+    {
+      type: "paragraph",
+      text: "There is rarely one universal reason why a website does not rank. Possible causes include technical accessibility problems, indexing issues, weak relevance, content that does not satisfy search intent, poor site structure, insufficient authority, strong competition or simply targeting queries that do not match the site's current ability to compete."
+    },
+
+    {
+      type: "list",
+      items: [
+        "The page may not be indexed.",
+        "The page may target the wrong search intent.",
+        "The content may not sufficiently answer the query.",
+        "The website may have technical or crawlability problems.",
+        "The site architecture may make important pages difficult to discover.",
+        "The target query may be highly competitive.",
+        "The website may lack enough relevant authority.",
+        "The page may provide a poor user experience."
+      ]
+    },
+
+    {
+      type: "paragraph",
+      text: "An SEO audit can identify technical problems, but an audit score by itself does not guarantee rankings. Search visibility depends on the overall quality, relevance, technical accessibility and competitive environment of a website."
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "20. SEO Checker vs Manual Website Audit"
+    },
+
+    {
+      type: "table",
+      headers: [
+        "Method",
+        "Best for",
+        "Limitation"
+      ],
+      rows: [
+        [
+          "SEO checker",
+          "Fast first-pass diagnosis",
+          "Cannot replace deeper strategic analysis"
+        ],
+        [
+          "Manual audit",
+          "Detailed page and business analysis",
+          "Takes significantly more time"
+        ],
+        [
+          "Google Search Console",
+          "Search performance and indexing insights",
+          "Requires site verification and does not replace a complete technical audit"
+        ],
+        [
+          "Page performance tools",
+          "Detailed speed and Core Web Vitals analysis",
+          "Focused mainly on performance rather than complete SEO"
+        ]
+      ]
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "21. How Often Should You Audit Your Website?"
+    },
+
+    {
+      type: "paragraph",
+      text: "The right frequency depends on how often your website changes and how important organic traffic is to your business. A small static website may need less frequent technical checks than a large e-commerce website that changes products, URLs and content regularly."
+    },
+
+    {
+      type: "list",
+      items: [
+        "After launching a new website.",
+        "After a major redesign.",
+        "After changing URL structures.",
+        "After migrating domains or platforms.",
+        "After significant technical changes.",
+        "After publishing large amounts of content.",
+        "Regularly for sites that depend heavily on organic traffic."
+      ]
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "22. Common SEO Audit Mistakes to Avoid"
+    },
+
+    {
+      type: "list",
+      items: [
+        "Treating every warning as a ranking emergency.",
+        "Focusing only on keyword density.",
+        "Changing URLs without planning redirects.",
+        "Adding schema that does not represent visible content.",
+        "Ignoring mobile users.",
+        "Optimizing only the homepage.",
+        "Publishing large amounts of thin content.",
+        "Ignoring broken internal links.",
+        "Looking only at a website score instead of individual issues.",
+        "Assuming an SEO tool can guarantee rankings."
+      ]
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "23. Free Website SEO Checker: What Should You Look For?"
+    },
+
+    {
+      type: "paragraph",
+      text: "If you are comparing website SEO checker tools, do not choose one only because it displays a high score or a large number of checks. Look for clear explanations, useful prioritization and recommendations you can actually implement."
+    },
+
+    {
+      type: "list",
+      items: [
+        "Clear issue descriptions",
+        "Prioritized errors and warnings",
+        "Technical SEO checks",
+        "On-page checks",
+        "Indexing and crawlability signals",
+        "Performance signals",
+        "Accessibility checks",
+        "Security checks",
+        "Actionable recommendations",
+        "A simple report that a business owner can understand"
+      ]
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "24. Frequently Asked Questions"
+    },
+
+    {
+      type: "heading",
+      level: 3,
+      text: "What is the easiest way to check my website SEO?"
+    },
+
+    {
+      type: "paragraph",
+      text: "Start with a website SEO checker for a quick technical and on-page audit, then verify important findings using tools such as Google Search Console and dedicated performance testing tools."
+    },
+
+    {
+      type: "heading",
+      level: 3,
+      text: "Is there a free website SEO checker?"
+    },
+
+    {
+      type: "paragraph",
+      text: "Yes. There are free SEO checker and website audit tools available. YNS Web Studio also provides a free Website Health Checker designed to identify common SEO, technical, accessibility, performance and security issues."
+    },
+
+    {
+      type: "heading",
+      level: 3,
+      text: "How do I know if my website has SEO problems?"
+    },
+
+    {
+      type: "paragraph",
+      text: "Look for issues involving indexing, crawlability, titles, meta descriptions, headings, canonicals, links, images, mobile usability, performance, structured data and content relevance."
+    },
+
+    {
+      type: "heading",
+      level: 3,
+      text: "Can SEO errors prevent my website from ranking?"
+    },
+
+    {
+      type: "paragraph",
+      text: "Some technical problems can prevent important pages from being crawled or indexed, while other issues may simply reduce usability or make optimization less effective. The impact depends on the specific problem."
+    },
+
+    {
+      type: "heading",
+      level: 3,
+      text: "How can I check broken links on my website?"
+    },
+
+    {
+      type: "paragraph",
+      text: "Use a crawler or website audit tool that checks HTTP responses and internal links. Important broken links should then be repaired, removed or redirected when appropriate."
+    },
+
+    {
+      type: "heading",
+      level: 3,
+      text: "How often should I run an SEO audit?"
+    },
+
+    {
+      type: "paragraph",
+      text: "Run an audit after major website changes and periodically if organic search is important to your business. Larger or frequently changing websites generally benefit from more regular monitoring."
+    },
+
+    {
+      type: "heading",
+      level: 3,
+      text: "Does an SEO audit guarantee higher Google rankings?"
+    },
+
+    {
+      type: "paragraph",
+      text: "No. An audit helps identify technical and optimization opportunities, but rankings depend on many factors including relevance, content quality, competition, authority and the overall search experience."
+    },
+
+    {
+      type: "heading",
+      level: 2,
+      text: "Final Checklist: Find Your Website's SEO Problems"
+    },
+
+    {
+      type: "paragraph",
+      text: "If you want a practical starting point, do not try to optimize your entire website at once. First make sure search engines and users can access your important pages. Then fix critical technical problems, improve page-level SEO, strengthen internal linking, optimize performance and improve content based on search intent."
+    },
+
+    {
+      type: "paragraph",
+      text: "If you want to skip the manual first pass, enter your website into the YNS Website Health Checker and use the resulting report as your starting checklist."
+    },
+
+    {
+      type: "paragraph",
+      text: "Run your free website audit: /tools/website-health-checker"
+    },
+
+    {
+      type: "paragraph",
+      text: "If the audit reveals problems that require development work, YNS Web Studio can help with business websites, React, Next.js and custom web development."
+    }
+  ]
+},
 ];
