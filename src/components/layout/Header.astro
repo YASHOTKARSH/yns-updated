@@ -1,12 +1,61 @@
 ---
+const services = [
+  {
+    title: "Business Websites",
+    href: "/services/business-website-development",
+  },
+  {
+    title: "Landing Pages",
+    href: "/services/landing-page-development",
+  },
+  {
+    title: "E-Commerce",
+    href: "/services/ecommerce-development",
+  },
+  {
+    title: "Next.js Development",
+    href: "/services/nextjs-development",
+  },
+  {
+    title: "React Development",
+    href: "/services/react-development",
+  },
+  {
+    title: "Custom Web Apps",
+    href: "/services/custom-web-development",
+  },
+  {
+    title: "Booking Websites",
+    href: "/services/booking-appointment-websites",
+  },
+  {
+    title: "Corporate Websites",
+    href: "/services/corporate-website-development",
+  },
+  {
+    title: "Real Estate Websites",
+    href: "/services/real-estate-website-development",
+  },
+  {
+    title: "Restaurant & Hotels",
+    href: "/services/restaurant-website-development",
+  },
+];
+
+const tools = [
+  {
+    title: "Website Health Checker",
+    description: "Find SEO, technical & performance issues",
+    href: "/tools/website-health-checker",
+  },
+];
 ---
 
 <header
   class="sticky top-0 z-50 w-full border-b border-[#deded9] bg-[#f7f7f5]/90 backdrop-blur-md"
 >
-  <div
-    class="mx-auto flex max-w-[1240px] items-center justify-between px-6 py-4"
-  >
+  <div class="mx-auto flex max-w-[1240px] items-center justify-between px-6 py-4">
+
     <!-- Logo -->
     <a
       href="/"
@@ -21,22 +70,24 @@
     <!-- Desktop Navigation -->
     <nav
       aria-label="Main navigation"
-      class="hidden items-center gap-7 text-xs font-bold uppercase tracking-[0.14em] text-[#696969] md:flex"
+      class="hidden items-center gap-7 md:flex"
     >
-      <!-- Services Dropdown -->
+
+      <!-- SERVICES -->
       <div class="relative" id="services-dropdown-wrapper">
+
         <button
           id="services-dropdown-toggle"
           type="button"
           aria-expanded="false"
           aria-controls="services-dropdown"
-          class="group inline-flex items-center gap-1.5 transition-colors hover:text-[#111]"
+          class="nav-link inline-flex items-center gap-1.5"
         >
           Services
 
           <svg
             id="services-chevron"
-            class="h-3 w-3 transition-transform duration-200"
+            class="h-3.5 w-3.5 transition-transform duration-200"
             fill="none"
             stroke="currentColor"
             stroke-width="1.8"
@@ -54,223 +105,46 @@
         <!-- Services Dropdown -->
         <div
           id="services-dropdown"
-          class="invisible absolute left-1/2 top-[calc(100%+1.25rem)] w-[360px] -translate-x-1/2 translate-y-2 rounded-2xl border border-[#deded9] bg-[#f7f7f5] p-2 opacity-0 shadow-[0_20px_50px_rgba(0,0,0,0.10)] transition-all duration-200"
+          class="dropdown-panel invisible absolute left-1/2 top-[calc(100%+1.25rem)] w-[390px] -translate-x-1/2 translate-y-2 opacity-0"
           aria-hidden="true"
         >
           <div class="px-3 pb-2 pt-3">
-            <p
-              class="text-[10px] font-bold uppercase tracking-[0.14em] text-[#999]"
-            >
+            <p class="dropdown-label">
               Web Development Services
             </p>
           </div>
 
           <div class="grid grid-cols-2 gap-1">
-            <a
-              href="/services/business-website-development"
-              class="service-dropdown-link"
-            >
-              <span>Business Websites</span>
-              <svg
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 10h12M11 5l5 5-5 5"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
+            {
+              services.map((service) => (
+                <a
+                  href={service.href}
+                  class="dropdown-link"
+                >
+                  <span>{service.title}</span>
 
-            <a
-              href="/services/landing-page-development"
-              class="service-dropdown-link"
-            >
-              <span>Landing Pages</span>
-              <svg
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 10h12M11 5l5 5-5 5"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-
-            <a
-              href="/services/ecommerce-development"
-              class="service-dropdown-link"
-            >
-              <span>E-Commerce</span>
-              <svg
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 10h12M11 5l5 5-5 5"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-
-            <a
-              href="/services/nextjs-development"
-              class="service-dropdown-link"
-            >
-              <span>Next.js Development</span>
-              <svg
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 10h12M11 5l5 5-5 5"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-
-            <a
-              href="/services/react-development"
-              class="service-dropdown-link"
-            >
-              <span>React Development</span>
-              <svg
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 10h12M11 5l5 5-5 5"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-
-            <a
-              href="/services/custom-web-development"
-              class="service-dropdown-link"
-            >
-              <span>Custom Web Apps</span>
-              <svg
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 10h12M11 5l5 5-5 5"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-
-            <a
-              href="/services/booking-appointment-websites"
-              class="service-dropdown-link"
-            >
-              <span>Booking Websites</span>
-              <svg
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 10h12M11 5l5 5-5 5"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-
-            <a
-              href="/services/corporate-website-development"
-              class="service-dropdown-link"
-            >
-              <span>Corporate Websites</span>
-              <svg
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 10h12M11 5l5 5-5 5"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-
-            <a
-              href="/services/real-estate-website-development"
-              class="service-dropdown-link"
-            >
-              <span>Real Estate Websites</span>
-              <svg
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 10h12M11 5l5 5-5 5"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-
-            <a
-              href="/services/restaurant-website-development"
-              class="service-dropdown-link"
-            >
-              <span>Restaurant & Hotels</span>
-              <svg
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 10h12M11 5l5 5-5 5"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M4 10h12M11 5l5 5-5 5"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              ))
+            }
           </div>
 
           <div class="mt-2 border-t border-[#deded9] pt-2">
             <a
               href="/services"
-              class="flex items-center justify-between rounded-xl px-3 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#111] transition-colors hover:bg-white"
+              class="dropdown-view-all"
             >
               <span>View All Services</span>
 
@@ -293,38 +167,137 @@
         </div>
       </div>
 
-      <a
-        href="/results"
-        class="transition-colors hover:text-[#111]"
-      >
+      <!-- TOOLS -->
+      <div class="relative" id="tools-dropdown-wrapper">
+
+        <button
+          id="tools-dropdown-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="tools-dropdown"
+          class="nav-link inline-flex items-center gap-1.5"
+        >
+          Tools
+
+          <svg
+            id="tools-chevron"
+            class="h-3.5 w-3.5 transition-transform duration-200"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m6 9 6 6 6-6"
+            />
+          </svg>
+        </button>
+
+        <!-- Tools Dropdown -->
+        <div
+          id="tools-dropdown"
+          class="dropdown-panel tools-panel invisible absolute left-1/2 top-[calc(100%+1.25rem)] w-[330px] -translate-x-1/2 translate-y-2 opacity-0"
+          aria-hidden="true"
+        >
+          <div class="px-3 pb-2 pt-3">
+            <p class="dropdown-label">
+              Free Tools
+            </p>
+          </div>
+
+          {
+            tools.map((tool) => (
+              <a
+                href={tool.href}
+                class="tool-link"
+              >
+                <span class="tool-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4 13.5V19a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5.5"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M8 10.5 12 14l4-3.5"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 14V4"
+                    />
+                  </svg>
+                </span>
+
+                <span class="min-w-0">
+                  <span class="tool-title">
+                    {tool.title}
+                  </span>
+
+                  <span class="tool-description">
+                    {tool.description}
+                  </span>
+                </span>
+
+                <svg
+                  class="tool-arrow"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 10h12M11 5l5 5-5 5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            ))
+          }
+
+          <div class="mt-2 border-t border-[#deded9] px-3 py-3">
+            <p class="text-[10px] leading-relaxed text-[#999]">
+              More free tools are coming soon.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- NORMAL LINKS -->
+
+      <a href="/results" class="nav-link">
         Results
       </a>
 
-      <a
-        href="/pricing"
-        class="transition-colors hover:text-[#111]"
-      >
+      <a href="/pricing" class="nav-link">
         Pricing
       </a>
 
-      <a
-        href="/blog"
-        class="transition-colors hover:text-[#111]"
-      >
+      <a href="/blog" class="nav-link">
         Blog
       </a>
 
-      <a
-        href="/about"
-        class="transition-colors hover:text-[#111]"
-      >
+      <a href="/about" class="nav-link">
         About
       </a>
     </nav>
 
     <!-- Right Actions -->
     <div class="flex items-center gap-3">
-      <!-- Desktop CTA -->
+
       <a
         href="/contact"
         class="hidden items-center justify-center gap-2 rounded-full bg-[#111] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.08em] text-white shadow-sm transition-transform hover:-translate-y-0.5 hover:bg-black sm:inline-flex"
@@ -372,18 +345,16 @@
     </div>
   </div>
 
-  <!-- =======================================================
-       MOBILE NAVIGATION
-  ======================================================== -->
-
+  <!-- MOBILE NAVIGATION -->
   <div
     id="mobile-menu"
     class="absolute left-0 top-full hidden w-full border-b border-[#deded9] bg-[#f7f7f5] px-6 py-6 shadow-xl md:hidden"
   >
     <nav
       aria-label="Mobile navigation"
-      class="flex flex-col gap-2 text-sm font-bold uppercase tracking-[0.12em] text-[#444]"
+      class="flex flex-col gap-1"
     >
+
       <!-- Mobile Services -->
       <div>
         <button
@@ -391,7 +362,7 @@
           type="button"
           aria-expanded="false"
           aria-controls="mobile-services-menu"
-          class="flex w-full items-center justify-between rounded-lg p-3 text-left transition-colors hover:bg-white hover:text-[#111]"
+          class="mobile-nav-button"
         >
           <span>Services</span>
 
@@ -418,108 +389,105 @@
         >
           <a
             href="/services"
-            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
+            class="mobile-dropdown-link font-semibold text-[#111]"
           >
             All Services
           </a>
 
-          <a
-            href="/services/business-website-development"
-            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
-          >
-            Business Website Development
-          </a>
-
-          <a
-            href="/services/landing-page-development"
-            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
-          >
-            Landing Page Development
-          </a>
-
-          <a
-            href="/services/ecommerce-development"
-            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
-          >
-            E-Commerce Development
-          </a>
-
-          <a
-            href="/services/nextjs-development"
-            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
-          >
-            Next.js Development
-          </a>
-
-          <a
-            href="/services/react-development"
-            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
-          >
-            React Development
-          </a>
-
-          <a
-            href="/services/custom-web-development"
-            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
-          >
-            Custom Web Development
-          </a>
-
-          <a
-            href="/services/booking-appointment-websites"
-            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
-          >
-            Booking & Appointment Websites
-          </a>
-
-          <a
-            href="/services/corporate-website-development"
-            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
-          >
-            Corporate Website Development
-          </a>
-
-          <a
-            href="/services/real-estate-website-development"
-            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
-          >
-            Real Estate Website Development
-          </a>
-
-          <a
-            href="/services/restaurant-website-development"
-            class="block rounded-lg px-3 py-2.5 text-[11px] text-[#555] transition-colors hover:bg-white hover:text-[#111]"
-          >
-            Restaurant, Café & Hotel Websites
-          </a>
+          {
+            services.map((service) => (
+              <a
+                href={service.href}
+                class="mobile-dropdown-link"
+              >
+                {service.title}
+              </a>
+            ))
+          }
         </div>
       </div>
 
-      <a
-        href="/results"
-        class="rounded-lg p-3 transition-colors hover:bg-white hover:text-[#111]"
-      >
+      <!-- Mobile Tools -->
+      <div>
+        <button
+          id="mobile-tools-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-tools-menu"
+          class="mobile-nav-button"
+        >
+          <span>Tools</span>
+
+          <svg
+            id="mobile-tools-chevron"
+            class="h-4 w-4 transition-transform duration-200"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m6 9 6 6 6-6"
+            />
+          </svg>
+        </button>
+
+        <div
+          id="mobile-tools-menu"
+          class="hidden pl-3 pt-1"
+        >
+          {
+            tools.map((tool) => (
+              <a
+                href={tool.href}
+                class="mobile-tool-link"
+              >
+                <span>
+                  <span class="block text-[12px] font-semibold text-[#222]">
+                    {tool.title}
+                  </span>
+
+                  <span class="mt-0.5 block text-[11px] font-normal normal-case tracking-normal text-[#888]">
+                    {tool.description}
+                  </span>
+                </span>
+
+                <svg
+                  class="h-3.5 w-3.5 shrink-0 text-[#777]"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 10h12M11 5l5 5-5 5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <a href="/results" class="mobile-nav-link">
         Results
       </a>
 
-      <a
-        href="/pricing"
-        class="rounded-lg p-3 transition-colors hover:bg-white hover:text-[#111]"
-      >
+      <a href="/pricing" class="mobile-nav-link">
         Pricing
       </a>
 
-      <a
-        href="/blog"
-        class="rounded-lg p-3 transition-colors hover:bg-white hover:text-[#111]"
-      >
+      <a href="/blog" class="mobile-nav-link">
         Blog
       </a>
 
-      <a
-        href="/about"
-        class="rounded-lg p-3 transition-colors hover:bg-white hover:text-[#111]"
-      >
+      <a href="/about" class="mobile-nav-link">
         About
       </a>
 
@@ -558,252 +526,585 @@
 </header>
 
 <script>
-  const toggleBtn = document.getElementById("menu-toggle");
-  const mobileMenu = document.getElementById("mobile-menu");
+  const $ = (id) => document.getElementById(id);
 
-  const servicesDropdownToggle = document.getElementById(
-    "services-dropdown-toggle"
-  );
+  const menuToggle = $("menu-toggle");
+  const mobileMenu = $("mobile-menu");
 
-  const servicesDropdown = document.getElementById(
-    "services-dropdown"
-  );
+  const servicesToggle = $("services-dropdown-toggle");
+  const servicesDropdown = $("services-dropdown");
+  const servicesChevron = $("services-chevron");
+  const servicesWrapper = $("services-dropdown-wrapper");
 
-  const servicesChevron = document.getElementById(
-    "services-chevron"
-  );
+  const toolsToggle = $("tools-dropdown-toggle");
+  const toolsDropdown = $("tools-dropdown");
+  const toolsChevron = $("tools-chevron");
+  const toolsWrapper = $("tools-dropdown-wrapper");
 
-  const servicesDropdownWrapper = document.getElementById(
-    "services-dropdown-wrapper"
-  );
+  const mobileServicesToggle = $("mobile-services-toggle");
+  const mobileServicesMenu = $("mobile-services-menu");
+  const mobileServicesChevron = $("mobile-services-chevron");
 
-  const mobileServicesToggle = document.getElementById(
-    "mobile-services-toggle"
-  );
+  const mobileToolsToggle = $("mobile-tools-toggle");
+  const mobileToolsMenu = $("mobile-tools-menu");
+  const mobileToolsChevron = $("mobile-tools-chevron");
 
-  const mobileServicesMenu = document.getElementById(
-    "mobile-services-menu"
-  );
-
-  const mobileServicesChevron = document.getElementById(
-    "mobile-services-chevron"
-  );
-
-  const closeDesktopServices = () => {
-    if (!servicesDropdown || !servicesDropdownToggle) return;
-
-    servicesDropdown.classList.add(
+  const closeServices = () => {
+    servicesDropdown?.classList.add(
       "invisible",
       "opacity-0",
       "translate-y-2"
     );
 
-    servicesDropdown.classList.remove(
+    servicesDropdown?.classList.remove(
       "visible",
       "translate-y-0"
     );
 
-    servicesDropdownToggle.setAttribute(
-      "aria-expanded",
-      "false"
-    );
-
-    servicesDropdown?.setAttribute(
-      "aria-hidden",
-      "true"
-    );
-
-    servicesChevron?.classList.remove(
-      "rotate-180"
-    );
+    servicesToggle?.setAttribute("aria-expanded", "false");
+    servicesDropdown?.setAttribute("aria-hidden", "true");
+    servicesChevron?.classList.remove("rotate-180");
   };
 
-  const openDesktopServices = () => {
-    if (!servicesDropdown || !servicesDropdownToggle) return;
+  const openServices = () => {
+    closeTools();
 
-    servicesDropdown.classList.remove(
+    servicesDropdown?.classList.remove(
       "invisible",
       "opacity-0",
       "translate-y-2"
     );
 
-    servicesDropdown.classList.add(
+    servicesDropdown?.classList.add(
       "visible",
       "translate-y-0"
     );
 
-    servicesDropdownToggle.setAttribute(
-      "aria-expanded",
-      "true"
+    servicesToggle?.setAttribute("aria-expanded", "true");
+    servicesDropdown?.setAttribute("aria-hidden", "false");
+    servicesChevron?.classList.add("rotate-180");
+  };
+
+  const closeTools = () => {
+    toolsDropdown?.classList.add(
+      "invisible",
+      "opacity-0",
+      "translate-y-2"
     );
 
-    servicesDropdown.setAttribute(
-      "aria-hidden",
-      "false"
+    toolsDropdown?.classList.remove(
+      "visible",
+      "translate-y-0"
     );
 
-    servicesChevron?.classList.add(
-      "rotate-180"
+    toolsToggle?.setAttribute("aria-expanded", "false");
+    toolsDropdown?.setAttribute("aria-hidden", "true");
+    toolsChevron?.classList.remove("rotate-180");
+  };
+
+  const openTools = () => {
+    closeServices();
+
+    toolsDropdown?.classList.remove(
+      "invisible",
+      "opacity-0",
+      "translate-y-2"
     );
+
+    toolsDropdown?.classList.add(
+      "visible",
+      "translate-y-0"
+    );
+
+    toolsToggle?.setAttribute("aria-expanded", "true");
+    toolsDropdown?.setAttribute("aria-hidden", "false");
+    toolsChevron?.classList.add("rotate-180");
   };
 
   const closeMobileMenu = () => {
     mobileMenu?.classList.add("hidden");
 
-    toggleBtn?.setAttribute(
+    menuToggle?.setAttribute(
       "aria-expanded",
       "false"
     );
 
     mobileServicesMenu?.classList.add("hidden");
+    mobileToolsMenu?.classList.add("hidden");
 
     mobileServicesToggle?.setAttribute(
       "aria-expanded",
       "false"
     );
 
-    mobileServicesChevron?.classList.remove(
-      "rotate-180"
+    mobileToolsToggle?.setAttribute(
+      "aria-expanded",
+      "false"
     );
+
+    mobileServicesChevron?.classList.remove("rotate-180");
+    mobileToolsChevron?.classList.remove("rotate-180");
   };
 
-  // Desktop services dropdown
-  servicesDropdownToggle?.addEventListener(
-    "click",
-    (event) => {
-      event.stopPropagation();
+  /* Desktop Services */
+  servicesToggle?.addEventListener("click", (event) => {
+    event.stopPropagation();
 
-      const isOpen =
-        servicesDropdownToggle.getAttribute(
-          "aria-expanded"
-        ) === "true";
+    const isOpen =
+      servicesToggle.getAttribute("aria-expanded") === "true";
 
-      if (isOpen) {
-        closeDesktopServices();
-      } else {
-        openDesktopServices();
-      }
+    if (isOpen) {
+      closeServices();
+    } else {
+      openServices();
     }
-  );
-
-  // Prevent dropdown click from closing itself
-  servicesDropdownWrapper?.addEventListener(
-    "click",
-    (event) => {
-      event.stopPropagation();
-    }
-  );
-
-  // Close dropdown when clicking outside
-  document.addEventListener("click", () => {
-    closeDesktopServices();
   });
 
-  // Close dropdown with Escape
+  /* Desktop Tools */
+  toolsToggle?.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    const isOpen =
+      toolsToggle.getAttribute("aria-expanded") === "true";
+
+    if (isOpen) {
+      closeTools();
+    } else {
+      openTools();
+    }
+  });
+
+  servicesWrapper?.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
+  toolsWrapper?.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
+  /* Outside click */
+  document.addEventListener("click", () => {
+    closeServices();
+    closeTools();
+  });
+
+  /* Escape */
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
-      closeDesktopServices();
+      closeServices();
+      closeTools();
       closeMobileMenu();
     }
   });
 
-  // Mobile main menu
-  toggleBtn?.addEventListener("click", () => {
+  /* Mobile main menu */
+  menuToggle?.addEventListener("click", () => {
     const isHidden =
       mobileMenu?.classList.toggle("hidden");
 
-    toggleBtn.setAttribute(
+    menuToggle?.setAttribute(
       "aria-expanded",
       String(!isHidden)
     );
 
-    closeDesktopServices();
+    closeServices();
+    closeTools();
   });
 
-  // Mobile services accordion
-  mobileServicesToggle?.addEventListener(
-    "click",
-    () => {
-      const isHidden =
-        mobileServicesMenu?.classList.toggle(
-          "hidden"
-        );
+  /* Mobile Services */
+  mobileServicesToggle?.addEventListener("click", () => {
+    const isHidden =
+      mobileServicesMenu?.classList.toggle("hidden");
 
-      mobileServicesToggle.setAttribute(
-        "aria-expanded",
-        String(!isHidden)
-      );
+    mobileServicesToggle?.setAttribute(
+      "aria-expanded",
+      String(!isHidden)
+    );
 
-      mobileServicesChevron?.classList.toggle(
-        "rotate-180"
-      );
-    }
-  );
+    mobileServicesChevron?.classList.toggle(
+      "rotate-180"
+    );
+  });
 
-  // Close mobile menu after navigation
+  /* Mobile Tools */
+  mobileToolsToggle?.addEventListener("click", () => {
+    const isHidden =
+      mobileToolsMenu?.classList.toggle("hidden");
+
+    mobileToolsToggle?.setAttribute(
+      "aria-expanded",
+      String(!isHidden)
+    );
+
+    mobileToolsChevron?.classList.toggle(
+      "rotate-180"
+    );
+  });
+
+  /* Close mobile menu after navigation */
   mobileMenu?.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       closeMobileMenu();
     });
   });
 
-  // Close everything when switching to desktop
+  /* Responsive cleanup */
   window.addEventListener("resize", () => {
     if (window.innerWidth >= 768) {
       closeMobileMenu();
     }
 
     if (window.innerWidth < 768) {
-      closeDesktopServices();
+      closeServices();
+      closeTools();
     }
   });
 </script>
 
 <style>
-  .service-dropdown-link {
+  /* =========================================================
+     MAIN NAV TYPOGRAPHY
+     One consistent typography system for every nav item.
+     ========================================================= */
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+
+    color: #696969;
+
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+
+    transition:
+      color 160ms ease,
+      opacity 160ms ease;
+  }
+
+  .nav-link:hover {
+    color: #111;
+  }
+
+  /* =========================================================
+     DROPDOWNS
+     ========================================================= */
+
+  .dropdown-panel {
+    border: 1px solid #deded9;
+    border-radius: 1rem;
+
+    background: #f7f7f5;
+
+    padding: 0.5rem;
+
+    box-shadow:
+      0 20px 50px rgba(0, 0, 0, 0.1);
+
+    transition:
+      opacity 200ms ease,
+      transform 200ms ease,
+      visibility 200ms ease;
+  }
+
+  .dropdown-label {
+    margin: 0;
+
+    color: #999;
+
+    font-size: 10px;
+    line-height: 1rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+
+  .dropdown-link {
     display: flex;
+    min-height: 46px;
+
     align-items: center;
     justify-content: space-between;
+
     gap: 0.5rem;
-    min-height: 46px;
-    padding: 0.7rem 0.75rem;
+
     border-radius: 0.7rem;
+
+    padding: 0.7rem 0.75rem;
+
     color: #444;
-    font-size: 10px;
-    font-weight: 700;
+
+    /*
+      IMPORTANT:
+      Same typography as the rest of the navigation.
+    */
+    font-family: inherit;
+    font-size: 0.6875rem;
     line-height: 1.35;
-    letter-spacing: 0.02em;
+    font-weight: 700;
+
     text-decoration: none;
+
     transition:
       background-color 160ms ease,
       color 160ms ease;
   }
 
-  .service-dropdown-link:hover {
+  .dropdown-link:hover {
     background: #fff;
     color: #111;
   }
 
-  .service-dropdown-link svg {
+  .dropdown-link svg {
     width: 0.85rem;
     height: 0.85rem;
+
     flex: 0 0 auto;
+
     opacity: 0;
+
     transform: translateX(-3px);
+
     transition:
       opacity 160ms ease,
       transform 160ms ease;
   }
 
-  .service-dropdown-link:hover svg {
+  .dropdown-link:hover svg {
     opacity: 1;
     transform: translateX(0);
   }
 
-  @media (max-width: 767px) {
-    #mobile-services-menu {
-      max-height: 55vh;
-      overflow-y: auto;
-    }
+  .dropdown-view-all {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 0.75rem;
+
+    padding: 0.75rem;
+
+    color: #111;
+
+    font-family: inherit;
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+
+    transition: background-color 160ms ease;
+  }
+
+  .dropdown-view-all:hover {
+    background: #fff;
+  }
+
+  /* =========================================================
+     TOOLS DROPDOWN
+     ========================================================= */
+
+  .tools-panel {
+    width: 330px;
+  }
+
+  .tool-link {
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.75rem;
+
+    border-radius: 0.8rem;
+
+    padding: 0.75rem;
+
+    color: #444;
+
+    text-decoration: none;
+
+    transition:
+      background-color 160ms ease,
+      color 160ms ease;
+  }
+
+  .tool-link:hover {
+    background: #fff;
+    color: #111;
+  }
+
+  .tool-icon {
+    display: flex;
+
+    width: 34px;
+    height: 34px;
+
+    flex: 0 0 auto;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #deded9;
+    border-radius: 0.6rem;
+
+    background: #f7f7f5;
+
+    color: #555;
+  }
+
+  .tool-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .tool-title {
+    display: block;
+
+    color: #222;
+
+    font-family: inherit;
+    font-size: 0.6875rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+  }
+
+  .tool-description {
+    display: block;
+
+    margin-top: 1px;
+
+    color: #999;
+
+    font-family: inherit;
+    font-size: 0.625rem;
+    line-height: 1rem;
+    font-weight: 500;
+  }
+
+  .tool-arrow {
+    width: 0.85rem;
+    height: 0.85rem;
+
+    margin-left: auto;
+
+    flex: 0 0 auto;
+
+    opacity: 0;
+
+    transform: translateX(-3px);
+
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease;
+  }
+
+  .tool-link:hover .tool-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* =========================================================
+     MOBILE NAVIGATION
+     ========================================================= */
+
+  .mobile-nav-button,
+  .mobile-nav-link {
+    display: flex;
+
+    width: 100%;
+
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 0.65rem;
+
+    padding: 0.75rem;
+
+    color: #444;
+
+    font-family: inherit;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+
+    text-align: left;
+
+    transition:
+      background-color 160ms ease,
+      color 160ms ease;
+  }
+
+  .mobile-nav-button:hover,
+  .mobile-nav-link:hover {
+    background: #fff;
+    color: #111;
+  }
+
+  .mobile-dropdown-link {
+    display: block;
+
+    border-radius: 0.5rem;
+
+    padding: 0.625rem 0.75rem;
+
+    color: #555;
+
+    font-family: inherit;
+    font-size: 0.6875rem;
+    line-height: 1.1rem;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition:
+      background-color 160ms ease,
+      color 160ms ease;
+  }
+
+  .mobile-dropdown-link:hover {
+    background: #fff;
+    color: #111;
+  }
+
+  .mobile-tool-link {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 0.75rem;
+
+    border-radius: 0.6rem;
+
+    padding: 0.7rem 0.75rem;
+
+    text-decoration: none;
+
+    transition: background-color 160ms ease;
+  }
+
+  .mobile-tool-link:hover {
+    background: #fff;
+  }
+
+  /* Keep long service lists usable on mobile */
+  #mobile-services-menu {
+    max-height: 55vh;
+    overflow-y: auto;
+  }
+
+  #mobile-tools-menu {
+    max-height: 30vh;
+    overflow-y: auto;
   }
 </style>
