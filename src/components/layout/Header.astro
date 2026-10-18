@@ -1,92 +1,583 @@
 ---
+
 const services = [
+
   {
+
     title: "Business Websites",
+
     href: "/services/business-website-development",
+
   },
+
   {
+
     title: "Landing Pages",
+
     href: "/services/landing-page-development",
+
   },
+
   {
+
     title: "E-Commerce",
+
     href: "/services/ecommerce-development",
+
   },
+
   {
+
     title: "Next.js Development",
+
     href: "/services/nextjs-development",
+
   },
+
   {
+
     title: "React Development",
+
     href: "/services/react-development",
+
   },
+
   {
+
     title: "Custom Web Apps",
+
     href: "/services/custom-web-development",
+
   },
+
   {
+
     title: "Booking Websites",
+
     href: "/services/booking-appointment-websites",
+
   },
+
   {
+
     title: "Corporate Websites",
+
     href: "/services/corporate-website-development",
+
   },
+
   {
+
     title: "Real Estate Websites",
+
     href: "/services/real-estate-website-development",
+
   },
+
   {
+
     title: "Restaurant & Hotels",
+
     href: "/services/restaurant-website-development",
+
   },
+
 ];
+
+
 
 const tools = [
+
   {
+
     title: "Website Health Checker",
+
     description: "Find SEO, technical & performance issues",
+
     href: "/tools/website-health-checker",
+
+  },
+
+];
+
+const internationalServices = [
+  {
+    country: "New Zealand",
+    title: "Website Development in New Zealand",
+    description:
+      "Fast, modern and SEO-friendly websites for New Zealand small businesses, tradies and growing companies.",
+    href: "/services/website-development-new-zealand/",
   },
 ];
+
 ---
 
+
+
 <header
+
   class="sticky top-0 z-50 w-full border-b border-[#deded9] bg-[#f7f7f5]/90 backdrop-blur-md"
+
 >
+
   <div class="mx-auto flex max-w-[1240px] items-center justify-between px-6 py-4">
 
+
+
     <!-- Logo -->
+
     <a
+
       href="/"
+
       aria-label="YNS Web Studio Home"
+
       class="group flex items-center gap-2.5 text-lg font-bold tracking-tight text-[#111111]"
+
     >
+
       <span>
+
         YNS Web <span class="text-[#777]">Studio</span>
+
       </span>
+
     </a>
 
+
+
     <!-- Desktop Navigation -->
+
     <nav
+
       aria-label="Main navigation"
+
       class="hidden items-center gap-7 md:flex"
+
     >
 
+
+
       <!-- SERVICES -->
+
       <div class="relative" id="services-dropdown-wrapper">
 
+
+
         <button
+
           id="services-dropdown-toggle"
+
           type="button"
+
           aria-expanded="false"
+
           aria-controls="services-dropdown"
+
           class="nav-link inline-flex items-center gap-1.5"
+
         >
+
           Services
 
+
+
           <svg
+
             id="services-chevron"
+
+            class="h-3.5 w-3.5 transition-transform duration-200"
+
+            fill="none"
+
+            stroke="currentColor"
+
+            stroke-width="1.8"
+
+            viewBox="0 0 24 24"
+
+            aria-hidden="true"
+
+          >
+
+            <path
+
+              stroke-linecap="round"
+
+              stroke-linejoin="round"
+
+              d="m6 9 6 6 6-6"
+
+            />
+
+          </svg>
+
+        </button>
+
+
+
+        <!-- Services Dropdown -->
+
+        <div
+
+          id="services-dropdown"
+
+          class="dropdown-panel invisible absolute left-1/2 top-[calc(100%+1.25rem)] w-[390px] -translate-x-1/2 translate-y-2 opacity-0"
+
+          aria-hidden="true"
+
+        >
+
+          <div class="px-3 pb-2 pt-3">
+
+            <p class="dropdown-label">
+
+              Web Development Services
+
+            </p>
+
+          </div>
+
+
+
+          <div class="grid grid-cols-2 gap-1">
+
+            {
+
+              services.map((service) => (
+
+                <a
+
+                  href={service.href}
+
+                  class="dropdown-link"
+
+                >
+
+                  <span>{service.title}</span>
+
+
+
+                  <svg
+
+                    viewBox="0 0 20 20"
+
+                    fill="none"
+
+                    aria-hidden="true"
+
+                  >
+
+                    <path
+
+                      d="M4 10h12M11 5l5 5-5 5"
+
+                      stroke="currentColor"
+
+                      stroke-width="1.5"
+
+                      stroke-linecap="round"
+
+                      stroke-linejoin="round"
+
+                    />
+
+                  </svg>
+
+                </a>
+
+              ))
+
+            }
+
+          </div>
+
+
+
+          <div class="mt-2 border-t border-[#deded9] pt-2">
+
+            <a
+
+              href="/services"
+
+              class="dropdown-view-all"
+
+            >
+
+              <span>View All Services</span>
+
+
+
+              <svg
+
+                class="h-4 w-4"
+
+                viewBox="0 0 20 20"
+
+                fill="none"
+
+                aria-hidden="true"
+
+              >
+
+                <path
+
+                  d="M4 10h12M11 5l5 5-5 5"
+
+                  stroke="currentColor"
+
+                  stroke-width="1.5"
+
+                  stroke-linecap="round"
+
+                  stroke-linejoin="round"
+
+                />
+
+              </svg>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- TOOLS -->
+
+      <div class="relative" id="tools-dropdown-wrapper">
+
+
+
+        <button
+
+          id="tools-dropdown-toggle"
+
+          type="button"
+
+          aria-expanded="false"
+
+          aria-controls="tools-dropdown"
+
+          class="nav-link inline-flex items-center gap-1.5"
+
+        >
+
+          Tools
+
+
+
+          <svg
+
+            id="tools-chevron"
+
+            class="h-3.5 w-3.5 transition-transform duration-200"
+
+            fill="none"
+
+            stroke="currentColor"
+
+            stroke-width="1.8"
+
+            viewBox="0 0 24 24"
+
+            aria-hidden="true"
+
+          >
+
+            <path
+
+              stroke-linecap="round"
+
+              stroke-linejoin="round"
+
+              d="m6 9 6 6 6-6"
+
+            />
+
+          </svg>
+
+        </button>
+
+
+
+        <!-- Tools Dropdown -->
+
+        <div
+
+          id="tools-dropdown"
+
+          class="dropdown-panel tools-panel invisible absolute left-1/2 top-[calc(100%+1.25rem)] w-[330px] -translate-x-1/2 translate-y-2 opacity-0"
+
+          aria-hidden="true"
+
+        >
+
+          <div class="px-3 pb-2 pt-3">
+
+            <p class="dropdown-label">
+
+              Free Tools
+
+            </p>
+
+          </div>
+
+
+
+          {
+
+            tools.map((tool) => (
+
+              <a
+
+                href={tool.href}
+
+                class="tool-link"
+
+              >
+
+                <span class="tool-icon">
+
+                  <svg
+
+                    viewBox="0 0 24 24"
+
+                    fill="none"
+
+                    stroke="currentColor"
+
+                    stroke-width="1.7"
+
+                    aria-hidden="true"
+
+                  >
+
+                    <path
+
+                      stroke-linecap="round"
+
+                      stroke-linejoin="round"
+
+                      d="M4 13.5V19a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5.5"
+
+                    />
+
+                    <path
+
+                      stroke-linecap="round"
+
+                      stroke-linejoin="round"
+
+                      d="M8 10.5 12 14l4-3.5"
+
+                    />
+
+                    <path
+
+                      stroke-linecap="round"
+
+                      stroke-linejoin="round"
+
+                      d="M12 14V4"
+
+                    />
+
+                  </svg>
+
+                </span>
+
+
+
+                <span class="min-w-0">
+
+                  <span class="tool-title">
+
+                    {tool.title}
+
+                  </span>
+
+
+
+                  <span class="tool-description">
+
+                    {tool.description}
+
+                  </span>
+
+                </span>
+
+
+
+                <svg
+
+                  class="tool-arrow"
+
+                  viewBox="0 0 20 20"
+
+                  fill="none"
+
+                  aria-hidden="true"
+
+                >
+
+                  <path
+
+                    d="M4 10h12M11 5l5 5-5 5"
+
+                    stroke="currentColor"
+
+                    stroke-width="1.5"
+
+                    stroke-linecap="round"
+
+                    stroke-linejoin="round"
+
+                  />
+
+                </svg>
+
+              </a>
+
+            ))
+
+          }
+
+
+
+          <div class="mt-2 border-t border-[#deded9] px-3 py-3">
+
+            <p class="text-[10px] leading-relaxed text-[#999]">
+
+              More free tools are coming soon.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- INTERNATIONAL -->
+
+      <div class="relative" id="international-dropdown-wrapper">
+        <button
+          id="international-dropdown-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="international-dropdown"
+          class="nav-link inline-flex items-center gap-1.5"
+        >
+          International
+
+          <svg
+            id="international-chevron"
             class="h-3.5 w-3.5 transition-transform duration-200"
             fill="none"
             stroke="currentColor"
@@ -102,28 +593,42 @@ const tools = [
           </svg>
         </button>
 
-        <!-- Services Dropdown -->
         <div
-          id="services-dropdown"
-          class="dropdown-panel invisible absolute left-1/2 top-[calc(100%+1.25rem)] w-[390px] -translate-x-1/2 translate-y-2 opacity-0"
+          id="international-dropdown"
+          class="dropdown-panel international-panel invisible absolute left-1/2 top-[calc(100%+1.25rem)] w-[390px] -translate-x-1/2 translate-y-2 opacity-0"
           aria-hidden="true"
         >
           <div class="px-3 pb-2 pt-3">
-            <p class="dropdown-label">
-              Web Development Services
-            </p>
+            <p class="dropdown-label">International Services</p>
           </div>
 
-          <div class="grid grid-cols-2 gap-1">
+          <div class="px-1">
             {
-              services.map((service) => (
-                <a
-                  href={service.href}
-                  class="dropdown-link"
-                >
-                  <span>{service.title}</span>
+              internationalServices.map((service) => (
+                <a href={service.href} class="international-link">
+                  <span class="international-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M3 12h18" />
+                      <path d="M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9" />
+                      <path d="M12 3c-2.5 2.5-3.5 5.5-3.5 9s-1 6.5-3.5 9" />
+                    </svg>
+                  </span>
+
+                  <span class="min-w-0">
+                    <span class="international-country">{service.country}</span>
+                    <span class="international-title">{service.title}</span>
+                    <span class="international-description">{service.description}</span>
+                  </span>
 
                   <svg
+                    class="international-arrow"
                     viewBox="0 0 20 20"
                     fill="none"
                     aria-hidden="true"
@@ -141,285 +646,425 @@ const tools = [
             }
           </div>
 
-          <div class="mt-2 border-t border-[#deded9] pt-2">
-            <a
-              href="/services"
-              class="dropdown-view-all"
-            >
-              <span>View All Services</span>
-
-              <svg
-                class="h-4 w-4"
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 10h12M11 5l5 5-5 5"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
+          <div class="international-footer">
+            <span>Serving businesses beyond India</span>
+            <a href="/contact">Start an International Project</a>
           </div>
         </div>
       </div>
 
-      <!-- TOOLS -->
-      <div class="relative" id="tools-dropdown-wrapper">
-
-        <button
-          id="tools-dropdown-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="tools-dropdown"
-          class="nav-link inline-flex items-center gap-1.5"
-        >
-          Tools
-
-          <svg
-            id="tools-chevron"
-            class="h-3.5 w-3.5 transition-transform duration-200"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="m6 9 6 6 6-6"
-            />
-          </svg>
-        </button>
-
-        <!-- Tools Dropdown -->
-        <div
-          id="tools-dropdown"
-          class="dropdown-panel tools-panel invisible absolute left-1/2 top-[calc(100%+1.25rem)] w-[330px] -translate-x-1/2 translate-y-2 opacity-0"
-          aria-hidden="true"
-        >
-          <div class="px-3 pb-2 pt-3">
-            <p class="dropdown-label">
-              Free Tools
-            </p>
-          </div>
-
-          {
-            tools.map((tool) => (
-              <a
-                href={tool.href}
-                class="tool-link"
-              >
-                <span class="tool-icon">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.7"
-                    aria-hidden="true"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4 13.5V19a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5.5"
-                    />
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M8 10.5 12 14l4-3.5"
-                    />
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M12 14V4"
-                    />
-                  </svg>
-                </span>
-
-                <span class="min-w-0">
-                  <span class="tool-title">
-                    {tool.title}
-                  </span>
-
-                  <span class="tool-description">
-                    {tool.description}
-                  </span>
-                </span>
-
-                <svg
-                  class="tool-arrow"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M4 10h12M11 5l5 5-5 5"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-            ))
-          }
-
-          <div class="mt-2 border-t border-[#deded9] px-3 py-3">
-            <p class="text-[10px] leading-relaxed text-[#999]">
-              More free tools are coming soon.
-            </p>
-          </div>
-        </div>
-      </div>
 
       <!-- NORMAL LINKS -->
 
+
+
       <a href="/results" class="nav-link">
+
         Results
+
       </a>
+
+
 
       <a href="/pricing" class="nav-link">
+
         Pricing
+
       </a>
+
+
 
       <a href="/blog" class="nav-link">
+
         Blog
+
       </a>
+
+
 
       <a href="/about" class="nav-link">
+
         About
+
       </a>
+
     </nav>
+
+
 
     <!-- Right Actions -->
+
     <div class="flex items-center gap-3">
 
+
+
       <a
+
         href="/contact"
+
         class="hidden items-center justify-center gap-2 rounded-full bg-[#111] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.08em] text-white shadow-sm transition-transform hover:-translate-y-0.5 hover:bg-black sm:inline-flex"
+
       >
+
         Start a Project
 
+
+
         <svg
+
           class="h-3.5 w-3.5 fill-none stroke-current stroke-[2]"
+
           viewBox="0 0 24 24"
+
           aria-hidden="true"
+
         >
+
           <path
+
             stroke-linecap="round"
+
             stroke-linejoin="round"
+
             d="M5 12h14M13 6l6 6-6 6"
+
           />
+
         </svg>
+
       </a>
+
+
 
       <!-- Mobile Menu Toggle -->
+
       <button
+
         id="menu-toggle"
+
         type="button"
+
         aria-label="Toggle navigation menu"
+
         aria-expanded="false"
+
         aria-controls="mobile-menu"
+
         class="flex h-10 w-10 items-center justify-center rounded-xl border border-[#deded9] bg-white text-[#111] transition-colors hover:bg-slate-50 md:hidden"
+
       >
+
         <svg
+
           id="menu-icon"
+
           class="h-5 w-5"
+
           fill="none"
+
           stroke="currentColor"
+
           stroke-width="2"
+
           viewBox="0 0 24 24"
+
           aria-hidden="true"
+
         >
+
           <path
+
             stroke-linecap="round"
+
             stroke-linejoin="round"
+
             d="M4 6h16M4 12h16m-7 6h7"
+
           />
+
         </svg>
+
       </button>
+
     </div>
+
   </div>
+
+
 
   <!-- MOBILE NAVIGATION -->
+
   <div
+
     id="mobile-menu"
+
     class="absolute left-0 top-full hidden w-full border-b border-[#deded9] bg-[#f7f7f5] px-6 py-6 shadow-xl md:hidden"
+
   >
+
     <nav
+
       aria-label="Mobile navigation"
+
       class="flex flex-col gap-1"
+
     >
 
+
+
       <!-- Mobile Services -->
+
       <div>
+
         <button
+
           id="mobile-services-toggle"
+
           type="button"
+
           aria-expanded="false"
+
           aria-controls="mobile-services-menu"
+
           class="mobile-nav-button"
+
         >
+
           <span>Services</span>
 
+
+
           <svg
+
             id="mobile-services-chevron"
+
             class="h-4 w-4 transition-transform duration-200"
+
             fill="none"
+
             stroke="currentColor"
+
             stroke-width="1.8"
+
             viewBox="0 0 24 24"
+
             aria-hidden="true"
+
           >
+
             <path
+
               stroke-linecap="round"
+
               stroke-linejoin="round"
+
               d="m6 9 6 6 6-6"
+
             />
+
           </svg>
+
         </button>
 
+
+
         <div
+
           id="mobile-services-menu"
+
           class="hidden pl-3 pt-1"
+
         >
+
           <a
+
             href="/services"
+
             class="mobile-dropdown-link font-semibold text-[#111]"
+
           >
+
             All Services
+
           </a>
 
+
+
           {
+
             services.map((service) => (
+
               <a
+
                 href={service.href}
+
                 class="mobile-dropdown-link"
+
               >
+
                 {service.title}
+
               </a>
+
             ))
+
           }
+
         </div>
+
       </div>
 
+
+
       <!-- Mobile Tools -->
+
       <div>
+
         <button
+
           id="mobile-tools-toggle"
+
           type="button"
+
           aria-expanded="false"
+
           aria-controls="mobile-tools-menu"
+
           class="mobile-nav-button"
+
         >
+
           <span>Tools</span>
 
+
+
           <svg
+
             id="mobile-tools-chevron"
+
+            class="h-4 w-4 transition-transform duration-200"
+
+            fill="none"
+
+            stroke="currentColor"
+
+            stroke-width="1.8"
+
+            viewBox="0 0 24 24"
+
+            aria-hidden="true"
+
+          >
+
+            <path
+
+              stroke-linecap="round"
+
+              stroke-linejoin="round"
+
+              d="m6 9 6 6 6-6"
+
+            />
+
+          </svg>
+
+        </button>
+
+
+
+        <div
+
+          id="mobile-tools-menu"
+
+          class="hidden pl-3 pt-1"
+
+        >
+
+          {
+
+            tools.map((tool) => (
+
+              <a
+
+                href={tool.href}
+
+                class="mobile-tool-link"
+
+              >
+
+                <span>
+
+                  <span class="block text-[12px] font-semibold text-[#222]">
+
+                    {tool.title}
+
+                  </span>
+
+
+
+                  <span class="mt-0.5 block text-[11px] font-normal normal-case tracking-normal text-[#888]">
+
+                    {tool.description}
+
+                  </span>
+
+                </span>
+
+
+
+                <svg
+
+                  class="h-3.5 w-3.5 shrink-0 text-[#777]"
+
+                  viewBox="0 0 20 20"
+
+                  fill="none"
+
+                  aria-hidden="true"
+
+                >
+
+                  <path
+
+                    d="M4 10h12M11 5l5 5-5 5"
+
+                    stroke="currentColor"
+
+                    stroke-width="1.5"
+
+                    stroke-linecap="round"
+
+                    stroke-linejoin="round"
+
+                  />
+
+                </svg>
+
+              </a>
+
+            ))
+
+          }
+
+        </div>
+
+      </div>
+
+
+
+      <!-- Mobile International -->
+
+      <div>
+        <button
+          id="mobile-international-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-international-menu"
+          class="mobile-nav-button"
+        >
+          <span>International</span>
+          <svg
+            id="mobile-international-chevron"
             class="h-4 w-4 transition-transform duration-200"
             fill="none"
             stroke="currentColor"
@@ -435,676 +1080,1485 @@ const tools = [
           </svg>
         </button>
 
-        <div
-          id="mobile-tools-menu"
-          class="hidden pl-3 pt-1"
-        >
+        <div id="mobile-international-menu" class="hidden pl-3 pt-1">
           {
-            tools.map((tool) => (
-              <a
-                href={tool.href}
-                class="mobile-tool-link"
-              >
-                <span>
-                  <span class="block text-[12px] font-semibold text-[#222]">
-                    {tool.title}
-                  </span>
-
-                  <span class="mt-0.5 block text-[11px] font-normal normal-case tracking-normal text-[#888]">
-                    {tool.description}
-                  </span>
+            internationalServices.map((service) => (
+              <a href={service.href} class="mobile-international-link">
+                <span class="block text-[12px] font-semibold text-[#222]">
+                  {service.title}
                 </span>
-
-                <svg
-                  class="h-3.5 w-3.5 shrink-0 text-[#777]"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M4 10h12M11 5l5 5-5 5"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
+                <span class="mt-0.5 block text-[11px] font-normal normal-case tracking-normal text-[#888]">
+                  {service.country}
+                </span>
               </a>
             ))
           }
         </div>
       </div>
 
+
       <a href="/results" class="mobile-nav-link">
+
         Results
+
       </a>
+
+
 
       <a href="/pricing" class="mobile-nav-link">
+
         Pricing
+
       </a>
+
+
 
       <a href="/blog" class="mobile-nav-link">
+
         Blog
+
       </a>
+
+
 
       <a href="/about" class="mobile-nav-link">
+
         About
+
       </a>
 
+
+
       <!-- Mobile CTA -->
+
       <div class="mt-3 border-t border-[#deded9] pt-4">
+
         <a
+
           href="/contact"
+
           class="flex w-full items-center justify-center gap-2 rounded-xl bg-[#111] py-3.5 text-xs font-bold uppercase tracking-[0.08em] text-white transition-colors hover:bg-black"
+
         >
+
           Start a Project
 
+
+
           <svg
+
             class="h-3.5 w-3.5 fill-none stroke-current stroke-[2]"
+
             viewBox="0 0 24 24"
+
             aria-hidden="true"
+
           >
+
             <path
+
               stroke-linecap="round"
+
               stroke-linejoin="round"
+
               d="M5 12h14M13 6l6 6-6 6"
+
             />
+
           </svg>
+
         </a>
+
+
 
         <a
+
           href="https://wa.me/919352563337?text=Hi%20YNS%20Web%20Studio%2C%20I%20want%20to%20discuss%20a%20website%20project."
+
           target="_blank"
+
           rel="noopener noreferrer"
+
           class="mt-2 flex w-full items-center justify-center rounded-xl border border-[#d6d6d1] bg-white py-3 text-xs font-bold uppercase tracking-[0.08em] text-[#333] transition-colors hover:bg-white"
+
         >
+
           WhatsApp Us
+
         </a>
+
       </div>
+
     </nav>
+
   </div>
+
 </header>
 
+
+
 <script>
+
   const $ = (id) => document.getElementById(id);
 
+
+
   const menuToggle = $("menu-toggle");
+
   const mobileMenu = $("mobile-menu");
 
+
+
   const servicesToggle = $("services-dropdown-toggle");
+
   const servicesDropdown = $("services-dropdown");
+
   const servicesChevron = $("services-chevron");
+
   const servicesWrapper = $("services-dropdown-wrapper");
 
+
+
   const toolsToggle = $("tools-dropdown-toggle");
+
   const toolsDropdown = $("tools-dropdown");
+
   const toolsChevron = $("tools-chevron");
+
   const toolsWrapper = $("tools-dropdown-wrapper");
 
+
+
   const mobileServicesToggle = $("mobile-services-toggle");
+
   const mobileServicesMenu = $("mobile-services-menu");
+
   const mobileServicesChevron = $("mobile-services-chevron");
 
+
+
   const mobileToolsToggle = $("mobile-tools-toggle");
+
   const mobileToolsMenu = $("mobile-tools-menu");
+
   const mobileToolsChevron = $("mobile-tools-chevron");
 
+
+  const internationalToggle = $("international-dropdown-toggle");
+  const internationalDropdown = $("international-dropdown");
+  const internationalChevron = $("international-chevron");
+  const internationalWrapper = $("international-dropdown-wrapper");
+
+
+  const mobileInternationalToggle = $("mobile-international-toggle");
+  const mobileInternationalMenu = $("mobile-international-menu");
+  const mobileInternationalChevron = $("mobile-international-chevron");
+
+
+
   const closeServices = () => {
+
     servicesDropdown?.classList.add(
+
       "invisible",
+
       "opacity-0",
+
       "translate-y-2"
+
     );
 
+
+
     servicesDropdown?.classList.remove(
+
       "visible",
+
       "translate-y-0"
+
     );
+
+
 
     servicesToggle?.setAttribute("aria-expanded", "false");
+
     servicesDropdown?.setAttribute("aria-hidden", "true");
+
     servicesChevron?.classList.remove("rotate-180");
+
   };
+
+
 
   const openServices = () => {
+
     closeTools();
+
+
 
     servicesDropdown?.classList.remove(
+
       "invisible",
+
       "opacity-0",
+
       "translate-y-2"
+
     );
+
+
 
     servicesDropdown?.classList.add(
+
       "visible",
+
       "translate-y-0"
+
     );
+
+
 
     servicesToggle?.setAttribute("aria-expanded", "true");
+
     servicesDropdown?.setAttribute("aria-hidden", "false");
+
     servicesChevron?.classList.add("rotate-180");
+
   };
+
+
 
   const closeTools = () => {
+
     toolsDropdown?.classList.add(
+
       "invisible",
+
       "opacity-0",
+
       "translate-y-2"
+
     );
 
+
+
     toolsDropdown?.classList.remove(
+
       "visible",
+
       "translate-y-0"
+
     );
+
+
 
     toolsToggle?.setAttribute("aria-expanded", "false");
+
     toolsDropdown?.setAttribute("aria-hidden", "true");
+
     toolsChevron?.classList.remove("rotate-180");
+
   };
 
+
+
   const openTools = () => {
+
     closeServices();
 
+
+
     toolsDropdown?.classList.remove(
+
+      "invisible",
+
+      "opacity-0",
+
+      "translate-y-2"
+
+    );
+
+
+
+    toolsDropdown?.classList.add(
+
+      "visible",
+
+      "translate-y-0"
+
+    );
+
+
+
+    toolsToggle?.setAttribute("aria-expanded", "true");
+
+    toolsDropdown?.setAttribute("aria-hidden", "false");
+
+    toolsChevron?.classList.add("rotate-180");
+
+  };
+
+
+
+  const closeInternational = () => {
+    internationalDropdown?.classList.add(
       "invisible",
       "opacity-0",
       "translate-y-2"
     );
-
-    toolsDropdown?.classList.add(
+    internationalDropdown?.classList.remove(
       "visible",
       "translate-y-0"
     );
-
-    toolsToggle?.setAttribute("aria-expanded", "true");
-    toolsDropdown?.setAttribute("aria-hidden", "false");
-    toolsChevron?.classList.add("rotate-180");
+    internationalToggle?.setAttribute("aria-expanded", "false");
+    internationalDropdown?.setAttribute("aria-hidden", "true");
+    internationalChevron?.classList.remove("rotate-180");
   };
+
+  const openInternational = () => {
+    closeServices();
+    closeTools();
+    internationalDropdown?.classList.remove(
+      "invisible",
+      "opacity-0",
+      "translate-y-2"
+    );
+    internationalDropdown?.classList.add("visible", "translate-y-0");
+    internationalToggle?.setAttribute("aria-expanded", "true");
+    internationalDropdown?.setAttribute("aria-hidden", "false");
+    internationalChevron?.classList.add("rotate-180");
+  };
+
 
   const closeMobileMenu = () => {
+
     mobileMenu?.classList.add("hidden");
 
+
+
     menuToggle?.setAttribute(
+
       "aria-expanded",
+
       "false"
+
     );
+
+
 
     mobileServicesMenu?.classList.add("hidden");
+
     mobileToolsMenu?.classList.add("hidden");
+    mobileInternationalMenu?.classList.add("hidden");
+
+
 
     mobileServicesToggle?.setAttribute(
+
+      "aria-expanded",
+
+      "false"
+
+    );
+
+
+
+    mobileToolsToggle?.setAttribute(
+
+      "aria-expanded",
+
+      "false"
+
+    );
+
+    mobileInternationalToggle?.setAttribute(
       "aria-expanded",
       "false"
     );
 
-    mobileToolsToggle?.setAttribute(
-      "aria-expanded",
-      "false"
-    );
+
 
     mobileServicesChevron?.classList.remove("rotate-180");
+
     mobileToolsChevron?.classList.remove("rotate-180");
+    mobileInternationalChevron?.classList.remove("rotate-180");
+
   };
 
+
+
   /* Desktop Services */
+
   servicesToggle?.addEventListener("click", (event) => {
+
     event.stopPropagation();
 
+
+
     const isOpen =
+
       servicesToggle.getAttribute("aria-expanded") === "true";
 
+
+
     if (isOpen) {
+
       closeServices();
+
     } else {
+
       openServices();
+
     }
+
   });
 
+
+
   /* Desktop Tools */
+
   toolsToggle?.addEventListener("click", (event) => {
+
+    event.stopPropagation();
+
+
+
+    const isOpen =
+
+      toolsToggle.getAttribute("aria-expanded") === "true";
+
+
+
+    if (isOpen) {
+
+      closeTools();
+
+    } else {
+
+      openTools();
+
+    }
+
+  });
+
+
+
+  /* Desktop International */
+
+  internationalToggle?.addEventListener("click", (event) => {
     event.stopPropagation();
 
     const isOpen =
-      toolsToggle.getAttribute("aria-expanded") === "true";
+      internationalToggle.getAttribute("aria-expanded") === "true";
 
     if (isOpen) {
-      closeTools();
+      closeInternational();
     } else {
-      openTools();
+      openInternational();
     }
   });
+
 
   servicesWrapper?.addEventListener("click", (event) => {
+
     event.stopPropagation();
+
   });
+
+
 
   toolsWrapper?.addEventListener("click", (event) => {
+
+    event.stopPropagation();
+
+  });
+
+  internationalWrapper?.addEventListener("click", (event) => {
     event.stopPropagation();
   });
 
+
+
   /* Outside click */
+
   document.addEventListener("click", () => {
+
     closeServices();
+
     closeTools();
+    closeInternational();
+
   });
+
+
 
   /* Escape */
+
   document.addEventListener("keydown", (event) => {
+
     if (event.key === "Escape") {
+
       closeServices();
+
       closeTools();
+      closeInternational();
+
       closeMobileMenu();
+
     }
+
   });
+
+
 
   /* Mobile main menu */
+
   menuToggle?.addEventListener("click", () => {
+
     const isHidden =
+
       mobileMenu?.classList.toggle("hidden");
 
+
+
     menuToggle?.setAttribute(
+
       "aria-expanded",
+
       String(!isHidden)
+
     );
+
+
 
     closeServices();
+
     closeTools();
+    closeInternational();
+
   });
+
+
 
   /* Mobile Services */
+
   mobileServicesToggle?.addEventListener("click", () => {
+
     const isHidden =
+
       mobileServicesMenu?.classList.toggle("hidden");
 
+
+
     mobileServicesToggle?.setAttribute(
+
       "aria-expanded",
+
       String(!isHidden)
+
     );
+
+
 
     mobileServicesChevron?.classList.toggle(
+
       "rotate-180"
+
     );
+
   });
 
+
+
   /* Mobile Tools */
+
   mobileToolsToggle?.addEventListener("click", () => {
+
     const isHidden =
+
       mobileToolsMenu?.classList.toggle("hidden");
 
+
+
     mobileToolsToggle?.setAttribute(
+
+      "aria-expanded",
+
+      String(!isHidden)
+
+    );
+
+
+
+    mobileToolsChevron?.classList.toggle(
+
+      "rotate-180"
+
+    );
+
+  });
+
+
+
+  /* Mobile International */
+
+  mobileInternationalToggle?.addEventListener("click", () => {
+    const isHidden =
+      mobileInternationalMenu?.classList.toggle("hidden");
+
+    mobileInternationalToggle?.setAttribute(
       "aria-expanded",
       String(!isHidden)
     );
 
-    mobileToolsChevron?.classList.toggle(
-      "rotate-180"
-    );
+    mobileInternationalChevron?.classList.toggle("rotate-180");
   });
+
 
   /* Close mobile menu after navigation */
+
   mobileMenu?.querySelectorAll("a").forEach((link) => {
+
     link.addEventListener("click", () => {
+
       closeMobileMenu();
+
     });
+
   });
+
+
 
   /* Responsive cleanup */
+
   window.addEventListener("resize", () => {
+
     if (window.innerWidth >= 768) {
+
       closeMobileMenu();
+
     }
+
+
 
     if (window.innerWidth < 768) {
+
       closeServices();
+
       closeTools();
+      closeInternational();
+
     }
+
   });
+
 </script>
 
+
+
 <style>
-  /* =========================================================
-     MAIN NAV TYPOGRAPHY
-     One consistent typography system for every nav item.
-     ========================================================= */
+
+  /* MAIN NAV TYPOGRAPHY */
+
+
 
   .nav-link {
+
     display: inline-flex;
+
     align-items: center;
+
     gap: 0.375rem;
+
+
 
     color: #696969;
 
+
+
     font-size: 0.75rem;
+
     line-height: 1rem;
+
     font-weight: 700;
 
+
+
     text-transform: uppercase;
+
     letter-spacing: 0.14em;
 
+
+
     transition:
+
       color 160ms ease,
+
       opacity 160ms ease;
+
   }
+
+
 
   .nav-link:hover {
+
     color: #111;
+
   }
 
-  /* =========================================================
-     DROPDOWNS
-     ========================================================= */
+
+
+  /* DROPDOWNS */
+
+
 
   .dropdown-panel {
+
     border: 1px solid #deded9;
+
     border-radius: 1rem;
 
+
+
     background: #f7f7f5;
+
+
 
     padding: 0.5rem;
 
+
+
     box-shadow:
+
       0 20px 50px rgba(0, 0, 0, 0.1);
 
+
+
     transition:
+
       opacity 200ms ease,
+
       transform 200ms ease,
+
       visibility 200ms ease;
+
   }
 
+
+
   .dropdown-label {
+
     margin: 0;
+
+
 
     color: #999;
 
+
+
     font-size: 10px;
+
     line-height: 1rem;
+
     font-weight: 700;
 
+
+
     text-transform: uppercase;
+
     letter-spacing: 0.14em;
+
   }
 
+
+
   .dropdown-link {
+
     display: flex;
+
     min-height: 46px;
 
+
+
     align-items: center;
+
     justify-content: space-between;
+
+
 
     gap: 0.5rem;
 
+
+
     border-radius: 0.7rem;
+
+
 
     padding: 0.7rem 0.75rem;
 
+
+
     color: #444;
 
-    /*
-      IMPORTANT:
-      Same typography as the rest of the navigation.
-    */
+
+
+    /
+
+*      IMPORTANT:*
+
+*      Same typography as the rest of the navigation.*
+
+*    */
+
     font-family: inherit;
+
     font-size: 0.6875rem;
+
     line-height: 1.35;
+
     font-weight: 700;
+
+
 
     text-decoration: none;
 
+
+
     transition:
+
       background-color 160ms ease,
+
       color 160ms ease;
+
   }
+
+
 
   .dropdown-link:hover {
+
     background: #fff;
+
     color: #111;
+
   }
 
+
+
   .dropdown-link svg {
+
     width: 0.85rem;
+
     height: 0.85rem;
 
+
+
     flex: 0 0 auto;
+
+
 
     opacity: 0;
 
+
+
     transform: translateX(-3px);
 
+
+
     transition:
+
       opacity 160ms ease,
+
       transform 160ms ease;
+
   }
+
+
 
   .dropdown-link:hover svg {
+
     opacity: 1;
+
     transform: translateX(0);
+
   }
 
+
+
   .dropdown-view-all {
+
     display: flex;
 
+
+
     align-items: center;
+
     justify-content: space-between;
+
+
 
     border-radius: 0.75rem;
 
+
+
     padding: 0.75rem;
+
+
 
     color: #111;
 
+
+
     font-family: inherit;
+
     font-size: 0.6875rem;
+
     line-height: 1rem;
+
     font-weight: 700;
 
+
+
     text-transform: uppercase;
+
     letter-spacing: 0.1em;
 
+
+
     transition: background-color 160ms ease;
+
   }
+
+
 
   .dropdown-view-all:hover {
+
     background: #fff;
+
   }
 
-  /* =========================================================
-     TOOLS DROPDOWN
-     ========================================================= */
+
+
+  /* TOOLS DROPDOWN */
+
+
 
   .tools-panel {
+
     width: 330px;
+
   }
 
+
+
   .tool-link {
+
     display: flex;
 
+
+
     align-items: center;
+
+
 
     gap: 0.75rem;
 
+
+
     border-radius: 0.8rem;
+
+
 
     padding: 0.75rem;
 
+
+
     color: #444;
+
+
 
     text-decoration: none;
 
+
+
     transition:
+
       background-color 160ms ease,
+
       color 160ms ease;
+
   }
 
+
+
   .tool-link:hover {
+
+    background: #fff;
+
+    color: #111;
+
+  }
+
+
+
+  .tool-icon {
+
+    display: flex;
+
+
+
+    width: 34px;
+
+    height: 34px;
+
+
+
+    flex: 0 0 auto;
+
+
+
+    align-items: center;
+
+    justify-content: center;
+
+
+
+    border: 1px solid #deded9;
+
+    border-radius: 0.6rem;
+
+
+
+    background: #f7f7f5;
+
+
+
+    color: #555;
+
+  }
+
+
+
+  .tool-icon svg {
+
+    width: 17px;
+
+    height: 17px;
+
+  }
+
+
+
+  .tool-title {
+
+    display: block;
+
+
+
+    color: #222;
+
+
+
+    font-family: inherit;
+
+    font-size: 0.6875rem;
+
+    line-height: 1.25rem;
+
+    font-weight: 700;
+
+  }
+
+
+
+  .tool-description {
+
+    display: block;
+
+
+
+    margin-top: 1px;
+
+
+
+    color: #999;
+
+
+
+    font-family: inherit;
+
+    font-size: 0.625rem;
+
+    line-height: 1rem;
+
+    font-weight: 500;
+
+  }
+
+
+
+  .tool-arrow {
+
+    width: 0.85rem;
+
+    height: 0.85rem;
+
+
+
+    margin-left: auto;
+
+
+
+    flex: 0 0 auto;
+
+
+
+    opacity: 0;
+
+
+
+    transform: translateX(-3px);
+
+
+
+    transition:
+
+      opacity 160ms ease,
+
+      transform 160ms ease;
+
+  }
+
+
+
+  .tool-link:hover .tool-arrow {
+
+    opacity: 1;
+
+    transform: translateX(0);
+
+  }
+
+
+
+  /* INTERNATIONAL SERVICES */
+
+  .international-panel {
+    width: 390px;
+  }
+
+  .international-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+    color: #444;
+    font-family: inherit;
+    text-decoration: none;
+    transition: background-color 160ms ease, color 160ms ease;
+  }
+
+  .international-link:hover {
     background: #fff;
     color: #111;
   }
 
-  .tool-icon {
+  .international-icon {
     display: flex;
-
-    width: 34px;
-    height: 34px;
-
+    width: 36px;
+    height: 36px;
     flex: 0 0 auto;
-
     align-items: center;
     justify-content: center;
-
     border: 1px solid #deded9;
-    border-radius: 0.6rem;
-
+    border-radius: 0.65rem;
     background: #f7f7f5;
-
     color: #555;
   }
 
-  .tool-icon svg {
-    width: 17px;
-    height: 17px;
+  .international-icon svg {
+    width: 18px;
+    height: 18px;
   }
 
-  .tool-title {
+  .international-country {
     display: block;
+    margin-bottom: 2px;
+    color: #999;
+    font-size: 9px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
 
+  .international-title {
+    display: block;
     color: #222;
-
     font-family: inherit;
-    font-size: 0.6875rem;
+    font-size: 0.72rem;
     line-height: 1.25rem;
     font-weight: 700;
   }
 
-  .tool-description {
+  .international-description {
     display: block;
-
     margin-top: 1px;
-
+    max-width: 270px;
     color: #999;
-
     font-family: inherit;
     font-size: 0.625rem;
     line-height: 1rem;
     font-weight: 500;
   }
 
-  .tool-arrow {
+  .international-arrow {
     width: 0.85rem;
     height: 0.85rem;
-
     margin-left: auto;
-
     flex: 0 0 auto;
-
     opacity: 0;
-
     transform: translateX(-3px);
-
-    transition:
-      opacity 160ms ease,
-      transform 160ms ease;
+    transition: opacity 160ms ease, transform 160ms ease;
   }
 
-  .tool-link:hover .tool-arrow {
+  .international-link:hover .international-arrow {
     opacity: 1;
     transform: translateX(0);
   }
 
-  /* =========================================================
-     MOBILE NAVIGATION
-     ========================================================= */
+  .international-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.4rem;
+    padding: 0.75rem;
+    border-top: 1px solid #deded9;
+  }
+
+  .international-footer span {
+    color: #999;
+    font-size: 9px;
+    line-height: 1.3;
+  }
+
+  .international-footer a {
+    color: #111;
+    font-family: inherit;
+    font-size: 9px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .international-footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* MOBILE NAVIGATION */
+
+
 
   .mobile-nav-button,
+
   .mobile-nav-link {
+
     display: flex;
+
+
 
     width: 100%;
 
+
+
     align-items: center;
+
     justify-content: space-between;
+
+
 
     border-radius: 0.65rem;
 
+
+
     padding: 0.75rem;
+
+
 
     color: #444;
 
+
+
     font-family: inherit;
+
     font-size: 0.75rem;
+
     line-height: 1rem;
+
     font-weight: 700;
 
+
+
     text-transform: uppercase;
+
     letter-spacing: 0.12em;
+
+
 
     text-align: left;
 
+
+
     transition:
+
       background-color 160ms ease,
+
       color 160ms ease;
+
   }
+
+
 
   .mobile-nav-button:hover,
+
   .mobile-nav-link:hover {
+
     background: #fff;
+
     color: #111;
+
   }
 
+
+
   .mobile-dropdown-link {
+
     display: block;
+
+
 
     border-radius: 0.5rem;
 
+
+
     padding: 0.625rem 0.75rem;
+
+
 
     color: #555;
 
+
+
     font-family: inherit;
+
     font-size: 0.6875rem;
+
     line-height: 1.1rem;
+
     font-weight: 500;
+
+
 
     text-decoration: none;
 
+
+
     transition:
+
       background-color 160ms ease,
+
       color 160ms ease;
+
   }
 
+
+
   .mobile-dropdown-link:hover {
+
+    background: #fff;
+
+    color: #111;
+
+  }
+
+
+
+  .mobile-tool-link {
+
+    display: flex;
+
+
+
+    align-items: center;
+
+    justify-content: space-between;
+
+
+
+    gap: 0.75rem;
+
+
+
+    border-radius: 0.6rem;
+
+
+
+    padding: 0.7rem 0.75rem;
+
+
+
+    text-decoration: none;
+
+
+
+    transition: background-color 160ms ease;
+
+  }
+
+
+
+  .mobile-tool-link:hover {
+
+    background: #fff;
+
+  }
+
+
+
+  .mobile-international-link {
+    display: block;
+    border-radius: 0.6rem;
+    padding: 0.7rem 0.75rem;
+    color: #555;
+    font-family: inherit;
+    text-decoration: none;
+    transition: background-color 160ms ease, color 160ms ease;
+  }
+
+  .mobile-international-link:hover {
     background: #fff;
     color: #111;
   }
 
-  .mobile-tool-link {
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 0.75rem;
-
-    border-radius: 0.6rem;
-
-    padding: 0.7rem 0.75rem;
-
-    text-decoration: none;
-
-    transition: background-color 160ms ease;
-  }
-
-  .mobile-tool-link:hover {
-    background: #fff;
-  }
-
   /* Keep long service lists usable on mobile */
+
   #mobile-services-menu {
+
     max-height: 55vh;
+
     overflow-y: auto;
+
   }
+
+
 
   #mobile-tools-menu {
+
     max-height: 30vh;
+
     overflow-y: auto;
+
   }
+
 </style>

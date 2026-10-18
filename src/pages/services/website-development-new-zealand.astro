@@ -1,0 +1,1418 @@
+---
+import BaseLayout from "../../components/layout/BaseLayout.astro";
+
+const pageTitle =
+  "Website Development Services in New Zealand | YNS Web Studio";
+
+const pageDescription =
+  "YNS Web Studio builds fast, modern and SEO-friendly websites for small businesses in New Zealand. Get a professional business website, redesign, e-commerce store or custom React and Next.js website.";
+
+const canonicalURL =
+  "https://ynsweb.studio/services/website-development-new-zealand/";
+
+const whatsappUrl =
+  "https://wa.me/919352563337?text=Hi%20YNS%20Web%20Studio%2C%20I%20need%20a%20website%20for%20my%20New%20Zealand%20business.";
+
+const services = [
+  {
+    title: "Business Websites",
+    description:
+      "Professional websites designed to explain your business clearly, build trust and generate enquiries.",
+    href: "/services/business-website-development/",
+    icon: "building",
+  },
+  {
+    title: "Website Redesign",
+    description:
+      "Turn an outdated website into a modern, mobile-first and conversion-focused digital presence.",
+    href: "/services/custom-web-development/",
+    icon: "refresh",
+  },
+  {
+    title: "Landing Pages",
+    description:
+      "Focused landing pages for services, campaigns, paid traffic and lead generation.",
+    href: "/services/landing-page-development/",
+    icon: "layout",
+  },
+  {
+    title: "E-Commerce Websites",
+    description:
+      "Online stores with product pages, shopping flows and a strong foundation for growth.",
+    href: "/services/ecommerce-development/",
+    icon: "cart",
+  },
+  {
+    title: "Booking Websites",
+    description:
+      "Websites that help customers discover your services and make appointments or enquiries.",
+    href: "/services/booking-appointment-websites/",
+    icon: "calendar",
+  },
+  {
+    title: "React Development",
+    description:
+      "Modern React websites and interfaces for businesses that need flexible, interactive experiences.",
+    href: "/services/react-development/",
+    icon: "code",
+  },
+  {
+    title: "Next.js Development",
+    description:
+      "Fast, SEO-friendly Next.js websites built for performance, scalability and modern web experiences.",
+    href: "/services/nextjs-development/",
+    icon: "bolt",
+  },
+  {
+    title: "Custom Web Development",
+    description:
+      "Custom websites and web applications when a standard business website is not enough.",
+    href: "/services/custom-web-development/",
+    icon: "layers",
+  },
+];
+
+const audiences = [
+  {
+    title: "Tradies & Local Services",
+    description:
+      "Plumbers, electricians, builders, roofers, landscapers, painters, cleaners and other service businesses.",
+  },
+  {
+    title: "Professional Services",
+    description:
+      "Consultants, agencies, accountants, advisors and independent professionals who need a credible online presence.",
+  },
+  {
+    title: "Restaurants & Cafés",
+    description:
+      "Modern websites for menus, enquiries, bookings, locations and local customer discovery.",
+  },
+  {
+    title: "E-Commerce Businesses",
+    description:
+      "Businesses that want to sell products online through a professional and scalable storefront.",
+  },
+  {
+    title: "Startups & New Businesses",
+    description:
+      "New businesses that need a strong website without building a large technical team.",
+  },
+  {
+    title: "Businesses With Outdated Websites",
+    description:
+      "Existing businesses ready to replace a slow, outdated or difficult-to-use website.",
+  },
+];
+
+const process = [
+  {
+    number: "01",
+    title: "Understand Your Business",
+    description:
+      "We learn about your business, customers, services, goals and what the website needs to achieve.",
+  },
+  {
+    number: "02",
+    title: "Plan the Website",
+    description:
+      "We define the pages, content structure, user journey, calls-to-action and technical direction.",
+  },
+  {
+    number: "03",
+    title: "Design & Develop",
+    description:
+      "Your website is designed and developed with responsive layouts, clean code and a strong user experience.",
+  },
+  {
+    number: "04",
+    title: "SEO & Performance",
+    description:
+      "We build the technical foundation with structured metadata, semantic HTML, responsive design and performance in mind.",
+  },
+  {
+    number: "05",
+    title: "Review & Launch",
+    description:
+      "We test the website across devices, review the important details with you and prepare it for launch.",
+  },
+  {
+    number: "06",
+    title: "Improve & Grow",
+    description:
+      "After launch, your website can continue evolving with new pages, features, content and conversion improvements.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Can YNS Web Studio build websites for businesses in New Zealand?",
+    answer:
+      "Yes. YNS Web Studio is a Jaipur-based web development studio and can work remotely with businesses in New Zealand. Communication, planning, development and website delivery can all be handled online.",
+  },
+  {
+    question: "What type of websites can you build for New Zealand businesses?",
+    answer:
+      "We build business websites, landing pages, e-commerce websites, booking websites, corporate websites, React websites, Next.js websites and custom web applications.",
+  },
+  {
+    question: "How much does website development cost in New Zealand?",
+    answer:
+      "Website cost depends on the number of pages, design requirements, integrations, content, e-commerce functionality and custom development involved. We recommend defining the project scope first so the quote reflects what your business actually needs.",
+  },
+  {
+    question: "Can you redesign an existing website?",
+    answer:
+      "Yes. If your current website is outdated, difficult to use, slow or not generating enough enquiries, we can redesign and rebuild it with a modern responsive interface and stronger conversion structure.",
+  },
+  {
+    question: "Can you build a website for a New Zealand tradie business?",
+    answer:
+      "Yes. Tradie and local service businesses can benefit from a website focused on services, service areas, trust signals, enquiry forms, phone calls and quote requests. We can build the website around those customer actions.",
+  },
+  {
+    question: "Do you build SEO-friendly websites?",
+    answer:
+      "Yes. Our websites are developed with SEO fundamentals such as semantic HTML, page structure, metadata, crawlable content, responsive layouts, internal linking and performance considerations.",
+  },
+  {
+    question: "Can you build React or Next.js websites?",
+    answer:
+      "Yes. React and Next.js are available when a project benefits from a modern application architecture, custom interface or stronger performance and SEO capabilities.",
+  },
+  {
+    question: "How do we work together remotely?",
+    answer:
+      "The entire project can be handled remotely through online communication. We can discuss requirements, share designs, review progress and coordinate the launch without requiring an in-person meeting.",
+  },
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image="https://ynsweb.studio/og-image.jpg"
+>
+  <svelte:head>
+    <link rel="canonical" href={canonicalURL} />
+  </svelte:head>
+
+  <main class="overflow-hidden bg-white text-slate-900">
+
+    <!-- ========================================================= -->
+    <!-- HERO -->
+    <!-- ========================================================= -->
+
+    <section class="relative isolate">
+      <div
+        class="absolute inset-x-0 top-0 -z-10 h-[620px] bg-[radial-gradient(circle_at_top_right,_rgba(15,23,42,0.08),_transparent_45%),radial-gradient(circle_at_top_left,_rgba(59,130,246,0.07),_transparent_40%)]"
+      ></div>
+
+      <div class="mx-auto max-w-7xl px-6 pb-20 pt-16 sm:px-8 lg:px-10 lg:pb-28 lg:pt-24">
+        <div class="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+
+          <div>
+            <div
+              class="mb-7 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 shadow-sm"
+            >
+              <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+              Website Development for New Zealand Businesses
+            </div>
+
+            <h1
+              class="max-w-4xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl lg:leading-[1.05]"
+            >
+              Professional websites built for
+              <span class="text-slate-500"> New Zealand businesses.</span>
+            </h1>
+
+            <p
+              class="mt-7 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl"
+            >
+              YNS Web Studio builds fast, modern and SEO-friendly websites for
+              small businesses, tradies, professional services and growing
+              brands in New Zealand.
+            </p>
+
+            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="/contact/"
+                class="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-950 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-slate-800"
+              >
+                Get a Free Website Review
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  class="h-4 w-4"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m13 6 6 6-6 6" />
+                </svg>
+              </a>
+
+              <a
+                href="/results/"
+                class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-slate-50"
+              >
+                View Our Work
+              </a>
+            </div>
+
+            <div class="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-500">
+              <span class="inline-flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  class="h-4 w-4"
+                >
+                  <path d="m5 12 4 4L19 6" />
+                </svg>
+                Mobile-first
+              </span>
+
+              <span class="inline-flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  class="h-4 w-4"
+                >
+                  <path d="m5 12 4 4L19 6" />
+                </svg>
+                SEO-ready
+              </span>
+
+              <span class="inline-flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  class="h-4 w-4"
+                >
+                  <path d="m5 12 4 4L19 6" />
+                </svg>
+                Performance-focused
+              </span>
+            </div>
+          </div>
+
+          <!-- Hero visual -->
+          <div class="relative">
+            <div
+              class="rounded-3xl border border-slate-200 bg-slate-950 p-3 shadow-2xl shadow-slate-900/10"
+            >
+              <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+                <div class="flex items-center justify-between border-b border-white/10 pb-5">
+                  <div>
+                    <p class="text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
+                      YNS Web Studio
+                    </p>
+                    <p class="mt-1 text-sm font-semibold text-white">
+                      New Zealand Business Website
+                    </p>
+                  </div>
+
+                  <div class="flex gap-1.5">
+                    <span class="h-2 w-2 rounded-full bg-slate-600"></span>
+                    <span class="h-2 w-2 rounded-full bg-slate-600"></span>
+                    <span class="h-2 w-2 rounded-full bg-slate-600"></span>
+                  </div>
+                </div>
+
+                <div class="py-8">
+                  <div class="h-3 w-24 rounded-full bg-white/20"></div>
+                  <div class="mt-5 h-8 max-w-sm rounded-lg bg-white/90"></div>
+                  <div class="mt-3 h-8 w-3/4 rounded-lg bg-white/20"></div>
+
+                  <div class="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                    <div class="rounded-xl border border-white/10 bg-white/[0.05] p-4">
+                      <div class="h-8 w-8 rounded-lg bg-white/10"></div>
+                      <div class="mt-4 h-2 w-20 rounded-full bg-white/20"></div>
+                      <div class="mt-2 h-2 w-14 rounded-full bg-white/10"></div>
+                    </div>
+
+                    <div class="rounded-xl border border-white/10 bg-white/[0.05] p-4">
+                      <div class="h-8 w-8 rounded-lg bg-white/10"></div>
+                      <div class="mt-4 h-2 w-20 rounded-full bg-white/20"></div>
+                      <div class="mt-2 h-2 w-14 rounded-full bg-white/10"></div>
+                    </div>
+
+                    <div class="hidden rounded-xl border border-white/10 bg-white/[0.05] p-4 sm:block">
+                      <div class="h-8 w-8 rounded-lg bg-white/10"></div>
+                      <div class="mt-4 h-2 w-20 rounded-full bg-white/20"></div>
+                      <div class="mt-2 h-2 w-14 rounded-full bg-white/10"></div>
+                    </div>
+                  </div>
+
+                  <div class="mt-6 flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.04] p-4">
+                    <div>
+                      <div class="h-2 w-24 rounded-full bg-white/20"></div>
+                      <div class="mt-2 h-2 w-16 rounded-full bg-white/10"></div>
+                    </div>
+
+                    <div class="rounded-lg bg-white px-4 py-2 text-xs font-semibold text-slate-950">
+                      Get a Quote
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="absolute -bottom-5 -left-5 hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-xl sm:block"
+            >
+              <div class="flex items-center gap-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    class="h-5 w-5"
+                  >
+                    <path d="M5 12.5 9.5 17 19 7.5" />
+                  </svg>
+                </div>
+
+                <div>
+                  <p class="text-xs text-slate-500">Built for</p>
+                  <p class="text-sm font-semibold text-slate-900">
+                    Real business growth
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- VALUE PROPOSITION -->
+    <!-- ========================================================= -->
+
+    <section class="border-y border-slate-200 bg-slate-50">
+      <div class="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10 lg:py-20">
+
+        <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+              More than a website
+            </p>
+
+            <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              Your website should help your business move forward.
+            </h2>
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-6">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  class="h-5 w-5"
+                >
+                  <path d="M4 5h16v14H4z" />
+                  <path d="M8 9h8M8 13h5" />
+                </svg>
+              </div>
+
+              <h3 class="mt-5 text-lg font-semibold text-slate-950">
+                Build credibility
+              </h3>
+
+              <p class="mt-2 text-sm leading-6 text-slate-600">
+                Give potential customers a clear reason to trust your business
+                before they contact you.
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-6">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  class="h-5 w-5"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m13 6 6 6-6 6" />
+                </svg>
+              </div>
+
+              <h3 class="mt-5 text-lg font-semibold text-slate-950">
+                Generate enquiries
+              </h3>
+
+              <p class="mt-2 text-sm leading-6 text-slate-600">
+                Put clear calls-to-action, enquiry forms and service information
+                where customers need them.
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-6">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  class="h-5 w-5"
+                >
+                  <path d="M12 3v18M3 12h18" />
+                  <path d="M5.5 5.5 18.5 18.5M18.5 5.5 5.5 18.5" />
+                </svg>
+              </div>
+
+              <h3 class="mt-5 text-lg font-semibold text-slate-950">
+                Get discovered
+              </h3>
+
+              <p class="mt-2 text-sm leading-6 text-slate-600">
+                Build a technical foundation that makes your website easier for
+                search engines and customers to understand.
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-6">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  class="h-5 w-5"
+                >
+                  <path d="M4 17h16M7 13h10M9 9h6M11 5h2" />
+                </svg>
+              </div>
+
+              <h3 class="mt-5 text-lg font-semibold text-slate-950">
+                Stay fast
+              </h3>
+
+              <p class="mt-2 text-sm leading-6 text-slate-600">
+                Keep performance, responsive design and clean implementation in
+                mind from the beginning.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- WHO WE SERVE -->
+    <!-- ========================================================= -->
+
+    <section class="bg-white">
+      <div class="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-10 lg:py-28">
+
+        <div class="max-w-3xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+            Who we work with
+          </p>
+
+          <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+            Websites for businesses at different stages of growth.
+          </h2>
+
+          <p class="mt-5 text-lg leading-8 text-slate-600">
+            Whether you're starting a business, replacing an outdated website
+            or building a stronger online sales channel, the website should
+            match the way your customers actually buy.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {
+            audiences.map((audience) => (
+              <article class="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-900/5">
+                <div class="flex items-center justify-between">
+                  <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      class="h-5 w-5"
+                    >
+                      <path d="M4 5h16v14H4z" />
+                      <path d="M8 9h8M8 13h5" />
+                    </svg>
+                  </span>
+
+                  <span class="text-xs font-medium uppercase tracking-wider text-slate-400">
+                    NZ Business
+                  </span>
+                </div>
+
+                <h3 class="mt-6 text-lg font-semibold text-slate-950">
+                  {audience.title}
+                </h3>
+
+                <p class="mt-2 text-sm leading-6 text-slate-600">
+                  {audience.description}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- SERVICES -->
+    <!-- ========================================================= -->
+
+    <section class="bg-slate-950 text-white">
+      <div class="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-10 lg:py-28">
+
+        <div class="max-w-3xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
+            Website development services
+          </p>
+
+          <h2 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+            Everything you need to build a stronger web presence.
+          </h2>
+
+          <p class="mt-5 text-lg leading-8 text-slate-400">
+            Choose a focused website or combine services into a custom digital
+            solution around your business goals.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {
+            services.map((service) => (
+              <a
+                href={service.href}
+                class="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07]"
+              >
+                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    class="h-5 w-5"
+                  >
+                    <rect x="4" y="4" width="16" height="16" rx="2" />
+                    <path d="M8 9h8M8 13h5" />
+                  </svg>
+                </div>
+
+                <h3 class="mt-5 text-base font-semibold">
+                  {service.title}
+                </h3>
+
+                <p class="mt-2 text-sm leading-6 text-slate-400">
+                  {service.description}
+                </p>
+
+                <span class="mt-5 inline-flex items-center gap-2 text-sm font-medium text-white">
+                  Explore service
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    class="h-4 w-4 transition group-hover:translate-x-1"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m13 6 6 6-6 6" />
+                  </svg>
+                </span>
+              </a>
+            ))
+          }
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- TRADIES -->
+    <!-- ========================================================= -->
+
+    <section class="bg-slate-50">
+      <div class="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-10 lg:py-28">
+
+        <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+              Built for local service businesses
+            </p>
+
+            <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              A website that helps turn searches into quote requests.
+            </h2>
+
+            <p class="mt-5 text-lg leading-8 text-slate-600">
+              For plumbers, electricians, builders, roofers, landscapers and
+              other service businesses, the website should make it easy for a
+              potential customer to understand what you do and take the next
+              step.
+            </p>
+
+            <div class="mt-8 space-y-4">
+
+              <div class="flex gap-3">
+                <div class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-950 text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    class="h-3 w-3"
+                  >
+                    <path d="m5 12 4 4L19 6" />
+                  </svg>
+                </div>
+
+                <p class="text-sm leading-6 text-slate-600">
+                  Clear service pages that explain exactly what you offer.
+                </p>
+              </div>
+
+              <div class="flex gap-3">
+                <div class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-950 text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    class="h-3 w-3"
+                  >
+                    <path d="m5 12 4 4L19 6" />
+                  </svg>
+                </div>
+
+                <p class="text-sm leading-6 text-slate-600">
+                  Strong calls-to-action for enquiries, calls and quote requests.
+                </p>
+              </div>
+
+              <div class="flex gap-3">
+                <div class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-950 text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    class="h-3 w-3"
+                  >
+                    <path d="m5 12 4 4L19 6" />
+                  </svg>
+                </div>
+
+                <p class="text-sm leading-6 text-slate-600">
+                  Mobile-friendly layouts for customers searching from their phones.
+                </p>
+              </div>
+
+              <div class="flex gap-3">
+                <div class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-950 text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    class="h-3 w-3"
+                  >
+                    <path d="m5 12 4 4L19 6" />
+                  </svg>
+                </div>
+
+                <p class="text-sm leading-6 text-slate-600">
+                  Trust-building sections for reviews, experience, service areas and FAQs.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-900/5 sm:p-8">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-5">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
+                  Example structure
+                </p>
+                <p class="mt-1 font-semibold text-slate-950">
+                  Local Service Website
+                </p>
+              </div>
+
+              <div class="rounded-lg bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-600">
+                Mobile-first
+              </div>
+            </div>
+
+            <div class="space-y-3 py-6">
+              <div class="rounded-xl border border-slate-200 p-4">
+                <p class="text-sm font-semibold text-slate-950">
+                  Main service
+                </p>
+                <p class="mt-1 text-xs text-slate-500">
+                  Clear value proposition + service area + CTA
+                </p>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div class="rounded-xl border border-slate-200 p-4">
+                  <p class="text-sm font-semibold text-slate-950">
+                    Services
+                  </p>
+                  <p class="mt-1 text-xs text-slate-500">
+                    Individual service pages
+                  </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-200 p-4">
+                  <p class="text-sm font-semibold text-slate-950">
+                    Reviews
+                  </p>
+                  <p class="mt-1 text-xs text-slate-500">
+                    Trust signals
+                  </p>
+                </div>
+              </div>
+
+              <div class="rounded-xl border border-slate-200 p-4">
+                <p class="text-sm font-semibold text-slate-950">
+                  Request a Quote
+                </p>
+                <p class="mt-1 text-xs text-slate-500">
+                  Short enquiry form + contact details
+                </p>
+              </div>
+            </div>
+
+            <a
+              href="/contact/"
+              class="flex w-full items-center justify-center rounded-xl bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+            >
+              Discuss Your Website
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- TECHNOLOGY -->
+    <!-- ========================================================= -->
+
+    <section class="bg-white">
+      <div class="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-10 lg:py-28">
+
+        <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+              Technology that fits the project
+            </p>
+
+            <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              The right technology depends on what your website needs to do.
+            </h2>
+
+            <p class="mt-5 text-lg leading-8 text-slate-600">
+              We don't believe every business needs the same stack. The
+              technology should support the goals, content, performance and
+              functionality of the project.
+            </p>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+
+            <div class="rounded-2xl border border-slate-200 p-6">
+              <p class="text-xs font-semibold uppercase tracking-[0.15em] text-slate-400">
+                React
+              </p>
+              <h3 class="mt-3 text-lg font-semibold text-slate-950">
+                Interactive experiences
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">
+                Useful for modern interfaces, interactive websites and
+                applications that need flexible components.
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 p-6">
+              <p class="text-xs font-semibold uppercase tracking-[0.15em] text-slate-400">
+                Next.js
+              </p>
+              <h3 class="mt-3 text-lg font-semibold text-slate-950">
+                Performance + SEO
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">
+                A strong choice for modern websites that need performance,
+                scalable architecture and SEO-friendly rendering.
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 p-6">
+              <p class="text-xs font-semibold uppercase tracking-[0.15em] text-slate-400">
+                Custom
+              </p>
+              <h3 class="mt-3 text-lg font-semibold text-slate-950">
+                Unique functionality
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">
+                Custom development for businesses that need functionality
+                beyond a standard marketing website.
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 p-6">
+              <p class="text-xs font-semibold uppercase tracking-[0.15em] text-slate-400">
+                E-Commerce
+              </p>
+              <h3 class="mt-3 text-lg font-semibold text-slate-950">
+                Sell online
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">
+                Product-focused websites designed around browsing, trust and
+                the path to purchase.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- FREE WEBSITE AUDIT -->
+    <!-- ========================================================= -->
+
+    <section class="bg-slate-50">
+      <div class="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-10 lg:py-28">
+
+        <div class="overflow-hidden rounded-3xl bg-slate-950 text-white">
+          <div class="grid lg:grid-cols-[1.1fr_0.9fr]">
+
+            <div class="p-8 sm:p-10 lg:p-14">
+              <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
+                Free website review
+              </p>
+
+              <h2 class="mt-4 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
+                Already have a website? Find out what could be improved.
+              </h2>
+
+              <p class="mt-5 max-w-xl text-base leading-7 text-slate-400">
+                Use the YNS Website Health Checker to identify common SEO,
+                technical, performance, accessibility and security issues on
+                your website.
+              </p>
+
+              <div class="mt-8">
+                <a
+                  href="/tools/website-health-checker/"
+                  class="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
+                >
+                  Check Your Website
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    class="h-4 w-4"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m13 6 6 6-6 6" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="border-t border-white/10 p-8 sm:p-10 lg:border-l lg:border-t-0 lg:p-14">
+              <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+
+                <div class="flex items-center justify-between">
+                  <p class="text-sm font-semibold">
+                    Website Health Report
+                  </p>
+
+                  <span class="rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-300">
+                    Free
+                  </span>
+                </div>
+
+                <div class="mt-6 grid grid-cols-2 gap-3">
+                  <div class="rounded-xl border border-white/10 p-4">
+                    <p class="text-xs text-slate-500">SEO</p>
+                    <p class="mt-2 text-2xl font-semibold">82</p>
+                  </div>
+
+                  <div class="rounded-xl border border-white/10 p-4">
+                    <p class="text-xs text-slate-500">Performance</p>
+                    <p class="mt-2 text-2xl font-semibold">91</p>
+                  </div>
+
+                  <div class="rounded-xl border border-white/10 p-4">
+                    <p class="text-xs text-slate-500">Technical</p>
+                    <p class="mt-2 text-2xl font-semibold">88</p>
+                  </div>
+
+                  <div class="rounded-xl border border-white/10 p-4">
+                    <p class="text-xs text-slate-500">Security</p>
+                    <p class="mt-2 text-2xl font-semibold">94</p>
+                  </div>
+                </div>
+
+                <div class="mt-4 rounded-xl border border-white/10 p-4">
+                  <div class="flex items-center justify-between">
+                    <span class="text-sm text-slate-400">
+                      Issues detected
+                    </span>
+                    <span class="text-sm font-semibold">
+                      4
+                    </span>
+                  </div>
+
+                  <div class="mt-3 h-2 overflow-hidden rounded-full bg-white/10">
+                    <div class="h-full w-[78%] rounded-full bg-white"></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- PROCESS -->
+    <!-- ========================================================= -->
+
+    <section class="bg-white">
+      <div class="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-10 lg:py-28">
+
+        <div class="max-w-3xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+            Our process
+          </p>
+
+          <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+            A straightforward process from idea to launch.
+          </h2>
+
+          <p class="mt-5 text-lg leading-8 text-slate-600">
+            The goal is to keep communication clear, development structured
+            and the final website aligned with your business.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {
+            process.map((step) => (
+              <div class="rounded-2xl border border-slate-200 p-6">
+                <span class="text-sm font-semibold text-slate-400">
+                  {step.number}
+                </span>
+
+                <h3 class="mt-4 text-lg font-semibold text-slate-950">
+                  {step.title}
+                </h3>
+
+                <p class="mt-2 text-sm leading-6 text-slate-600">
+                  {step.description}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- WHY YNS -->
+    <!-- ========================================================= -->
+
+    <section class="border-y border-slate-200 bg-slate-50">
+      <div class="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-10 lg:py-28">
+
+        <div class="grid gap-12 lg:grid-cols-2 lg:items-start">
+
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+              Why YNS Web Studio
+            </p>
+
+            <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              A development-focused approach to business websites.
+            </h2>
+
+            <p class="mt-5 text-lg leading-8 text-slate-600">
+              Your website shouldn't only look good. It should communicate
+              clearly, load efficiently and make the next customer action
+              obvious.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 class="font-semibold text-slate-950">
+                Direct development approach
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">
+                Work directly with a development-focused studio rather than
+                navigating a large agency structure.
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 class="font-semibold text-slate-950">
+                Built around business outcomes
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">
+                The website structure is planned around enquiries, bookings,
+                sales, trust and customer experience.
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 class="font-semibold text-slate-950">
+                Modern development
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">
+                React, Next.js and custom development are available when the
+                project benefits from them.
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 class="font-semibold text-slate-950">
+                Remote collaboration
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">
+                Projects can be planned, developed, reviewed and launched
+                remotely for businesses in New Zealand.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- RELATED SERVICES -->
+    <!-- ========================================================= -->
+
+    <section class="bg-white">
+      <div class="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-10 lg:py-24">
+
+        <div class="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+              Explore YNS services
+            </p>
+
+            <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              Need something more specific?
+            </h2>
+          </div>
+
+          <a
+            href="/services/"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-slate-900"
+          >
+            View all services
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              class="h-4 w-4"
+            >
+              <path d="M5 12h14" />
+              <path d="m13 6 6 6-6 6" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+          <a
+            href="/services/business-website-development/"
+            class="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-400"
+          >
+            <h3 class="font-semibold text-slate-950">
+              Business Website Development
+            </h3>
+            <p class="mt-2 text-sm text-slate-600">
+              Professional websites for growing businesses.
+            </p>
+          </a>
+
+          <a
+            href="/services/ecommerce-development/"
+            class="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-400"
+          >
+            <h3 class="font-semibold text-slate-950">
+              E-Commerce Development
+            </h3>
+            <p class="mt-2 text-sm text-slate-600">
+              Build a professional online store.
+            </p>
+          </a>
+
+          <a
+            href="/services/nextjs-development/"
+            class="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-400"
+          >
+            <h3 class="font-semibold text-slate-950">
+              Next.js Development
+            </h3>
+            <p class="mt-2 text-sm text-slate-600">
+              Fast and modern Next.js websites.
+            </p>
+          </a>
+
+          <a
+            href="/services/custom-web-development/"
+            class="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-400"
+          >
+            <h3 class="font-semibold text-slate-950">
+              Custom Web Development
+            </h3>
+            <p class="mt-2 text-sm text-slate-600">
+              Custom functionality for unique requirements.
+            </p>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- FAQ -->
+    <!-- ========================================================= -->
+
+    <section class="bg-slate-50">
+      <div class="mx-auto max-w-4xl px-6 py-20 sm:px-8 lg:py-28">
+
+        <div class="text-center">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+            Frequently asked questions
+          </p>
+
+          <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+            Website development in New Zealand
+          </h2>
+        </div>
+
+        <div class="mt-12 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
+          {
+            faqs.map((faq) => (
+              <details class="group p-6">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-6 font-semibold text-slate-950">
+                  <span>{faq.question}</span>
+
+                  <span class="shrink-0 text-slate-400 transition group-open:rotate-45">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      class="h-5 w-5"
+                    >
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                  </span>
+                </summary>
+
+                <p class="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
+                  {faq.answer}
+                </p>
+              </details>
+            ))
+          }
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- FINAL CTA -->
+    <!-- ========================================================= -->
+
+    <section class="bg-slate-950 text-white">
+      <div class="mx-auto max-w-5xl px-6 py-20 text-center sm:px-8 lg:py-28">
+
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
+          Start your project
+        </p>
+
+        <h2 class="mx-auto mt-5 max-w-3xl text-3xl font-semibold tracking-tight sm:text-5xl">
+          Need a better website for your New Zealand business?
+        </h2>
+
+        <p class="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-400 sm:text-lg">
+          Tell us what you're building, what isn't working with your current
+          website or what you want your new website to achieve.
+        </p>
+
+        <div class="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+
+          <a
+            href="/contact/"
+            class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-7 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
+          >
+            Start a Project
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              class="h-4 w-4"
+            >
+              <path d="M5 12h14" />
+              <path d="m13 6 6 6-6 6" />
+            </svg>
+          </a>
+
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-xl border border-white/20 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10"
+          >
+            Discuss on WhatsApp
+          </a>
+
+        </div>
+
+        <p class="mt-6 text-xs text-slate-500">
+          Remote website development for businesses in New Zealand.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================= -->
+  <!-- SEO STRUCTURED DATA -->
+  <!-- ========================================================= -->
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Website Development Services in New Zealand",
+      "serviceType": "Website Development",
+      "description": pageDescription,
+      "url": canonicalURL,
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "YNS Web Studio",
+        "url": "https://ynsweb.studio",
+        "telephone": "+919352563337",
+        "email": "hello@ynsweb.studio",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Jaipur",
+          "addressRegion": "Rajasthan",
+          "postalCode": "302039",
+          "addressCountry": "IN"
+        }
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "New Zealand"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Small and medium-sized businesses"
+      }
+    })}
+  />
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map((faq) => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    })}
+  />
+
+  <style>
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary {
+      list-style: none;
+    }
+  </style>
+</BaseLayout>

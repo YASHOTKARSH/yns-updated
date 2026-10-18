@@ -2,9 +2,88 @@
 const { blog } = Astro.props;
 
 const whatsappUrl =
-  "https://wa.me/919352563337?text=Hi%20YNS%20Web%20Studio%2C%20I%20want%20to%20discuss%20a%20React%20or%20Next.js%20website%20for%20my%20business.";
+  "https://wa.me/919352563337?text=Hi%20YNS%20Web%20Studio%2C%20I%20want%20to%20discuss%20a%20website%20for%20my%20business.";
 
-const services = blog.relatedServices ?? [];
+const services = blog?.relatedServices ?? [];
+
+const getText = (section) => section?.content ?? section?.text ?? "";
+
+const getHeading = (section) =>
+  section?.title ?? section?.text ?? section?.heading ?? "";
+
+const getItems = (section) => section?.items ?? [];
+
+const getIntroParagraphs = (section) => {
+  if (Array.isArray(section?.paragraphs)) return section.paragraphs;
+  if (section?.content) return [section.content];
+  if (section?.text) return [section.text];
+  return [];
+};
+
+/*
+ * Data-driven inline internal links.
+ * Example in blogs.js:
+ * {
+ *   type: "paragraph",
+ *   text: "Run the YNS Website Health Checker...",
+ *   links: [
+ *     {
+ *       text: "YNS Website Health Checker",
+ *       href: "/tools/website-health-checker/"
+ *     }
+ *   ]
+ * }
+ */
+const getLinkedParts = (text, links = []) => {
+  if (!text) return [];
+  if (!Array.isArray(links) || links.length === 0) {
+    return [{ type: "text", value: text }];
+  }
+
+  const matches = links
+    .filter((link) => link?.text && link?.href)
+    .map((link) => ({
+      ...link,
+      index: text.indexOf(link.text),
+    }))
+    .filter((link) => link.index >= 0)
+    .sort((a, b) => a.index - b.index);
+
+  if (!matches.length) {
+    return [{ type: "text", value: text }];
+  }
+
+  const parts = [];
+  let cursor = 0;
+
+  for (const link of matches) {
+    if (link.index < cursor) continue;
+
+    if (link.index > cursor) {
+      parts.push({
+        type: "text",
+        value: text.slice(cursor, link.index),
+      });
+    }
+
+    parts.push({
+      type: "link",
+      value: link.text,
+      href: link.href,
+    });
+
+    cursor = link.index + link.text.length;
+  }
+
+  if (cursor < text.length) {
+    parts.push({
+      type: "text",
+      value: text.slice(cursor),
+    });
+  }
+
+  return parts;
+};
 
 const serviceIcon = (serviceTitle) => {
   if (serviceTitle?.toLowerCase().includes("next")) {
@@ -16,6 +95,17 @@ const serviceIcon = (serviceTitle) => {
     `;
   }
 
+  if (serviceTitle?.toLowerCase().includes("react")) {
+    return `
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <ellipse cx="12" cy="12" rx="9" ry="3.8" stroke="currentColor" stroke-width="1.5"/>
+        <ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.5"/>
+        <ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(120 12 12)" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+      </svg>
+    `;
+  }
+
   return `
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M5 5h14v14H5z" stroke="currentColor" stroke-width="1.7"/>
@@ -23,52 +113,41 @@ const serviceIcon = (serviceTitle) => {
     </svg>
   `;
 };
-
-const getText = (section) => section.content ?? section.text ?? "";
-
-const getHeading = (section) =>
-  section.title ?? section.text ?? section.heading ?? "";
-
-const getItems = (section) => section.items ?? [];
-
-const getIntroParagraphs = (section) => {
-  if (Array.isArray(section.paragraphs)) return section.paragraphs;
-  if (section.content) return [section.content];
-  if (section.text) return [section.text];
-  return [];
-};
 ---
 
 <article class="blog-article">
-
-  <!-- =========================================================
-       BLOG HERO IMAGE
-  ========================================================== -->
-
-  {blog.image && (
-    <figure class="blog-featured-image">
-      <img
-        src={blog.image}
-        alt={blog.imageAlt || blog.title}
-        width="1600"
-        height="900"
-        loading="eager"
-        decoding="async"
-      />
-    </figure>
-  )}
-
-  <!-- =========================================================
-       ARTICLE CONTENT
-  ========================================================== -->
+  {
+    blog?.image && (
+      <figure class="blog-featured-image">
+        <img
+          src={blog.image}
+          alt={blog.imageAlt || blog.title}
+          width="1600"
+          height="900"
+          loading="eager"
+          decoding="async"
+        />
+      </figure>
+    )
+  }
 
   {
-    blog.sections?.map((section, index) => (
+    blog?.sections?.map((section, index) => (
       <>
         {section.type === "intro" && (
           <div class="article-intro">
             {getIntroParagraphs(section).map((paragraph) => (
-              <p>{paragraph}</p>
+              <p>
+                {getLinkedParts(paragraph, section.links).map((part) =>
+                  part.type === "link" ? (
+                    <a href={part.href} class="inline-link">
+                      {part.value}
+                    </a>
+                  ) : (
+                    part.value
+                  ),
+                )}
+              </p>
             ))}
           </div>
         )}
@@ -79,12 +158,8 @@ const getIntroParagraphs = (section) => {
 
             {index === 3 && (
               <aside class="context-cta">
-                <div class="context-cta-icon">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    aria-hidden="true"
-                  >
+                <div class="context-cta-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
                     <path
                       d="M12 3v18M3 12h18"
                       stroke="currentColor"
@@ -93,42 +168,18 @@ const getIntroParagraphs = (section) => {
                     />
                   </svg>
                 </div>
-
                 <div class="context-cta-content">
-                  <span class="context-cta-label">
-                    Planning a new website?
-                  </span>
-
-                  <h3>
-                    Not sure whether React or Next.js is right for your
-                    project?
-                  </h3>
-
+                  <span class="context-cta-label">Planning a new website?</span>
+                  <h3>Not sure which technology is right for your project?</h3>
                   <p>
-                    Tell us what you're building and we'll help you choose
-                    the right approach based on your business goals, SEO
-                    needs, performance requirements and budget.
+                    Tell us what you're building and we'll help you choose the
+                    right approach based on your goals, SEO needs, performance
+                    requirements and budget.
                   </p>
-
                   <div class="context-cta-actions">
-                    <a href="/contact" class="cta-link primary">
+                    <a href="/contact/" class="cta-link primary">
                       Discuss Your Project
-
-                      <svg
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M4 10h12M11 5l5 5-5 5"
-                          stroke="currentColor"
-                          stroke-width="1.7"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
                     </a>
-
                     <a
                       href={whatsappUrl}
                       class="cta-link secondary"
@@ -145,7 +196,17 @@ const getIntroParagraphs = (section) => {
         )}
 
         {section.type === "paragraph" && (
-          <p>{getText(section)}</p>
+          <p>
+            {getLinkedParts(getText(section), section.links).map((part) =>
+              part.type === "link" ? (
+                <a href={part.href} class="inline-link">
+                  {part.value}
+                </a>
+              ) : (
+                part.value
+              ),
+            )}
+          </p>
         )}
 
         {section.type === "list" && (
@@ -166,7 +227,6 @@ const getIntroParagraphs = (section) => {
                   ))}
                 </tr>
               </thead>
-
               <tbody>
                 {section.rows?.map((row) => (
                   <tr>
@@ -180,42 +240,17 @@ const getIntroParagraphs = (section) => {
           </div>
         )}
 
-        <!-- MID ARTICLE CTA -->
-
-        {section.type === "paragraph" && index === 6 && (
-          <aside class="mid-cta">
-            <div class="mid-cta-top">
-              <span class="eyebrow">Build the right website</span>
-
-              <span class="mid-cta-badge">
-                React + Next.js Development
-              </span>
-            </div>
-
-            <h3>
-              Have a project in mind?
-              <br />
-              Let's turn the idea into a real website.
-            </h3>
-
-            <p>
-              Whether you need a business website, high-performance
-              landing page, custom React interface or a complete Next.js
-              application, YNS Web Studio can help you plan and build it.
-            </p>
-
-            <div class="mid-cta-actions">
-              <a
-                href="/services/nextjs-development"
-                class="mid-cta-button"
-              >
-                Explore Next.js Development
-
-                <svg
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  aria-hidden="true"
-                >
+        {section.type === "cta" && (
+          <section class="data-cta">
+            {section.eyebrow && (
+              <span class="data-cta-eyebrow">{section.eyebrow}</span>
+            )}
+            {section.title && <h3>{section.title}</h3>}
+            {section.description && <p>{section.description}</p>}
+            {section.buttonText && section.buttonHref && (
+              <a href={section.buttonHref} class="data-cta-button">
+                {section.buttonText}
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
                   <path
                     d="M4 10h12M11 5l5 5-5 5"
                     stroke="currentColor"
@@ -225,9 +260,32 @@ const getIntroParagraphs = (section) => {
                   />
                 </svg>
               </a>
+            )}
+          </section>
+        )}
 
+        {section.type === "paragraph" && index === 6 && (
+          <aside class="mid-cta">
+            <div class="mid-cta-top">
+              <span class="eyebrow">Build the right website</span>
+              <span class="mid-cta-badge">React + Next.js Development</span>
+            </div>
+            <h3>
+              Have a project in mind?
+              <br />
+              Let's turn the idea into a real website.
+            </h3>
+            <p>
+              Whether you need a business website, landing page, custom React
+              interface or complete Next.js application, YNS Web Studio can
+              help.
+            </p>
+            <div class="mid-cta-actions">
+              <a href="/services/nextjs-development/" class="mid-cta-button">
+                Explore Next.js Development
+              </a>
               <a
-                href="/services/react-development"
+                href="/services/react-development/"
                 class="mid-cta-button outline"
               >
                 Explore React Development
@@ -239,53 +297,25 @@ const getIntroParagraphs = (section) => {
     ))
   }
 
-  <!-- =========================================================
-       RELATED SERVICES
-  ========================================================== -->
-
   {
     services.length > 0 && (
       <section class="related-services">
         <div class="section-heading">
           <span class="eyebrow">Relevant services</span>
-
           <h2>Want to build something similar?</h2>
-
           <p>
-            If you're researching React or Next.js because you are
-            planning a website or web application, these services may
-            be a good starting point.
+            If you're researching website development, these services may be a
+            useful starting point.
           </p>
         </div>
 
         <div class="service-grid">
           {services.map((service) => (
             <a href={service.href} class="service-card">
-              <div
-                class="service-icon"
-                set:html={serviceIcon(service.title)}
-              />
-
+              <div class="service-icon" set:html={serviceIcon(service.title)} />
               <div class="service-content">
                 <h3>{service.title}</h3>
-
-                <span>
-                  Explore service
-
-                  <svg
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M4 10h12M11 5l5 5-5 5"
-                      stroke="currentColor"
-                      stroke-width="1.7"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </span>
+                <span>Explore service →</span>
               </div>
             </a>
           ))}
@@ -294,109 +324,48 @@ const getIntroParagraphs = (section) => {
     )
   }
 
-  <!-- =========================================================
-       PRE FINAL CTA
-  ========================================================== -->
-
   <section class="pre-final-cta">
     <div class="pre-final-content">
       <span class="eyebrow">Your project starts with a conversation</span>
-
-      <h2>
-        Still deciding what technology
-        <br />
-        your website needs?
-      </h2>
-
+      <h2>Still deciding what technology your website needs?</h2>
       <p>
-        You don't need to have everything figured out before contacting us.
         Share your idea, existing website or business requirements and we'll
         help you understand the best direction.
       </p>
-
       <div class="pre-final-actions">
-        <a href="/contact" class="large-button primary">
-          Start a Project
-
-          <svg
-            viewBox="0 0 20 20"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M4 10h12M11 5l5 5-5 5"
-              stroke="currentColor"
-              stroke-width="1.7"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </a>
-
+        <a href="/contact/" class="large-button primary">Start a Project</a>
         <a
           href={whatsappUrl}
           class="large-button secondary"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer">Talk on WhatsApp</a
         >
-          Talk on WhatsApp
-        </a>
       </div>
     </div>
   </section>
-
-  <!-- =========================================================
-       FINAL CTA
-  ========================================================== -->
 
   <section class="final-cta">
     <div class="final-cta-inner">
       <div class="final-cta-copy">
         <span class="eyebrow">YNS Web Studio</span>
-
-        <h2>
-          Have a website idea?
-          <br />
-          Let's build it properly.
-        </h2>
-
+        <h2>Have a website idea?<br />Let's build it properly.</h2>
         <p>
-          We build modern React and Next.js websites focused on performance,
-          usability, SEO and business results.
+          We build modern websites focused on performance, usability, SEO and
+          business results.
         </p>
       </div>
-
       <div class="final-cta-actions">
-        <a href="/contact" class="final-button">
-          Tell Us About Your Project
-
-          <svg
-            viewBox="0 0 20 20"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M4 10h12M11 5l5 5-5 5"
-              stroke="currentColor"
-              stroke-width="1.7"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </a>
-
+        <a href="/contact/" class="final-button">Tell Us About Your Project →</a
+        >
         <a
           href={whatsappUrl}
           class="final-whatsapp"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer">WhatsApp YNS Web Studio</a
         >
-          WhatsApp YNS Web Studio
-        </a>
       </div>
     </div>
   </section>
-
 </article>
 
 <style>
@@ -405,13 +374,7 @@ const getIntroParagraphs = (section) => {
     font-size: 1.0625rem;
     line-height: 1.9;
   }
-
-  /* =========================================================
-     FEATURED IMAGE
-  ========================================================== */
-
   .blog-featured-image {
-    position: relative;
     width: 100%;
     margin: 0 0 3rem;
     overflow: hidden;
@@ -419,38 +382,24 @@ const getIntroParagraphs = (section) => {
     border-radius: 1.25rem;
     background: #f8fafc;
   }
-
-  .blog-featured-image::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25);
-  }
-
   .blog-featured-image img {
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16/9;
     object-fit: cover;
   }
-
   .blog-article p {
     margin: 0 0 1.45rem;
   }
-
   .article-intro {
     margin-bottom: 3rem;
     color: #475569;
     font-size: 1.13rem;
-    line-height: 1.9;
   }
-
   .article-intro p:last-child {
     margin-bottom: 0;
   }
-
   .blog-article h2 {
     margin: 3.3rem 0 1.15rem;
     color: #0f172a;
@@ -459,21 +408,24 @@ const getIntroParagraphs = (section) => {
     line-height: 1.25;
     letter-spacing: -0.035em;
   }
-
   .blog-article ul {
     margin: 0 0 2rem;
     padding-left: 1.45rem;
   }
-
   .blog-article li {
     margin: 0.6rem 0;
     padding-left: 0.3rem;
   }
-
-  /* =========================================================
-     TABLE
-  ========================================================== */
-
+  .inline-link {
+    color: #0f172a;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: #cbd5e1;
+    text-underline-offset: 4px;
+  }
+  .inline-link:hover {
+    text-decoration-color: #0f172a;
+  }
   .table-wrap {
     width: 100%;
     margin: 1.6rem 0 2.4rem;
@@ -482,13 +434,11 @@ const getIntroParagraphs = (section) => {
     border-radius: 1rem;
     background: #fff;
   }
-
   table {
     width: 100%;
     min-width: 680px;
     border-collapse: collapse;
   }
-
   th,
   td {
     padding: 1rem 1.1rem;
@@ -496,392 +446,280 @@ const getIntroParagraphs = (section) => {
     vertical-align: top;
     border-bottom: 1px solid #e2e8f0;
   }
-
   th {
     color: #0f172a;
-    background: #f8fafc;
-    font-size: 0.82rem;
     font-weight: 700;
-    letter-spacing: 0.01em;
+    background: #f8fafc;
   }
-
-  td {
-    color: #475569;
-    font-size: 0.95rem;
-  }
-
   tr:last-child td {
     border-bottom: 0;
   }
-
-  /* =========================================================
-     SHARED
-  ========================================================== */
-
-  .eyebrow {
-    display: inline-block;
-    color: #64748b;
-    font-size: 0.72rem;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+  .context-cta,
+  .mid-cta,
+  .data-cta {
+    margin: 2.5rem 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.25rem;
+    background: #f8fafc;
   }
-
-  /* =========================================================
-     CONTEXT CTA
-  ========================================================== */
-
   .context-cta {
     display: flex;
-    gap: 1.1rem;
-    margin: 2.6rem 0 3.1rem;
-    padding: 1.35rem;
-    border: 1px solid #e2e8f0;
-    border-radius: 1.2rem;
-    background: #f8fafc;
+    gap: 1.2rem;
+    padding: 1.5rem;
   }
-
   .context-cta-icon {
-    flex: 0 0 auto;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
     display: grid;
-    width: 2.8rem;
-    height: 2.8rem;
     place-items: center;
     border: 1px solid #e2e8f0;
-    border-radius: 0.8rem;
+    border-radius: 12px;
     background: #fff;
     color: #0f172a;
   }
-
   .context-cta-icon svg {
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 20px;
+    height: 20px;
   }
-
-  .context-cta-content {
-    min-width: 0;
-  }
-
-  .context-cta-label {
-    display: block;
-    margin-bottom: 0.35rem;
-    color: #64748b;
-    font-size: 0.76rem;
+  .context-cta-content h3,
+  .data-cta h3,
+  .mid-cta h3 {
+    margin: 0.35rem 0 0.7rem;
+    color: #0f172a;
+    font-size: 1.5rem;
     font-weight: 700;
-    letter-spacing: 0.06em;
+    line-height: 1.25;
+  }
+  .context-cta-label,
+  .data-cta-eyebrow,
+  .eyebrow {
+    display: block;
+    color: #64748b;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
   }
-
-  .context-cta h3 {
-    margin: 0 0 0.55rem;
-    color: #0f172a;
-    font-size: 1.2rem;
-    line-height: 1.35;
-    letter-spacing: -0.02em;
-  }
-
-  .context-cta p {
-    max-width: 760px;
-    margin-bottom: 1rem;
-    color: #64748b;
-    font-size: 0.94rem;
-    line-height: 1.7;
-  }
-
-  .context-cta-actions {
+  .context-cta-actions,
+  .mid-cta-actions,
+  .pre-final-actions,
+  .final-cta-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.7rem;
-  }
-
-  .cta-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.45rem;
-    min-height: 2.7rem;
-    padding: 0.65rem 1rem;
-    border-radius: 0.7rem;
-    font-size: 0.86rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: 0.2s ease;
-  }
-
-  .cta-link svg,
-  .large-button svg,
-  .final-button svg,
-  .mid-cta-button svg {
-    width: 1rem;
-    height: 1rem;
-  }
-
-  .cta-link.primary {
-    background: #0f172a;
-    color: #fff;
-  }
-
-  .cta-link.primary:hover {
-    background: #1e293b;
-  }
-
-  .cta-link.secondary {
-    border: 1px solid #cbd5e1;
-    background: #fff;
-    color: #0f172a;
-  }
-
-  .cta-link.secondary:hover {
-    border-color: #94a3b8;
-  }
-
-  /* =========================================================
-     MID CTA
-  ========================================================== */
-
-  .mid-cta {
-    margin: 3rem 0;
-    padding: clamp(1.4rem, 4vw, 2rem);
-    border: 1px solid #dbe2ea;
-    border-radius: 1.25rem;
-    background:
-      linear-gradient(
-        135deg,
-        #f8fafc 0%,
-        #ffffff 60%,
-        #f1f5f9 100%
-      );
-  }
-
-  .mid-cta-top {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
     gap: 0.75rem;
+    margin-top: 1rem;
   }
-
-  .mid-cta-badge {
-    padding: 0.45rem 0.7rem;
-    border: 1px solid #e2e8f0;
-    border-radius: 999px;
-    background: #fff;
-    color: #475569;
-    font-size: 0.72rem;
-    font-weight: 700;
-  }
-
-  .mid-cta h3 {
-    margin: 1rem 0 0.7rem;
-    color: #0f172a;
-    font-size: clamp(1.45rem, 3vw, 2rem);
-    line-height: 1.2;
-    letter-spacing: -0.035em;
-  }
-
-  .mid-cta p {
-    max-width: 700px;
-    color: #64748b;
-    line-height: 1.75;
-  }
-
-  .mid-cta-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.7rem;
-    margin-top: 1.2rem;
-  }
-
-  .mid-cta-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.45rem;
-    padding: 0.8rem 1rem;
-    border-radius: 0.75rem;
-    background: #0f172a;
-    color: #fff;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: 0.2s ease;
-  }
-
-  .mid-cta-button:hover {
-    background: #1e293b;
-  }
-
-  .mid-cta-button.outline {
-    border: 1px solid #cbd5e1;
-    background: #fff;
-    color: #0f172a;
-  }
-
-  .mid-cta-button.outline:hover {
-    border-color: #94a3b8;
-  }
-
-  /* =========================================================
-     RELATED SERVICES
-  ========================================================== */
-
-  .related-services {
-    margin-top: 5rem;
-    padding-top: 3.5rem;
-    border-top: 1px solid #e2e8f0;
-  }
-
-  .section-heading {
-    max-width: 720px;
-  }
-
-  .section-heading h2 {
-    margin-top: 0.7rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .section-heading p {
-    color: #64748b;
-  }
-
-  .service-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.8rem;
-    margin-top: 1.5rem;
-  }
-
-  .service-card {
-    display: flex;
-    align-items: center;
-    gap: 0.9rem;
-    padding: 1rem;
-    border: 1px solid #e2e8f0;
-    border-radius: 0.95rem;
-    background: #fff;
-    color: inherit;
-    text-decoration: none;
-    transition:
-      transform 0.2s ease,
-      border-color 0.2s ease,
-      box-shadow 0.2s ease;
-  }
-
-  .service-card:hover {
-    transform: translateY(-2px);
-    border-color: #cbd5e1;
-    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
-  }
-
-  .service-icon {
-    display: grid;
-    flex: 0 0 auto;
-    width: 2.6rem;
-    height: 2.6rem;
-    place-items: center;
-    border: 1px solid #e2e8f0;
-    border-radius: 0.75rem;
-    background: #f8fafc;
-    color: #0f172a;
-  }
-
-  .service-icon svg {
-    width: 1.15rem;
-    height: 1.15rem;
-  }
-
-  .service-content {
-    min-width: 0;
-  }
-
-  .service-content h3 {
-    margin: 0;
-    color: #0f172a;
-    font-size: 0.95rem;
-    font-weight: 700;
-  }
-
-  .service-content span {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    margin-top: 0.2rem;
-    color: #64748b;
-    font-size: 0.78rem;
-    font-weight: 600;
-  }
-
-  .service-content svg {
-    width: 0.85rem;
-    height: 0.85rem;
-  }
-
-  /* =========================================================
-     PRE FINAL CTA
-  ========================================================== */
-
-  .pre-final-cta {
-    margin-top: 5rem;
-    padding: 4rem 0;
-    border-top: 1px solid #e2e8f0;
-  }
-
-  .pre-final-content {
-    max-width: 760px;
-  }
-
-  .pre-final-content h2 {
-    margin: 0.8rem 0 1rem;
-    color: #0f172a;
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    line-height: 1.08;
-    letter-spacing: -0.045em;
-  }
-
-  .pre-final-content p {
-    max-width: 680px;
-    color: #64748b;
-  }
-
-  .pre-final-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.7rem;
-    margin-top: 1.5rem;
-  }
-
-  .large-button {
+  .cta-link,
+  .mid-cta-button,
+  .data-cta-button,
+  .large-button,
+  .final-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.85rem 1.15rem;
-    border-radius: 0.75rem;
-    font-size: 0.88rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 700;
     text-decoration: none;
+    transition: 0.2s ease;
   }
-
-  .large-button.primary {
+  .cta-link.primary,
+  .mid-cta-button,
+  .data-cta-button,
+  .large-button.primary,
+  .final-button {
     background: #0f172a;
     color: #fff;
   }
-
-  .large-button.secondary {
+  .cta-link.secondary,
+  .mid-cta-button.outline,
+  .large-button.secondary,
+  .final-whatsapp {
     border: 1px solid #cbd5e1;
+    background: #fff;
     color: #0f172a;
   }
-
+  .cta-link:hover,
+  .mid-cta-button:hover,
+  .data-cta-button:hover,
+  .large-button:hover,
+  .final-button:hover,
+  .final-whatsapp:hover {
+    transform: translateY(-1px);
+  }
+  .data-cta {
+    padding: 1.5rem;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  }
+  .data-cta p {
+    max-width: 700px;
+    margin-top: 0.7rem;
+    color: #64748b;
+  }
+  .data-cta-button svg {
+    width: 18px;
+    height: 18px;
+  }
+  .mid-cta {
+    padding: 1.7rem;
+    background: #0f172a;
+    color: #cbd5e1;
+  }
+  .mid-cta h3 {
+    color: #fff;
+  }
+  .mid-cta .eyebrow {
+    color: #94a3b8;
+  }
+  .mid-cta-badge {
+    display: inline-flex;
+    margin-top: 0.7rem;
+    padding: 0.35rem 0.65rem;
+    border: 1px solid #334155;
+    border-radius: 999px;
+    color: #cbd5e1;
+    font-size: 0.75rem;
+  }
+  .related-services {
+    margin: 4rem 0;
+    padding: 2rem 0;
+    border-top: 1px solid #e2e8f0;
+  }
+  .section-heading h2 {
+    margin: 0.4rem 0 0.7rem;
+  }
+  .section-heading p {
+    max-width: 700px;
+    color: #64748b;
+  }
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .service-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1.1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    color: inherit;
+    text-decoration: none;
+    background: #fff;
+    transition: 0.2s ease;
+  }
+  .service-card:hover {
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+  }
+  .service-icon {
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: #f1f5f9;
+    color: #0f172a;
+  }
+  .service-icon svg {
+    width: 21px;
+    height: 21px;
+  }
+  .service-content h3 {
+    margin: 0 0 0.3rem;
+    color: #0f172a;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .service-content span {
+    color: #64748b;
+    font-size: 0.85rem;
+  }
+  .pre-final-cta {
+    margin: 4rem 0 0;
+    padding: 3rem 1.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.5rem;
+    background: #f8fafc;
+    text-align: center;
+  }
+  .pre-final-content {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .pre-final-content h2 {
+    margin: 0.5rem 0 1rem;
+  }
+  .pre-final-content p {
+    color: #64748b;
+  }
+  .pre-final-actions,
+  .final-cta-actions {
+    justify-content: center;
+  }
+  .final-cta {
+    margin-top: 1.5rem;
+    padding: 2.5rem 1.5rem;
+    border-radius: 1.5rem;
+    background: #0f172a;
+    color: #cbd5e1;
+  }
+  .final-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .final-cta-copy {
+    max-width: 700px;
+  }
+  .final-cta-copy h2 {
+    margin: 0.5rem 0 0.8rem;
+    color: #fff;
+  }
+  .final-cta-copy p {
+    margin: 0;
+  }
+  .final-cta-actions {
+    justify-content: flex-end;
+  }
+  .final-whatsapp {
+    white-space: nowrap;
+  }
+  @media (max-width: 768px) {
+    .context-cta {
+      flex-direction: column;
+    }
+    .service-grid {
+      grid-template-columns: 1fr;
+    }
+    .final-cta-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .final-cta-actions {
+      justify-content: flex-start;
+    }
+    .blog-article {
+      font-size: 1rem;
+    }
+  }
   /* =========================================================
-     FINAL CTA
-  ========================================================== */
+   FINAL CTA
+========================================================= */
 
   .final-cta {
     margin-top: 1rem;
     border-radius: 1.4rem;
     background: #0f172a;
     color: #fff;
+    overflow: hidden;
   }
 
   .final-cta-inner {
@@ -889,7 +727,7 @@ const getIntroParagraphs = (section) => {
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    padding: clamp(1.5rem, 5vw, 3rem);
+    padding: clamp(2rem, 5vw, 3.5rem);
   }
 
   .final-cta-copy {
@@ -911,77 +749,81 @@ const getIntroParagraphs = (section) => {
   .final-cta-copy p {
     margin: 0;
     color: #cbd5e1;
+    font-size: 1.05rem;
+    line-height: 1.9;
   }
 
   .final-cta-actions {
     display: flex;
     flex-direction: column;
     flex: 0 0 auto;
-    gap: 0.7rem;
-    min-width: 220px;
+    gap: 0.75rem;
+    min-width: 240px;
   }
 
-  .final-button,
-  .final-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.85rem 1rem;
-    border-radius: 0.75rem;
-    font-size: 0.86rem;
-    font-weight: 700;
-    text-decoration: none;
+  /* Force CTA link styles */
+  .final-cta-actions a.final-button,
+  .final-cta-actions a.final-whatsapp {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0.85rem 1.1rem !important;
+    border-radius: 0.75rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    text-decoration: none !important;
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease !important;
   }
 
-  .final-button {
-    background: #fff;
-    color: #0f172a;
+  .final-cta-actions a.final-button {
+    background: #fff !important;
+    color: #0f172a !important;
+    border: 1px solid #fff !important;
   }
 
-  .final-whatsapp {
-    border: 1px solid rgba(255,255,255,0.2);
-    color: #fff;
+  .final-cta-actions a.final-button:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+    transform: translateY(-2px);
+  }
+
+  .final-cta-actions a.final-whatsapp {
+    background: transparent !important;
+    color: #fff !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  }
+
+  .final-cta-actions a.final-whatsapp:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.45) !important;
+    transform: translateY(-2px);
+  }
+
+  .final-cta-actions svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
   }
 
   @media (max-width: 768px) {
-    .blog-featured-image {
-      margin-bottom: 2.2rem;
-      border-radius: 1rem;
-    }
-
-    .context-cta {
-      flex-direction: column;
-    }
-
-    .service-grid {
-      grid-template-columns: 1fr;
-    }
-
     .final-cta-inner {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: stretch;
     }
 
     .final-cta-actions {
       width: 100%;
+      min-width: 0;
     }
 
-    .final-button,
-    .final-whatsapp {
-      width: 100%;
-    }
-  }
-
-  @media (max-width: 520px) {
-    .mid-cta-actions,
-    .pre-final-actions {
-      flex-direction: column;
-    }
-
-    .mid-cta-button,
-    .large-button {
-      width: 100%;
+    .final-cta-copy h2 {
+      font-size: clamp(2rem, 9vw, 2.7rem);
     }
   }
 </style>
